@@ -9,6 +9,8 @@ from langchain_community.tools import WikipediaQueryRun, DuckDuckGoSearchRun
 from langchain_community.utilities import WikipediaAPIWrapper
 from langchain.tools import Tool, StructuredTool
 from datetime import datetime
+import os
+from django.conf import settings
 
 load_dotenv()
 
@@ -31,7 +33,8 @@ def save_to_named_file(data: str, filename: str):
     return f"Vysledek ulozen do souboru {filename}"
 
 
-loader = PyPDFLoader("chat/Výživový specialista.pdf")
+pdf_path = os.path.join(settings.BASE_DIR, "chat", "vyzivovy_specialista.pdf")
+loader = PyPDFLoader(pdf_path)
 docs = loader.load()
 
 text_splitter = RecursiveCharacterTextSplitter(
