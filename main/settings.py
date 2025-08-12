@@ -33,8 +33,7 @@ GOOGLE_API_KEY = config("GOOGLE_API_KEY", cast=str)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost',
-                 os.environ.get('RAILWAY_STATIC_URL', '')]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -79,6 +78,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'main.wsgi.application'
+
+CSRF_TRUSTED_ORIGINS = ["https://*.railway.app"]
 
 
 # Database
