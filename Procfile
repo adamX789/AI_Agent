@@ -1,1 +1,1 @@
-web: gunicorn main.wsgi
+web: exec gunicorn main.wsgi
