@@ -71,7 +71,7 @@ search_tool = Tool(
 )
 
 wiki = WikipediaAPIWrapper(
-    top_k_results=1, doc_content_chars_max=1000, wiki_client=any, lang="cs")
+    top_k_results=1, doc_content_chars_max=1000, wiki_client=None, lang="cs")
 wiki_tool = WikipediaQueryRun(api_wrapper=wiki, name="Wikipedie")
 
 tools = [retriever_tool, save_named_file, save_tool]

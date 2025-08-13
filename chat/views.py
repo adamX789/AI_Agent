@@ -12,7 +12,6 @@ class ChatView(View):
         return render(request, "chat.html", {"messages": all_messages})
 
     def post(self, request):
-        print(request.POST)
         data = json.loads(request.body)
         message = data.get("message")
         Message.objects.create(text=message, sender="Vy", role="user")
