@@ -68,6 +68,8 @@
       const user_msg = text_box.value;
 
       appendMessage(user_msg, "user");
+      appendWaitMessage("Agent přemýšlí.", "agent");
+      const messageToRemove = document.getElementById("tempMessage")
 
       fetch("{% url 'chat' %}", {
         method: "POST",
@@ -79,7 +81,8 @@
       })
         .then(response => response.json())
         .then(data => {
-          appendMessage(data.response, "agent")
+          appendMessage(data.response, "agent");
+          messageToRemove.remove();
         });
 
       text_box.value = "";
@@ -114,6 +117,27 @@
       messageBox.appendChild(bubbleBox);
       container.appendChild(messageBox);
     };
+
+    function appendWaitMessage(text, sender) {
+      const container = document.getElementById("messages");
+
+      const messageBox = document.createElement("div");
+      messageBox.className = "msg msg--" + sender;
+      messageBox.id = "tempMessage"
+
+      const avatarBox = document.createElement("div");
+      avatarBox.className = "avatar";
+      avatarBox.setAttribute("aria-hidden", "true");
+      avatarBox.innerHTML = sender === "user" ? "JA" : "PR";
+
+      const bubbleBox = document.createElement("div");
+      bubbleBox.className = "bubble";
+      bubbleBox.innerHTML = text;
+
+      messageBox.appendChild(avatarBox);
+      messageBox.appendChild(bubbleBox);
+      container.appendChild(messageBox);
+    }
 
     function getCookie(name) {
       let cookieValue = null;
