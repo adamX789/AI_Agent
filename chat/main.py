@@ -10,9 +10,7 @@ load_dotenv()
 
 def chatbot(query):
     class ResearchResponse(BaseModel):
-        topic: str
         summary: str
-        tools_used: list[str]
 
 
     llm = ChatGoogleGenerativeAI(model="gemini-2.5-pro")
@@ -30,6 +28,7 @@ def chatbot(query):
                 1. Získej informace pomocí nástroje Najit_informace_z_textu.
                 2. Ulož získaný text do souboru pomocí nástroje Ulozit_do_urceneho_souboru a jako filename použij název souboru ze vstupu.
                 **PRAVIDLA PRO VÝSTUP:**
+                -Pokud dotaz nesouvisí s tématem výživy, odpověz do pole "summary" hláškou: "Omlouvám se, na tuto otázku neumím odpovědět, protože se specializuji pouze na výživu.".
                 -Pokud nástroj Najit_informace_z_textu vrátí prázdnou odpověď, napiš do pole "summary" hlášku: "Omlouvám se, na tuto otázku neumím pomocí přiloženého textu odpovědět.".
                 -Ve všech ostatních případech napiš do pole "summary" odpověď z nástroje Najit_informace_z_textu.
                 -Text rozděl do odstavců, aby byl lépe čitelný.
