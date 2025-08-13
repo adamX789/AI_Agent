@@ -8,8 +8,11 @@ from .models import *
 
 class ChatView(View):
     def get(self, request):
-        all_messages = Message.objects.all().order_by("id")
-        return render(request, "chat.html", {"messages": all_messages})
+        user = request.user
+        if user.is_authenticated:
+            all_messages = Message.objects.all().order_by("id")
+            return render(request, "chat.html", {"messages": all_messages})
+        return render(request, "not_logged_in.html",{})
 
     def post(self, request):
         data = json.loads(request.body)

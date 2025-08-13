@@ -11,6 +11,10 @@
 </head>
 
 <body>
+  <form action="{% url 'logout' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Odhlásit se</button>
+  </form>
   <div class="wrap">
     <div class="chat" role="application" aria-label="Chat widget">
       <header class="chat__header">

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="cs">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hlavni stranka</title>
+</head>
+
+<body>
+    <h3>Registrace</h3>
+    <p></p>
+    <form action="" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Registrovat se</button>
+    </form>
+    <p></p>
+    Už máte účet? Přihlaste se <a href="/login/">zde</a>.
+</body>
+
+</html>
