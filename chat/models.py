@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.postgres.fields import ArrayField
+from pgvector.django import VectorField
 
 class Message(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
@@ -19,6 +20,7 @@ class Potraviny(models.Model):
     vyhody = ArrayField(models.CharField(max_length=256))
     nejlepsi_pro = ArrayField(models.CharField(max_length=256))
     nekonzumujte_pokud = ArrayField(models.CharField(max_length=256))
+    embedding = VectorField(dimensions=768)
 
     def __str__(self) -> str:
         return str(self.nazev)
@@ -34,6 +36,7 @@ class Recepty(models.Model):
     ingredience = ArrayField(models.CharField(max_length=150))
     instrukce = models.TextField()
     vhodne_pro = ArrayField(models.CharField(max_length=150))
+    embedding = VectorField(dimensions=768)
 
     def __str__(self) -> str:
         return str(self.nazev)
@@ -41,12 +44,14 @@ class Recepty(models.Model):
 class Situace(models.Model):
     popis_situace = models.TextField()
     rada = models.TextField()
+    embedding = VectorField(dimensions=768)
 
 class Diety(models.Model):
     nazev_diety = models.CharField(max_length=150)
     popis = models.TextField()
     vyhody = ArrayField(models.CharField(max_length=150))
     neni_doporuceno_pro = ArrayField(models.CharField(max_length=256))
+    embedding = VectorField(dimensions=768)
 
     def __str__(self) -> str:
         return str(self.nazev_diety)
@@ -54,3 +59,4 @@ class Diety(models.Model):
 class StylyKomunikace(models.Model):
     styl = models.CharField(max_length=100)
     priklad = models.TextField()
+    embedding = VectorField(dimensions=768)
