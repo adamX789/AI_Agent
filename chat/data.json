@@ -1,0 +1,98 @@
+{
+"foods": [
+{
+"name": "Losos",
+"description": "Losos je bohatý na omega-3 mastné kyseliny, podporuje zdraví srdce a regeneraci svalů.",
+"nutrients": {
+"protein_g": 20,
+"fat_g": 13,
+"carbs_g": 0
+},
+"benefits": ["Regenerace po tréninku", "Protizánětlivé účinky", "Podpora mozkové činnosti"],
+"best_for": ["Sportovci", "Lidé s vysokým cholesterolem", "Ti, kdo chtějí zlepšit kognitivní funkce"],
+"avoid_if": ["Alergie na ryby"]
+},
+{
+"name": "Avokádo",
+"description": "Avokádo je bohaté na zdravé tuky, vlákninu a draslík.",
+"nutrients": {
+"protein_g": 2,
+"fat_g": 15,
+"carbs_g": 9
+},
+"benefits": ["Zdravé tuky", "Podpora srdce", "Vysoký obsah vlákniny"],
+"best_for": ["Sportovci", "Lidé s vysokým cholesterolem", "Ti, kdo chtějí zhubnout"],
+"avoid_if": ["Alergie na latex (křížová reakce)"]
+},
+{
+"name": "Quinoa",
+"description": "Quinoa je pseudoobilovina bohatá na bílkoviny a bezlepková.",
+"nutrients": {
+"protein_g": 4,
+"fat_g": 2,
+"carbs_g": 21
+},
+"benefits": ["Bezlepková", "Vysoký obsah bílkovin", "Vhodná pro vegetariány"],
+"best_for": ["Celiaci", "Vegetariáni", "Lidé s intolerancí na lepek"],
+"avoid_if": ["Není vhodná pro osoby s alergií na amarant"]
+}
+],
+"recipes": [
+{
+"name": "Ovesná kaše s borůvkami",
+"ingredients": ["Ovesné vločky 50g", "Mléko 200ml", "Borůvky 50g", "Med 1 lžíce"],
+"instructions": "Vločky povařte v mléce, přidejte borůvky a med.",
+"suitable_for": ["Snídaně", "Rychlé jídlo", "Energie před tréninkem"]
+},
+{
+"name": "Rychlá čočková polévka",
+"ingredients": ["Červená čočka 100g", "Mrkev 1 ks", "Cibule 1 ks", "Česnek 2 stroužky", "Rajčatový protlak 2 lžíce", "Zeleninový vývar 1 litr"],
+"instructions": "Na oleji osmahněte cibuli a česnek, přidejte mrkev a čočku. Přilijte vývar a protlak, vařte 20 minut.",
+"suitable_for": ["Vegetariáni", "Lidé s intolerancí na lepek", "Rychlé jídlo"]
+},
+{
+"name": "Kuřecí salát s avokádem",
+"ingredients": ["Kuřecí prsa 200g", "Avokádo 1 ks", "Rajčata 2 ks", "Ledový salát 100g", "Olivový olej 1 lžíce", "Citronová šťáva 1 lžíce"],
+"instructions": "Kuřecí prsa ugrilujte a nakrájejte na plátky. Smíchejte s nakrájeným avokádem, rajčaty a salátem. Pokapejte olejem a citronem.",
+"suitable_for": ["Lidé na redukční dietě", "Sportovci", "Rychlé jídlo"]
+}
+],
+"situations": [
+{
+"situation": "Málo času na jídlo",
+"advice": "Sáhni po nutričně vyvážených rychlých jídlech – proteinový shake s ovocem, plnotučný jogurt s ořechy."
+},
+{
+"situation": "Málo času na přípravu jídla",
+"advice": "Sáhněte po rychlých a výživných jídlech, jako jsou smoothie, saláty s bílkovinami nebo předpřipravené pokrmy."
+},
+{
+"situation": "Cestování a stravování mimo domov",
+"advice": "Před cestou si zjistěte možnosti zdravého stravování, vybírejte restaurace s nabídkou zdravých jídel."
+}
+],
+"diets": [
+{
+"name": "Středomořská dieta",
+"description": "Vysoký příjem zeleniny, ovoce, celozrnných potravin, ryb a olivového oleje.",
+"benefits": ["Podpora zdraví srdce", "Protizánětlivá", "Dlouhodobě udržitelná"],
+"not_suitable_for": ["Lidé, kteří potřebují stravu s nízkým obsahem tuků"]
+},
+{
+"name": "Paleo dieta",
+"description": "Založena na konzumaci potravin, které byly dostupné v paleolitu – maso, ryby, ovoce, zelenina, ořechy.",
+"benefits": ["Zlepšení metabolizmu", "Podpora hubnutí", "Vyšší příjem bílkovin"],
+"not_suitable_for": ["Lidé s vysokým příjmem sacharidů", "Vegetariáni"]
+}
+],
+"communication_styles": [
+{
+"style_id": "motivational",
+"example": "Dokážeš to! Každý den, kdy se držíš plánu, se počítá."
+},
+{
+"style_id": "strict_coach",
+"example": "Přestaň hledat výmluvy a začni jednat. Tvůj cíl se sám nesplní."
+}
+]
+}
