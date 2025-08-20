@@ -24,4 +24,5 @@ urlpatterns = [
     path("", include("chat.urls")),
     path("register/", RegisterView.as_view(), name="register"),
     path("user_logout/", user_logout, name="logout"),
+    path("profile/", include("user_profile.urls")),
 ]

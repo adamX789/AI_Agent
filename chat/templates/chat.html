@@ -15,6 +15,7 @@
     {% csrf_token %}
     <button type="submit">Odhlásit se</button>
   </form>
+    <a href="{% url 'profile' %}"><button type="submit">Moje jídla</button></a>
   <div class="wrap">
     <div class="chat" role="application" aria-label="Chat widget">
       <header class="chat__header">

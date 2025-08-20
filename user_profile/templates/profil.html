@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="cs">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Můj profil</title>
+</head>
+
+<body>
+  <h1>Moje jídla</h1>
+  <a href="{% url 'chat' %}"><button type="submit" style="text-align: right;">Zpět na chat</button></a>
+  {% if not denni_kalorie %}
+    <h2>Ještě nemáte nastavený denní kalorický příjem. Nastavte si jej zde:</h2>
+    <form action="" method="POST">
+      {% csrf_token %}
+      Denní příjem kalorií: <input type="text" name="kalorie">
+      <p></p>
+      <button type="submit">Nastavit</button>
+    </form>
+    {% if messages %}
+      {% for message in messages %}
+        {{message}}
+      {% endfor %}
+    {% endif %}
+  {% else %}
+    <h2>Denní kalorie: {{denni_kalorie}}</h2>
+    <p></p>
+    <h3>Dnes vám zbývá {{zbyvajici_kalorie}} kalorií</h3>
+  {% endif %}
+  <hr>
+    <h2>Jídla</h2>
+    <p></p>
+    {% for potravina in potraviny %}
+      <h3>{{potravina.nazev}}</h3>
+      <p></p>
+      <ul>
+        <li>Kalorie: {{potravina.kalorie}}</li>
+        <li>Bílkoviny: {{potravina.bilkoviny}}g</li>
+        <li>Sacharidy: {{potravina.sacharidy}}g</li>
+        <li>Tuky: {{potravina.tuky}}g</li>
+      </ul>
+      <p></p>
+      <p></p>
+    {% endfor %}
+</body>
+</html>

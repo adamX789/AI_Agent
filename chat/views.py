@@ -4,6 +4,7 @@ from django.views import View
 from django.http import HttpResponse, JsonResponse
 from .main import chatbot
 from .models import *
+from user_profile.models import Profile
 
 
 class ChatView(View):
@@ -16,11 +17,12 @@ class ChatView(View):
 
     def post(self, request):
         user = request.user
+        profile = request.user.profile
         data = json.loads(request.body)
         message = data.get("message")
         user.message_set.create(text=message, sender="Vy", role="user")
 
-        agent_response = chatbot(message)
+        agent_response = chatbot(message,profile)
         user.message_set.create(text=agent_response,
                                sender="Podpora", role="agent")
         return JsonResponse({"response":agent_response})

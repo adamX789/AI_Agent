@@ -27,6 +27,7 @@ class Potraviny(models.Model):
 
 class Makroziviny(models.Model):
     potravina = models.OneToOneField(Potraviny, on_delete=models.CASCADE,blank=True,null=True)
+    kalorie = models.IntegerField(blank=True,null=True)
     bilkoviny_gramy = models.DecimalField(decimal_places=2,max_digits=6)
     sacharidy_gramy = models.DecimalField(decimal_places=2,max_digits=6)
     tuky_gramy = models.DecimalField(decimal_places=2,max_digits=6)

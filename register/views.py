@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from django.views import View
 from .forms import RegisterForm
+from user_profile.models import Profile
 
 # Create your views here.
 
@@ -15,6 +16,7 @@ class RegisterView(View):
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
+            Profile.objects.create(uzivatel=user)
             login(request, user)
             return redirect('chat')
         return render(request, "register.html", {"form": form})

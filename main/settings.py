@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "chat.apps.ChatConfig",
     "decouple",
-    "register.apps.RegisterConfig"
+    "register.apps.RegisterConfig",
+    "user_profile.apps.UserProfileConfig"
 ]
 
 MIDDLEWARE = [
