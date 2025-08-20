@@ -11,3 +11,4 @@ class Profile(models.Model):
 class Food(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     potravina = models.ForeignKey(Potraviny, on_delete=models.CASCADE)
+    hmotnost_g = models.DecimalField(decimal_places=2,max_digits=6,blank=True,null=True)

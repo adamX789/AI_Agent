@@ -46,6 +46,12 @@ class UrceniTypuOtazky(BaseModel):
         description="Skóre jistoty mezi 0 a 1, 0 znamená, že si nejsi vůbec jistý svým rozhodnutím, 1 znamená, že si jsi úplně jistý svým rozhodnutím")
     duvod: str = Field(description="Důvod, podle kterého jsi se rozhodl")
 
+class UrceniHmotnostiPotravin(BaseModel):
+    potravina:str = Field(description="Název potraviny, například Losos, avokádo")
+    hmotnost:float = Field(description="Hmotnost dané potraviny V GRAMECH, uváděj jen číslo vez jednotky, tedy pro '200g' by mělo toto pole hodnotu 200")
+
+class Jidla(BaseModel):
+    seznam_jidla:list[UrceniHmotnostiPotravin] = Field(description="Seznam potraviny a její hmotnosti extrahované z textu")
 
 def first_check(text: str):
     config = types.GenerateContentConfig(
@@ -78,6 +84,18 @@ def check_question_sentence(text: str):
     formatted_res: UrceniVetaOtazka = response.parsed
     return formatted_res
 
+def get_weight_from_text(text:str):
+    config = types.GenerateContentConfig(
+        system_instruction="Jsi expert na extrahování dat z textu. Tvým úkolem je z daného textu extrahovat potraviny a jejich množství v gramech. Ignoruj gramatické chyby.",response_mime_type="application/json",response_schema=Jidla
+        )
+    contents = types.Content(role="user",parts=[types.Part(text=text)])
+    response = client.models.generate_content(
+        model=model,
+        contents=contents,
+        config=config
+    )
+    structured_res:Jidla = response.parsed
+    return structured_res
 
 def type_check(text: str):
     config = types.GenerateContentConfig(
@@ -102,7 +120,6 @@ def type_check(text: str):
 
 
 def chatbot(query, profile):
-    contents = []
     response1 = first_check(query)
     print(f"{response1.tyka_se_vyzivy}, skore: {response1.skore_jistoty}, duvod: {response1.duvod}")
     if not response1.tyka_se_vyzivy or response1.skore_jistoty < 0.7:
@@ -110,17 +127,8 @@ def chatbot(query, profile):
     response2 = check_question_sentence(query)
     print(f"{response2.typ_textu}, skore: {response2.skore_jistoty}, duvod: {response2.duvod}")
     if response2.skore_jistoty > 0.7 and response2.typ_textu == "oznameni":
-        embedding_response = client.models.embed_content(
-            model="gemini-embedding-001",
-            contents=query,
-            config=types.EmbedContentConfig(output_dimensionality=768)
-        )
-        try:
-            embedding = embedding_response.embeddings[0].values
-        except ValueError as e:
-            return f"Chyba: {e}"
-        info = search_potraviny(
-            profile, embedding, update=True)
+        foods = get_weight_from_text(query)
+        info = search_potraviny(profile,foods,client,update=True)
         contents = [types.Content(role="user", parts=[types.Part(text=json.dumps(info))]),
                     types.Content(role="user", parts=[types.Part(text=query)])
                     ]
