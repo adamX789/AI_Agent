@@ -18,11 +18,35 @@ class ChatView(View):
     def post(self, request):
         user = request.user
         profile = request.user.profile
+        celkove_kalorie, celkove_bilkoviny, celkove_sacharidy, celkove_tuky = (
+            0, 0, 0, 0)
+        for food_item in profile.food_set.all():
+            makroziviny = food_item.potravina.makroziviny
+            hmotnost = food_item.hmotnost_g
+            multiplier = hmotnost / 100
+            celkove_kalorie += makroziviny.kalorie*multiplier
+            celkove_bilkoviny += makroziviny.bilkoviny_gramy*multiplier
+            celkove_sacharidy += makroziviny.sacharidy_gramy*multiplier
+            celkove_tuky += makroziviny.tuky_gramy*multiplier
+        denni_udaje = {
+            "kalorie":celkove_kalorie,
+            "bilkoviny":celkove_bilkoviny,
+            "sacharidy":celkove_sacharidy,
+            "tuky":celkove_tuky
+        }
+        last_agent_msg = user.message_set.order_by("-id").first()
+        if last_agent_msg and last_agent_msg.text:
+            if last_agent_msg.text == "Pro některé potraviny chybí hmotnost v gramech, prosím zadejte hmotnost potravin, abych je mohl zaznamenat do tabulky.":
+                last_user_msg = user.message_set.filter(sender="Vy").order_by("-id").first().text
+            else:
+                last_user_msg=None
+        else:
+            last_user_msg=None
         data = json.loads(request.body)
         message = data.get("message")
         user.message_set.create(text=message, sender="Vy", role="user")
 
-        agent_response = chatbot(message,profile)
+        agent_response = chatbot(message,profile,last_user_msg,denni_udaje)
         user.message_set.create(text=agent_response,
                                sender="Podpora", role="agent")
         return JsonResponse({"response":agent_response})

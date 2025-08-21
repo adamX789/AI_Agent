@@ -40,7 +40,7 @@ class UrceniTypuOtazky(BaseModel):
     """
     Určí, jaké oblasti výživy se dotaz týká (potraviny, recepty, jídelníčky)
     """
-    typ_otazky: Literal["potraviny", "recepty", "situace", "diety", "sestaveni_jidelnicku", "jine"] = Field(
+    typ_otazky: Literal["potraviny", "recepty", "situace", "diety", "osobni_profil", "sestaveni_jidelnicku", "jine"] = Field(
         description="Urči, jaké oblasti výživy se dotaz týká")
     skore_jistoty: float = Field(
         description="Skóre jistoty mezi 0 a 1, 0 znamená, že si nejsi vůbec jistý svým rozhodnutím, 1 znamená, že si jsi úplně jistý svým rozhodnutím")
@@ -52,6 +52,7 @@ class UrceniHmotnostiPotravin(BaseModel):
 
 class Jidla(BaseModel):
     seznam_jidla:list[UrceniHmotnostiPotravin] = Field(description="Seznam potraviny a její hmotnosti extrahované z textu")
+    seznam_vsech_potravin:list[str] = Field(description="Seznam VŠECH potravin nalezených v textu")
 
 def first_check(text: str):
     config = types.GenerateContentConfig(
@@ -86,7 +87,7 @@ def check_question_sentence(text: str):
 
 def get_weight_from_text(text:str):
     config = types.GenerateContentConfig(
-        system_instruction="Jsi expert na extrahování dat z textu. Tvým úkolem je z daného textu extrahovat potraviny a jejich množství v gramech. Ignoruj gramatické chyby.",response_mime_type="application/json",response_schema=Jidla
+        system_instruction="Jsi expert na extrahování dat z textu. Tvým úkolem je z daného textu určit seznam VŠECH potravin, a poté extrahovat názvy potravin a jejich hmotnost v gramech. Ignoruj gramatické chyby.",response_mime_type="application/json",response_schema=Jidla
         )
     contents = types.Content(role="user",parts=[types.Part(text=text)])
     response = client.models.generate_content(
@@ -104,8 +105,9 @@ def type_check(text: str):
         2. recepty - Zde by spadala otázka "Vytvoř mi recept, který obsahuje kuřecí maso a má málo kalorií."
         3. situace - Zde by spadala otázka "Jak můžu jíst zdravě, když jsem na dovolené?"
         4. diety - Zde by spadala otázka "Pro koho je určená Paleo dieta?"
-        5. sestaveni_jidelnicku - Zde by spadala otázka "Vytvoř mi jídelníček, mám rád ryby a chci zhubnout."
-        6. jine - Do této kategorie zařaď všechny jiné otázky, které nemůžeš zařadit jinam, například "Co jsou to sacharidy?"
+        5. osobni_profil - Zde by spadala otázka "Kolik mi dnes ještě zbývá bílkovin?"
+        6. sestaveni_jidelnicku - Zde by spadala otázka "Vytvoř mi jídelníček, mám rád ryby a chci zhubnout."
+        7. jine - Do této kategorie zařaď všechny jiné otázky, které nemůžeš zařadit jinam, například "Co jsou to sacharidy?"
         Uveď skóre jistoty a důvod, proč si do této kategorie zařadil daný dotaz
         """, response_mime_type="application/json", response_schema=UrceniTypuOtazky
     )
@@ -119,7 +121,26 @@ def type_check(text: str):
     return structured_res
 
 
-def chatbot(query, profile):
+def chatbot(query, profile,extra_content,denni_udaje):
+    profile_info = f"""
+        Uživatel si nastavil tyto parametry:
+        Denní příjem kalorií: {profile.denni_kalorie} kcal
+        Denní příjem bílkovin: {profile.denni_bilkoviny} g
+        Denní příjem sacharidů: {profile.denni_sacharidy} g
+        Denní příjem tuků: {profile.denni_tuky} g
+        Aktuální váha: {profile.aktualni_vaha} kg
+        Cílová váha: {profile.cilova_vaha} kg
+        Cíl: {profile.celkovy_cil}
+
+        Dnešní celkový příjem uživatele:
+        Kalorie: {denni_udaje.get("kalorie")}
+        Bílkoviny: {denni_udaje.get("bilkoviny")}
+        Sacharidy: {denni_udaje.get("sacharidy")}
+        Tuky: {denni_udaje.get("tuky")}
+    """
+    print(profile_info)
+    if extra_content:
+        new_query = f"{extra_content}, {query}"
     response1 = first_check(query)
     print(f"{response1.tyka_se_vyzivy}, skore: {response1.skore_jistoty}, duvod: {response1.duvod}")
     if not response1.tyka_se_vyzivy or response1.skore_jistoty < 0.7:
@@ -127,10 +148,16 @@ def chatbot(query, profile):
     response2 = check_question_sentence(query)
     print(f"{response2.typ_textu}, skore: {response2.skore_jistoty}, duvod: {response2.duvod}")
     if response2.skore_jistoty > 0.7 and response2.typ_textu == "oznameni":
-        foods = get_weight_from_text(query)
+        if extra_content:
+            foods = get_weight_from_text(new_query)
+        else:
+            foods = get_weight_from_text(query)
+        print(foods)
+        if len(foods.seznam_vsech_potravin) != len(foods.seznam_jidla):
+            return "Pro některé potraviny chybí hmotnost v gramech, prosím zadejte hmotnost potravin, abych je mohl zaznamenat do tabulky."
         info = search_potraviny_and_update(profile,foods,client)
         contents = [types.Content(role="user", parts=[types.Part(text=json.dumps(info))]),
-                    types.Content(role="user", parts=[types.Part(text=query)])
+                    types.Content(role="user", parts=[types.Part(text=new_query)])
                     ]
         config = types.GenerateContentConfig(
             system_instruction="Text popisuje, co si uživatel dal na jídlo, tvým úkolem je rozebrat jednotlivé potraviny a napsat jejich výhody a nevýhody. Jako zdroj použij jen informace, které ti poskytnu. Na konec odpovědi napiš, že jsi jídlo zaznamenal do tabulky."
@@ -172,12 +199,17 @@ def chatbot(query, profile):
         info = search_situace(embedding,pocet_vysledku=4)
     elif response3.typ_otazky == "diety":
         info = search_diety(embedding,pocet_vysledku=4)
+    elif response3.typ_otazky == "osobni_profil":
+        info = None
     else:
         return "Bohužel ještě neumím tvořit jídelníčky, ale mohu ti pomoct s trackováním potravin nebo zodpovězením otázek o výživě :)"
-    
-    contents = [types.Content(role="user", parts=[types.Part(text=json.dumps(info))]),
-                    types.Content(role="user", parts=[types.Part(text=query)])
-                    ]
+    contents = []
+    if info:
+        rag_string = f"V databázi jsem našel tyto informace pro zodpovězení otázky uživatele: {json.dumps(info)}"
+        contents.append(types.Content(role="user", parts=[types.Part(text=rag_string)]))
+    if response3.typ_otazky == "osobni_profil":
+        contents.append(types.Content(role="user", parts=[types.Part(text=profile_info)]))
+    contents.append(types.Content(role="user", parts=[types.Part(text=query)]))
     config = types.GenerateContentConfig(
         system_instruction="Jsi specialista na výživu a tvým úkolem je odpovědět na dotaz uživatele pouze pomocí přiložených informací. Vždy odpovídej přirozenou řečí."
     )
