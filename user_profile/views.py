@@ -34,19 +34,19 @@ class ProfileView(View):
             celkove_sacharidy += makroziviny.sacharidy_gramy*multiplier
             celkove_tuky += makroziviny.tuky_gramy*multiplier
         denni_info = {
-            "denni_k": denni_kalorie,
-            "denni_b": denni_bilkoviny,
-            "denni_s": denni_sacharidy,
-            "denni_t": denni_tuky,
+            "denni_k": denni_kalorie if denni_kalorie else 0,
+            "denni_b": denni_bilkoviny if denni_bilkoviny else 0,
+            "denni_s": denni_sacharidy if denni_sacharidy else 0,
+            "denni_t": denni_tuky if denni_tuky else 0,
         }
         celkove_info = {
             "celkove_k": celkove_kalorie,
             "celkove_b": celkove_bilkoviny,
             "celkove_s": celkove_sacharidy,
             "celkove_t": celkove_tuky,
-            "akt_vaha":profile.aktualni_vaha,
-            "cil_vaha":profile.cilova_vaha,
-            "cil":profile.celkovy_cil
+            "akt_vaha":profile.aktualni_vaha if profile.aktualni_vaha else 0,
+            "cil_vaha":profile.cilova_vaha if profile.cilova_vaha else 0,
+            "cil":profile.celkovy_cil if profile.celkovy_cil else ""
         }
         context = {
             "username":username,

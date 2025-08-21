@@ -27,19 +27,19 @@
       <!-- ✅ Denní příjem -->
       <section class="stats">
         <h2>Denní příjem</h2>
-        <label>Kcal (cíl): <input type="number" value="{{kalorie}}" name="kalorie" min="1"></label>
-        <label>Bílkoviny (g): <input type="number" value="{{bilkoviny}}" name="bilkoviny" min="1"></label>
-        <label>Sacharidy (g): <input type="number" value="{{sacharidy}}" name="sacharidy" min="1"></label>
-        <label>Tuky (g): <input type="number" value="{{tuky}}" name="tuky" min="1"></label>
+        <label>Kcal (cíl): <input type="number" value="{{kalorie|default:0}}" name="kalorie" min="0"></label>
+        <label>Bílkoviny (g): <input type="number" value="{{bilkoviny|default:0}}" name="bilkoviny" min="0"></label>
+        <label>Sacharidy (g): <input type="number" value="{{sacharidy|default:0}}" name="sacharidy" min="0"></label>
+        <label>Tuky (g): <input type="number" value="{{tuky|default:0}}" name="tuky" min="0"></label>
       </section>
 
       <!-- ✅ Cíle -->
       <section class="goals">
         <h2>Cíle</h2>
-        <label>Aktuální váha (kg): <input type="number" step="0.01" value="{{vaha_akt|stringformat:'.2f'}}"
-            name="vaha_akt" min="1"></label>
-        <label>Cílová váha (kg): <input type="number" step="0.01" value="{{vaha_cil|stringformat:'.2f'}}"
-            name="vaha_cil" min="1"></label>
+        <label>Aktuální váha (kg): <input type="number" step="0.01" value="{{vaha_akt|stringformat:'.2f'|default:0}}"
+            name="vaha_akt" min="0"></label>
+        <label>Cílová váha (kg): <input type="number" step="0.01" value="{{vaha_cil|stringformat:'.2f'|default:0}}"
+            name="vaha_cil" min="0"></label>
         <label>Celkový cíl:
           <select name="cil">
             {% if not cil %}

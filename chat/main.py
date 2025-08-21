@@ -165,21 +165,21 @@ def chatbot(query, profile):
     except ValueError as e:
         return f"Chyba: {e}"
     if response3.typ_otazky == "potraviny":
-        info = search_potraviny(embedding,pocet_vysledku=3)
+        info = search_potraviny(embedding,pocet_vysledku=4)
     elif response3.typ_otazky == "recepty":
-        return "Tuto možnost jsem ještě nenaprogramoval :/"
+        info = search_recepty(embedding,pocet_vysledku=4)
     elif response3.typ_otazky == "situace":
-        return "Tuto možnost jsem ještě nenaprogramoval :/"
+        info = search_situace(embedding,pocet_vysledku=4)
     elif response3.typ_otazky == "diety":
-        info = search_diety(embedding,pocet_vysledku=3)
+        info = search_diety(embedding,pocet_vysledku=4)
     else:
-        return "Tuto možnost jsem ještě nenaprogramoval :/"
+        return "Bohužel ještě neumím tvořit jídelníčky, ale mohu ti pomoct s trackováním potravin nebo zodpovězením otázek o výživě :)"
     
     contents = [types.Content(role="user", parts=[types.Part(text=json.dumps(info))]),
                     types.Content(role="user", parts=[types.Part(text=query)])
                     ]
     config = types.GenerateContentConfig(
-        system_instruction="Jsi specialista na výživu a tvým úkolem je odpovědět na dotaz uživatele pouze pomocí přiložených informací."
+        system_instruction="Jsi specialista na výživu a tvým úkolem je odpovědět na dotaz uživatele pouze pomocí přiložených informací. Vždy odpovídej přirozenou řečí."
     )
     response = client.models.generate_content(
         model=model,

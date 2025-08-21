@@ -106,3 +106,38 @@ def search_diety(user_embedding,pocet_vysledku):
                 }
             )
     return dict_list
+
+def search_recepty(user_embedding,pocet_vysledku):
+    nejrelevantnejsi_recepty = Recepty.objects.annotate(podoba=RawSQL(
+        "%s::vector <=> embedding", (user_embedding,))).order_by("podoba")[:pocet_vysledku]
+    dict_list = []
+    for recept in nejrelevantnejsi_recepty:
+        if recept.podoba < 0.35:
+            print(f"recept: {recept.nazev}, podoba: {recept.podoba}")
+            dict_list.append(
+                {
+                    "nazev": recept.nazev,
+                    "ingredience":recept.ingredience,
+                    "instrukce": recept.instrukce,
+                    "typ_jidla":recept.typ_jidla,
+                    "teplota":recept.teplota,
+                    "cas_pripravy_v_min":recept.cas_pripravy_min,
+                    "vhodne_pro":recept.vhodne_pro,
+                }
+            )
+    return dict_list
+
+def search_situace(user_embedding,pocet_vysledku):
+    nejrelevantnejsi_situace = Situace.objects.annotate(podoba=RawSQL(
+        "%s::vector <=> embedding", (user_embedding,))).order_by("podoba")[:pocet_vysledku]
+    dict_list = []
+    for situace in nejrelevantnejsi_situace:
+        if situace.podoba < 0.35:
+            print(f"situace: {situace.popis_situace}, podoba: {situace.podoba}")
+            dict_list.append(
+                {
+                    "popis_situace": situace.popis_situace,
+                    "rada":situace.rada
+                }
+            )
+    return dict_list
