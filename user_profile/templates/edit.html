@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Upravit parametry</title>
+  <link rel="stylesheet" href="{% static 'customize.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- ✅ Sidebar/Navbar -->
+  <aside class="sidebar">
+    <button class="chat-btn">💬 Chat</button>
+  </aside>
+
+  <!-- ✅ Main Content -->
+  <main class="profile">
+    <h1 class="username">Upravit parametry</h1>
+
+    <form class="edit-form" action="" method="POST">
+      {% csrf_token %}
+      <!-- ✅ Denní příjem -->
+      <section class="stats">
+        <h2>Denní příjem</h2>
+        <label>Kcal (cíl): <input type="number" value="{{kalorie}}" name="kalorie" min="1"></label>
+        <label>Bílkoviny (g): <input type="number" value="{{bilkoviny}}" name="bilkoviny" min="1"></label>
+        <label>Sacharidy (g): <input type="number" value="{{sacharidy}}" name="sacharidy" min="1"></label>
+        <label>Tuky (g): <input type="number" value="{{tuky}}" name="tuky" min="1"></label>
+      </section>
+
+      <!-- ✅ Cíle -->
+      <section class="goals">
+        <h2>Cíle</h2>
+        <label>Aktuální váha (kg): <input type="number" step="0.01" value="{{vaha_akt|stringformat:'.2f'}}"
+            name="vaha_akt" min="1"></label>
+        <label>Cílová váha (kg): <input type="number" step="0.01" value="{{vaha_cil|stringformat:'.2f'}}"
+            name="vaha_cil" min="1"></label>
+        <label>Celkový cíl:
+          <select name="cil">
+            {% if not cil %}
+            <option value="nic" selected></option>
+            <option value="z">Zhubnout</option>
+            <option value="n">Nabrat</option>
+            <option value="u">Udržet váhu</option>
+            {% elif cil == "Zhubnout" %}
+            <option value="z" selected>Zhubnout</option>
+            <option value="n">Nabrat</option>
+            <option value="u">Udržet váhu</option>
+            {% elif cil == "Nabrat" %}
+            <option value="z">Zhubnout</option>
+            <option value="n" selected>Nabrat</option>
+            <option value="u">Udržet váhu</option>
+            {% else %}
+            <option value="z">Zhubnout</option>
+            <option value="n">Nabrat</option>
+            <option value="u" selected>Udržet</option>
+            {% endif %}
+          </select>
+        </label>
+      </section>
+
+      <div class="form-actions">
+        <button type="submit" class="save-btn" name="ulozit" value="u">Uložit</button>
+        <button type="submit" class="cancel-btn" name="zrusit" value="z">Zrušit</button>
+      </div>
+    </form>
+  </main>
+</body>
+
+</html>

@@ -3,21 +3,30 @@
 <html lang="cs">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hlavni stranka</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registrace</title>
+  <link rel="stylesheet" href="{% static 'register.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-    <h3>Registrace</h3>
-    <p></p>
-    <form action="" method="POST">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Registrovat se</button>
-    </form>
-    <p></p>
-    Už máte účet? Přihlaste se <a href="/login/">zde</a>.
+  <div class="register-wrapper">
+    <div class="register-box">
+      <h1>Registrace</h1>
+      <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Registrovat se</button>
+      </form>
+      <p class="login-info">
+        Máte už účet?<br />
+        <a href="/login/">Přihlaste se.</a>
+      </p>
+    </div>
+  </div>
 </body>
 
 </html>

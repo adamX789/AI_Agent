@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 from google import genai
 from google.genai import types
 from typing import Literal
-from .tools import search_potraviny
+from .tools import *
 
 load_dotenv()
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -100,7 +100,7 @@ def get_weight_from_text(text:str):
 def type_check(text: str):
     config = types.GenerateContentConfig(
         system_instruction="""Tvým úkolem je určit, do které kategorie spadá následující dotaz. Vysvětlení kategorií:
-        1. potraviny - Zde by spadala například otázka "Které potraviny mají vysoký obsah bílkovin?"
+        1. potraviny - Tyto otázky obsahují název potraviny (např. losos), zde by spadala například otázka "Které potraviny mají vysoký obsah bílkovin?"
         2. recepty - Zde by spadala otázka "Vytvoř mi recept, který obsahuje kuřecí maso a má málo kalorií."
         3. situace - Zde by spadala otázka "Jak můžu jíst zdravě, když jsem na dovolené?"
         4. diety - Zde by spadala otázka "Pro koho je určená Paleo dieta?"
@@ -128,7 +128,7 @@ def chatbot(query, profile):
     print(f"{response2.typ_textu}, skore: {response2.skore_jistoty}, duvod: {response2.duvod}")
     if response2.skore_jistoty > 0.7 and response2.typ_textu == "oznameni":
         foods = get_weight_from_text(query)
-        info = search_potraviny(profile,foods,client,update=True)
+        info = search_potraviny_and_update(profile,foods,client)
         contents = [types.Content(role="user", parts=[types.Part(text=json.dumps(info))]),
                     types.Content(role="user", parts=[types.Part(text=query)])
                     ]
@@ -165,12 +165,25 @@ def chatbot(query, profile):
     except ValueError as e:
         return f"Chyba: {e}"
     if response3.typ_otazky == "potraviny":
-        return "Tuto možnost jsem ještě nenaprogramoval :/"
+        info = search_potraviny(embedding,pocet_vysledku=3)
     elif response3.typ_otazky == "recepty":
         return "Tuto možnost jsem ještě nenaprogramoval :/"
     elif response3.typ_otazky == "situace":
         return "Tuto možnost jsem ještě nenaprogramoval :/"
     elif response3.typ_otazky == "diety":
-        return "Tuto možnost jsem ještě nenaprogramoval :/"
+        info = search_diety(embedding,pocet_vysledku=3)
     else:
         return "Tuto možnost jsem ještě nenaprogramoval :/"
+    
+    contents = [types.Content(role="user", parts=[types.Part(text=json.dumps(info))]),
+                    types.Content(role="user", parts=[types.Part(text=query)])
+                    ]
+    config = types.GenerateContentConfig(
+        system_instruction="Jsi specialista na výživu a tvým úkolem je odpovědět na dotaz uživatele pouze pomocí přiložených informací."
+    )
+    response = client.models.generate_content(
+        model=model,
+        contents=contents,
+        config=config
+    )
+    return response.text

@@ -3,46 +3,62 @@
 <html lang="cs">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Můj profil</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profil uživatele</title>
+  <link rel="stylesheet" href="{% static 'profile.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <h1>Moje jídla</h1>
-  <a href="{% url 'chat' %}"><button type="submit" style="text-align: right;">Zpět na chat</button></a>
-  {% if not denni_kalorie %}
-    <h2>Ještě nemáte nastavený denní kalorický příjem. Nastavte si jej zde:</h2>
-    <form action="" method="POST">
-      {% csrf_token %}
-      Denní příjem kalorií: <input type="text" name="kalorie">
-      <p></p>
-      <button type="submit">Nastavit</button>
-    </form>
-    {% if messages %}
-      {% for message in messages %}
-        {{message}}
-      {% endfor %}
-    {% endif %}
-  {% else %}
-    <h2>Denní kalorie: {{denni_kalorie}}</h2>
-    <p></p>
-    <h3>Dnes vám zbývá {{zbyvajici_kalorie}} kalorií</h3>
-  {% endif %}
-  <hr>
-    <h2>Jídla</h2>
-    <p></p>
-    {% for potravina in potraviny %}
-      <h3>{{potravina.nazev}} {{potravina.hmotnost}}g</h3>
-      <p></p>
+  <!-- ✅ Sidebar/Navbar -->
+  <aside class="sidebar">
+    <a href="{% url 'chat' %}" style="width: 100%;"><button class="chat-btn">💬 Chat</button></a>
+  </aside>
+
+  <!-- ✅ Main Content -->
+  <main class="profile">
+    <h1 class="username">{{username}}</h1>
+    <a href="edit/"><button class="edit-btn">Upravit parametry</button></a>
+
+    <!-- ✅ Denní hodnoty -->
+    <section class="stats">
+      <h2>Denní příjem</h2>
       <ul>
-        <li>Kalorie: {{potravina.kalorie}}</li>
-        <li>Bílkoviny: {{potravina.bilkoviny}}g</li>
-        <li>Sacharidy: {{potravina.sacharidy}}g</li>
-        <li>Tuky: {{potravina.tuky}}g</li>
+        <li>Kcal: <span>{{celkove_info.celkove_k|stringformat:'.1f'}} / {{denni_info.denni_k}}</span></li>
+        <li>Bílkoviny: <span>{{celkove_info.celkove_b|stringformat:'.1f'}} g / {{denni_info.denni_b}} g</span></li>
+        <li>Sacharidy: <span>{{celkove_info.celkove_s|stringformat:'.1f'}} g / {{denni_info.denni_s}} g</span></li>
+        <li>Tuky: <span>{{celkove_info.celkove_t|stringformat:'.1f'}} g / {{denni_info.denni_t}} g</span></li>
       </ul>
-      <p></p>
-      <p></p>
-    {% endfor %}
+    </section>
+
+    <!-- ✅ Cíle -->
+    <section class="goals">
+      <h2>Cíle</h2>
+      <p>Aktuální váha: <span>{{celkove_info.akt_vaha}} kg</span></p>
+      <p>Cílová váha: <span>{{celkove_info.cil_vaha}} kg</span></p>
+      <p>Celkový cíl: <span>{{celkove_info.cil}}</span></p>
+    </section>
+
+    <!-- ✅ Potraviny dnes -->
+    <section class="foods">
+      <h2>Potraviny dnes</h2>
+      <ul>
+        {% for potravina in potraviny %}
+        <li>
+          {{potravina.nazev}} {{potravina.hmotnost|stringformat:'.0f'}}g
+          <form action="" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="delete-btn" name="del{{potravina.id}}" value="c">×</button>
+          </form>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+  </main>
 </body>
+
 </html>

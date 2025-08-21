@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="cs">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hlavni stranka</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Síť tvůrců</title>
+  <link rel="stylesheet" href="{% static 'index.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <h3>Nejste přihlášeni</h3>
-    <p></p>
-    <a href="/login/"><button type="submit">Přihlásit se</button></a>
-    <p></p>
-    <a href="/register/"><button type="submit">Registrovat se</button></a>
-</body>
+  <header class="navbar">
+    <div class="logo"><img src="{% static 'images/lv_logo2.png' %}" alt=""></div>
+    <a href="login/"><button class="login-btn">Přihlásit se</button></a>
+  </header>
 
+  <div class="hero">
+    <div class="image-side">
+      <img src="{% static 'images/nutrition.png' %}" alt="Pracující lidé" />
+    </div>
+    <div class="text-side">
+      <h1>Osobní nutriční poradce ve vaší kapse</h1>
+      <p>K dispozici 24/7, mějte celé nutriční knowhow světa v jednom chatu a trackujte svou výživu pomocí chatování.</p>
+      <a href="register/"><button>Chci být zdravější</button></a>
+    </div>
+  </div>
+</body>
 </html>

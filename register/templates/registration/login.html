@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="cs">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hlavni stranka</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Přihlášení</title>
+  <link rel="stylesheet" href="{% static 'login.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <h3>Přihlásit se</h3>
-    <p></p>
-    <form action="" method="POST">
-      {% csrf_token %}
-      {{form.as_p}}
-      <button type="submit">Přihlásit se</button>
-    </form>
-    <p></p>
-    Už máte účet? Registrujte se <a href="/register/">zde</a>.
+  <div class="login-wrapper">
+    <div class="login-box">
+      <h1>Přihlásit se</h1>
+      <form action="" method="POST">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+            {{error}}
+          {% endfor %}
+        {% endif %}
+        <p></p>
+        <input type="text" placeholder="Jméno" name="username" />
+        <input type="password" placeholder="Heslo" name="password" />
+        <button type="submit">Přihlásit se</button>
+      </form>
+      <p class="register-info">
+        Ještě nemáš účet?<br />
+        <a href="/register/">Registruj se zde.</a>
+      </p>
+    </div>
+  </div>
 </body>
-
 </html>

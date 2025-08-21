@@ -36,6 +36,9 @@ class Recepty(models.Model):
     nazev = models.CharField(max_length=150)
     ingredience = ArrayField(models.CharField(max_length=150))
     instrukce = models.TextField()
+    typ_jidla = models.CharField(max_length=50,blank=True,null=True)
+    teplota = models.CharField(max_length=50,blank=True,null=True)
+    cas_pripravy_min = models.IntegerField(blank=True,null=True)
     vhodne_pro = ArrayField(models.CharField(max_length=150))
     embedding = VectorField(dimensions=768)
 

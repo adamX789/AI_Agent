@@ -23,10 +23,11 @@ class Command(BaseCommand):
             self.import_potraviny(foods, client)
             self.import_recepty(recipes, client)
             self.import_situace(situations, client)
-            self.import_diety(diets,client)
-            self.import_komunikace(communication_styles,client)
+            self.import_diety(diets, client)
+            self.import_komunikace(communication_styles, client)
 
     def import_potraviny(self, foods, client):
+        print("pridavam potraviny")
         if not foods:
             return None
         for item in foods:
@@ -54,12 +55,14 @@ class Command(BaseCommand):
             if created:
                 Makroziviny.objects.create(
                     potravina=potravina,
+                    kalorie=item["nutrients"]["kcal"],
                     bilkoviny_gramy=item["nutrients"]["protein_g"],
                     sacharidy_gramy=item["nutrients"]["carbs_g"],
                     tuky_gramy=item["nutrients"]["fat_g"]
                 )
 
     def import_recepty(self, recipes, client):
+        print("pridavam recepty")
         if not recipes:
             return None
         for item in recipes:
@@ -67,6 +70,9 @@ class Command(BaseCommand):
             Název: {item["name"]}
             Ingredience: {", ".join(item["ingredients"])}
             Instrukce: {item["instructions"]}
+            Typ jídla: {item["meal_type"]}
+            Teplota: {item["temperature"]}
+            Čas přípravy v minutách: {item["prep_time_min"]}
             Vhodné pro: {", ".join(item["suitable_for"])}
             """
             response = client.models.embed_content(
@@ -79,11 +85,15 @@ class Command(BaseCommand):
                 nazev=item["name"],
                 ingredience=item["ingredients"],
                 instrukce=item["instructions"],
+                typ_jidla=item["meal_type"],
+                teplota=item["temperature"],
+                cas_pripravy_min=item["prep_time_min"],
                 vhodne_pro=item["suitable_for"],
                 embedding=embedding
             )
 
     def import_situace(self, situations, client):
+        print("pridavam situace")
         if not situations:
             return None
         for item in situations:
@@ -102,10 +112,12 @@ class Command(BaseCommand):
                 rada=item["advice"],
                 embedding=embedding
             )
-    def import_diety(self,diets,client):
+
+    def import_diety(self, diets, client):
+        print("pridavam diety")
         if not diets:
             return None
-        
+
         for item in diets:
             embedding_text = f"""
             Název diety: {item["name"]}
@@ -126,7 +138,9 @@ class Command(BaseCommand):
                 neni_doporuceno_pro=item["not_suitable_for"],
                 embedding=embedding
             )
-    def import_komunikace(self,communication_styles,client):
+
+    def import_komunikace(self, communication_styles, client):
+        print("pridavam komunikace")
         if not communication_styles:
             return None
         for item in communication_styles:

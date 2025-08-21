@@ -4,161 +4,111 @@
 <html lang="cs">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" type="text/css" href="{% static 'chat.css' %}">
-  <title>Chat widget — demo</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chat</title>
+  <link rel="stylesheet" href="{% static 'chat.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <form action="{% url 'logout' %}" method="POST">
-    {% csrf_token %}
-    <button type="submit">Odhlásit se</button>
-  </form>
-    <a href="{% url 'profile' %}"><button type="submit">Moje jídla</button></a>
-  <div class="wrap">
-    <div class="chat" role="application" aria-label="Chat widget">
-      <header class="chat__header">
-        <div class="brand">
-          <div class="logo">PF</div>
-          <div>
-            <h3>Fitness trenér Ai</h3>
-            <p>Online pomocník</p>
-          </div>
-        </div>
+  <!-- ✅ Sidebar -->
+  <aside class="sidebar">
+    <a href="profile/" style="width: 100%;"><button class="profile-btn">👤 Profil</button></a>
+  </aside>
 
-        <div class="header-actions">
-          <div class="status"><span class="dot" aria-hidden></span> Aktuálně online</div>
-        </div>
-      </header>
-
-      <main class="messages" id="messages" tabindex="0" aria-live="polite">
-        {% for message in messages %}
-        {% if message.sender == "Vy" %}
-        <div class="msg msg--user">
-          <div class="avatar" aria-hidden>JA</div>
-          <div class="bubble">
-            {{ message.text|linebreaksbr|markdown }}
-            <div class="meta">{{ message.sender }} • {{ message.time_sent|date:"H:i" }}</div>
-          </div>
-        </div>
-        {% else %}
-        <div class="msg msg--agent">
-          <div class="avatar" aria-hidden>PR</div>
-          <div class="bubble">
-            {{ message.text|linebreaksbr|markdown }}
-            <div class="meta">{{ message.sender }} • {{ message.time_sent|date:"H:i" }}</div>
-          </div>
-        </div>
-        {% endif %}
-        {% endfor %}
-      </main>
-      <div class="input-wrap" id="form-field">
-        <form action="/" method="POST">
-          {% csrf_token %}
-          <input id="textInput" name="message" class="text-input" type="text"
-            placeholder="Napište zprávu… (Enter = odeslat)" aria-label="Text zprávy" />
-          <button id="sendBtn" class="send-btn" title="Odeslat" type="submit">Odeslat</button>
-        </form>
-      </div>
+  <!-- ✅ Main Chat Section -->
+  <main class="chat-container">
+    <div class="chat-box" id="messages">
+      {% for message in messages %}
+      {% if message.sender == "Vy" %}
+      <div class="msg msg--user">{{message.text|linebreaksbr|markdown}}</div>
+      {% else %}
+      <div class="msg msg--agent">{{message.text|linebreaksbr|markdown}}</div>
+      {% endif %}
+      {% endfor %}
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <form class="chat-input" action="" method="POST" id="form-field">
+      {% csrf_token %}
+      <input type="text" placeholder="Napište zprávu..." id="textInput" />
+      <button type="submit">Odeslat</button>
+    </form>
+  </main>
+</body>
 
-  <script>
-    document.getElementById("form-field").addEventListener("submit", function (event) {
-      event.preventDefault();
-      const text_box = document.getElementById("textInput");
-      const user_msg = text_box.value;
+</html>
 
-      appendMessage(user_msg, "user");
-      appendWaitMessage("Agent přemýšlí.", "agent");
-      const messageToRemove = document.getElementById("tempMessage")
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-      fetch("{% url 'chat' %}", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRFToken": getCookie("csrftoken")
-        },
-        body: JSON.stringify({ message: user_msg })
-      })
-        .then(response => response.json())
-        .then(data => {
-          appendMessage(data.response, "agent");
-          messageToRemove.remove();
-        });
+<script>
+  document.getElementById("form-field").addEventListener("submit", function (event) {
+    event.preventDefault();
+    const text_box = document.getElementById("textInput");
+    const user_msg = text_box.value;
 
-      text_box.value = "";
-    });
+    appendMessage(user_msg, "user");
+    appendWaitMessage("Agent přemýšlí.", "agent");
+    const messageToRemove = document.getElementById("tempMessage")
 
-    function appendMessage(text, sender) {
-      const container = document.getElementById("messages");
-      const time = new Date();
-      const time_string = time.getHours().toString().padStart(2, "0") + ":" + time.getMinutes().toString().padStart(2, "0");
+    fetch("{% url 'chat' %}", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": getCookie("csrftoken")
+      },
+      body: JSON.stringify({ message: user_msg })
+    })
+      .then(response => response.json())
+      .then(data => {
+        appendMessage(data.response, "agent");
+        messageToRemove.remove();
+      });
 
-      let formatted_text = text.replace(/\n/g, "<br>");
-      formatted_text = marked.parse(formatted_text);
+    text_box.value = "";
+  });
 
-      const messageBox = document.createElement("div");
-      messageBox.className = "msg msg--" + sender;
+  function appendMessage(text, sender) {
+    const container = document.getElementById("messages");
+    const time = new Date();
+    const time_string = time.getHours().toString().padStart(2, "0") + ":" + time.getMinutes().toString().padStart(2, "0");
 
-      const avatarBox = document.createElement("div");
-      avatarBox.className = "avatar";
-      avatarBox.setAttribute("aria-hidden", "true");
-      avatarBox.innerHTML = sender === "user" ? "JA" : "PR";
+    let formatted_text = text.replace(/\n/g, "<br>");
+    formatted_text = marked.parse(formatted_text);
 
-      const bubbleBox = document.createElement("div");
-      bubbleBox.className = "bubble";
-      bubbleBox.innerHTML = formatted_text;
+    const messageBox = document.createElement("div");
+    messageBox.className = "msg msg--" + sender;
+    messageBox.innerHTML = formatted_text;
+    container.appendChild(messageBox);
+  };
 
-      const metaBox = document.createElement("div");
-      metaBox.className = "meta";
-      metaBox.innerHTML = sender === "user" ? "Vy" + " • " + time_string : "Podpora" + " • " + time_string;
+  function appendWaitMessage(text, sender) {
+    const container = document.getElementById("messages");
 
-      bubbleBox.appendChild(metaBox);
-      messageBox.appendChild(avatarBox);
-      messageBox.appendChild(bubbleBox);
-      container.appendChild(messageBox);
-    };
+    const messageBox = document.createElement("div");
+    messageBox.className = "msg msg--" + sender;
+    messageBox.id = "tempMessage"
+    messageBox.innerHTML = text
+    container.appendChild(messageBox);
+  }
 
-    function appendWaitMessage(text, sender) {
-      const container = document.getElementById("messages");
-
-      const messageBox = document.createElement("div");
-      messageBox.className = "msg msg--" + sender;
-      messageBox.id = "tempMessage"
-
-      const avatarBox = document.createElement("div");
-      avatarBox.className = "avatar";
-      avatarBox.setAttribute("aria-hidden", "true");
-      avatarBox.innerHTML = sender === "user" ? "JA" : "PR";
-
-      const bubbleBox = document.createElement("div");
-      bubbleBox.className = "bubble";
-      bubbleBox.innerHTML = text;
-
-      messageBox.appendChild(avatarBox);
-      messageBox.appendChild(bubbleBox);
-      container.appendChild(messageBox);
-    }
-
-    function getCookie(name) {
-      let cookieValue = null;
-      if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-          const cookie = cookies[i].trim();
-          if (cookie.startsWith(name + '=')) {
-            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-            break;
-          }
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.startsWith(name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
         }
       }
-      return cookieValue;
-    };
-  </script>
+    }
+    return cookieValue;
+  };
+</script>
 </body>
 
 </html>

@@ -1,60 +1,65 @@
 {
-"foods": [ 
+"diets": [
 {
-"name": "Losos",
-"description": "Losos je bohatý na omega-3 mastné kyseliny, podporuje zdraví srdce a regeneraci svalů.",
-"nutrients": {
-"protein_g": 20,
-"fat_g": 13,
-"carbs_g": 0
-},
-"benefits": ["Regenerace po tréninku", "Protizánětlivé účinky", "Podpora mozkové činnosti"],
-"best_for": ["Sportovci", "Lidé s vysokým cholesterolem", "Ti, kdo chtějí zlepšit kognitivní funkce"],
-"avoid_if": ["Alergie na ryby"]
+"name": "Středomořská dieta",
+"description": "Vysoký příjem zeleniny, ovoce, celozrnných potravin, ryb a olivového oleje.",
+"benefits": ["Podpora zdraví srdce", "Protizánětlivá", "Dlouhodobě udržitelná"],
+"not_suitable_for": ["Lidé, kteří potřebují stravu s nízkým obsahem tuků"]
 },
 {
-"name": "Avokádo",
-"description": "Avokádo je bohaté na zdravé tuky, vlákninu a draslík.",
-"nutrients": {
-"protein_g": 2,
-"fat_g": 15,
-"carbs_g": 9
-},
-"benefits": ["Zdravé tuky", "Podpora srdce", "Vysoký obsah vlákniny"],
-"best_for": ["Sportovci", "Lidé s vysokým cholesterolem", "Ti, kdo chtějí zhubnout"],
-"avoid_if": ["Alergie na latex (křížová reakce)"]
+"name": "Paleo dieta",
+"description": "Založena na konzumaci potravin, které byly dostupné v paleolitu – maso, ryby, ovoce, zelenina, ořechy.",
+"benefits": ["Zlepšení metabolizmu", "Podpora hubnutí", "Vyšší příjem bílkovin"],
+"not_suitable_for": ["Lidé s vysokým příjmem sacharidů", "Vegetariáni"]
 },
 {
-"name": "Quinoa",
-"description": "Quinoa je pseudoobilovina bohatá na bílkoviny a bezlepková.",
-"nutrients": {
-"protein_g": 4,
-"fat_g": 2,
-"carbs_g": 21
-},
-"benefits": ["Bezlepková", "Vysoký obsah bílkovin", "Vhodná pro vegetariány"],
-"best_for": ["Celiaci", "Vegetariáni", "Lidé s intolerancí na lepek"],
-"avoid_if": ["Není vhodná pro osoby s alergií na amarant"]
-}
-],
-"recipes": [
-{
-"name": "Ovesná kaše s borůvkami",
-"ingredients": ["Ovesné vločky 50g", "Mléko 200ml", "Borůvky 50g", "Med 1 lžíce"],
-"instructions": "Vločky povařte v mléce, přidejte borůvky a med.",
-"suitable_for": ["Snídaně", "Rychlé jídlo", "Energie před tréninkem"]
+"name": "Keto dieta",
+"description": "Nízkosacharidová, vysokotučná dieta, která podporuje ketózu – stav, kdy tělo spaluje tuk místo cukru.",
+"benefits": ["Rychlé hubnutí", "Stabilizace hladiny cukru v krvi", "Snížení chuti k jídlu"],
+"not_suitable_for": ["Lidé s onemocněním jater nebo ledvin", "Sportovci vyžadující vysoký příjem sacharidů"]
 },
 {
-"name": "Rychlá čočková polévka",
-"ingredients": ["Červená čočka 100g", "Mrkev 1 ks", "Cibule 1 ks", "Česnek 2 stroužky", "Rajčatový protlak 2 lžíce", "Zeleninový vývar 1 litr"],
-"instructions": "Na oleji osmahněte cibuli a česnek, přidejte mrkev a čočku. Přilijte vývar a protlak, vařte 20 minut.",
-"suitable_for": ["Vegetariáni", "Lidé s intolerancí na lepek", "Rychlé jídlo"]
+"name": "Vegetariánská dieta",
+"description": "Strava bez masa, s důrazem na zeleninu, ovoce, luštěniny a obiloviny.",
+"benefits": ["Nižší riziko srdečních onemocnění", "Podpora trávení", "Etická a ekologická volba"],
+"not_suitable_for": ["Lidé s vyšší potřebou bílkovin z masa", "Některé sportovní disciplíny s vysokou svalovou náročností"]
 },
 {
-"name": "Kuřecí salát s avokádem",
-"ingredients": ["Kuřecí prsa 200g", "Avokádo 1 ks", "Rajčata 2 ks", "Ledový salát 100g", "Olivový olej 1 lžíce", "Citronová šťáva 1 lžíce"],
-"instructions": "Kuřecí prsa ugrilujte a nakrájejte na plátky. Smíchejte s nakrájeným avokádem, rajčaty a salátem. Pokapejte olejem a citronem.",
-"suitable_for": ["Lidé na redukční dietě", "Sportovci", "Rychlé jídlo"]
+"name": "Veganská dieta",
+"description": "Strava bez živočišných produktů – maso, mléko, vejce a med jsou vyloučeny.",
+"benefits": ["Nižší cholesterol", "Podpora životního prostředí", "Etická volba"],
+"not_suitable_for": ["Lidé s nedostatkem vitaminu B12", "Ti, kteří potřebují vysoký příjem živočišných bílkovin"]
+},
+{
+"name": "Intermittent fasting (přerušovaný půst)",
+"description": "Stravovací režim, který střídá období jídla a půstu (např. 16:8 – 16 hodin půst, 8 hodin jídlo).",
+"benefits": ["Podpora hubnutí", "Zlepšení citlivosti na inzulin", "Detoxikační efekt"],
+"not_suitable_for": ["Lidé s cukrovkou na inzulinu", "Těhotné a kojící ženy", "Osoby s poruchami příjmu potravy"]
+
+},
+{
+"name": "DASH dieta",
+"description": "Strava zaměřená na snížení krevního tlaku – bohatá na ovoce, zeleninu, celozrnné potraviny a nízkotučné mléčné produkty.",
+"benefits": ["Snížení krevního tlaku", "Podpora zdraví srdce", "Vyvážená a nutričně kompletní"],
+"not_suitable_for": ["Lidé s dietními omezeními na sodík mimo standard"]
+},
+{
+"name": "Low-carb dieta",
+"description": "Strava s nízkým obsahem sacharidů, s vyšším podílem bílkovin a tuků.",
+"benefits": ["Snížení hmotnosti", "Stabilizace cukru v krvi", "Snížení hladiny triglyceridů"],
+"not_suitable_for": ["Vegetariáni a vegani", "Sportovci s vysokou energetickou potřebou"]
+},
+{
+"name": "Flexitariánská dieta",
+"description": "Převážně rostlinná strava s občasným příjmem masa a ryb.",
+"benefits": ["Flexibilní a udržitelná", "Podpora zdraví srdce", "Snížení ekologické zátěže"],
+"not_suitable_for": ["Lidé vyžadující striktní vegetariánskou nebo veganskou dietu"]
+},
+{
+"name": "Whole30",
+"description": "30denní program zaměřený na odstranění zpracovaných potravin, cukru, alkoholu, obilovin, luštěnin a mléčných výrobků.",
+"benefits": ["Reset metabolizmu", "Zvýšení energie", "Lepší trávení"],
+"not_suitable_for": ["Lidé se zdravotními omezeními na omezení potravin", "Těhotné a kojící ženy"]
 }
 ],
 "situations": [
@@ -69,30 +74,882 @@
 {
 "situation": "Cestování a stravování mimo domov",
 "advice": "Před cestou si zjistěte možnosti zdravého stravování, vybírejte restaurace s nabídkou zdravých jídel."
-}
-],
-"diets": [
-{
-"name": "Středomořská dieta",
-"description": "Vysoký příjem zeleniny, ovoce, celozrnných potravin, ryb a olivového oleje.",
-"benefits": ["Podpora zdraví srdce", "Protizánětlivá", "Dlouhodobě udržitelná"],
-"not_suitable_for": ["Lidé, kteří potřebují stravu s nízkým obsahem tuků"]
 },
 {
-"name": "Paleo dieta",
-"description": "Založena na konzumaci potravin, které byly dostupné v paleolitu – maso, ryby, ovoce, zelenina, ořechy.",
-"benefits": ["Zlepšení metabolizmu", "Podpora hubnutí", "Vyšší příjem bílkovin"],
-"not_suitable_for": ["Lidé s vysokým příjmem sacharidů", "Vegetariáni"]
-}
-],
-"communication_styles": [
-{
-"style_id": "motivational",
-"example": "Dokážeš to! Každý den, kdy se držíš plánu, se počítá."
+"situation": "Chci zhubnout",
+"advice": "Sleduj kalorie a makroživiny, zvyš příjem bílkovin, omez jednoduché cukry a zpracované potraviny."
 },
 {
-"style_id": "strict_coach",
-"example": "Přestaň hledat výmluvy a začni jednat. Tvůj cíl se sám nesplní."
+"situation": "Chci nabrat svalovou hmotu",
+"advice": "Zvyšte příjem bílkovin a kvalitních sacharidů, trénujte silově a využívejte nutrient timing po tréninku."
+},
+{
+"situation": "Pocit únavy během dne",
+"advice": "Zařaď krátké zdravé svačiny s bílkovinami a komplexními sacharidy, pij dostatek vody a zvaž adaptogeny jako rhodiola nebo ashwagandhu."
+},
+{
+"situation": "Potřebuji více energie ráno",
+"advice": "Začněte den proteiny a zdravými tuky – vejce, avokádo, ořechy. Krátká ranní aktivita zvýší energii."
+},
+{
+"situation": "Stres a emoční přejídání",
+"advice": "Zaměř se na potraviny bohaté na hořčík a tryptofan (tmavá čokoláda, banán, ořechy), meditace a dechová cvičení snižují touhu po jídle."
+},
+{
+"situation": "Chci zlepšit spánek",
+
+"advice": "Vyhýbejte se kofeinu po 15. hodině, doplňte hořčík, melatoninové potraviny (třešně), krátký večerní rituál bez obrazovek."
+},
+{
+"situation": "Chci podpořit imunitu",
+"advice": "Zvyšte příjem vitamínu C, D a zinku, konzumujte fermentované potraviny a antioxidanty, dostatek spánku a pohybu."
+},
+{
+"situation": "Málo bílkovin ve stravě",
+"advice": "Zařaď luštěniny, vejce, ryby, libové maso nebo proteinové doplňky."
+},
+{
+"situation": "Časté chutě na sladké",
+"advice": "Nahradit sladkosti ovocem, ořechy nebo proteinovými kuličkami, pij hodně vody, zařaď stabilní sacharidy."
+},
+{
+"situation": "Nízký příjem vlákniny",
+"advice": "Přidejte zeleninu, ovoce, celozrnné produkty, semínka a ořechy."
+},
+{
+"situation": "Vegetariánská nebo veganská strava",
+"advice": "Dbejte na dostatek bílkovin, vitamínu B12, železa a omega-3 (řasy, lněná semínka)."
+},
+{
+"situation": "Chci detoxikovat organismus",
+"advice": "Zařaď více zeleniny, vlákniny a vody, omez alkohol a zpracované potraviny, krátkodobě podporuj lehký pohyb."
+},
+{
+"situation": "Chtěl bych zlepšit kognitivní výkon",
+"advice": "Zvyšte příjem omega-3, antioxidantů (bobule, zelený čaj), krátké pauzy, spánková hygiena a nootropika podle doporučení odborníka."
+},
+{
+"situation": "Málo pohybu během dne",
+"advice": "Zařaď krátké procházky, strečink, mikropauzy, využij schody místo výtahu."
+},
+{
+"situation": "Chci zlepšit trávení",
+"advice": "Jezte více vlákniny, fermentovaných potravin, pijte dostatek vody a žvýkejte pomalu."
+},
+{
+"situation": "Chtěl bych optimalizovat hormonální rovnováhu",
+"advice": "Dbejte na dostatek spánku, kvalitní tuky, omez stres, pravidelný pohyb a vyhýbejte se nadbytku cukrů."
+},
+{
+"situation": "Málo tekutin",
+"advice": "Pijte vodu pravidelně, zařaďte bylinkové čaje, kokosovou vodu, sledujte barvu moči jako indikátor hydratace."
+},
+{
+"situation": "Potřebuji rychlý snack",
+"advice": "Ořechy, semínka, proteinová tyčinka, jogurt s ovocem nebo hummus s mrkví."
+},
+{
+"situation": "Chci podporovat zdraví srdce",
+"advice": "Zvyšte příjem omega-3, celozrnných potravin, omez nasycené tuky a trans tuky, pravidelný pohyb."
+},
+{
+"situation": "Málo mikronutrientů ve stravě",
+"advice": "Diverzifikujte zeleninu a ovoce, zařaď semínka, ořechy a barevné potraviny."
+},
+{
+"situation": "Chci zlepšit regeneraci po tréninku",
+"advice": "Po tréninku protein + sacharid, hydratace, hořčík a spánek."
+},
+{
+"situation": "Jezdím často služebně nebo na výlety",
+"advice": "Mějte po ruce portable nutričně vyvážené potraviny – proteinové tyčinky, ořechy, sušené ovoce."
+},
+{
+"situation": "Chci podporovat zdraví kostí",
+"advice": "Dbejte na dostatek vápníku a vitamínu D, celozrnné produkty, pohyb se zátěží."
+},
+{
+"situation": "Chci mít stabilní hladinu cukru v krvi",
+"advice": "Kombinujte bílkoviny, tuky a komplexní sacharidy v každém jídle, omez rychlé cukry."
+},
+{
+"situation": "Chtěl bych snížit zánět v těle",
+"advice": "Zařaď protizánětlivé potraviny – kurkuma, zázvor, bobule, zelené listy, omez zpracované potraviny."
+},
+{
+"situation": "Chci optimalizovat metabolismus",
+"advice": "Pravidelný pohyb, dostatek spánku, protein v každém jídle, intervalový trénink, hydratace."
+},
+{
+"situation": "Mám omezený rozpočet na jídlo",
+"advice": "Nakupujte sezónní zeleninu, luštěniny, vejce, ovesné vločky a mražené ovoce – výživné a cenově dostupné."
+},
+{
+"situation": "Chci minimalizovat stres z jídla",
+"advice": "Plánujte jídla, používejte jednoduché a rychlé recepty, nedržte striktní diety, zaměřte se na kvalitu, ne perfekcionismus."
+},
+{
+"situation": "Nedostatek spánku",
+"advice": "Prioritizujte kvalitní spánek, snižte modré světlo před spaním, případně doplňte magnesium nebo hořčík pro lepší regeneraci."
+},
+{
+"situation": "Stres v práci",
+"advice": "Zkuste krátké dechové cvičení, meditaci nebo adaptogeny jako ashwagandha pro snížení kortizolu."
+},
+{
+"situation": "Chtění zhubnout",
+"advice": "Sledujte kalorický příjem a makroživiny, zvýšte příjem bílkovin a vlákniny, omezte cukry."
+},
+{
+"situation": "Chtění nabrat svalovou hmotu",
+"advice": "Zvyšte příjem bílkovin, jezte po tréninku rychle stravitelné sacharidy a proteiny, pravidelně silově trénujte."
+},
+{
+"situation": "Nízká energie během dne",
+"advice": "Zajistěte stabilní příjem bílkovin a zdravých tuků, vyhněte se přebytku cukrů, zvažte kávu nebo zelený čaj v rozumném množství."
+},
+{
+"situation": "Chutě na sladké",
+"advice": "Místo cukru zkuste ovoce, ořechy, nebo kvalitní hořkou čokoládu, hydratace a dostatek bílkovin snižuje chutě."
+},
+{
+"situation": "Časté nachlazení",
+"advice": "Doplňte vitamín C, zinek a sledujte dostatečný spánek, zvýšený příjem zeleniny a fermentovaných potravin."
+},
+{
+"situation": "Nedostatek pohybu",
+"advice": "I krátké 5–10 minutové cvičení několikrát denně pomáhá metabolismu a psychické pohodě."
+},
+{
+"situation": "Práce přes počítač celý den",
+"advice": "Dělejte krátké pauzy, protahujte krk a záda, pijte dostatek vody, ergonomie je klíčová."
+},
+{
+"situation": "Chutě na večerní jídlo",
+"advice": "Zkuste lehké bílkovinné svačiny, např. tvaroh s ořechy, nebo zeleninový smoothie, abyste se vyhnuli prázdným kaloriím."
+},
+{
+"situation": "Přechod na vegetariánskou stravu",
+"advice": "Zajistěte dostatek bílkovin z luštěnin, vajec a mléčných výrobků, případně doplňky vitamínu B12 a železa."
+},
+{
+"situation": "Přechod na veganskou stravu",
+"advice": "Dbejte na bílkoviny, vitamin B12, železo a omega-3 z řasových doplňků."
+},
+{
+"situation": "Cestování přes časová pásma",
+"advice": "Upravujte postupně spánkové rytmy, využijte světlo a melatonin pro rychlejší adaptaci."
+},
+{
+"situation": "Vyčerpání po tréninku",
+"advice": "Doplňte elektrolyty a kvalitní bílkoviny, regenerujte strečinkem nebo lehkým pohybem."
+},
+{
+"situation": "Hormonální nerovnováha",
+"advice": "Sledujte spánek, stres, příjem zdravých tuků a vlákniny, konzultujte specialistu a případně adaptogeny."
+},
+{
+"situation": "Chcete zlepšit mozkovou činnost",
+"advice": "Dbejte na omega-3 tuky, antioxidanty, kvalitní spánek, krátké cvičení a meditaci."
+},
+{
+"situation": "Rychlé občerstvení",
+"advice": "Volte menší porce, doplňte zeleninu nebo bílkoviny, vyhněte se kombinaci vysokého cukru a tuku."
+},
+{
+"situation": "Přeslazené nápoje",
+"advice": "Nahraďte vodou, minerálkou s citronem, neslazenými čaji, aby se snížil příjem prázdných kalorií."
+},
+{
+"situation": "Nízká hydratace",
+"advice": "Sledujte příjem vody, pijte pravidelně, můžete přidat elektrolyty při vyšší zátěži."
+},
+{
+"situation": "Nepravidelná strava",
+"advice": "Plánujte jednoduché jídla dopředu, využijte meal prep, aby tělo mělo stabilní energii."
+},
+{
+"situation": "Chcete detoxikovat tělo",
+"advice": "Zvyšte příjem vlákniny, zeleniny a vody, vyhněte se průmyslově zpracovaným potravinám a alkoholu."
+},
+{
+"situation": "Jste dlouho nemocní",
+"advice": "Dbejte na výživu s dostatkem vitamínů, minerálů a bílkovin, odpočívejte a konzultujte s lékařem."
+},
+{
+"situation": "Cítíte únavu při dietě",
+"advice": "Zkontrolujte dostatek kalorií a mikronutrientů, přidejte kvalitní tuky a bílkoviny."
+},
+{
+"situation": "Máte vysoký krevní tlak",
+"advice": "Omezte sůl, zvyšte příjem draslíku, zeleniny, omega-3 a pravidelný pohyb."
+},
+{
+"situation": "Chcete podpořit imunitu",
+"advice": "Dostatek spánku, vitamín C, D, zinek, probiotika, pohyb a snížení stresu."
+},
+{
+"situation": "Chcete zlepšit trávení",
+"advice": "Zvyšte vlákninu, pijte hodně vody, fermentované potraviny a pravidelný pohyb."
+},
+{
+"situation": "Chcete zlepšit náladu",
+"advice": "Omega-3, probiotika, vyvážená strava, pravidelný pohyb a dostatek spánku."
+},
+{
+"situation": "Potřebujete energii před tréninkem",
+"advice": "Sacharidy s nízkým GI, menší množství bílkovin a dostatek vody."
+},
+{
+"situation": "Potřebujete regeneraci po tréninku",
+"advice": "Bílkoviny, lehké sacharidy, hydratace, strečink a spánek."
+},
+{
+"situation": "Máte problémy s cholesterolem",
+"advice": "Zvyšte vlákninu, omega-3, omezte nasycené tuky, pravidelný pohyb a kontrola lékaře."
+},
+{
+"situation": "Chcete zlepšit metabolismus",
+"advice": "Pravidelný pohyb, bílkoviny, dostatek spánku, hydratace a střídání stravy s vyváženými makroživinami."
+}
+],
+"recipes": [
+{
+"name": "Celozrnný toast s avokádem",
+"ingredients": ["Celozrnný chléb 2 plátky", "Avokádo 1 ks", "Sůl a pepř dle chuti", "Citronová šťáva 1 lžička"],
+"instructions": "Rozmačkejte avokádo, ochuťte solí, pepřem a citronem, natřete na toast.",
+"meal_type": "Snídaně",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá snídaně", "Vegetariáni"]
+},
+{
+"name": "Pečená treska s bramborem",
+"ingredients": ["Treska 200g", "Brambory 200g", "Olivový olej 1 lžíce", "Citron 1 ks", "Sůl a pepř dle chuti"],
+"instructions": "Tresku osolte a opepřete, pečte v troubě 20 minut. Podávejte s vařenými bramborami a citronem.",
+"meal_type": "Oběd",
+"temperature": "Teplé",
+"prep_time_min": 30,
+"suitable_for": ["Proteinový oběd", "Zdravá strava"]
+},
+{
+"name": "Zeleninové wrapy s hummusem",
+"ingredients": ["Tortilla 1 ks", "Hummus 2 lžíce", "Paprika 50g", "Okurka 50g", "Mrkev 50g"],
+"instructions": "Tortillu potřete hummusem, přidejte nakrájenou zeleninu a zarolujte.",
+"meal_type": "Svačina",
+"temperature": "Studené",
+"prep_time_min": 10,
+"suitable_for": ["Rychlá svačina", "Vegetariáni"]
+},
+{
+"name": "Smoothie s borůvkami a jogurtem",
+"ingredients": ["Borůvky 100g", "Bílý jogurt 200g", "Med 1 lžíce", "Mléko 100ml"],
+"instructions": "Všechny ingredience rozmixujte do hladka.",
+"meal_type": "Svačina",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá svačina", "Sportovci"]
+},
+{
+"name": "Krůtí prsa na grilu se zeleninou",
+"ingredients": ["Krůtí prsa 200g", "Cuketa 100g", "Paprika 100g", "Olivový olej 1 lžíce"],
+"instructions": "Krůtí prsa osolte a opepřete, grilujte s nakrájenou zeleninou 15 minut.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 25,
+"suitable_for": ["Proteinová večeře", "Zdravá večeře"]
+},
+{
+"name": "Celozrnný wrap s tuňákem",
+"ingredients": ["Tortilla celozrnná 1 ks", "Tuňák ve vlastní šťávě 100g", "Salát 50g", "Rajče 1 ks", "Olivový olej 1 lžička"],
+"instructions": "Tortillu naplňte tuňákem, salátem a nakrájeným rajčetem, zarolujte.",
+"meal_type": "Oběd",
+"temperature": "Studené",
+"prep_time_min": 10,
+"suitable_for": ["Rychlý oběd", "Proteinový oběd"]
+},
+{
+"name": "Omeleta se sýrem a rajčaty",
+"ingredients": ["Vejce 3 ks", "Rajče 1 ks", "Sýr 50g", "Olivový olej 1 lžíce"],
+"instructions": "Na pánvi osmahněte rajče, přidejte vejce a sýr, osmažte omeletu.",
+"meal_type": "Snídaně",
+"temperature": "Teplé",
+"prep_time_min": 10,
+"suitable_for": ["Rychlá snídaně", "Proteinová snídaně"]
+},
+{
+"name": "Pečená zelenina s quinoou",
+"ingredients": ["Quinoa 100g", "Cuketa 100g", "Mrkev 100g", "Olivový olej 1 lžíce"],
+"instructions": "Quinou uvařte dle návodu. Zeleninu nakrájejte, opečte a smíchejte s quinou.",
+"meal_type": "Oběd",
+"temperature": "Teplé",
+"prep_time_min": 25,
+"suitable_for": ["Vegetariáni", "Zdravý oběd"]
+},
+{
+"name": "Řecký jogurt s granolou",
+"ingredients": ["Řecký jogurt 200g", "Granola 50g", "Med 1 lžíce", "Borůvky 50g"],
+
+"instructions": "Jogurt smíchejte s granolou a borůvkami, přidejte med.",
+"meal_type": "Snídaně",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá snídaně", "Svačina"]
+},
+{
+"name": "Pečené kuřecí stehno s brokolicí",
+"ingredients": ["Kuřecí stehno 200g", "Brokolice 150g", "Olivový olej 1 lžíce", "Sůl a pepř dle chuti"],
+"instructions": "Kuřecí stehno osolte, opepřete, pečte 30 minut. Podávejte s brokolicí.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 35,
+"suitable_for": ["Proteinová večeře", "Zdravá večeře"]
+},
+{
+"name": "Avokádový toast s vejcem",
+"ingredients": ["Celozrnný chléb 2 plátky", "Avokádo 1 ks", "Vejce 2 ks", "Sůl a pepř dle chuti"],
+"instructions": "Toast opečte, natřete avokádo, přidejte volské oko a dochuťte solí a pepřem.",
+"meal_type": "Snídaně",
+"temperature": "Teplé",
+"prep_time_min": 10,
+"suitable_for": ["Proteinová snídaně", "Rychlá snídaně"]
+},
+{
+"name": "Těstovinový salát s kuřecím masem",
+"ingredients": ["Těstoviny 100g", "Kuřecí prsa 150g", "Paprika 50g", "Okurka 50g", "Olivový olej 1 lžíce"],
+"instructions": "Těstoviny uvařte, kuřecí osmahněte, smíchejte se zeleninou a olejem.",
+"meal_type": "Oběd",
+"temperature": "Studené",
+"prep_time_min": 20,
+"suitable_for": ["Rychlý oběd", "Proteinový oběd"]
+},
+{
+"name": "Smoothie s banánem a arašídovým máslem",
+
+"ingredients": ["Banán 1 ks", "Mléko 200ml", "Arašídové máslo 1 lžíce", "Med 1 lžička"],
+"instructions": "Vše rozmixujte do hladka.",
+"meal_type": "Svačina",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá svačina", "Energie před tréninkem"]
+},
+{
+"name": "Pečený losos s bramborami",
+"ingredients": ["Losos 200g", "Brambory 200g", "Olivový olej 1 lžíce", "Citron 1 ks", "Sůl a pepř dle chuti"],
+"instructions": "Lososa osolte a opepřete, pečte 20 minut. Podávejte s vařenými bramborami a citronem.",
+"meal_type": "Oběd",
+"temperature": "Teplé",
+"prep_time_min": 30,
+"suitable_for": ["Zdravý oběd", "Proteinový oběd"]
+},
+{
+"name": "Zeleninová polévka",
+"ingredients": ["Mrkev 100g", "Celer 50g", "Cibule 1 ks", "Brambory 100g", "Voda 500ml", "Sůl a pepř dle chuti"],
+"instructions": "Zeleninu nakrájejte, povařte ve vodě 20 minut a dochuťte solí a pepřem.",
+"meal_type": "Oběd",
+"temperature": "Teplé",
+"prep_time_min": 25,
+"suitable_for": ["Lehký oběd", "Vegetariáni"]
+},
+{
+"name": "Celozrnný wrap s hummusem a zeleninou",
+"ingredients": ["Celozrnná tortilla 1 ks", "Hummus 2 lžíce", "Paprika 50g", "Okurka 50g",
+"Mrkev 50g"],
+"instructions": "Tortillu potřete hummusem, přidejte zeleninu a zarolujte.",
+"meal_type": "Svačina",
+"temperature": "Studené",
+"prep_time_min": 10,
+"suitable_for": ["Rychlá svačina", "Vegetariáni"]
+},
+{
+"name": "Omeleta se špenátem a sýrem",
+
+"ingredients": ["Vejce 3 ks", "Špenát 50g", "Sýr 50g", "Olivový olej 1 lžíce"],
+"instructions": "Na pánvi osmahněte špenát, přidejte vejce a sýr, osmažte omeletu.",
+"meal_type": "Snídaně",
+"temperature": "Teplé",
+"prep_time_min": 10,
+"suitable_for": ["Proteinová snídaně", "Rychlá snídaně"]
+},
+{
+"name": "Pečené kuřecí prso se zeleninou",
+"ingredients": ["Kuřecí prso 200g", "Cuketa 100g", "Paprika 100g", "Olivový olej 1 lžíce"],
+"instructions": "Kuřecí prso osolte a opepřete, pečte s nakrájenou zeleninou 20 minut.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 30,
+"suitable_for": ["Proteinová večeře", "Zdravá večeře"]
+},
+{
+"name": "Řecký jogurt s medem a ořechy",
+"ingredients": ["Řecký jogurt 200g", "Med 1 lžíce", "Vlašské ořechy 30g"],
+"instructions": "Jogurt smíchejte s medem a posypte ořechy.",
+"meal_type": "Snídaně",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá snídaně", "Svačina"]
+},
+{
+"name": "Quinoový salát s avokádem",
+"ingredients": ["Quinoa 100g", "Avokádo 1 ks", "Paprika 50g", "Okurka 50g", "Olivový olej 1 lžíce"],
+"instructions": "Uvařte quinou, nechte vychladnout, smíchejte s nakrájenou zeleninou a avokádem, dochuťte olejem.",
+"meal_type": "Oběd",
+"temperature": "Studené",
+"prep_time_min": 20,
+"suitable_for": ["Vegetariánský oběd", "Zdravý oběd"]
+},
+{
+"name": "Banánové lívance",
+
+"ingredients": ["Banán 1 ks", "Vejce 2 ks", "Ovesné vločky 50g", "Skořice 1/2 lžičky"],
+"instructions": "Rozmačkejte banán, smíchejte s vejci a vločkami, smažte malé lívance.",
+"meal_type": "Snídaně",
+"temperature": "Teplé",
+"prep_time_min": 15,
+"suitable_for": ["Sladká snídaně", "Rychlá snídaně"]
+},
+{
+"name": "Pečená dýně s bylinkami",
+"ingredients": ["Dýně 200g", "Olivový olej 1 lžíce", "Rozmarýn 1/2 lžičky", "Sůl a pepř dle chuti"],
+"instructions": "Dýni nakrájejte, smíchejte s olejem a kořením, pečte 25 minut.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 30,
+"suitable_for": ["Vegetariánská večeře", "Lehká večeře"]
+},
+{
+"name": "Cottage sýr s rajčaty a okurkou",
+"ingredients": ["Cottage sýr 150g", "Rajče 50g", "Okurka 50g", "Olivový olej 1 lžička", "Sůl a pepř"],
+"instructions": "Smíchejte sýr s nakrájenou zeleninou a dochuťte.",
+"meal_type": "Svačina",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá svačina", "Lehká večeře"]
+},
+{
+"name": "Pečené kuřecí stehno s brokolicí",
+"ingredients": ["Kuřecí stehno 200g", "Brokolice 100g", "Olivový olej 1 lžíce", "Sůl a pepř"],
+"instructions": "Kuřecí stehno osolte a opepřete, pečte s brokolicí 30 minut.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 35,
+"suitable_for": ["Proteinová večeře", "Zdravá večeře"]
+},
+{
+"name": "Tvaroh s medem a ovocem",
+"ingredients": ["Tvaroh 200g", "Med 1 lžíce", "Borůvky 50g", "Maliny 50g"],
+"instructions": "Tvaroh smíchejte s medem a ovocem.",
+
+"meal_type": "Snídaně",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá snídaně", "Svačina"]
+},
+{
+"name": "Krůtí prsa se zeleninovým pyré",
+"ingredients": ["Krůtí prsa 200g", "Mrkev 100g", "Celer 50g", "Olivový olej 1 lžíce"],
+"instructions": "Krůtí prsa osmahněte, zeleninu uvařte a rozmixujte na pyré.",
+"meal_type": "Oběd",
+"temperature": "Teplé",
+"prep_time_min": 25,
+"suitable_for": ["Proteinový oběd", "Lehký oběd"]
+},
+{
+"name": "Celozrnná pizza s rajčaty a mozzarellou",
+"ingredients": ["Celozrnná pizza základna 1 ks", "Rajče 100g", "Mozzarella 100g", "Olivový olej 1 lžička"],
+"instructions": "Položte na základnu nakrájená rajčata a sýr, pečte 12 minut.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 15,
+"suitable_for": ["Rychlá večeře", "Vegetariánská večeře"]
+},
+{
+"name": "Hummus s mrkví a okurkou",
+"ingredients": ["Hummus 50g", "Mrkev 50g", "Okurka 50g"],
+"instructions": "Nakrájenou zeleninu podávejte s hummusem.",
+"meal_type": "Svačina",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Lehká svačina", "Vegetariánská svačina"]
+},
+{
+"name": "Ovesné sušenky s banánem a ořechy",
+"ingredients": ["Ovesné vločky 100g", "Banán 1 ks", "Vlašské ořechy 30g", "Med 1 lžíce"],
+"instructions": "Smíchejte ingredience, tvořte sušenky a pečte 15 minut.",
+"meal_type": "Svačina",
+"temperature": "Teplé",
+"prep_time_min": 20,
+
+"suitable_for": ["Sladká svačina", "Rychlá energie"]
+},
+{
+"name": "Smoothie z lesního ovoce",
+"ingredients": ["Borůvky 50g", "Maliny 50g", "Bílý jogurt 150ml", "Med 1 lžička"],
+"instructions": "Vše rozmixujte do hladka.",
+"meal_type": "Snídaně",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá snídaně", "Energie před tréninkem"]
+},
+{
+"name": "Pečený losos s citrónem",
+"ingredients": ["Losos 200g", "Citron 1/2 ks", "Olivový olej 1 lžíce", "Sůl a pepř"],
+"instructions": "Lososa pokapejte olejem a citronem, pečte 20 minut.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 25,
+"suitable_for": ["Proteinová večeře", "Zdravá večeře"]
+},
+{
+"name": "Cizrnový salát s rajčaty",
+"ingredients": ["Cizrna 100g", "Rajče 100g", "Okurka 50g", "Olivový olej 1 lžíce", "Sůl a pepř"],
+"instructions": "Smíchejte všechny ingredience a dochuťte.",
+"meal_type": "Oběd",
+"temperature": "Studené",
+"prep_time_min": 10,
+"suitable_for": ["Vegetariánský oběd", "Rychlý oběd"]
+},
+{
+"name": "Vaječná omeleta se špenátem",
+"ingredients": ["Vejce 2 ks", "Špenát 50g", "Sýr 30g", "Olivový olej 1 lžička"],
+"instructions": "Omeletu usmažte na pánvi s olejem, přidejte špenát a sýr.",
+"meal_type": "Snídaně",
+"temperature": "Teplé",
+"prep_time_min": 10,
+"suitable_for": ["Proteinová snídaně", "Rychlá snídaně"]
+},
+{
+"name": "Tvarohové knedlíky s ovocem",
+"ingredients": ["Tvaroh 200g", "Mouka 100g", "Vejce 1 ks", "Ovoce dle výběru 100g", "Med 1 lžíce"],
+"instructions": "Z tvarohu, mouky a vejce vytvořte knedlíky, uvařte a podávejte s ovocem a medem.",
+"meal_type": "Snídaně",
+"temperature": "Teplé",
+"prep_time_min": 25,
+"suitable_for": ["Sladká snídaně", "Výživná snídaně"]
+},
+{
+"name": "Pečená zelenina s cizrnou",
+"ingredients": ["Cizrna 100g", "Paprika 50g", "Cuketa 50g", "Olivový olej 1 lžíce", "Koření dle chuti"],
+"instructions": "Zeleninu a cizrnu smíchejte s olejem a kořením, pečte 20 minut.",
+"meal_type": "Oběd",
+"temperature": "Teplé",
+"prep_time_min": 25,
+"suitable_for": ["Vegetariánský oběd", "Lehký oběd"]
+},
+{
+"name": "Avokádo na toastu",
+"ingredients": ["Celozrnný chléb 1 ks", "Avokádo 1/2 ks", "Citron 1/2 lžičky", "Sůl a pepř"],
+"instructions": "Avokádo rozmačkejte, dochuťte citronem, solí a pepřem, namažte na toast.",
+"meal_type": "Snídaně",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá snídaně", "Lehká svačina"]
+},
+{
+"name": "Grilované kuřecí s cuketou",
+"ingredients": ["Kuřecí prsa 200g", "Cuketa 100g", "Olivový olej 1 lžíce", "Sůl a pepř"],
+"instructions": "Kuřecí a cuketu grilujte 15 minut, dochuťte solí a pepřem.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 20,
+"suitable_for": ["Proteinová večeře", "Lehká večeře"]
+},
+
+{
+"name": "Jogurt s granolou a ovocem",
+"ingredients": ["Bílý jogurt 150ml", "Granola 50g", "Borůvky 50g", "Maliny 50g"],
+"instructions": "Jogurt smíchejte s granolou a ovocem.",
+"meal_type": "Snídaně",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá snídaně", "Energie před tréninkem"]
+},
+{
+"name": "Pečené batáty s kořením",
+"ingredients": ["Batáty 200g", "Olivový olej 1 lžíce", "Koření dle chuti"],
+"instructions": "Batáty nakrájejte, smíchejte s olejem a kořením, pečte 25 minut.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 30,
+"suitable_for": ["Lehká večeře", "Vegetariánská večeře"]
+},
+{
+"name": "Quinoa salát s avokádem",
+"ingredients": ["Quinoa 100g", "Avokádo 1 ks", "Rajče 100g", "Olivový olej 1 lžíce", "Sůl a pepř"],
+"instructions": "Uvařenou quinou smíchejte s nakrájeným avokádem a rajčaty, dochuťte olejem, solí a pepřem.",
+"meal_type": "Oběd",
+"temperature": "Studené",
+"prep_time_min": 15,
+"suitable_for": ["Lehký oběd", "Vegetariánský oběd"]
+},
+{
+"name": "Ovesné sušenky s banánem",
+"ingredients": ["Ovesné vločky 100g", "Banán 1 ks", "Med 1 lžíce", "Skořice 1/2 lžičky"],
+"instructions": "Vše smíchejte, tvarujte sušenky a pečte 15 minut.",
+"meal_type": "Svačina",
+"temperature": "Teplé",
+"prep_time_min": 20,
+"suitable_for": ["Rychlá svačina", "Sladká svačina"]
+},
+
+{
+"name": "Kuřecí salát s jogurtovým dresinkem",
+"ingredients": ["Kuřecí prsa 150g", "Salát 50g", "Okurka 50g", "Bílý jogurt 50ml", "Sůl a pepř"],
+"instructions": "Uvařené kuřecí nakrájejte a smíchejte s ostatními ingrediencemi, dochuťte jogurtem.",
+"meal_type": "Oběd",
+"temperature": "Studené",
+"prep_time_min": 15,
+"suitable_for": ["Lehký oběd", "Proteinový oběd"]
+},
+{
+"name": "Cottage cheese s rajčaty a okurkou",
+"ingredients": ["Cottage cheese 150g", "Rajče 100g", "Okurka 50g", "Olivový olej 1 lžička",
+"Sůl a pepř"],
+"instructions": "Smíchejte cottage cheese s nakrájenou zeleninou, dochuťte olejem, solí a pepřem.",
+"meal_type": "Svačina",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá svačina", "Lehká svačina"]
+},
+{
+"name": "Pečené kuřecí s batáty",
+"ingredients": ["Kuřecí prsa 200g", "Batáty 150g", "Olivový olej 1 lžíce", "Koření dle chuti"],
+"instructions": "Kuřecí a batáty pokapejte olejem, okořeňte a pečte 25 minut.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 30,
+"suitable_for": ["Proteinová večeře", "Lehká večeře"]
+},
+{
+"name": "Míchaná vejce s rajčaty",
+"ingredients": ["Vejce 2 ks", "Rajče 100g", "Olivový olej 1 lžička", "Sůl a pepř"],
+"instructions": "Vejce rozšlehejte a smažte na pánvi s nakrájeným rajčetem.",
+"meal_type": "Snídaně",
+"temperature": "Teplé",
+"prep_time_min": 10,
+"suitable_for": ["Rychlá snídaně", "Proteinová snídaně"]
+},
+{
+
+"name": "Smoothie s banánem a špenátem",
+"ingredients": ["Banán 1 ks", "Špenát 50g", "Mléko 200ml", "Med 1 lžička"],
+"instructions": "Vše rozmixujte do hladka.",
+"meal_type": "Snídaně",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá snídaně", "Energie před tréninkem"]
+},
+{
+"name": "Zeleninová polévka",
+"ingredients": ["Mrkev 100g", "Celer 50g", "Cibule 50g", "Brambory 100g", "Sůl a pepř"],
+"instructions": "Vše vařte v osolené vodě 20 minut a rozmixujte dle potřeby.",
+"meal_type": "Oběd",
+"temperature": "Teplé",
+"prep_time_min": 25,
+"suitable_for": ["Lehký oběd", "Vegetariánský oběd"]
+},
+{
+"name": "Cizrnové karbanátky",
+"ingredients": ["Cizrna 150g", "Mouka 50g", "Vejce 1 ks", "Koření dle chuti"],
+"instructions": "Vše rozmixujte, tvarujte karbanátky a smažte 10 minut.",
+"meal_type": "Oběd",
+"temperature": "Teplé",
+"prep_time_min": 20,
+"suitable_for": ["Vegetariánský oběd", "Proteinový oběd"]
+},
+{
+"name": "Pečená brokolice s parmazánem",
+"ingredients": ["Brokolice 200g", "Olivový olej 1 lžíce", "Parmazán 20g", "Sůl a pepř"],
+"instructions": "Brokolici pokapejte olejem, posypte parmazánem a pečte 15 minut.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 20,
+"suitable_for": ["Lehká večeře", "Zeleninová večeře"]
+},
+{
+"name": "Tvaroh s medem a ořechy",
+"ingredients": ["Tvaroh 150g", "Med 1 lžíce", "Vlašské ořechy 20g"],
+
+"instructions": "Tvaroh smíchejte s medem a posypte nasekanými ořechy.",
+"meal_type": "Snídaně",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá snídaně", "Proteinová snídaně"]
+},
+{
+"name": "Pečené kuřecí s cuketou",
+"ingredients": ["Kuřecí prsa 200g", "Cuketa 150g", "Olivový olej 1 lžíce", "Koření dle chuti"],
+"instructions": "Kuřecí a cuketu pokapejte olejem, okořeňte a pečte 25 minut.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 30,
+"suitable_for": ["Lehká večeře", "Proteinová večeře"]
+},
+{
+"name": "Avokádový toast",
+"ingredients": ["Celozrnný chléb 2 plátky", "Avokádo 1 ks", "Sůl a pepř"],
+"instructions": "Avokádo rozetřete na chleba a dochuťte solí a pepřem.",
+"meal_type": "Snídaně",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá snídaně", "Vegetariánská snídaně"]
+},
+{
+"name": "Rajčatový salát s mozzarellou",
+"ingredients": ["Rajče 150g", "Mozzarella 100g", "Olivový olej 1 lžíce", "Bazalka dle chuti"],
+"instructions": "Nakrájejte rajče a mozzarellu, pokapejte olejem a ozdobte bazalkou.",
+"meal_type": "Oběd",
+"temperature": "Studené",
+"prep_time_min": 10,
+"suitable_for": ["Lehký oběd", "Vegetariánský oběd"]
+},
+{
+"name": "Pečené batáty s fazolemi",
+"ingredients": ["Batáty 200g", "Červené fazole 100g", "Olivový olej 1 lžíce", "Koření dle chuti"],
+"instructions": "Batáty nakrájejte, smíchejte s fazolemi a pečte 25 minut.",
+"meal_type": "Oběd",
+"temperature": "Teplé",
+"prep_time_min": 30,
+
+"suitable_for": ["Vegetariánský oběd", "Lehký oběd"]
+},
+{
+"name": "Smoothie bowl s borůvkami",
+"ingredients": ["Banán 1 ks", "Borůvky 50g", "Mléko 150ml", "Ovesné vločky 20g"],
+"instructions": "Rozmixujte banán a mléko, navrch přidejte borůvky a vločky.",
+"meal_type": "Snídaně",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá snídaně", "Energie před tréninkem"]
+},
+{
+"name": "Míchaná vejce s špenátem",
+"ingredients": ["Vejce 2 ks", "Špenát 50g", "Olivový olej 1 lžička", "Sůl a pepř"],
+"instructions": "Vejce rozšlehejte a smažte se špenátem.",
+"meal_type": "Snídaně",
+"temperature": "Teplé",
+"prep_time_min": 10,
+"suitable_for": ["Proteinová snídaně", "Rychlá snídaně"]
+},
+{
+"name": "Cizrnový salát s okurkou",
+"ingredients": ["Cizrna 150g", "Okurka 100g", "Olivový olej 1 lžíce", "Sůl a pepř"],
+"instructions": "Smíchejte cizrnu s nakrájenou okurkou a dochuťte olejem, solí a pepřem.",
+"meal_type": "Oběd",
+"temperature": "Studené",
+"prep_time_min": 10,
+"suitable_for": ["Lehký oběd", "Vegetariánský oběd"]
+},
+{
+"name": "Pečené kuřecí s brokolicí",
+"ingredients": ["Kuřecí prsa 200g", "Brokolice 150g", "Olivový olej 1 lžíce", "Koření dle chuti"],
+"instructions": "Kuřecí a brokolici pokapejte olejem, okořeňte a pečte 25 minut.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 30,
+"suitable_for": ["Lehká večeře", "Proteinová večeře"]
+},
+{
+
+"name": "Jogurt s ovesnými vločkami a medem",
+"ingredients": ["Bílý jogurt 150g", "Ovesné vločky 30g", "Med 1 lžíce"],
+"instructions": "Smíchejte jogurt s vločkami a přidejte med.",
+"meal_type": "Snídaně",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá snídaně", "Energie před tréninkem"]
+},
+{
+"name": "Celozrnný wrap s hummusem a zeleninou",
+"ingredients": ["Celozrnná tortilla 1 ks", "Hummus 50g", "Paprika 50g", "Okurka 50g", "Mrkev 30g"],
+"instructions": "Potřete tortillu hummusem, přidejte nakrájenou zeleninu a srolujte.",
+"meal_type": "Svačina",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá svačina", "Vegetariánská svačina"]
+},
+{
+"name": "Losos pečený s citronem",
+"ingredients": ["Filet lososa 200g", "Citron 1 ks", "Olivový olej 1 lžíce", "Koření dle chuti"],
+"instructions": "Lososa pokapejte olejem, přidejte plátky citronu a pečte 20 minut.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 25,
+"suitable_for": ["Lehká večeře", "Proteinová večeře"]
+},
+{
+"name": "Těstovinový salát s tuňákem",
+"ingredients": ["Celozrnné těstoviny 100g", "Tuňák 100g", "Paprika 50g", "Olivový olej 1 lžíce"],
+"instructions": "Uvařené těstoviny smíchejte s tuňákem a nakrájenou paprikou, přidejte olej.",
+"meal_type": "Oběd",
+"temperature": "Studené",
+"prep_time_min": 15,
+"suitable_for": ["Lehký oběd", "Proteinový oběd"]
+},
+{
+
+"name": "Banánové palačinky",
+"ingredients": ["Banán 1 ks", "Vejce 2 ks", "Ovesné vločky 30g"],
+"instructions": "Rozmačkejte banán, smíchejte s vejci a vločkami a smažte palačinky.",
+"meal_type": "Snídaně",
+"temperature": "Teplé",
+"prep_time_min": 10,
+"suitable_for": ["Sladká snídaně", "Rychlá snídaně"]
+},
+{
+"name": "Řecký salát s olivami",
+"ingredients": ["Okurka 100g", "Rajče 100g", "Feta 50g", "Olivy 20g", "Olivový olej 1 lžíce"],
+"instructions": "Nakrájejte zeleninu a sýr, přidejte olivy a zakápněte olejem.",
+"meal_type": "Oběd",
+"temperature": "Studené",
+"prep_time_min": 10,
+"suitable_for": ["Lehký oběd", "Vegetariánský oběd"]
+},
+{
+"name": "Quinoa s pečenou zeleninou",
+"ingredients": ["Quinoa 100g", "Cuketa 100g", "Paprika 100g", "Olivový olej 1 lžíce"],
+"instructions": "Uvařte quinou, zeleninu nakrájejte, pokapejte olejem a pečte 20 minut.",
+"meal_type": "Oběd",
+"temperature": "Teplé",
+"prep_time_min": 30,
+"suitable_for": ["Vegetariánský oběd", "Lehký oběd"]
+},
+{
+"name": "Smoothie s jahodami a banánem",
+"ingredients": ["Jahody 100g", "Banán 1 ks", "Mléko 150ml", "Med 1 lžička"],
+"instructions": "Vše rozmixujte do hladka.",
+"meal_type": "Snídaně",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá snídaně", "Energie před tréninkem"]
+},
+{
+"name": "Kuřecí salát s avokádem",
+"ingredients": ["Kuřecí prsa 150g", "Avokádo 1 ks", "Paprika 50g", "Olivový olej 1 lžíce"],
+"instructions": "Uvařené kuřecí nakrájejte a smíchejte s avokádem a paprikou, zakápněte olejem.",
+
+"meal_type": "Oběd",
+"temperature": "Studené",
+"prep_time_min": 15,
+"suitable_for": ["Proteinový oběd", "Lehký oběd"]
+},
+{
+"name": "Ovocný salát s jogurtem",
+"ingredients": ["Jablko 1 ks", "Banán 1 ks", "Hruška 1 ks", "Bílý jogurt 100g"],
+"instructions": "Ovoce nakrájejte, smíchejte s jogurtem.",
+"meal_type": "Svačina",
+"temperature": "Studené",
+"prep_time_min": 5,
+"suitable_for": ["Rychlá svačina", "Sladká svačina"]
+},
+{
+"name": "Pečené kuřecí s batáty",
+"ingredients": ["Kuřecí prsa 200g", "Batáty 150g", "Olivový olej 1 lžíce", "Koření dle chuti"],
+"instructions": "Kuřecí a batáty pokapejte olejem, okořeňte a pečte 25 minut.",
+"meal_type": "Večeře",
+"temperature": "Teplé",
+"prep_time_min": 30,
+"suitable_for": ["Lehká večeře", "Proteinová večeře"]
 }
 ]
 }
