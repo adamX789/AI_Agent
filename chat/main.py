@@ -46,13 +46,20 @@ class UrceniTypuOtazky(BaseModel):
         description="Skóre jistoty mezi 0 a 1, 0 znamená, že si nejsi vůbec jistý svým rozhodnutím, 1 znamená, že si jsi úplně jistý svým rozhodnutím")
     duvod: str = Field(description="Důvod, podle kterého jsi se rozhodl")
 
+
 class UrceniHmotnostiPotravin(BaseModel):
-    potravina:str = Field(description="Název potraviny, například Losos, avokádo")
-    hmotnost:float = Field(description="Hmotnost dané potraviny V GRAMECH, uváděj jen číslo vez jednotky, tedy pro '200g' by mělo toto pole hodnotu 200")
+    potravina: str = Field(
+        description="Název potraviny, například Losos, avokádo")
+    hmotnost: float = Field(
+        description="Hmotnost dané potraviny V GRAMECH, uváděj jen číslo vez jednotky, tedy pro '200g' by mělo toto pole hodnotu 200")
+
 
 class Jidla(BaseModel):
-    seznam_jidla:list[UrceniHmotnostiPotravin] = Field(description="Seznam potraviny a její hmotnosti extrahované z textu")
-    seznam_vsech_potravin:list[str] = Field(description="Seznam VŠECH potravin nalezených v textu")
+    seznam_jidla: list[UrceniHmotnostiPotravin] = Field(
+        description="Seznam potraviny a její hmotnosti extrahované z textu")
+    seznam_vsech_potravin: list[str] = Field(
+        description="Seznam VŠECH potravin nalezených v textu")
+
 
 def first_check(text: str):
     config = types.GenerateContentConfig(
@@ -85,18 +92,20 @@ def check_question_sentence(text: str):
     formatted_res: UrceniVetaOtazka = response.parsed
     return formatted_res
 
-def get_weight_from_text(text:str):
+
+def get_weight_from_text(text: str):
     config = types.GenerateContentConfig(
-        system_instruction="Jsi expert na extrahování dat z textu. Tvým úkolem je z daného textu určit seznam VŠECH potravin, a poté extrahovat názvy potravin a jejich hmotnost v gramech. Ignoruj gramatické chyby.",response_mime_type="application/json",response_schema=Jidla
-        )
-    contents = types.Content(role="user",parts=[types.Part(text=text)])
+        system_instruction="Jsi expert na extrahování dat z textu. Tvým úkolem je z daného textu určit seznam VŠECH potravin, a poté extrahovat názvy potravin a jejich hmotnost v gramech. Ignoruj gramatické chyby.", response_mime_type="application/json", response_schema=Jidla
+    )
+    contents = types.Content(role="user", parts=[types.Part(text=text)])
     response = client.models.generate_content(
         model=model,
         contents=contents,
         config=config
     )
-    structured_res:Jidla = response.parsed
+    structured_res: Jidla = response.parsed
     return structured_res
+
 
 def type_check(text: str):
     config = types.GenerateContentConfig(
@@ -121,7 +130,7 @@ def type_check(text: str):
     return structured_res
 
 
-def chatbot(query, profile,extra_content,denni_udaje):
+def chatbot(query, profile, extra_content, denni_udaje):
     profile_info = f"""
         Uživatel si nastavil tyto parametry:
         Denní příjem kalorií: {profile.denni_kalorie} kcal
@@ -141,6 +150,8 @@ def chatbot(query, profile,extra_content,denni_udaje):
     print(profile_info)
     if extra_content:
         new_query = f"{extra_content}, {query}"
+    else:
+        new_query = query
     response1 = first_check(query)
     print(f"{response1.tyka_se_vyzivy}, skore: {response1.skore_jistoty}, duvod: {response1.duvod}")
     if not response1.tyka_se_vyzivy or response1.skore_jistoty < 0.7:
@@ -155,9 +166,10 @@ def chatbot(query, profile,extra_content,denni_udaje):
         print(foods)
         if len(foods.seznam_vsech_potravin) != len(foods.seznam_jidla):
             return "Pro některé potraviny chybí hmotnost v gramech, prosím zadejte hmotnost potravin, abych je mohl zaznamenat do tabulky."
-        info = search_potraviny_and_update(profile,foods,client)
+        info = search_potraviny_and_update(profile, foods, client)
         contents = [types.Content(role="user", parts=[types.Part(text=json.dumps(info))]),
-                    types.Content(role="user", parts=[types.Part(text=new_query)])
+                    types.Content(role="user", parts=[
+                                  types.Part(text=new_query)])
                     ]
         config = types.GenerateContentConfig(
             system_instruction="Text popisuje, co si uživatel dal na jídlo, tvým úkolem je rozebrat jednotlivé potraviny a napsat jejich výhody a nevýhody. Jako zdroj použij jen informace, které ti poskytnu. Na konec odpovědi napiš, že jsi jídlo zaznamenal do tabulky."
@@ -192,13 +204,13 @@ def chatbot(query, profile,extra_content,denni_udaje):
     except ValueError as e:
         return f"Chyba: {e}"
     if response3.typ_otazky == "potraviny":
-        info = search_potraviny(embedding,pocet_vysledku=4)
+        info = search_potraviny(embedding, pocet_vysledku=4)
     elif response3.typ_otazky == "recepty":
-        info = search_recepty(embedding,pocet_vysledku=4)
+        info = search_recepty(embedding, pocet_vysledku=4)
     elif response3.typ_otazky == "situace":
-        info = search_situace(embedding,pocet_vysledku=4)
+        info = search_situace(embedding, pocet_vysledku=4)
     elif response3.typ_otazky == "diety":
-        info = search_diety(embedding,pocet_vysledku=4)
+        info = search_diety(embedding, pocet_vysledku=4)
     elif response3.typ_otazky == "osobni_profil":
         info = None
     else:
@@ -206,9 +218,11 @@ def chatbot(query, profile,extra_content,denni_udaje):
     contents = []
     if info:
         rag_string = f"V databázi jsem našel tyto informace pro zodpovězení otázky uživatele: {json.dumps(info)}"
-        contents.append(types.Content(role="user", parts=[types.Part(text=rag_string)]))
+        contents.append(types.Content(
+            role="user", parts=[types.Part(text=rag_string)]))
     if response3.typ_otazky == "osobni_profil":
-        contents.append(types.Content(role="user", parts=[types.Part(text=profile_info)]))
+        contents.append(types.Content(role="user", parts=[
+                        types.Part(text=profile_info)]))
     contents.append(types.Content(role="user", parts=[types.Part(text=query)]))
     config = types.GenerateContentConfig(
         system_instruction="Jsi specialista na výživu a tvým úkolem je odpovědět na dotaz uživatele pouze pomocí přiložených informací. Vždy odpovídej přirozenou řečí."
