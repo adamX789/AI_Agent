@@ -48,12 +48,7 @@
   background-color: #2ecc71;
   color: #fff;
 }
-  .chat-btn:hover {
-    background-color: #2ecc71;
-    color: #fff;
-  }
-  
-  
+
   /* ✅ Main content */
   .profile {
     flex: 1;
