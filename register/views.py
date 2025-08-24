@@ -18,7 +18,7 @@ class RegisterView(View):
             user = form.save()
             Profile.objects.create(uzivatel=user)
             login(request, user)
-            return redirect('profile')
+            return redirect('form')
         return render(request, "register.html", {"form": form})
 
 

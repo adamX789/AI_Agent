@@ -16,7 +16,8 @@
     <h1 class="title">Vytvoř si profil</h1>
     <p class="subtitle">Zadej své údaje, abychom ti připravili personalizovaný plán.</p>
 
-    <form class="profile-form">
+    <form class="profile-form" action="" method="POST">
+      {% csrf_token %}
       <label for="name">Jméno</label>
       <input type="text" name="jmeno" id="name" placeholder="Např. Jan Novák" required>
 
@@ -29,13 +30,13 @@
       </select>
 
       <label for="height">Výška (cm)</label>
-      <input type="number" name="vyska" id="height" placeholder="Např. 180" required>
+      <input type="number" name="vyska" id="height" step="0.01" placeholder="Např. 180" required>
 
       <label for="weight">Váha (kg)</label>
-      <input type="number" name="vaha" id="weight" placeholder="Např. 78" required>
+      <input type="number" name="vaha" step="0.01" id="weight" placeholder="Např. 78" required>
 
       <label for="goal-weight">Cílová váha (kg)</label>
-      <input type="number" name="cilova_vaha" id="goal-weight" placeholder="Např. 72" required>
+      <input type="number" name="cilova_vaha" id="goal-weight" step="0.01" placeholder="Např. 72" required>
 
       <label for="goal">Cíl</label>
       <select id="goal" name="cil" required>
@@ -64,7 +65,7 @@
 
       <label for="diet">Dodržovaná dieta</label>
       <select id="diet" name="dieta">
-        <option value="">Žádná</option>
+        <option value="zadna">Žádná</option>
         <option value="vegan">Veganská</option>
         <option value="vegetarian">Vegetariánská</option>
         <option value="keto">Keto</option>
@@ -73,6 +74,11 @@
 
       <button type="submit" class="submit-btn">Uložit profil</button>
     </form>
+    {% if messages %}
+      {% for message in messages %}
+        {{message}}
+      {% endfor %}
+    {% endif %}
   </main>
 </body>
 </html>

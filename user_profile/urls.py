@@ -3,5 +3,6 @@ from .views import *
 
 urlpatterns = [
     path("", ProfileView.as_view(), name="profile"),
-    path("edit/",EditView.as_view(),name="edit")
+    path("edit/",EditView.as_view(),name="edit"),
+    path("form/",FormView.as_view(),name="form")
 ]

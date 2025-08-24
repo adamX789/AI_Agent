@@ -21,7 +21,7 @@
 
   <!-- ✅ Main Content -->
   <main class="profile">
-    <h1 class="username">{{username}}</h1>
+    <h1 class="username">{{username}}, {{vek}}</h1>
     <a href="edit/"><button class="edit-btn">Upravit parametry</button></a>
 
     <!-- ✅ Denní hodnoty -->
@@ -32,6 +32,7 @@
         <li>Bílkoviny: <span>{{celkove_info.celkove_b|stringformat:'.1f'}} g / {{denni_info.denni_b}} g</span></li>
         <li>Sacharidy: <span>{{celkove_info.celkove_s|stringformat:'.1f'}} g / {{denni_info.denni_s}} g</span></li>
         <li>Tuky: <span>{{celkove_info.celkove_t|stringformat:'.1f'}} g / {{denni_info.denni_t}} g</span></li>
+        <li>Pitný režim: <span>0 l / {{denni_info.pitny_rezim}} l</span></li>
       </ul>
     </section>
 
@@ -41,6 +42,7 @@
       <p>Aktuální váha: <span>{{celkove_info.akt_vaha}} kg</span></p>
       <p>Cílová váha: <span>{{celkove_info.cil_vaha}} kg</span></p>
       <p>Celkový cíl: <span>{{celkove_info.cil}}</span></p>
+      <p>Aktivita: <span>{{aktivita}}</span></p>
     </section>
 
     <!-- ✅ Potraviny dnes -->
