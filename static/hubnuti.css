@@ -1,0 +1,81 @@
+/* cutting.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Mozilla Text', sans-serif;
+    background: #fff;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  
+  .container {
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #27ae60;
+  }
+  
+  .question {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .cutting-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .option:hover {
+    border-color: #2ecc71;
+    background: #f9fef9;
+  }
+  
+  .option input[type="radio"] {
+    transform: scale(1.2);
+    accent-color: #2ecc71; /* ✅ krásně zelené kolečko */
+  }
+  
+  .btn {
+    margin-top: 25px;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .btn:hover {
+    background: #2ecc71;
+    color: #fff;
+  }
+  

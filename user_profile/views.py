@@ -3,36 +3,10 @@ from django.views.generic import View
 from django.http import HttpResponse
 from chat.models import Makroziviny
 from django.contrib import messages
+from .funkce import *
+from decimal import Decimal
 
 # Create your views here.
-
-
-def get_cals_and_macros(pohlavi, vek, aktivita, vyska, vaha, cil):
-    if pohlavi == "Muž":
-        bmr = 88.362 + (13.397*vaha) + (4.799*vyska) - (5.677*vek)
-    else:
-        bmr = 447.593 + (9.247*vaha) + (3.098*vyska) - (4.330*vek)
-
-    if aktivita == "Nízká aktivita":
-        tdee = bmr*1.2
-    elif aktivita == "Střední aktivita":
-        tdee = bmr*1.55
-    else:
-        tdee = bmr*1.725
-
-    if cil == "Nabrat":
-        denni_kalorie = int(round(tdee+300, 0))
-    elif cil == "Udržet":
-        denni_kalorie = int(round(tdee-400, 0))
-    else:
-        denni_kalorie = int(round(tdee, 0))
-
-    denni_bilkoviny = int(round(vaha*2, 0))
-    denni_tuky = int(round((denni_kalorie*0.25)/9, 0))
-    denni_sacharidy = int(
-        round((denni_kalorie - (denni_bilkoviny*4) - (denni_tuky*9))/4, 0))
-    pitny_rezim = round((vaha*37.5)/1000, 2)
-    return denni_kalorie, denni_bilkoviny, denni_sacharidy, denni_tuky, pitny_rezim
 
 
 class ProfileView(View):
@@ -183,14 +157,14 @@ class EditView(View):
         return redirect("profile")
 
 
-class FormView(View):
+class StartFormView(View):
     def get(self, request):
         return render(request, "form.html", {})
 
     def post(self, request):
         profile = request.user.profile
         profile.jmeno = request.POST.get("jmeno")
-        profile.vek = 19
+        profile.vek = int(request.POST.get("vek"))
         pohlavi = request.POST.get("pohlavi")
         if pohlavi == "muz":
             profile.pohlavi = "Muž"
@@ -201,26 +175,30 @@ class FormView(View):
         else:
             messages.error(request, "Prosím vyberte pohlaví.")
             return render(request, "form.html", {})
-        profile.vyska_v_cm = float(request.POST.get("vyska"))
-        profile.aktualni_vaha = float(request.POST.get("vaha"))
-        profile.cilova_vaha = float(request.POST.get("cilova_vaha"))
+        profile.vyska_v_cm = Decimal(request.POST.get("vyska"))
+        profile.aktualni_vaha = Decimal(request.POST.get("vaha"))
+        profile.cilova_vaha = Decimal(request.POST.get("cilova_vaha"))
         cil = request.POST.get("cil")
         if cil == "n":
-            profile.celkovy_cil = "Nabrat"
+            profile.celkovy_cil = "Nabrat svaly"
         elif cil == "u":
-            profile.celkovy_cil = "Udržet"
+            profile.celkovy_cil = "Udržet váhu"
         elif cil == "z":
             profile.celkovy_cil = "Zhubnout"
         else:
             messages.error(request, "Prosím vyberte cíl.")
             return render(request, "form.html", {})
         aktivita = request.POST.get("aktivita")
-        if aktivita == "nizka":
-            profile.aktivita = "Nízká aktivita"
+        if aktivita == "sedavy":
+            profile.aktivita = "Sedavý"
+        if aktivita == "lehka":
+            profile.aktivita = "Lehká aktivita"
         elif aktivita == "stredni":
             profile.aktivita = "Střední aktivita"
         elif aktivita == "vysoka":
             profile.aktivita = "Vysoká aktivita"
+        elif aktivita == "extremni":
+            profile.aktivita = "Extrémně vysoká aktivita"
         else:
             messages.error(request, "Prosím vyberte aktivitu.")
             return render(request, "form.html", {})
@@ -247,8 +225,78 @@ class FormView(View):
         else:
             profile.dieta = ""
         profile.save()
+        if profile.celkovy_cil == "Udržet váhu":
+            if profile.jednoduchy_formular:
+                bmr = get_bmr_simple(pohlavi=profile.pohlavi, vek=profile.vek,
+                                     vyska=profile.vyska_v_cm, vaha=profile.aktualni_vaha)
+                profile.denni_kalorie = get_tdee(
+                    bmr=bmr, vek=profile.vek, aktivita=profile.aktivita)
+                profile.save()
+                profile.denni_bilkoviny, profile.denni_sacharidy, profile.denni_tuky, profile.pitny_rezim_litry = get_macros_simple(
+                    cals=profile.denni_kalorie, vaha=profile.aktualni_vaha)
+            else:
+                bmr = 0
+                profile.denni_kalorie = get_tdee(
+                    bmr=bmr, vek=profile.vek, aktivita=profile.aktivita)
+                profile.save()
+            profile.save()
+            return redirect("profile")
+        else:
+            print(profile.aktualni_vaha)
+            return redirect("info")
 
-        profile.denni_kalorie, profile.denni_bilkoviny, profile.denni_sacharidy, profile.denni_tuky, profile.pitny_rezim_litry = get_cals_and_macros(
-            pohlavi=profile.pohlavi, vek=profile.vek, aktivita=profile.aktivita, vyska=profile.vyska_v_cm, vaha=profile.aktualni_vaha, cil=profile.celkovy_cil)
+
+class ChoiceView(View):
+    def get(self, request):
+        return render(request, "choice.html", {})
+
+    def post(self, request):
+        profile = request.user.profile
+        if request.POST.get("start") == "detailed":
+            profile.jednoduchy_formular = False
+        else:
+            profile.jednoduchy_formular = True
+        profile.save()
+        return redirect("form")
+
+
+class InfoView(View):
+    def get(self, request):
+        profile = request.user.profile
+        if profile.celkovy_cil == "Zhubnout":
+            return render(request, "hubnuti.html", {})
+        return render(request, "nabirani.html", {})
+
+    def post(self, request):
+        profile = request.user.profile
+        if profile.jednoduchy_formular:
+            bmr = get_bmr_simple(pohlavi=profile.pohlavi, vek=profile.vek,
+                                 vyska=profile.vyska_v_cm, vaha=profile.aktualni_vaha)
+        else:
+            bmr = 0
+        tdee = get_tdee(bmr=bmr, vek=profile.vek, aktivita=profile.aktivita)
+        if profile.celkovy_cil == "Zhubnout":
+            choice = request.POST.get("cutting")
+            if choice == "extreme":
+                x = 1
+            elif choice == "fast-sustainable":
+                x = 0.75
+            elif choice == "medium":
+                x = 0.5
+            else:
+                x = 0.25
+            profile.denni_kalorie = get_cals_cut(tdee=tdee, bmr=bmr, x=x)
+            profile.save()
+        else:
+            yes_count = 0
+            for i in range(1, 4):
+                if request.POST.get("q" + str(i)) == "yes":
+                    yes_count += 1
+            profile.denni_kalorie = get_cals_bulk(
+                tdee=tdee, yes_count=yes_count)
+            profile.save()
+
+        profile.denni_bilkoviny, profile.denni_sacharidy, profile.denni_tuky, profile.pitny_rezim_litry = get_macros_simple(
+            cals=profile.denni_kalorie, vaha=profile.aktualni_vaha)
         profile.save()
         return redirect("profile")

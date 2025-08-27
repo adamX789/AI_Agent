@@ -4,54 +4,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Profil uživatele</title>
+  <title>Vyplnění údajů</title>
   <link rel="stylesheet" href="{% static 'form.css' %}" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- ✅ Form wrapper -->
-  <main class="container">
-    <h1 class="title">Vytvoř si profil</h1>
-    <p class="subtitle">Zadej své údaje, abychom ti připravili personalizovaný plán.</p>
+  
 
-    <form class="profile-form" action="" method="POST">
+  <!-- ✅ Main Content -->
+  <main class="profile">
+    <h1 class="username">Vyplňte své údaje 🚀</h1>
+
+    <form class="user-form" action="" method="POST">
       {% csrf_token %}
       <label for="name">Jméno</label>
-      <input type="text" name="jmeno" id="name" placeholder="Např. Jan Novák" required>
+      <input type="text" id="name" name="jmeno" placeholder="Zadejte své jméno" required />
+
+      <label for="age">Věk</label>
+      <input type="number" id="age" name="vek" placeholder="Zadejte věk" required />
+
+      <label for="height">Výška (cm)</label>
+      <input type="number" id="height" name="vyska" step="0.01" placeholder="Zadejte výšku" required />
+
+      <label for="weight">Váha (kg)</label>
+      <input type="number" id="weight" name="vaha" step="0.01" placeholder="Zadejte váhu" required />
+
+      <label for="goal_weight">Váha (kg)</label>
+      <input type="number" id="goal_weight" name="cilova_vaha" step="0.01" placeholder="Zadejte cílovou váhu" required />
 
       <label for="gender">Pohlaví</label>
       <select id="gender" name="pohlavi" required>
-        <option value="">Vyber...</option>
+        <option value="">Vyberte</option>
         <option value="muz">Muž</option>
         <option value="zena">Žena</option>
         <option value="jine">Jiné</option>
       </select>
 
-      <label for="height">Výška (cm)</label>
-      <input type="number" name="vyska" id="height" step="0.01" placeholder="Např. 180" required>
-
-      <label for="weight">Váha (kg)</label>
-      <input type="number" name="vaha" step="0.01" id="weight" placeholder="Např. 78" required>
-
-      <label for="goal-weight">Cílová váha (kg)</label>
-      <input type="number" name="cilova_vaha" id="goal-weight" step="0.01" placeholder="Např. 72" required>
+      <label for="activity">Aktivita</label>
+      <select id="activity" name="aktivita" required>
+        <option value="">Vyberte</option>
+        <option value="sedavy">Sedavý (velmi nízká)</option>
+        <option value="lehka">Lehká aktivita</option>
+        <option value="stredni">Střední aktivita</option>
+        <option value="vysoka">Vysoká aktivita</option>
+        <option value="extremni">Extrémně vysoká aktivita</option>
+      </select>
 
       <label for="goal">Cíl</label>
       <select id="goal" name="cil" required>
-        <option value="">Vyber...</option>
-        <option value="n">Nabrat</option>
-        <option value="u">Udržet</option>
+        <option value="">Vyberte</option>
         <option value="z">Zhubnout</option>
-      </select>
-
-      <label for="activity">Jak moc jsi aktivní?</label>
-      <select id="activity" name="aktivita" required>
-        <option value="">Vyber...</option>
-        <option value="nizka">Nízká aktivita</option>
-        <option value="stredni">Střední aktivita</option>
-        <option value="vysoka">Vysoká aktivita</option>
+        <option value="u">Udržet váhu</option>
+        <option value="n">Nabrat svaly</option>
       </select>
 
       <label for="health">Zdravotní omezení</label>
@@ -72,7 +78,7 @@
         <option value="paleo">Paleo</option>
       </select>
 
-      <button type="submit" class="submit-btn">Uložit profil</button>
+      <button type="submit" class="submit-btn">Pokračovat</button>
     </form>
     {% if messages %}
       {% for message in messages %}

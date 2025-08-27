@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Začátek plánu</title>
+  <link rel="stylesheet" href="{% static 'choice.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="container">
+    <h1>Vyberte si, jak chcete začít.</h1>
+    <form class="start-form" action="" method="POST">
+      {% csrf_token %}
+      <label class="option">
+        <input type="radio" name="start" value="detailed" required>
+        <span>📊 Naprosto přesné nastavení kalorií a plánu, které ale zabere více času a budeme od vás potřebovat více informací.</span>
+      </label>
+
+      <label class="option">
+        <input type="radio" name="start" value="quick">
+        <span>⚡ Rychlejší nastavení, také přesné, ale některé makroživiny a doporučení mohou být více generalizované.</span>
+      </label>
+
+      <button type="submit" class="btn">Pokračovat</button>
+    </form>
+  </main>
+</body>
+</html>

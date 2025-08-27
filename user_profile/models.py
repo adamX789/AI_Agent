@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     uzivatel = models.OneToOneField(User, on_delete=models.CASCADE)
     jmeno = models.CharField(blank=True,null=True,max_length=100)
+    jednoduchy_formular = models.BooleanField(blank=True,null=True)
     pohlavi = models.CharField(blank=True,null=True,max_length=20)
     vyska_v_cm = models.DecimalField(decimal_places=2,max_digits=5,blank=True,null=True)
     vek = models.IntegerField(blank=True,null=True)

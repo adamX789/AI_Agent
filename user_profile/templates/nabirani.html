@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Otázky k nabrání</title>
+  <link rel="stylesheet" href="{% static 'nabirani.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Hlavní obsah -->
+  <main class="profile">
+    <h1 class="username">Máme na tebe pár otázek 🕵🏻‍♂️</h1>
+    <p class="subtitle">Odpověz prosím upřímně — podle tvých odpovědí nastavíme doporučený kalorický surplus.</p>
+
+    <form class="questions-form" action="" method="POST" autocomplete="off">
+      {% csrf_token %}
+      <!-- Otázka 1 -->
+      <section class="question">
+        <p class="q-title">1. Je pro tebe náročné nabrat, i když jíš hodně?</p>
+
+        <div class="choices">
+          <input type="radio" id="q1-yes" name="q1" value="yes" class="visually-hidden" />
+          <label for="q1-yes" class="choice yes">Ano</label>
+
+          <input type="radio" id="q1-no" name="q1" value="no" class="visually-hidden" checked/>
+          <label for="q1-no" class="choice no">Ne</label>
+        </div>
+      </section>
+
+      <!-- Otázka 2 -->
+      <section class="question">
+        <p class="q-title">2. Začal jsi teď cvičit?</p>
+
+        <div class="choices">
+          <input type="radio" id="q2-yes" name="q2" value="yes" class="visually-hidden" />
+          <label for="q2-yes" class="choice yes">Ano</label>
+
+          <input type="radio" id="q2-no" name="q2" value="no" class="visually-hidden" checked/>
+          <label for="q2-no" class="choice no">Ne</label>
+        </div>
+      </section>
+
+      <!-- Otázka 3 -->
+      <section class="question">
+        <p class="q-title">3. Jsi ochotný nabrat rychle, i když to může znamenat tělesný tuk navíc?</p>
+
+        <div class="choices">
+          <input type="radio" id="q3-yes" name="q3" value="yes" class="visually-hidden" />
+          <label for="q3-yes" class="choice yes">Ano</label>
+
+          <input type="radio" id="q3-no" name="q3" value="no" class="visually-hidden" checked/>
+          <label for="q3-no" class="choice no">Ne</label>
+        </div>
+      </section>
+
+
+      <button type="submit" class="submit-btn">Potvrdit odpovědi</button>
+    </form>
+  </main>
+</body>
+</html>

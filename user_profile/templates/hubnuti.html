@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cesta hubnutí</title>
+  <link rel="stylesheet" href="{% static 'hubnuti.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="container">
+    <h1>Zvol si svou cestu hubnutí</h1>
+    <form class="cutting-form" action="" method="POST">
+      {% csrf_token %}
+      <p class="question">Jaký přístup k hubnutí ti nejvíc vyhovuje?</p>
+
+      <label class="option">
+        <input type="radio" name="cutting" value="extreme" required>
+        <span>🚀 Rychlá cesta, extrémní dieta</span>
+      </label>
+
+      <label class="option">
+        <input type="radio" name="cutting" value="fast-sustainable">
+        <span>⚡ Rychlá cesta, udržitelnější, ale pořád cítíš hlad</span>
+      </label>
+
+      <label class="option">
+        <input type="radio" name="cutting" value="medium">
+        <span>⚖️ Střední cesta, občasný hlad</span>
+      </label>
+
+      <label class="option">
+        <input type="radio" name="cutting" value="slow">
+        <span>🌱 Pomalá cesta, mírný hlad</span>
+      </label>
+
+      <button type="submit" class="btn">Pokračovat</button>
+    </form>
+  </main>
+</body>
+</html>
