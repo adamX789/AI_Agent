@@ -27,7 +27,18 @@
     <section id="photo-method" class="method">
       <h2>Podle fotky</h2>
       <p class="premium-note">✨ Tato funkce je dostupná jen pro Premium uživatele.</p>
-      <button class="btn disabled">Nahrát fotku</button>
+      <form action="{% url 'bodyfat' %}" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <label for="id_image">Nahrajte obrázek postavy:</label>
+        <input type="file" name="image" id="id_image" accept="image/*" required>
+        <button type="submit" class="btn">Analyzovat postavu</button>
+      </form>
+      <p></p>
+      {% if messages and volba == "obrazek" %}
+        {% for message in messages %}
+          {{message}}
+        {% endfor %}
+      {% endif %}
     </section>
 
     <!-- ✅ Metoda podle obvodů -->
@@ -47,7 +58,7 @@
         <button type="submit" class="btn">Spočítat</button>
       </form>
       <p></p>
-      {% if messages %}
+      {% if messages and volba == "rozmery" %}
         {% for message in messages %}
           {{message}}
         {% endfor %}

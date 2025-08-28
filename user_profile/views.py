@@ -313,17 +313,26 @@ class BodyFatView(View):
 
     def post(self, request):
         profile = request.user.profile
-        profile.obvod_pasu_cm = Decimal(request.POST.get("pas"))
-        profile.obvod_krku_cm = Decimal(request.POST.get("krk"))
-        profile.obvod_boku_cm = Decimal(request.POST.get(
-            "boky")) if request.POST.get("boky") else 0
-        
-        profile.save()
-        bodyfat = get_bf_by_measures(pohlavi=profile.pohlavi, pas=profile.obvod_pasu_cm,
-                                         krk=profile.obvod_krku_cm, boky=profile.obvod_boku_cm, vyska=profile.vyska_v_cm)
-        if bodyfat <= Decimal("0"):
-            messages.error(request, "Prosím zadejte realistické obvody.")
-            return render(request, "bodyfat.html", {"pohlavi": profile.pohlavi})
+        if request.FILES:
+            image_file = request.FILES["image"]
+            image_bytes = image_file.read()
+            mime_type = image_file.content_type
+            bodyfat = get_bf_by_image(image_bytes=image_bytes,mime_type=mime_type)
+            if bodyfat <= Decimal("0"):
+                messages.error(request, "Ze vloženého obrázku nelze určit procento tělesného tuku! Prosím vložte platný obrázek.")
+                return render(request, "bodyfat.html", {"pohlavi": profile.pohlavi,"volba":"obrazek"})
+        else:
+            profile.obvod_pasu_cm = Decimal(request.POST.get("pas"))
+            profile.obvod_krku_cm = Decimal(request.POST.get("krk"))
+            profile.obvod_boku_cm = Decimal(request.POST.get(
+                "boky")) if request.POST.get("boky") else 0
+            
+            profile.save()
+            bodyfat = get_bf_by_measures(pohlavi=profile.pohlavi, pas=profile.obvod_pasu_cm,
+                                            krk=profile.obvod_krku_cm, boky=profile.obvod_boku_cm, vyska=profile.vyska_v_cm)
+            if bodyfat <= Decimal("0"):
+                messages.error(request, "Prosím zadejte realistické obvody.")
+                return render(request, "bodyfat.html", {"pohlavi": profile.pohlavi,"volba":"rozmery"})
         profile.procento_telesneho_tuku = bodyfat
         profile.save()
 

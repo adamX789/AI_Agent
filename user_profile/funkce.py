@@ -1,5 +1,23 @@
 from decimal import Decimal
+import os
 import math
+from google import genai
+from google.genai import types
+from pydantic import BaseModel, Field
+from dotenv import load_dotenv
+
+load_dotenv()
+client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+model = "gemini-2.5-flash"
+
+
+class UrceniBodyfat(BaseModel):
+    lze_urcit_procento_telesneho_tuku: bool = Field(
+        description="Jestli lze z obrázku určit procento tělesného tuku")
+    procento_telesneho_tuku: float = Field(
+        description="Procento tělesného tuku osoby na obrázku v desetinném čísle.")
+    duvod: str = Field(
+        description="Důvod, podle kterého jsi se rozhodl pro tuto hodnotu.")
 
 
 def get_bmr_simple(pohlavi, vek, vyska, vaha):
@@ -17,15 +35,34 @@ def get_bf_by_measures(pohlavi, pas, krk, boky, vyska):
     if pohlavi == "Muž":
         if pas <= krk:
             return -1
-        bf_percent = 495 / (1.0324 - 0.19077*math.log10(float(pas-krk)) + 0.15456*math.log10(float(vyska))) - 450
+        bf_percent = 495 / (1.0324 - 0.19077*math.log10(float(pas-krk)
+                                                        ) + 0.15456*math.log10(float(vyska))) - 450
     else:
         if pas+boky <= krk:
             return -1
-        bf_percent = 495 / (1.29579 - 0.35004*math.log10(float(pas+boky-krk)) + 0.22100*math.log10(float(vyska))) - 450
+        bf_percent = 495 / (1.29579 - 0.35004*math.log10(float(pas +
+                            boky-krk)) + 0.22100*math.log10(float(vyska))) - 450
     print(bf_percent)
-    return Decimal(round(bf_percent,2))
+    return Decimal(round(bf_percent, 2))
 
-def get_lbm(vaha,bodyfat):
+
+def get_bf_by_image(image_bytes, mime_type):
+    contents = types.Content(role="user", parts=[
+                             types.Part.from_bytes(data=image_bytes, mime_type=mime_type)])
+    config = types.GenerateContentConfig(system_instruction="Analyzuj následující obrázek. Pokud je na něm osoba, která je zobrazena celá a v takové pozici, ze které lze odhadnout procento tělesného tuku, proveď tento odhad a výsledek vlož do pole 'procento_telesneho_tuku'. Pokud obrázek nesplňuje tyto podmínky (např. je na něm pes, krajina, nebo osoba v oblečení) vlož do pole 'procento_telesneho_tuku' hodnotu 0. Uveď stručný důvod pro své rozhodnutí", response_schema=UrceniBodyfat, response_mime_type="application/json")
+    response = client.models.generate_content(
+        model=model,
+        contents=contents,
+        config=config
+    )
+    formatted_response: UrceniBodyfat = response.parsed
+    print(formatted_response)
+    if not formatted_response.lze_urcit_procento_telesneho_tuku:
+        return -1
+    return Decimal(round(formatted_response.procento_telesneho_tuku, 2))
+
+
+def get_lbm(vaha, bodyfat):
     lbm = float(vaha) * ((100-float(bodyfat))/100)
     return lbm
 
@@ -82,6 +119,7 @@ def get_cals_bulk(tdee, yes_count):
         kalorie = tdee*1.05
     return int(round(kalorie))
 
+
 def get_macros_simple(cals, vaha):
     print("vykonavam funkci pro makra")
     denni_bilkoviny = int(round(vaha*2))
@@ -91,7 +129,8 @@ def get_macros_simple(cals, vaha):
     pitny_rezim = round((vaha*Decimal(37.5))/1000, 2)
     return denni_bilkoviny, denni_sacharidy, denni_tuky, pitny_rezim
 
-def get_macros_advanced(cals,lbm,vaha,aktivita,vek):
+
+def get_macros_advanced(cals, lbm, vaha, aktivita, vek):
     if vek < 35:
         if aktivita == "Sedavý":
             bilkoviny = int(round(lbm*1.8))
@@ -126,4 +165,4 @@ def get_macros_advanced(cals,lbm,vaha,aktivita,vek):
             tuky = int(round(lbm*0.8))
     sacharidy = int(round((cals - (bilkoviny*4) - (tuky*9))/4))
     pitny_rezim = round((vaha*Decimal(37.5))/1000, 2)
-    return bilkoviny,sacharidy,tuky,pitny_rezim
+    return bilkoviny, sacharidy, tuky, pitny_rezim
