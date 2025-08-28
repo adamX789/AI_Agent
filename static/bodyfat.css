@@ -1,0 +1,114 @@
+/* bodyfat.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth; /* ✅ Plynulý přechod */
+  }
+  
+  body {
+    font-family: 'Mozilla Text', sans-serif;
+    background: #fff;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  
+  .container {
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #27ae60;
+  }
+  
+  .choice {
+    margin-bottom: 50px;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+    background: transparent;
+  }
+  
+  .btn:hover {
+    background: #2ecc71;
+    color: #fff;
+  }
+  
+  .btn.premium {
+    border-color: #9b59b6;
+    color: #9b59b6;
+  }
+  
+  .btn.premium:hover {
+    background: #9b59b6;
+    color: #fff;
+  }
+  
+  .btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .method {
+    margin-bottom: 60px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background: #fafafa;
+  }
+  
+  .premium-note {
+    color: #9b59b6;
+    margin-bottom: 15px;
+  }
+  
+  .measure-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+  }
+  
+  .measure-form label {
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  .measure-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+

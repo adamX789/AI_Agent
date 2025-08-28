@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zjištění Body Fat %</title>
+  <link rel="stylesheet" href="{% static 'bodyfat.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="container">
+    <h1>Zjistit Body Fat %</h1>
+    
+    <!-- ✅ Výběr metody -->
+    <section class="choice">
+      <h2>Vyberte metodu</h2>
+      <div class="buttons">
+        <a href="#photo-method" class="btn premium">📸 Podle fotky (Premium)</a>
+        <a href="#measure-method" class="btn">📏 Podle obvodů</a>
+      </div>
+    </section>
+
+    <!-- ✅ Metoda podle fotky -->
+    <section id="photo-method" class="method">
+      <h2>Podle fotky</h2>
+      <p class="premium-note">✨ Tato funkce je dostupná jen pro Premium uživatele.</p>
+      <button class="btn disabled">Nahrát fotku</button>
+    </section>
+
+    <!-- ✅ Metoda podle obvodů -->
+    <section id="measure-method" class="method">
+      <h2>Podle obvodů</h2>
+      <form class="measure-form" action="" method="POST">
+        {% csrf_token %}
+        <label for="waist">Obvod pasu (cm)</label>
+        <input type="number" step="0.01" id="waist" name="pas" placeholder="Např. 82" min="1" required>
+
+        <label for="neck">Obvod krku (cm)</label>
+        <input type="number" step="0.01" id="neck" name="krk" placeholder="Např. 38" min="1" required>
+        {% if pohlavi == "Žena" %}
+          <label for="hips">Obvod boků (cm)</label>
+          <input type="number" step="0.01" id="hips" name="boky" placeholder="Např. 95" min="1" required>
+        {% endif %}
+        <button type="submit" class="btn">Spočítat</button>
+      </form>
+      <p></p>
+      {% if messages %}
+        {% for message in messages %}
+          {{message}}
+        {% endfor %}
+      {% endif %}
+    </section>
+  </main>
+</body>
+</html>

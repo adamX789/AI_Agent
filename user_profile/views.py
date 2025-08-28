@@ -229,21 +229,20 @@ class StartFormView(View):
             if profile.jednoduchy_formular:
                 bmr = get_bmr_simple(pohlavi=profile.pohlavi, vek=profile.vek,
                                      vyska=profile.vyska_v_cm, vaha=profile.aktualni_vaha)
-                profile.denni_kalorie = get_tdee(
-                    bmr=bmr, vek=profile.vek, aktivita=profile.aktivita)
+                profile.denni_kalorie = int(round(get_tdee(
+                    bmr=bmr, vek=profile.vek, aktivita=profile.aktivita), 0))
                 profile.save()
                 profile.denni_bilkoviny, profile.denni_sacharidy, profile.denni_tuky, profile.pitny_rezim_litry = get_macros_simple(
                     cals=profile.denni_kalorie, vaha=profile.aktualni_vaha)
-            else:
-                bmr = 0
-                profile.denni_kalorie = get_tdee(
-                    bmr=bmr, vek=profile.vek, aktivita=profile.aktivita)
                 profile.save()
-            profile.save()
-            return redirect("profile")
+                return redirect("profile")
+            else:
+                return redirect("bodyfat")
         else:
-            print(profile.aktualni_vaha)
-            return redirect("info")
+            if profile.jednoduchy_formular:
+                return redirect("info")
+            else:
+                return redirect("bodyfat")
 
 
 class ChoiceView(View):
@@ -273,7 +272,8 @@ class InfoView(View):
             bmr = get_bmr_simple(pohlavi=profile.pohlavi, vek=profile.vek,
                                  vyska=profile.vyska_v_cm, vaha=profile.aktualni_vaha)
         else:
-            bmr = 0
+            lbm = get_lbm(vaha=profile.aktualni_vaha, bodyfat=profile.procento_telesneho_tuku)
+            bmr = get_bmr_advanced(lbm=lbm)
         tdee = get_tdee(bmr=bmr, vek=profile.vek, aktivita=profile.aktivita)
         if profile.celkovy_cil == "Zhubnout":
             choice = request.POST.get("cutting")
@@ -285,18 +285,57 @@ class InfoView(View):
                 x = 0.5
             else:
                 x = 0.25
-            profile.denni_kalorie = get_cals_cut(tdee=tdee, bmr=bmr, x=x)
-            profile.save()
+            profile.denni_kalorie = int(
+                round(get_cals_cut(tdee=tdee, bmr=bmr, x=x), 0))
         else:
             yes_count = 0
             for i in range(1, 4):
                 if request.POST.get("q" + str(i)) == "yes":
                     yes_count += 1
-            profile.denni_kalorie = get_cals_bulk(
-                tdee=tdee, yes_count=yes_count)
-            profile.save()
+            profile.denni_kalorie = int(round(get_cals_bulk(
+                tdee=tdee, yes_count=yes_count), 0))
+        profile.save()
 
-        profile.denni_bilkoviny, profile.denni_sacharidy, profile.denni_tuky, profile.pitny_rezim_litry = get_macros_simple(
-            cals=profile.denni_kalorie, vaha=profile.aktualni_vaha)
+        if profile.jednoduchy_formular:
+            profile.denni_bilkoviny, profile.denni_sacharidy, profile.denni_tuky, profile.pitny_rezim_litry = get_macros_simple(
+                cals=profile.denni_kalorie, vaha=profile.aktualni_vaha)
+        else:
+            profile.denni_bilkoviny, profile.denni_sacharidy, profile.denni_tuky,profile.pitny_rezim_litry = get_macros_advanced(
+                cals=profile.denni_kalorie, lbm=lbm, vaha=profile.aktualni_vaha, aktivita=profile.aktivita, vek=profile.vek)
         profile.save()
         return redirect("profile")
+
+
+class BodyFatView(View):
+    def get(self, request):
+        profile = request.user.profile
+        return render(request, "bodyfat.html", {"pohlavi": profile.pohlavi})
+
+    def post(self, request):
+        profile = request.user.profile
+        profile.obvod_pasu_cm = Decimal(request.POST.get("pas"))
+        profile.obvod_krku_cm = Decimal(request.POST.get("krk"))
+        profile.obvod_boku_cm = Decimal(request.POST.get(
+            "boky")) if request.POST.get("boky") else 0
+        
+        profile.save()
+        bodyfat = get_bf_by_measures(pohlavi=profile.pohlavi, pas=profile.obvod_pasu_cm,
+                                         krk=profile.obvod_krku_cm, boky=profile.obvod_boku_cm, vyska=profile.vyska_v_cm)
+        if bodyfat <= Decimal("0"):
+            messages.error(request, "Prosím zadejte realistické obvody.")
+            return render(request, "bodyfat.html", {"pohlavi": profile.pohlavi})
+        profile.procento_telesneho_tuku = bodyfat
+        profile.save()
+
+        if profile.celkovy_cil == "Udržet váhu":  
+            lbm = get_lbm(vaha=profile.aktualni_vaha, bodyfat=profile.procento_telesneho_tuku)
+            bmr = get_bmr_advanced(lbm=lbm)
+            profile.denni_kalorie = int(
+                round(get_tdee(bmr=bmr, vek=profile.vek, aktivita=profile.aktivita)))
+            profile.save()
+            profile.denni_bilkoviny, profile.denni_sacharidy, profile.denni_tuky,profile.pitny_rezim_litry = get_macros_advanced(
+                cals=profile.denni_kalorie, lbm=lbm, vaha=profile.aktualni_vaha, aktivita=profile.aktivita, vek=profile.vek)
+            profile.save()
+            return redirect("profile")
+        else:
+            return redirect("info")

@@ -7,4 +7,5 @@ urlpatterns = [
     path("choice/", ChoiceView.as_view(), name="choice"),
     path("form/", StartFormView.as_view(), name="form"),
     path("form/info/", InfoView.as_view(), name="info"),
+    path("form/bodyfat/", BodyFatView.as_view(), name="bodyfat"),
 ]

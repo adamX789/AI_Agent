@@ -9,6 +9,10 @@ class Profile(models.Model):
     jednoduchy_formular = models.BooleanField(blank=True,null=True)
     pohlavi = models.CharField(blank=True,null=True,max_length=20)
     vyska_v_cm = models.DecimalField(decimal_places=2,max_digits=5,blank=True,null=True)
+    obvod_pasu_cm = models.DecimalField(decimal_places=2,max_digits=5,blank=True,null=True)
+    obvod_krku_cm = models.DecimalField(decimal_places=2,max_digits=5,blank=True,null=True)
+    obvod_boku_cm = models.DecimalField(decimal_places=2,max_digits=5,blank=True,null=True) #jen pro ženy
+    procento_telesneho_tuku = models.DecimalField(decimal_places=2,max_digits=5,blank=True,null=True)
     vek = models.IntegerField(blank=True,null=True)
     dieta = models.CharField(blank=True,null=True,max_length=70)
     denni_kalorie = models.IntegerField(blank=True, null=True)

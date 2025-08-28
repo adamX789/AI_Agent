@@ -1,4 +1,5 @@
 from decimal import Decimal
+import math
 
 
 def get_bmr_simple(pohlavi, vek, vyska, vaha):
@@ -12,8 +13,26 @@ def get_bmr_simple(pohlavi, vek, vyska, vaha):
     return float(bmr)
 
 
-def get_bmr_advanced():
-    pass
+def get_bf_by_measures(pohlavi, pas, krk, boky, vyska):
+    if pohlavi == "Muž":
+        if pas <= krk:
+            return -1
+        bf_percent = 495 / (1.0324 - 0.19077*math.log10(float(pas-krk)) + 0.15456*math.log10(float(vyska))) - 450
+    else:
+        if pas+boky <= krk:
+            return -1
+        bf_percent = 495 / (1.29579 - 0.35004*math.log10(float(pas+boky-krk)) + 0.22100*math.log10(float(vyska))) - 450
+    print(bf_percent)
+    return Decimal(round(bf_percent,2))
+
+def get_lbm(vaha,bodyfat):
+    lbm = float(vaha) * ((100-float(bodyfat))/100)
+    return lbm
+
+
+def get_bmr_advanced(lbm):
+    bmr = 370 + (21.6*lbm)
+    return bmr
 
 
 def get_tdee(bmr, vek, aktivita):
@@ -48,7 +67,7 @@ def get_cals_cut(tdee, bmr, x):
     print("vykonavam funkci pro kalorie cut")
     deficit = (tdee-bmr)*x
     kalorie = tdee-deficit
-    return kalorie
+    return int(round(kalorie))
 
 
 def get_cals_bulk(tdee, yes_count):
@@ -61,14 +80,50 @@ def get_cals_bulk(tdee, yes_count):
         kalorie = tdee*1.1
     else:
         kalorie = tdee*1.05
-    return kalorie
-
+    return int(round(kalorie))
 
 def get_macros_simple(cals, vaha):
     print("vykonavam funkci pro makra")
-    denni_bilkoviny = int(round(vaha*2, 0))
-    denni_tuky = int(round((cals*0.25)/9, 0))
+    denni_bilkoviny = int(round(vaha*2))
+    denni_tuky = int(round((cals*0.25)/9))
     denni_sacharidy = int(
-        round((cals - (denni_bilkoviny*4) - (denni_tuky*9))/4, 0))
+        round((cals - (denni_bilkoviny*4) - (denni_tuky*9))/4))
     pitny_rezim = round((vaha*Decimal(37.5))/1000, 2)
     return denni_bilkoviny, denni_sacharidy, denni_tuky, pitny_rezim
+
+def get_macros_advanced(cals,lbm,vaha,aktivita,vek):
+    if vek < 35:
+        if aktivita == "Sedavý":
+            bilkoviny = int(round(lbm*1.8))
+            tuky = int(round(lbm*1.3))
+        if aktivita == "Lehká aktivita":
+            bilkoviny = int(round(lbm*2))
+            tuky = int(round(lbm*1.2))
+        elif aktivita == "Střední aktivita":
+            bilkoviny = int(round(lbm*2.4))
+            tuky = int(round(lbm*1.1))
+        elif aktivita == "Vysoká aktivita":
+            bilkoviny = int(round(lbm*2.7))
+            tuky = int(round(lbm*1))
+        else:
+            bilkoviny = int(round(lbm*3))
+            tuky = int(round(lbm*0.8))
+    else:
+        if aktivita == "Sedavý":
+            bilkoviny = int(round(lbm*1.6))
+            tuky = int(round(lbm*1.3))
+        if aktivita == "Lehká aktivita":
+            bilkoviny = int(round(lbm*1.9))
+            tuky = int(round(lbm*1.2))
+        elif aktivita == "Střední aktivita":
+            bilkoviny = int(round(lbm*2.2))
+            tuky = int(round(lbm*1.1))
+        elif aktivita == "Vysoká aktivita":
+            bilkoviny = int(round(lbm*2.4))
+            tuky = int(round(lbm*1))
+        else:
+            bilkoviny = int(round(lbm*2.6))
+            tuky = int(round(lbm*0.8))
+    sacharidy = int(round((cals - (bilkoviny*4) - (tuky*9))/4))
+    pitny_rezim = round((vaha*Decimal(37.5))/1000, 2)
+    return bilkoviny,sacharidy,tuky,pitny_rezim
