@@ -35,19 +35,14 @@ class ChatView(View):
             "tuky":celkove_tuky
         }
         if not request.FILES.get("image"):
+            historie_zprav = user.message_set.all().order_by("id")[:10]
             last_agent_msg = user.message_set.order_by("-id").first()
-            if last_agent_msg and last_agent_msg.text:
-                if last_agent_msg.text == "Pro některé potraviny chybí hmotnost v gramech, prosím zadejte hmotnost potravin, abych je mohl zaznamenat do tabulky.":
-                    last_user_msg = user.message_set.filter(sender="Vy").order_by("-id").first().text
-                else:
-                    last_user_msg=None
-            else:
-                last_user_msg=None
+            last_agent_msg_text = last_agent_msg.text if last_agent_msg else None
             data = json.loads(request.body)
             message = data.get("message")
             user.message_set.create(text=message, sender="Vy", role="user")
 
-            agent_response = chatbot(message,profile,last_user_msg,denni_udaje)
+            agent_response = chatbot(message,profile,last_agent_msg_text,denni_udaje,historie=historie_zprav)
             user.message_set.create(text=agent_response,
                                 sender="Podpora", role="agent")
         else:
