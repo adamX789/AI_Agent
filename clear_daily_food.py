@@ -13,7 +13,7 @@ def reset_daily_food():
     Message.objects.all().delete()
     User = get_user_model()
     users = User.objects.all()
-    message_text = "Ahoj, na co máš dneska chuť, nebo co ti zbylo v lednici? :) Zkusím ti podle toho sestavit jídelníček na základě tvých makroživin. Pokud nic nenapíšeš, vymyslím něco podle sebe."
+    message_text = "Ahoj, na co máš dneska chuť, nebo co ti zbylo v lednici?😋 Zkusím ti podle toho sestavit jídelníček na základě tvých makroživin. Pokud nic nenapíšeš, vymyslím něco podle sebe."
     for user in users:
         Message.objects.create(
             user=user,
