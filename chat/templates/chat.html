@@ -35,6 +35,8 @@
     <form class="chat-input" action="" method="POST" id="form-field">
       {% csrf_token %}
       <input type="text" placeholder="Napište zprávu..." id="textInput" />
+      <label for="imageInput">Nahrajte obrázek jídla:</label>
+      <input type="file" name="image" id="imageInput" accept="image/*">
       <button type="submit">Odeslat</button>
     </form>
   </main>
@@ -48,25 +50,47 @@
   document.getElementById("form-field").addEventListener("submit", function (event) {
     event.preventDefault();
     const text_box = document.getElementById("textInput");
+    const image_box = document.getElementById("imageInput");
     const user_msg = text_box.value;
 
-    appendMessage(user_msg, "user");
-    appendWaitMessage("Agent přemýšlí.", "agent");
-    const messageToRemove = document.getElementById("tempMessage")
+    if (user_msg.length > 0){
+      appendMessage(user_msg, "user");
+      appendWaitMessage("Agent přemýšlí.", "agent");
+      const messageToRemove = document.getElementById("tempMessage")
 
-    fetch("{% url 'chat' %}", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-CSRFToken": getCookie("csrftoken")
-      },
-      body: JSON.stringify({ message: user_msg })
-    })
-      .then(response => response.json())
-      .then(data => {
-        appendMessage(data.response, "agent");
-        messageToRemove.remove();
-      });
+      fetch("{% url 'chat' %}", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": getCookie("csrftoken")
+        },
+        body: JSON.stringify({ message: user_msg })
+      })
+        .then(response => response.json())
+        .then(data => {
+          appendMessage(data.response, "agent");
+          messageToRemove.remove();
+        });
+    } else {
+      appendMessage("[Obrázek]", "user");
+      appendWaitMessage("Agent přemýšlí.", "agent");
+      const messageToRemove = document.getElementById("tempMessage");
+      const formData = new FormData();
+      formData.append("image",image_box.files[0]);
+      formData.append("csrfmiddlewaretoken",getCookie("csrftoken"));
+
+      fetch("{% url 'chat' %}", {
+        method: "POST",
+        body: formData
+      })
+        .then(response => response.json())
+        .then(data => {
+          appendMessage(data.response, "agent");
+          messageToRemove.remove();
+        });
+    }
+
+    
 
     text_box.value = "";
   });

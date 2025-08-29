@@ -2,7 +2,7 @@ import json
 from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse, JsonResponse
-from .main import chatbot
+from .main import chatbot,chatbot_picture
 from .models import *
 from user_profile.models import Profile
 
@@ -34,19 +34,29 @@ class ChatView(View):
             "sacharidy":celkove_sacharidy,
             "tuky":celkove_tuky
         }
-        last_agent_msg = user.message_set.order_by("-id").first()
-        if last_agent_msg and last_agent_msg.text:
-            if last_agent_msg.text == "Pro některé potraviny chybí hmotnost v gramech, prosím zadejte hmotnost potravin, abych je mohl zaznamenat do tabulky.":
-                last_user_msg = user.message_set.filter(sender="Vy").order_by("-id").first().text
+        if not request.FILES.get("image"):
+            last_agent_msg = user.message_set.order_by("-id").first()
+            if last_agent_msg and last_agent_msg.text:
+                if last_agent_msg.text == "Pro některé potraviny chybí hmotnost v gramech, prosím zadejte hmotnost potravin, abych je mohl zaznamenat do tabulky.":
+                    last_user_msg = user.message_set.filter(sender="Vy").order_by("-id").first().text
+                else:
+                    last_user_msg=None
             else:
                 last_user_msg=None
-        else:
-            last_user_msg=None
-        data = json.loads(request.body)
-        message = data.get("message")
-        user.message_set.create(text=message, sender="Vy", role="user")
+            data = json.loads(request.body)
+            message = data.get("message")
+            user.message_set.create(text=message, sender="Vy", role="user")
 
-        agent_response = chatbot(message,profile,last_user_msg,denni_udaje)
-        user.message_set.create(text=agent_response,
-                               sender="Podpora", role="agent")
+            agent_response = chatbot(message,profile,last_user_msg,denni_udaje)
+            user.message_set.create(text=agent_response,
+                                sender="Podpora", role="agent")
+        else:
+            image_file = request.FILES["image"]
+            image_bytes = image_file.read()
+            mime_type = image_file.content_type
+            user.message_set.create(text="[Obrázek]", sender="Vy", role="user")
+            agent_response = chatbot_picture(image_bytes=image_bytes,mime_type=mime_type)
+            user.message_set.create(text=agent_response,
+                                sender="Podpora", role="agent")
+            
         return JsonResponse({"response":agent_response})

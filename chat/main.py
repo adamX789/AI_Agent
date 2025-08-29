@@ -60,6 +60,10 @@ class Jidla(BaseModel):
     seznam_vsech_potravin: list[str] = Field(
         description="Seznam VŠECH potravin nalezených v textu")
 
+class UrceniJidlaZObrazku(BaseModel):
+    je_obrazek_jidla:bool = Field(description="Jestli je na obrázku jídlo v dostatečné kvalitě, aby šli určit potraviny.")
+    potraviny:list[str] = Field(description="Z jakých potravin se jídlo skládá.")
+    duvod:str = Field(description="Důvod pro tvé rozhodnutí.")
 
 def first_check(text: str):
     config = types.GenerateContentConfig(
@@ -233,3 +237,17 @@ def chatbot(query, profile, extra_content, denni_udaje):
         config=config
     )
     return response.text
+
+def chatbot_picture(image_bytes,mime_type):
+    contents = types.Content(role="user", parts=[
+                             types.Part.from_bytes(data=image_bytes, mime_type=mime_type)])
+    config = types.GenerateContentConfig(system_instruction="Analyzuj následující obrázek. Pokud je na něm jídlo v takové kvalitě, že z něj jdou určit jednotlivé potraviny, urči názvy jednotlivých potravin (například kuřecí prso, brambory, mrkev) a seznam těchto potravin vlož do pole 'potraviny'. Pokud na obrázku vůbec jídlo není, a je tam např. pes nebo člověk, nevkládej do pole 'potraviny' nic.", response_schema=UrceniJidlaZObrazku, response_mime_type="application/json")
+    response = client.models.generate_content(
+        model=model,
+        contents=contents,
+        config=config
+    )
+    formatted_response: UrceniJidlaZObrazku = response.parsed
+    if not formatted_response.je_obrazek_jidla:
+        return "Na tomto obrázku není jídlo, prosím vložte obrázek jídla."
+    return f"Z obrázku nalezeny potraviny: {", ".join(formatted_response.potraviny)}, prosím zadejte množství těchto potravin."
