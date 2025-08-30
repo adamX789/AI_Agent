@@ -1,15 +1,48 @@
 from chat.models import *
 import json
 import os
+from dotenv import load_dotenv
+from django.db.models.expressions import RawSQL
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from google import genai
 from google.genai import types
 
+load_dotenv()
+client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+
+
+def search_recepty(ingredience):
+    kalorie = 0
+    bilkoviny = 0
+    sacharidy = 0
+    tuky = 0
+    for item in ingredience:
+        potravina = item["nazev"]
+        mnozstvi = item["mnozstvi"]
+        casti = mnozstvi.strip().split(" ")
+        hodnota = float(casti[0])
+        jednotka = casti[1]
+        response = client.models.embed_content(
+            model="gemini-embedding-001",
+            contents=potravina,
+            config=types.EmbedContentConfig(output_dimensionality=768)
+        )
+        embedding = response.embeddings[0].values
+        potravina_objekt = Potraviny.objects.annotate(podoba=RawSQL(
+            "%s::vector <=> embedding", (embedding,))).order_by("podoba").first()
+        if potravina_objekt.podoba < 0.35:
+            makroziviny = potravina_objekt.makroziviny
+            koeficient = hodnota/100
+            kalorie += makroziviny.kalorie*koeficient
+            bilkoviny += makroziviny.bilkoviny_gramy*koeficient
+            sacharidy += makroziviny.sacharidy_gramy*koeficient
+            tuky += makroziviny.tuky_gramy*koeficient
+    return int(round(kalorie)), round(bilkoviny, 2), round(sacharidy, 2), round(tuky, 2)
+
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
-        client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
         file_path = "chat/data.json"
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -20,13 +53,13 @@ class Command(BaseCommand):
         diets = data.get("diets")
         communication_styles = data.get("communication_styles")
         with transaction.atomic():
-            self.import_potraviny(foods, client)
-            self.import_recepty(recipes, client)
-            self.import_situace(situations, client)
-            self.import_diety(diets, client)
-            self.import_komunikace(communication_styles, client)
+            self.import_potraviny(foods)
+            self.import_recepty(recipes)
+            self.import_situace(situations)
+            self.import_diety(diets)
+            self.import_komunikace(communication_styles)
 
-    def import_potraviny(self, foods, client):
+    def import_potraviny(self, foods):
         print("pridavam potraviny")
         if not foods:
             return None
@@ -61,7 +94,7 @@ class Command(BaseCommand):
                     tuky_gramy=item["nutrients"]["fat_g"]
                 )
 
-    def import_recepty(self, recipes, client):
+    def import_recepty(self, recipes):
         print("pridavam recepty")
         if not recipes:
             return None
@@ -81,7 +114,7 @@ class Command(BaseCommand):
                 config=types.EmbedContentConfig(output_dimensionality=768)
             )
             embedding = response.embeddings[0].values
-            Recepty.objects.get_or_create(
+            recept, created = Recepty.objects.get_or_create(
                 nazev=item["name"],
                 ingredience=item["ingredients"],
                 instrukce=item["instructions"],
@@ -91,8 +124,18 @@ class Command(BaseCommand):
                 vhodne_pro=item["suitable_for"],
                 embedding=embedding
             )
+            if created:
+                kalorie, bilkoviny, sacharidy, tuky = search_recepty(
+                    ingredience=item["ingredients"])
+                MakrozivinyRecepty.objects.create(
+                    recept=recept,
+                    kalorie=kalorie,
+                    bilkoviny_gramy=bilkoviny,
+                    sacharidy_gramy=sacharidy,
+                    tuky_gramy=tuky
+                )
 
-    def import_situace(self, situations, client):
+    def import_situace(self, situations):
         print("pridavam situace")
         if not situations:
             return None
@@ -113,7 +156,7 @@ class Command(BaseCommand):
                 embedding=embedding
             )
 
-    def import_diety(self, diets, client):
+    def import_diety(self, diets):
         print("pridavam diety")
         if not diets:
             return None
@@ -139,7 +182,7 @@ class Command(BaseCommand):
                 embedding=embedding
             )
 
-    def import_komunikace(self, communication_styles, client):
+    def import_komunikace(self, communication_styles):
         print("pridavam komunikace")
         if not communication_styles:
             return None

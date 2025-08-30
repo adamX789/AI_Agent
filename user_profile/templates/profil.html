@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="cs">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,57 +10,52 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <!-- ✅ Sidebar/Navbar -->
-  <aside class="sidebar">
-    <a href="/" style="width: 100%;"><button class="chat-btn">💬 Chat</button></a>
-    <a href="/user_logout/" style="width: 100%;"><button class="logout-btn">Odhlásit se</button></a>
-  </aside>
+ <!-- ✅ Hamburger ikona -->
+ <button class="hamburger" id="hamburger">☰</button>
+
+ <!-- ✅ Sidebar -->
+ <aside class="sidebar" id="sidebar">
+   <button class="close-btn" id="closeBtn">✖</button>
+   <nav class="nav-links">
+     <a href="{% url 'profile' %}"><button class="nav-btn">Profil</button></a>
+     <a href="{% url 'chat' %}"><button class="nav-btn">Chat</button></a>
+     <a href="{% url 'my_day' %}"><button class="nav-btn">Můj den</button></a>
+   </nav>
+   <a href="{% url 'logout' %}" style="width: 100%;"><button class="logout-btn">Odhlásit se</button></a>
+ </aside>
 
   <!-- ✅ Main Content -->
   <main class="profile">
-    <h1 class="username">{{username}}, {{vek}}</h1>
-    <a href="edit/"><button class="edit-btn">Upravit parametry</button></a>
+    <h1 class="username">{{jmeno}}</h1>
+    <a href="{% url 'edit' %}"><button class="edit-btn">Upravit parametry</button></a>
 
     <!-- ✅ Denní hodnoty -->
     <section class="stats">
-      <h2>Denní příjem</h2>
+      <h2>Informace</h2>
       <ul>
-        <li>Kcal: <span>{{celkove_info.celkove_k|stringformat:'.1f'}} / {{denni_info.denni_k}}</span></li>
-        <li>Bílkoviny: <span>{{celkove_info.celkove_b|stringformat:'.1f'}} g / {{denni_info.denni_b}} g</span></li>
-        <li>Sacharidy: <span>{{celkove_info.celkove_s|stringformat:'.1f'}} g / {{denni_info.denni_s}} g</span></li>
-        <li>Tuky: <span>{{celkove_info.celkove_t|stringformat:'.1f'}} g / {{denni_info.denni_t}} g</span></li>
-        <li>Pitný režim: <span>0 l / {{denni_info.pitny_rezim}} l</span></li>
+        <li>Jméno: <span>{{jmeno}}</span></li>
+        <li>Věk: <span>{{vek}}</span></li>
+        <li>Výška: <span>{{vyska}} cm</span></li>
+        <li>Váha: <span>{{akt_vaha}} kg</span></li>
+        <li>Pohlaví: <span>{{pohlavi}}</span></li>
+        <li>Aktivita: <span>{{aktivita}}</span></li>
+        <li>Zdravotní omezení: <span>{{zdravotni_omezeni}}</span></li>
+        <li>Dieta: <span>{{dieta}}</span></li>
+
+
       </ul>
     </section>
 
     <!-- ✅ Cíle -->
     <section class="goals">
       <h2>Cíle</h2>
-      <p>Aktuální váha: <span>{{celkove_info.akt_vaha}} kg</span></p>
-      <p>Cílová váha: <span>{{celkove_info.cil_vaha}} kg</span></p>
-      <p>Celkový cíl: <span>{{celkove_info.cil}}</span></p>
-      <p>Aktivita: <span>{{aktivita}}</span></p>
+      <p>Cílová váha: <span>{{cil_vaha}} kg</span></p>
+      <p>Celkový cíl: <span>{{cil}}</span></p>
     </section>
 
-    <!-- ✅ Potraviny dnes -->
-    <section class="foods">
-      <h2>Potraviny dnes</h2>
-      <ul>
-        {% for potravina in potraviny %}
-        <li>
-          {{potravina.nazev}} {{potravina.hmotnost|stringformat:'.0f'}}g
-          <form action="" method="POST">
-            {% csrf_token %}
-            <button type="submit" class="delete-btn" name="del{{potravina.id}}" value="c">×</button>
-          </form>
-        </li>
-        {% endfor %}
-      </ul>
-    </section>
-
+  
   </main>
+  <script src="{% static 'chat.js' %}"></script>
 </body>
-
 </html>

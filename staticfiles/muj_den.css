@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Mozilla Text', sans-serif;
+    background-color: #fff;
+    color: #222;
+    display: flex;
+    min-height: 100vh;
+  }
+  
+/* ✅ Sidebar */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #fff;
+    border-right: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    padding-top: 100px;
+    position: sticky;
+    top: 0;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .nav-links {
+    display: flex;        /* stačí flexbox místo gridu */
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;          /* aby tlačítka šla přes celou šířku */
+  }
+  
+  .nav-btn {
+    width: 100%;
+    padding: 12px 0;
+    border: 1px solid #2ecc71;
+    background: transparent;
+    color: #2ecc71;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  
+  .nav-btn.active,
+  .nav-btn:hover {
+    background-color: #2ecc71;
+    color: #fff;
+  }
+  
+  .logout-btn {
+    width: 100%;
+    padding: 12px 0;
+    border: 1px solid #e74c3c;
+    background: transparent;
+    color: #e74c3c;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  
+  .logout-btn:hover {
+    background-color: #e74c3c;
+    color: #fff;
+  }
+  
+  /* ✅ Main */
+  .profile {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  .username {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 60px;
+  }
+  
+  /* ✅ Stats */
+  .stats  {
+    margin-bottom: 30px;
+  }
+
+  .stats ul {
+    list-style: none;
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+  
+  .stats span {
+    font-weight: 600;
+    color: #2ecc71;
+  }
+  
+  /* ✅ Tabs */
+  .switcher {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tab-btn {
+    padding: 10px 20px;
+    border: 1px solid #2ecc71;
+    background: transparent;
+    color: #2ecc71;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  
+  .tab-btn.active,
+  .tab-btn:hover {
+    background: #2ecc71;
+    color: #fff;
+  }
+  
+  .tab-content {
+    display: none;
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+  
+  /* ✅ Meals */
+  .meal {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .meal h3 {
+    color: #27ae60;
+    margin-bottom: 8px;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .switch-recipe,
+  .eat-btn {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .switch-recipe {
+    background: #eee;
+    color: #333;
+  }
+  
+  .switch-recipe:hover {
+    background: #ddd;
+  }
+  
+  .eat-btn {
+    background: #2ecc71;
+    color: #fff;
+  }
+  
+  .eat-btn:hover {
+    background: #27ae60;
+  }
+
+  /* ✅ Dots (přepínače receptů) */
+.dots {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .dot.active {
+    background: #2ecc71;
+  }
+  
+  
+  /* ✅ Foods */
+  .foods-list {
+    list-style: none;
+  }
+  
+  .foods-list li {
+    margin: 5px 0;
+    padding: 8px 12px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .delete-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: #888;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    color: #e74c3c;
+  }
+
+ /* ✅ RESPONSIVE - mobil */
+@media (max-width: 768px) {
+    body {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 60%;
+      max-width: 280px;
+      height: 100%;
+      transform: translateX(-100%);
+      box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+    }
+  
+    .sidebar.active {
+      transform: translateX(0);
+    }
+  
+  
+  }
+  
+  /* ❌ Skrýt křížek na desktopu */
+  .close-btn {
+    display: none;
+  }
+  
+  /* ✅ Zobrazit křížek jen na mobilu */
+  @media (max-width: 768px) {
+    .close-btn {
+      display: block;
+    }
+  }
+
+    /* ✅ Tlačítko zavřít */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+
+  .hamburger {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+  }
+  
+  /* musí být AŽ TADY */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+  }
+  
+  

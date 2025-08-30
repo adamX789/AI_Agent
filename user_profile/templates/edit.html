@@ -4,75 +4,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Profil uživatele</title>
-  <link rel="stylesheet" href="{% static 'form.css' %}" />
+  <title>Úprava údajů</title>
+  <link rel="stylesheet" href="{% static 'edit.css' %}" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- ✅ Form wrapper -->
-  <main class="container">
-    <h1 class="title">Vytvoř si profil</h1>
-    <p class="subtitle">Zadej své údaje, abychom ti připravili personalizovaný plán.</p>
 
-    <form class="profile-form">
-      <label for="name">Jméno</label>
-      <input type="text" name="jmeno" id="name" placeholder="Např. Jan Novák" required>
+  <main class="edit-container">
+    <h1 class="username">Upravit údaje</h1>
 
-      <label for="gender">Pohlaví</label>
-      <select id="gender" name="pohlavi" required>
-        <option value="">Vyber...</option>
-        <option value="muz">Muž</option>
-        <option value="zena">Žena</option>
-        <option value="jine">Jiné</option>
-      </select>
+    <form class="edit-form" action="" method="POST">
+      {% csrf_token %}
+      <section>
+        <h2>Informace</h2>
+        <label>Jméno:
+          <input type="text" name="jmeno" value="{{jmeno}}" />
+        </label>
+        <label>Věk:
+          <input type="number" name="vek" value="{{vek}}" />
+        </label>
+        <label>Výška (cm):
+          <input type="number" name="vyska" step="0.01" value="{{vyska|stringformat:'.2f'}}" />
+        </label>
+        <label>Váha (kg):
+          <input type="number" name="vaha_akt" step="0.01" value="{{vaha_akt|stringformat:'.2f'}}" />
+        </label>
+        <label>Pohlaví:
+          <select name="pohlavi">
+              <option value="muz" {% if pohlavi == "Muž" %}selected{% endif %}>Muž</option>
+              <option value="zena" {% if pohlavi == "Žena" %}selected{% endif %}>Žena</option>
+              <option value="jine" {% if pohlavi == "Jiné" %}selected{% endif %}>Jiné</option>
+          </select>
+        </label>
+        <label>Aktivita:
+          <select name="aktivita">
+            <option value="sedavy" {% if aktivita == "Sedavý" %}selected{% endif %}>Sedavý (velmi nízká)</option>
+            <option value="lehka" {% if aktivita == "Lehká aktivita" %}selected{% endif %}>Lehká aktivita</option>
+            <option value="stredni" {% if aktivita == "Střední aktivita" %}selected{% endif %}>Střední aktivita</option>
+            <option value="vysoka" {% if aktivita == "Vysoká aktivita" %}selected{% endif %}>Vysoká aktivita</option>
+            <option value="extremni" {% if aktivita == "Extrémně vysoká aktivita" %}selected{% endif %}>Extrémně vysoká aktivita</option>
+          </select>
+        </label>
+        <label>Zdravotní omezení:
+          <select name="zdravotni">
+            <option value="nemam" {% if zdravotni_omezeni == "Nemám" %}selected{% endif %}>Nemám</option>
+            <option value="alergie" {% if zdravotni_omezeni == "Alergie" %}selected{% endif %}>Alergie</option>
+            <option value="cukrovka" {% if zdravotni_omezeni == "Cukrovka" %}selected{% endif %}>Cukrovka</option>
+            <option value="srdecni" {% if zdravotni_omezeni == "Srdeční problémy" %}selected{% endif %}>Srdeční problémy</option>
+            <option value="jine" {% if zdravotni_omezeni == "Jiné" %}selected{% endif %}>Jiné</option>
+          </select>
+        </label>
+        <label>Dieta:
+          <select name="dieta">
+            <option value="zadna" {% if dieta == "Žádná" %}selected{% endif %}>Žádná</option>
+            <option value="vegan" {% if dieta == "Veganská" %}selected{% endif %}>Veganská</option>
+            <option value="vegetarian" {% if dieta == "Vegetariánská" %}selected{% endif %}>Vegetariánská</option>
+            <option value="keto" {% if dieta == "Keto" %}selected{% endif %}>Keto</option>
+            <option value="paleo" {% if dieta == "Paleo" %}selected{% endif %}>Paleo</option>
+          </select>
+        </label>
+      </section>
 
-      <label for="height">Výška (cm)</label>
-      <input type="number" name="vyska" id="height" placeholder="Např. 180" required>
+      <!-- Cíle -->
+      <section>
+        <h2>Cíle</h2>
+        <label>Cílová váha (kg):
+          <input type="number" name="vaha_cil" step="0.01" value="{{vaha_cil|stringformat:'.2f'}}" />
+        </label>
+        <label>Celkový cíl:
+          <select name="cil">
+            <option value="z" {% if cil == "Zhubnout" %}selected{% endif %}>Zhubnout</option>
+            <option value="n" {% if cil == "Nabrat svaly" %}selected{% endif %}>Přibrat</option>
+            <option value="u" {% if cil == "Udržet váhu" %}selected{% endif %}>Udržet váhu</option>
+          </select>
+        </label>
+      </section>
 
-      <label for="weight">Váha (kg)</label>
-      <input type="number" name="vaha" id="weight" placeholder="Např. 78" required>
-
-      <label for="goal-weight">Cílová váha (kg)</label>
-      <input type="number" name="cilova_vaha" id="goal-weight" placeholder="Např. 72" required>
-
-      <label for="goal">Cíl</label>
-      <select id="goal" name="cil" required>
-        <option value="">Vyber...</option>
-        <option value="n">Nabrat</option>
-        <option value="u">Udržet</option>
-        <option value="z">Zhubnout</option>
-      </select>
-
-      <label for="activity">Jak moc jsi aktivní?</label>
-      <select id="activity" name="aktivita" required>
-        <option value="">Vyber...</option>
-        <option value="nizka">Nízká aktivita</option>
-        <option value="stredni">Střední aktivita</option>
-        <option value="vysoka">Vysoká aktivita</option>
-      </select>
-
-      <label for="health">Zdravotní omezení</label>
-      <select id="health" name="omezeni">
-        <option value="nemam">Nemám</option>
-        <option value="alergie">Alergie</option>
-        <option value="cukrovka">Cukrovka</option>
-        <option value="srdecni">Srdeční problémy</option>
-        <option value="jine">Jiné</option>
-      </select>
-
-      <label for="diet">Dodržovaná dieta</label>
-      <select id="diet" name="dieta">
-        <option value="">Žádná</option>
-        <option value="vegan">Veganská</option>
-        <option value="vegetarian">Vegetariánská</option>
-        <option value="keto">Keto</option>
-        <option value="paleo">Paleo</option>
-      </select>
-
-      <button type="submit" class="submit-btn">Uložit profil</button>
+      <button type="submit" class="save-btn">Uložit změny</button>
     </form>
   </main>
+
 </body>
 </html>

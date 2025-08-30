@@ -14,10 +14,16 @@
 </head>
 
 <body>
+  <button class="hamburger" id="hamburger">☰</button>
   <!-- ✅ Sidebar -->
-  <aside class="sidebar">
-    <a href="profile/" style="width: 100%;"><button class="profile-btn">👤 Profil</button></a>
-    <a href="/user_logout/" style="width: 100%;"><button class="logout-btn">Odhlásit se</button></a>
+  <aside class="sidebar" id="sidebar">
+    <button class="close-btn" id="closeBtn">✖</button>
+    <nav class="nav-links">
+      <a href="{% url 'profile' %}"><button class="nav-btn">Profil</button></a>
+      <a href="{% url 'chat' %}"><button class="nav-btn">Chat</button></a>
+      <a href="{% url 'my_day' %}"><button class="nav-btn">Můj den</button></a>
+    </nav>
+    <a href="{% url 'logout' %}" style="width: 100%;"><button class="logout-btn">Odhlásit se</button></a>
   </aside>
 
   <!-- ✅ Main Chat Section -->
@@ -35,9 +41,9 @@
     <form class="chat-input" action="" method="POST" id="form-field">
       {% csrf_token %}
       <input type="text" placeholder="Napište zprávu..." id="textInput" />
-      <label for="imageInput">Nahrajte obrázek jídla:</label>
-      <input type="file" name="image" id="imageInput" accept="image/*">
-      <button type="submit">Odeslat</button>
+      <label for="imageInput"><button type="button" class="icon-btn">📷</button></label>
+      <input type="file" name="image" style="display: none;" id="imageInput" accept="image/*">
+      <p id="fileNameDisplay"></p> <button type="submit" class="send-btn">Odeslat</button>
     </form>
   </main>
 </body>
@@ -53,7 +59,7 @@
     const image_box = document.getElementById("imageInput");
     const user_msg = text_box.value;
 
-    if (user_msg.length > 0){
+    if (user_msg.length > 0) {
       appendMessage(user_msg, "user");
       appendWaitMessage("Agent přemýšlí.", "agent");
       const messageToRemove = document.getElementById("tempMessage")
@@ -76,8 +82,8 @@
       appendWaitMessage("Agent přemýšlí.", "agent");
       const messageToRemove = document.getElementById("tempMessage");
       const formData = new FormData();
-      formData.append("image",image_box.files[0]);
-      formData.append("csrfmiddlewaretoken",getCookie("csrftoken"));
+      formData.append("image", image_box.files[0]);
+      formData.append("csrfmiddlewaretoken", getCookie("csrftoken"));
 
       fetch("{% url 'chat' %}", {
         method: "POST",
@@ -90,7 +96,7 @@
         });
     }
 
-    
+
 
     text_box.value = "";
   });
@@ -133,7 +139,23 @@
     }
     return cookieValue;
   };
+  const imageButton = document.querySelector('.icon-btn');
+  const imageInput = document.getElementById('imageInput');
+  const fileNameDisplay = document.getElementById('fileNameDisplay');
+
+  imageButton.addEventListener('click', () => {
+    imageInput.click();
+  });
+  imageInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      fileNameDisplay.textContent = `${file.name}`;
+    } else {
+      fileNameDisplay.textContent = "";
+    }
+  });
 </script>
+<script src="{% static 'chat.js' %}"></script>
 </body>
 
 </html>

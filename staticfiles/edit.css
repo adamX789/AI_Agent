@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Mozilla Text', sans-serif;
+    background-color: #fff;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .edit-container {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .username {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
+    color: #27ae60;
+  }
+  
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  section h2 {
+    font-size: 1.3rem;
+    color: #27ae60;
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  select {
+    margin-top: 4px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    width: 100%;
+  }
+  
+  select {
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  .save-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #2ecc71;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .save-btn:hover {
+    background-color: #27ae60;
+  }
+  
+  /* Mobile adjustments */
+  @media (max-width: 480px) {
+    body {
+      padding: 12px;
+    }
+  
+    input, select {
+      padding: 8px;
+      font-size: 0.9rem;
+    }
+  
+    .save-btn {
+      font-size: 0.95rem;
+      padding: 10px 16px;
+    }
+  }
+  

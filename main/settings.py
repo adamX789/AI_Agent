@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "chat.apps.ChatConfig",
     "decouple",
+    "muj_den.apps.MujDenConfig",
     "register.apps.RegisterConfig",
     "user_profile.apps.UserProfileConfig"
 ]

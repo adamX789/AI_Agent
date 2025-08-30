@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Můj den</title>
+  <link rel="stylesheet" href="{% static 'muj_den.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+ <!-- ✅ Hamburger ikona -->
+ <button class="hamburger" id="hamburger">☰</button>
+
+ <!-- ✅ Sidebar -->
+ <aside class="sidebar" id="sidebar">
+   <button class="close-btn" id="closeBtn">✖</button>
+   <nav class="nav-links">
+     <button class="nav-btn">Profil</button>
+     <button class="nav-btn">Chat</button>
+     <button class="nav-btn">Můj den</button>
+   </nav>
+   <button class="logout-btn">Odhlásit se</button>
+ </aside>
+
+  <!-- ✅ Main Content -->
+  <main class="profile">
+    <h1 class="username">Můj den</h1>
+
+    <!-- ✅ Denní cíle -->
+    <section class="stats">
+      <h2>Dnešní cíl:</h2>
+      <ul>
+        <li>Denní příjem Kcal: <span>0.0 / 3297</span></li>
+        <li>Bílkoviny: <span>0.0 g / 193 g</span></li>
+        <li>Sacharidy: <span>0.0 g / 472 g</span></li>
+        <li>Tuky: <span>0.0 g / 71 g</span></li>
+        <li>Pitný režim: <span>0 l / 2,78 l</span></li>
+      </ul>
+    </section>
+
+    <!-- ✅ Přepínání -->
+    <section class="switcher">
+      <div class="tabs">
+        <button class="tab-btn active" data-target="recipes">Dnešní jídelníček</button>
+        <button class="tab-btn" data-target="foods">Dnešní záznam potravin</button>
+      </div>
+
+  <!-- ✅ Recepty -->
+<div id="recipes" class="tab-content active">
+    <div class="meal" data-alt="Toust s arašídovým máslem (2 plátky chleba, 20g máslo)">
+      <h3>Snídaně</h3>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+      <p class="recipe-text">Ovesná kaše s banánem (50g vločky, 200ml mléko)</p>
+      <div class="actions">
+        <button class="switch-recipe">🔄 Jiný recept</button>
+        <button class="eat-btn">✅ Snědl jsem</button>
+      </div>
+    </div>
+  
+    <div class="meal" data-alt="Tvaroh s medem (150g tvaroh, 1 lžíce med)">
+      <h3>Svačina</h3>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+      <p class="recipe-text">Jogurt s ovocem (150g bílý jogurt, 100g borůvky)</p>
+      <div class="actions">
+        <button class="switch-recipe">🔄 Jiný recept</button>
+        <button class="eat-btn">✅ Snědl jsem</button>
+      </div>
+    </div>
+  
+    <div class="meal" data-alt="Hovězí steak s bramborem (150g hovězí, 200g brambory)">
+      <h3>Oběd</h3>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+      <p class="recipe-text">Kuřecí prsa s rýží (150g kuřecí, 200g rýže)</p>
+      <div class="actions">
+        <button class="switch-recipe">🔄 Jiný recept</button>
+        <button class="eat-btn">✅ Snědl jsem</button>
+      </div>
+    </div>
+  
+    <div class="meal" data-alt="Smoothie z banánu (1 banán, 200ml mléko)">
+      <h3>Svačina</h3>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+      <p class="recipe-text">Proteinový shake (30g protein, 300ml voda)</p>
+      <div class="actions">
+        <button class="switch-recipe">🔄 Jiný recept</button>
+        <button class="eat-btn">✅ Snědl jsem</button>
+      </div>
+    </div>
+  
+    <div class="meal" data-alt="Těstoviny s tuňákem (200g těstoviny, 100g tuňák)">
+      <h3>Večeře</h3>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+      <p class="recipe-text">Losos se zeleninou (150g losos, 200g zelenina)</p>
+      <div class="actions">
+        <button class="switch-recipe">🔄 Jiný recept</button>
+        <button class="eat-btn">✅ Snědl jsem</button>
+      </div>
+    </div>
+    
+  </div>
+
+    <!-- ✅ Dnešní potraviny -->
+    <div id="foods" class="tab-content">
+        <ul class="foods-list">
+          <li>Kuřecí prsa 200g <button class="delete-btn">×</button></li>
+          <li>Rýže 150g <button class="delete-btn">×</button></li>
+          <li>Olivový olej 10g <button class="delete-btn">×</button></li>
+        </ul>
+      </div>
+  
+
+      <script src="{% static 'main.js' %}"></script>
+      <script src="{% static 'chat.js' %}"></script>
+
+
+</body>
+</html>

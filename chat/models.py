@@ -34,7 +34,7 @@ class Makroziviny(models.Model):
 
 class Recepty(models.Model):
     nazev = models.CharField(max_length=150)
-    ingredience = ArrayField(models.CharField(max_length=150))
+    ingredience = models.JSONField(default=list,blank=True)
     instrukce = models.TextField()
     typ_jidla = models.CharField(max_length=50,blank=True,null=True)
     teplota = models.CharField(max_length=50,blank=True,null=True)
@@ -44,6 +44,13 @@ class Recepty(models.Model):
 
     def __str__(self) -> str:
         return str(self.nazev)
+    
+class MakrozivinyRecepty(models.Model):
+    recept = models.OneToOneField(Recepty, on_delete=models.CASCADE,blank=True,null=True)
+    kalorie = models.IntegerField(blank=True,null=True)
+    bilkoviny_gramy = models.DecimalField(decimal_places=2,max_digits=6)
+    sacharidy_gramy = models.DecimalField(decimal_places=2,max_digits=6)
+    tuky_gramy = models.DecimalField(decimal_places=2,max_digits=6)
 
 class Situace(models.Model):
     popis_situace = models.TextField()

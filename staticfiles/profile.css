@@ -15,40 +15,71 @@
 /* ✅ Sidebar */
 .sidebar {
   width: 200px;
-  height: 100vh;                 /* vždy max na výšku obrazovky */
+  height: 100vh;
   background-color: #fff;
   border-right: 1px solid #eee;
   display: flex;
-  flex-direction: column;        /* tlačítka ve sloupci */
-  justify-content: space-between;/* horní a dolní část */
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   padding: 40px 20px;
-  position: sticky;              /* drží se při scrollu */
-  top: 0;                        /* začíná od vrchu */
+  padding-top: 100px;
+  position: sticky;
+  top: 0;
+  transition: transform 0.3s ease;
+  z-index: 1000;
 }
+  
+  .nav-links {
+    display: flex;        /* stačí flexbox místo gridu */
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;          /* aby tlačítka šla přes celou šířku */
+  }
+  
+  .nav-btn {
+    width: 100%;
+    padding: 12px 0;
+    border: 1px solid #2ecc71;
+    background: transparent;
+    color: #2ecc71;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  
+  .nav-btn.active,
+  .nav-btn:hover {
+    background-color: #2ecc71;
+    color: #fff;
+  }
+  
+  .logout-btn {
+    width: 100%;
+    padding: 12px 0;
+    border: 1px solid #e74c3c;
+    background: transparent;
+    color: #e74c3c;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  
+  .logout-btn:hover {
+    background-color: #e74c3c;
+    color: #fff;
+  }
 
 
-.chat-btn,
-.logout-btn {
-  width: 100%;
-  padding: 12px 0;
-  border: 1px solid #2ecc71;
-  background: transparent;
-  color: #2ecc71;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: 0.3s;
-  text-align: center;
-}
 
-.chat-btn:hover,
-.logout-btn:hover {
-  background-color: #2ecc71;
-  color: #fff;
-}
 
+
+  
+  
   /* ✅ Main content */
   .profile {
     flex: 1;
@@ -56,6 +87,7 @@
     flex-direction: column;
     align-items: center;
     padding: 40px;
+    margin-top: 20px;
   }
   
   .username {
@@ -136,5 +168,74 @@
   .delete-btn:hover {
     color: #e74c3c;
   }
+
+
+  .hamburger {
+    display: none; /* desktop */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1200; /* musí být nad sidebar */
+  }
+
+  
+   /* ✅ RESPONSIVE - mobil */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60%;
+    max-width: 280px;
+    height: 100%;
+    z-index: 1100; /* nižší než hamburger */
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .chat-container {
+    padding: 20px;
+  }
+}
+
+/* ❌ Skrýt křížek na desktopu */
+.close-btn {
+  display: none;
+}
+
+/* ✅ Zobrazit křížek jen na mobilu */
+@media (max-width: 768px) {
+  .close-btn {
+    display: block;
+  }
+}
+
+  /* ✅ Tlačítko zavřít */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
   
   
