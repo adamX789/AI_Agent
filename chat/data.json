@@ -1,2275 +1,296 @@
 {
-"foods":[
-{
-"name": "Kuřecí prsa",
-"description": "Kuřecí prsa jsou libové maso s vysokým obsahem bílkovin a nízkým obsahem tuku.",
-"nutrients": {
-"kcal": 110,
-"protein_g": 23,
-"fat_g": 2,
-"carbs_g": 0
-},
-"benefits": ["Podpora růstu svalů", "Nízký obsah tuku", "Vysoký obsah bílkovin"],
-"best_for": ["Sportovci", "Redukční diety", "Budování svalové hmoty"],
-"avoid_if": ["Alergie na drůbež"]
-},
-{
-"name": "Kuřecí stehna",
-"description": "Kuřecí stehna mají vyšší obsah tuku než prsa, ale jsou šťavnatější a bohatá na bílkoviny.",
-"nutrients": {
-"kcal": 170,
-"protein_g": 20,
-"fat_g": 9,
-"carbs_g": 0
-},
-"benefits": ["Zdroj bílkovin", "Obsahují železo a zinek", "Šťavnaté maso"],
-"best_for": ["Sportovci", "Rodinné vaření", "Vyvážená strava"],
-"avoid_if": ["Alergie na drůbež"]
-},
-{
-"name": "Kuřecí křídla",
-"description": "Kuřecí křídla obsahují více tuku a jsou oblíbená na grilu či pečená.",
-"nutrients": {
-"kcal": 210,
-"protein_g": 19,
-"fat_g": 15,
-"carbs_g": 0
-},
-"benefits": ["Zdroj bílkovin", "Vysoká energetická hodnota", "Vitamíny skupiny B"],
-"best_for": ["Společenské akce", "Sportovci s vyšší energetickou potřebou"],
-"avoid_if": ["Alergie na drůbež"]
-},
-{
-"name": "Krůtí prsa",
-
-"description": "Krůtí prsa jsou libové, s vysokým obsahem bílkovin a nízkým obsahem tuku.",
-"nutrients": {
-"kcal": 105,
-"protein_g": 24,
-"fat_g": 1,
-"carbs_g": 0
-},
-"benefits": ["Nízkotučné maso", "Bohaté na bílkoviny", "Podpora svalového růstu"],
-"best_for": ["Sportovci", "Diety", "Zdravý životní styl"],
-"avoid_if": ["Alergie na drůbež"]
-},
-{
-"name": "Krůtí stehno",
-"description": "Krůtí stehno je tmavší maso s vyšším obsahem tuku, ale stále výživné.",
-"nutrients": {
-"kcal": 155,
-"protein_g": 21,
-"fat_g": 8,
-"carbs_g": 0
-},
-"benefits": ["Vitamíny skupiny B", "Zdroj minerálů", "Podpora imunity"],
-"best_for": ["Sportovci", "Rodiny", "Vyvážená strava"],
-"avoid_if": ["Alergie na drůbež"]
-},
-{
-"name": "Hovězí svíčková",
-"description": "Hovězí svíčková je nejkvalitnější část hovězího masa, libová a bohatá na bílkoviny.",
-"nutrients": {
-"kcal": 120,
-"protein_g": 22,
-"fat_g": 4,
-"carbs_g": 0
-},
-"benefits": ["Podpora růstu svalů", "Vysoký obsah železa", "Nízký obsah tuku"],
-"best_for": ["Sportovci", "Budování svalové hmoty", "Zdravý životní styl"],
-"avoid_if": ["Alergie na hovězí", "Problémy s trávením červeného masa"]
-},
-{
-"name": "Hovězí zadní",
-"description": "Hovězí zadní je univerzální maso vhodné na vaření i dušení.",
-"nutrients": {
-"kcal": 150,
-"protein_g": 21,
-
-"fat_g": 8,
-"carbs_g": 0
-},
-"benefits": ["Zdroj železa", "Bohaté na bílkoviny", "Vitamíny skupiny B"],
-"best_for": ["Sportovci", "Vyvážená strava"],
-"avoid_if": ["Alergie na hovězí"]
-},
-{
-"name": "Hovězí přední",
-"description": "Hovězí přední obsahuje více vaziva, je vhodné na polévky a dušené pokrmy.",
-"nutrients": {
-"kcal": 170,
-"protein_g": 20,
-"fat_g": 10,
-"carbs_g": 0
-},
-"benefits": ["Kolagen pro zdravé klouby", "Zdroj bílkovin", "Obsah minerálů"],
-"best_for": ["Sportovci", "Dlouhé vaření", "Vyvážená strava"],
-"avoid_if": ["Alergie na hovězí"]
-},
-{
-"name": "Vepřová panenka",
-"description": "Vepřová panenka je libové a jemné maso s vysokým obsahem bílkovin.",
-"nutrients": {
-"kcal": 140,
-"protein_g": 21,
-"fat_g": 6,
-"carbs_g": 0
-},
-"benefits": ["Podpora růstu svalů", "Nízký obsah tuku", "Snadno stravitelné"],
-"best_for": ["Sportovci", "Rodinné vaření", "Diety"],
-"avoid_if": ["Alergie na vepřové"]
-},
-{
-"name": "Vepřová krkovice",
-"description": "Vepřová krkovice je prorostlé maso, šťavnaté a chuťově výrazné.",
-"nutrients": {
-"kcal": 250,
-"protein_g": 19,
-"fat_g": 20,
-"carbs_g": 0
-},
-"benefits": ["Vysoká energetická hodnota", "Obsah minerálů", "Výrazná chuť"],
-"best_for": ["Grilování", "Tradiční česká kuchyně"],
-
-"avoid_if": ["Alergie na vepřové", "Dieta s nízkým obsahem tuku"]
-},
-{
-"name": "Vepřový bůček",
-"description": "Vepřový bůček je tučné maso vhodné na pečení a pomalé vaření.",
-"nutrients": {
-"kcal": 350,
-"protein_g": 16,
-"fat_g": 32,
-"carbs_g": 0
-},
-"benefits": ["Vysoká energetická hodnota", "Zdroj vitamínů rozpustných v tucích"],
-"best_for": ["Tradiční pokrmy", "Lidé s vysokou energetickou potřebou"],
-"avoid_if": ["Alergie na vepřové", "Redukční diety", "Problémy s cholesterolem"]
-},
-{
-"name": "Jehněčí kýta",
-"description": "Jehněčí kýta je výživné maso s jemnou chutí a vyšším obsahem bílkovin.",
-"nutrients": {
-"kcal": 200,
-"protein_g": 20,
-"fat_g": 13,
-"carbs_g": 0
-},
-"benefits": ["Obsah železa a zinku", "Podpora imunity", "Bohaté na bílkoviny"],
-"best_for": ["Sportovci", "Speciální příležitosti"],
-"avoid_if": ["Alergie na jehněčí"]
-},
-{
-"name": "Jehněčí kotleta",
-"description": "Jehněčí kotlety jsou delikátní část masa s jemnou texturou.",
-"nutrients": {
-"kcal": 220,
-"protein_g": 21,
-"fat_g": 15,
-"carbs_g": 0
-},
-"benefits": ["Obsah minerálů", "Vysoký obsah bílkovin", "Podpora tvorby hemoglobinu"],
-"best_for": ["Sportovci", "Speciální příležitosti"],
-"avoid_if": ["Alergie na jehněčí"]
-},
-{
-"name": "Kachna celá",
-"description": "Kachna má tmavé maso s vyšším obsahem tuku a výraznou chutí.",
-
-"nutrients": {
-"kcal": 240,
-"protein_g": 19,
-"fat_g": 18,
-"carbs_g": 0
-},
-"benefits": ["Vysoká energetická hodnota", "Obsah železa", "Bohatá chuť"],
-"best_for": ["Tradiční česká kuchyně", "Speciální příležitosti"],
-"avoid_if": ["Alergie na drůbež", "Nízkotučná dieta"]
-},
-{
-"name": "Kachní prsa",
-"description": "Kachní prsa mají vyšší obsah bílkovin i tuku, ale jsou delikátní a chutná.",
-"nutrients": {
-"kcal": 230,
-"protein_g": 21,
-"fat_g": 16,
-"carbs_g": 0
-},
-"benefits": ["Zdroj železa", "Bohaté na bílkoviny", "Podpora regenerace"],
-"best_for": ["Sportovci", "Speciální příležitosti"],
-"avoid_if": ["Alergie na drůbež"]
-},
-{
-"name": "Králičí stehno",
-"description": "Králičí stehno je libové maso s nízkým obsahem tuku a jemnou chutí.",
-"nutrients": {
-"kcal": 130,
-"protein_g": 21,
-"fat_g": 5,
-"carbs_g": 0
-},
-"benefits": ["Nízký obsah tuku", "Podpora růstu svalů", "Snadná stravitelnost"],
-"best_for": ["Diety", "Sportovci", "Děti"],
-"avoid_if": ["Alergie na králičí maso"]
-},
-{
-"name": "Králičí hřbet",
-"description": "Králičí hřbet je nejlibovější část králičího masa, jemná a bohatá na bílkoviny.",
-"nutrients": {
-"kcal": 125,
-"protein_g": 22,
-"fat_g": 4,
-"carbs_g": 0
-
-},
-"benefits": ["Nízkotučné maso", "Snadná stravitelnost", "Podpora růstu svalů"],
-"best_for": ["Sportovci", "Diety", "Děti"],
-"avoid_if": ["Alergie na králičí maso"]
-},
-{
-"name": "Husí prsa",
-"description": "Husí prsa jsou tučnější maso s vysokou energetickou hodnotou a výraznou chutí.",
-"nutrients": {
-"kcal": 270,
-"protein_g": 20,
-"fat_g": 21,
-"carbs_g": 0
-},
-"benefits": ["Vysoká energetická hodnota", "Obsah železa", "Výrazná chuť"],
-"best_for": ["Speciální příležitosti", "Tradiční pokrmy"],
-"avoid_if": ["Alergie na drůbež", "Nízkotučná dieta"]
-},
-{
-"name": "Mleté hovězí",
-"description": "Mleté hovězí je univerzální maso, záleží na obsahu tuku, vhodné do omáček a burgerů.",
-"nutrients": {
-"kcal": 250,
-"protein_g": 18,
-"fat_g": 20,
-"carbs_g": 0
-},
-"benefits": ["Zdroj železa", "Bohaté na bílkoviny", "Vitamíny skupiny B"],
-"best_for": ["Sportovci", "Rodinné vaření"],
-"avoid_if": ["Alergie na hovězí", "Nízkotučná dieta"]
-},
-{
-"name": "Mleté vepřové",
-"description": "Mleté vepřové má vyšší obsah tuku, používá se do tradičních českých pokrmů.",
-"nutrients": {
-"kcal": 280,
-"protein_g": 16,
-"fat_g": 24,
-"carbs_g": 0
-},
-"benefits": ["Vysoká energetická hodnota", "Obsah vitamínů skupiny B"],
-
-"best_for": ["Tradiční pokrmy", "Rodinné vaření"],
-"avoid_if": ["Alergie na vepřové", "Nízkotučná dieta"]
-},
-{
-"name": "Losos čerstvý",
-"description": "Losos čerstvý je bohatý na omega-3 mastné kyseliny, vysoce kvalitní bílkoviny a vitamín D.",
-"nutrients": {
-"kcal": 208,
-"protein_g": 20,
-"fat_g": 13,
-"carbs_g": 0
-},
-"benefits": ["Podpora zdraví srdce", "Protizánětlivé účinky", "Regenerace svalů"],
-"best_for": ["Sportovci", "Lidé s vysokým cholesterolem", "Ti, kdo chtějí zlepšit kognitivní funkce"],
-"avoid_if": ["Alergie na ryby"]
-},
-{
-"name": "Losos uzený",
-"description": "Losos uzený je zdrojem omega-3, bílkovin a vitamínu B12, ale obsahuje více soli než čerstvý.",
-"nutrients": {
-"kcal": 117,
-"protein_g": 18,
-"fat_g": 4,
-"carbs_g": 0
-},
-"benefits": ["Zdroj omega-3", "Podpora nervového systému", "Zdraví kostí"],
-"best_for": ["Milovníci ryb", "Lidé se zvýšenou potřebou bílkovin"],
-"avoid_if": ["Alergie na ryby", "Vysoký krevní tlak (kvůli soli)"]
-},
-{
-"name": "Tuňák čerstvý",
-"description": "Tuňák čerstvý má vysoký obsah bílkovin, nízký obsah tuku a je zdrojem vitamínů skupiny B.",
-"nutrients": {
-"kcal": 144,
-"protein_g": 23,
-"fat_g": 5,
-"carbs_g": 0
-
-},
-"benefits": ["Budování svalů", "Podpora metabolismu", "Nízkotučný zdroj bílkovin"],
-"best_for": ["Sportovci", "Lidé na redukční dietě"],
-"avoid_if": ["Alergie na ryby", "Těhotné ženy (riziko rtuti)"]
-},
-{
-"name": "Tuňák v konzervě",
-"description": "Tuňák v konzervě je praktický zdroj bílkovin, omega-3 a vitamínů, ale může obsahovat hodně soli.",
-"nutrients": {
-"kcal": 132,
-"protein_g": 23,
-"fat_g": 4,
-"carbs_g": 0
-},
-"benefits": ["Snadná příprava", "Zdroj bílkovin na cesty", "Podpora svalové hmoty"],
-"best_for": ["Rychlé občerstvení", "Sportovci", "Studenti"],
-"avoid_if": ["Alergie na ryby", "Citlivost na sodík"]
-},
-{
-"name": "Makrela čerstvá",
-"description": "Makrela je tučná ryba bohatá na omega-3, vitamín D a selen.",
-"nutrients": {
-"kcal": 205,
-"protein_g": 19,
-"fat_g": 13,
-"carbs_g": 0
-},
-"benefits": ["Podpora zdraví srdce", "Zdraví kostí", "Protizánětlivé účinky"],
-"best_for": ["Sportovci", "Lidé s nízkým příjmem vitamínu D"],
-"avoid_if": ["Alergie na ryby"]
-},
-{
-"name": "Makrela uzená",
-"description": "Makrela uzená má intenzivní chuť, je bohatá na omega-3 a vitamíny, ale obsahuje více soli.",
-"nutrients": {
-"kcal": 250,
-"protein_g": 22,
-"fat_g": 18,
-"carbs_g": 0
-},
-"benefits": ["Zdroj omega-3", "Podpora mozkové činnosti", "Zdraví cév"],
-"best_for": ["Milovníci uzených ryb", "Ti, kdo potřebují více tuků"],
-
-"avoid_if": ["Alergie na ryby", "Vysoký krevní tlak"]
-},
-{
-"name": "Pstruh",
-"description": "Pstruh je lehce stravitelná ryba bohatá na omega-3, vitamín D a bílkoviny.",
-"nutrients": {
-"kcal": 148,
-"protein_g": 20,
-"fat_g": 7,
-"carbs_g": 0
-},
-"benefits": ["Podpora imunity", "Zdraví očí", "Regenerace svalů"],
-"best_for": ["Sportovci", "Děti", "Senioři"],
-"avoid_if": ["Alergie na ryby"]
-},
-{
-"name": "Treska",
-"description": "Treska je libová ryba s nízkým obsahem tuku, vhodná při dietách a pro budování svalů.",
-"nutrients": {
-"kcal": 82,
-"protein_g": 18,
-"fat_g": 1,
-"carbs_g": 0
-},
-"benefits": ["Nízkotučný zdroj bílkovin", "Snadná stravitelnost", "Podpora metabolismu"],
-"best_for": ["Dietáři", "Sportovci", "Děti"],
-"avoid_if": ["Alergie na ryby"]
-},
-{
-"name": "Hejk",
-"description": "Hejk je bílá ryba s jemným masem, nízkým obsahem tuku a dobrým množstvím bílkovin.",
-"nutrients": {
-"kcal": 90,
-"protein_g": 19,
-"fat_g": 1,
-"carbs_g": 0
-},
-"benefits": ["Snadná stravitelnost", "Nízký obsah tuku", "Zdroj bílkovin"],
-"best_for": ["Dietáři", "Děti", "Senioři"],
-"avoid_if": ["Alergie na ryby"]
-},
-{
-
-"name": "Sardinky v oleji",
-"description": "Sardinky v oleji jsou bohaté na omega-3, vápník a vitamín D, ale obsahují více kalorií a tuku.",
-"nutrients": {
-"kcal": 208,
-"protein_g": 25,
-"fat_g": 11,
-"carbs_g": 0
-},
-"benefits": ["Podpora kostí", "Zdraví srdce", "Protizánětlivé účinky"],
-"best_for": ["Sportovci", "Lidé s nedostatkem vápníku"],
-"avoid_if": ["Alergie na ryby", "Citlivost na tuky"]
-},
-{
-"name": "Sardinky ve vlastní šťávě",
-"description": "Sardinky ve vlastní šťávě jsou lehčí varianta s nižším obsahem tuku a vysokým obsahem bílkovin.",
-"nutrients": {
-"kcal": 140,
-"protein_g": 20,
-"fat_g": 7,
-"carbs_g": 0
-},
-"benefits": ["Zdroj omega-3", "Podpora imunity", "Zdraví kostí"],
-"best_for": ["Dietáři", "Sportovci", "Senioři"],
-"avoid_if": ["Alergie na ryby"]
-},
-{
-"name": "Sleď",
-"description": "Sleď je tučná ryba bohatá na omega-3, vitamín D a B12.",
-"nutrients": {
-"kcal": 210,
-"protein_g": 18,
-"fat_g": 14,
-"carbs_g": 0
-},
-"benefits": ["Zdraví srdce", "Podpora nervového systému", "Protizánětlivé účinky"],
-"best_for": ["Sportovci", "Lidé s nedostatkem vitamínu D"],
-"avoid_if": ["Alergie na ryby"]
-},
-{
-"name": "Ančovičky",
-"description": "Ančovičky jsou malé ryby bohaté na omega-3, bílkoviny a vápník, často solené.",
-
-"nutrients": {
-"kcal": 210,
-"protein_g": 29,
-"fat_g": 10,
-"carbs_g": 0
-},
-"benefits": ["Podpora kostí", "Zdroj omega-3", "Zdraví srdce"],
-"best_for": ["Milovníci slaných ryb", "Sportovci"],
-"avoid_if": ["Alergie na ryby", "Vysoký krevní tlak"]
-},
-{
-"name": "Krevety",
-"description": "Krevety jsou nízkotučné mořské plody s vysokým obsahem bílkovin, jódu a selenu.",
-"nutrients": {
-"kcal": 99,
-"protein_g": 24,
-"fat_g": 0.3,
-"carbs_g": 0
-},
-"benefits": ["Nízký obsah tuku", "Podpora štítné žlázy", "Regenerace svalů"],
-"best_for": ["Sportovci", "Dietáři"],
-"avoid_if": ["Alergie na mořské plody"]
-},
-{
-"name": "Chobotnice",
-"description": "Chobotnice má nízký obsah tuku, vysoký obsah bílkovin a je zdrojem vitamínu B12 a železa.",
-"nutrients": {
-"kcal": 82,
-"protein_g": 15,
-"fat_g": 1,
-"carbs_g": 2
-},
-"benefits": ["Podpora krvetvorby", "Nízkotučný zdroj bílkovin", "Zdraví nervů"],
-"best_for": ["Dietáři", "Sportovci"],
-"avoid_if": ["Alergie na mořské plody"]
-},
-{
-"name": "Kalamáry",
-"description": "Kalamáry jsou zdrojem bílkovin, vitamínů B12 a selenu, ale smažené mají vysoký obsah tuku.",
-"nutrients": {
-"kcal": 92,
-
-"protein_g": 15,
-"fat_g": 1.4,
-"carbs_g": 3
-},
-"benefits": ["Podpora svalů", "Nízký obsah tuku (pokud nejsou smažené)", "Zdroj minerálů"],
-"best_for": ["Sportovci", "Dietáři"],
-"avoid_if": ["Alergie na mořské plody"]
-},
-{
-"name": "Krabí tyčinky",
-"description": "Krabí tyčinky jsou zpracovaný produkt z rybího masa (surimi), obsahují méně bílkovin a více aditiv.",
-"nutrients": {
-"kcal": 95,
-"protein_g": 7,
-"fat_g": 3,
-"carbs_g": 12
-},
-"benefits": ["Snadná příprava", "Nízký obsah tuku"],
-"best_for": ["Rychlé občerstvení"],
-"avoid_if": ["Alergie na ryby", "Citlivost na aditiva"]
-},
-{
-"name": "Škeble",
-"description": "Škeble jsou bohaté na bílkoviny, železo, vitamín B12 a omega-3 mastné kyseliny.",
-"nutrients": {
-"kcal": 74,
-"protein_g": 12,
-"fat_g": 1,
-"carbs_g": 4
-},
-"benefits": ["Podpora krvetvorby", "Zdraví nervového systému", "Nízký obsah tuku"],
-"best_for": ["Sportovci", "Lidé s nedostatkem železa"],
-"avoid_if": ["Alergie na mořské plody"]
-},
-{
-"name": "Slávky",
-"description": "Slávky jsou výborným zdrojem bílkovin, omega-3 a minerálů, včetně železa a zinku.",
-"nutrients": {
-"kcal": 86,
-"protein_g": 12,
-"fat_g": 2,
-
-"carbs_g": 4
-},
-"benefits": ["Podpora imunity", "Zdraví srdce", "Regenerace svalů"],
-"best_for": ["Sportovci", "Dietáři"],
-"avoid_if": ["Alergie na mořské plody"]
-},
-{
-"name": "Hřebenatky",
-"description": "Hřebenatky jsou lahodné mořské plody s nízkým obsahem tuku a vysokým podílem bílkovin.",
-"nutrients": {
-"kcal": 69,
-"protein_g": 12,
-"fat_g": 1,
-"carbs_g": 3
-},
-"benefits": ["Nízký obsah tuku", "Podpora svalů", "Snadná stravitelnost"],
-"best_for": ["Dietáři", "Sportovci", "Gurmáni"],
-"avoid_if": ["Alergie na mořské plody"]
-},
-{
-"name": "Plnotučné mléko",
-"description": "Plnotučné mléko je zdrojem vápníku, bílkovin a vitaminů A a D.",
-"nutrients": {
-"kcal": 64,
-"protein_g": 3.3,
-"fat_g": 3.5,
-"carbs_g": 4.8
-},
-"benefits": ["Podpora růstu kostí", "Zdroj bílkovin", "Podpora imunity"],
-"best_for": ["Děti", "Sportovci", "Lidé s nedostatkem vápníku"],
-"avoid_if": ["Laktózová intolerance", "Alergie na mléčné bílkoviny"]
-},
-{
-"name": "Polotučné mléko",
-"description": "Polotučné mléko má nižší obsah tuku než plnotučné, ale stále je výživné.",
-"nutrients": {
-"kcal": 47,
-"protein_g": 3.3,
-"fat_g": 1.5,
-"carbs_g": 4.8
-
-},
-"benefits": ["Lehčí varianta mléka", "Podpora kostí", "Zdroj vitaminů skupiny B"],
-"best_for": ["Dospělí", "Lidé v redukční dietě"],
-"avoid_if": ["Laktózová intolerance", "Alergie na mléčné bílkoviny"]
-},
-{
-"name": "Odstředěné mléko",
-"description": "Odstředěné mléko obsahuje minimum tuku, ale zachovává bílkoviny a vápník.",
-"nutrients": {
-"kcal": 34,
-"protein_g": 3.4,
-"fat_g": 0.1,
-"carbs_g": 5
-},
-"benefits": ["Nízkokalorické", "Zdroj bílkovin", "Podpora hydratace"],
-"best_for": ["Lidé v dietě", "Ti, kdo omezují tuky"],
-"avoid_if": ["Laktózová intolerance", "Alergie na mléčné bílkoviny"]
-},
-{
-"name": "Kefír",
-"description": "Kefír je fermentovaný mléčný nápoj s probiotiky pro zdraví střev.",
-"nutrients": {
-"kcal": 52,
-"protein_g": 3.5,
-"fat_g": 1.5,
-"carbs_g": 4.5
-},
-"benefits": ["Podpora trávení", "Posílení imunity", "Zdroj probiotik"],
-"best_for": ["Lidé s problémy s trávením", "Sportovci"],
-"avoid_if": ["Laktózová intolerance", "Alergie na mléčné produkty"]
-},
-{
-"name": "Jogurt bílý",
-"description": "Bílý jogurt je bohatý na bílkoviny a probiotika.",
-"nutrients": {
-"kcal": 60,
-"protein_g": 5,
-"fat_g": 3,
-"carbs_g": 4.7
-},
-"benefits": ["Podpora střevní mikroflóry", "Zdroj vápníku", "Lehká svačina"],
-"best_for": ["Sportovci", "Děti", "Lidé s problémy s trávením"],
-"avoid_if": ["Laktózová intolerance"]
-
-},
-{
-"name": "Jogurt řecký",
-"description": "Řecký jogurt má vyšší obsah bílkovin a krémovou konzistenci.",
-"nutrients": {
-"kcal": 97,
-"protein_g": 9,
-"fat_g": 5,
-"carbs_g": 4
-},
-"benefits": ["Sytící", "Podpora regenerace svalů", "Zdroj vápníku"],
-"best_for": ["Sportovci", "Lidé v dietě"],
-"avoid_if": ["Laktózová intolerance"]
-},
-{
-"name": "Jogurt ovocný",
-"description": "Ovocný jogurt je ochucený a často doslazovaný, ale stále obsahuje vápník a bílkoviny.",
-"nutrients": {
-"kcal": 110,
-"protein_g": 4,
-"fat_g": 3,
-"carbs_g": 16
-},
-"benefits": ["Zdroj energie", "Obsah probiotik", "Rychlá svačina"],
-"best_for": ["Děti", "Lidé s chutí na sladké"],
-"avoid_if": ["Laktózová intolerance", "Lidé s inzulinovou rezistencí"]
-},
-{
-"name": "Smetana na vaření",
-"description": "Smetana na vaření dodává jídlům krémovou chuť, má nižší obsah tuku než šlehačková smetana.",
-"nutrients": {
-"kcal": 193,
-"protein_g": 2.1,
-"fat_g": 19,
-"carbs_g": 4
-},
-"benefits": ["Dochucení pokrmů", "Zdroj energie"],
-"best_for": ["Milovníci krémových jídel"],
-"avoid_if": ["Lidé v dietě", "Laktózová intolerance"]
-},
-{
-"name": "Smetana ke šlehání",
-
-"description": "Smetana ke šlehání má vyšší obsah tuku, používá se do dezertů a omáček.",
-"nutrients": {
-"kcal": 340,
-"protein_g": 2,
-"fat_g": 36,
-"carbs_g": 3
-},
-"benefits": ["Krémová chuť", "Zdroj energie"],
-"best_for": ["Cukráři", "Milovníci dezertů"],
-"avoid_if": ["Lidé v dietě", "Laktózová intolerance"]
-},
-{
-"name": "Zakysaná smetana",
-"description": "Zakysaná smetana je kyselý mléčný výrobek s krémovou konzistencí.",
-"nutrients": {
-"kcal": 120,
-"protein_g": 2.5,
-"fat_g": 10,
-"carbs_g": 3.5
-},
-"benefits": ["Dochucení pokrmů", "Obsah probiotik"],
-"best_for": ["Milovníci tradiční kuchyně"],
-"avoid_if": ["Laktózová intolerance"]
-},
-{
-"name": "Tvaroh měkký",
-"description": "Měkký tvaroh je bohatý na bílkoviny a má nízký obsah tuku.",
-"nutrients": {
-"kcal": 90,
-"protein_g": 11,
-"fat_g": 4,
-"carbs_g": 3
-},
-"benefits": ["Podpora růstu svalů", "Nízkotučná varianta", "Zdroj vápníku"],
-"best_for": ["Sportovci", "Lidé v dietě"],
-"avoid_if": ["Laktózová intolerance"]
-},
-{
-"name": "Tvaroh tvrdý",
-"description": "Tvrdý tvaroh je sušší, s vyšším obsahem bílkovin a nižším obsahem vody.",
-"nutrients": {
-"kcal": 135,
-"protein_g": 17,
-"fat_g": 6,
-
-"carbs_g": 3
-},
-"benefits": ["Sytící", "Podpora regenerace svalů", "Vysoký obsah bílkovin"],
-"best_for": ["Sportovci", "Lidé v redukci"],
-"avoid_if": ["Laktózová intolerance"]
-},
-{
-"name": "Cottage sýr",
-"description": "Cottage sýr je měkký sýr s vysokým obsahem bílkovin a nízkým obsahem tuku.",
-"nutrients": {
-"kcal": 98,
-"protein_g": 11,
-"fat_g": 4,
-"carbs_g": 3
-},
-"benefits": ["Nízkotučný zdroj bílkovin", "Podpora růstu svalů"],
-"best_for": ["Sportovci", "Lidé v dietě"],
-"avoid_if": ["Laktózová intolerance"]
-},
-{
-"name": "Mozzarella",
-"description": "Mozzarella je italský sýr s jemnou chutí, bohatý na bílkoviny a vápník.",
-"nutrients": {
-"kcal": 280,
-"protein_g": 18,
-"fat_g": 22,
-"carbs_g": 2
-},
-"benefits": ["Zdroj vápníku", "Podpora růstu svalů", "Výborná chuť"],
-"best_for": ["Milovníci italské kuchyně", "Sportovci"],
-"avoid_if": ["Laktózová intolerance"]
-},
-{
-"name": "Gouda",
-"description": "Gouda je polosuchý sýr s jemnou oříškovou chutí.",
-"nutrients": {
-"kcal": 356,
-"protein_g": 25,
-"fat_g": 27,
-"carbs_g": 2
-},
-"benefits": ["Zdroj bílkovin", "Zdroj vápníku"],
-"best_for": ["Milovníci sýrů"],
-
-"avoid_if": ["Lidé s vysokým cholesterolem", "Laktózová intolerance"]
-},
-{
-"name": "Eidam",
-"description": "Eidam je populární sýr s mírnou chutí a vyšším obsahem bílkovin.",
-"nutrients": {
-"kcal": 330,
-"protein_g": 25,
-"fat_g": 26,
-"carbs_g": 2
-},
-"benefits": ["Podpora růstu svalů", "Zdroj vápníku"],
-"best_for": ["Sportovci", "Milovníci sýrů"],
-"avoid_if": ["Laktózová intolerance"]
-},
-{
-"name": "Parmazán",
-"description": "Parmazán je tvrdý italský sýr s výraznou chutí a vysokým obsahem bílkovin.",
-"nutrients": {
-"kcal": 431,
-"protein_g": 38,
-"fat_g": 29,
-"carbs_g": 4
-},
-"benefits": ["Vysoký obsah bílkovin", "Výrazná chuť", "Zdroj vápníku"],
-"best_for": ["Sportovci", "Milovníci italské kuchyně"],
-"avoid_if": ["Laktózová intolerance"]
-},
-{
-"name": "Niva (plesnivý sýr)",
-"description": "Niva je plísňový sýr s výraznou chutí a aromatem.",
-"nutrients": {
-"kcal": 350,
-"protein_g": 21,
-"fat_g": 29,
-"carbs_g": 2
-},
-"benefits": ["Výrazná chuť", "Zdroj bílkovin a vápníku"],
-"best_for": ["Milovníci výrazných sýrů"],
-"avoid_if": ["Laktózová intolerance", "Lidé s vysokým cholesterolem"]
-},
-{
-"name": "Feta",
-"description": "Feta je tradiční řecký sýr z ovčího a kozího mléka.",
-
-"nutrients": {
-"kcal": 264,
-"protein_g": 14,
-"fat_g": 21,
-"carbs_g": 4
-},
-"benefits": ["Výrazná chuť", "Zdroj vápníku"],
-"best_for": ["Milovníci středomořské kuchyně"],
-"avoid_if": ["Laktózová intolerance"]
-},
-{
-"name": "Ricotta",
-"description": "Ricotta je italský měkký sýr s jemnou chutí, bohatý na bílkoviny.",
-"nutrients": {
-"kcal": 174,
-"protein_g": 11,
-"fat_g": 13,
-"carbs_g": 3
-},
-"benefits": ["Lehký zdroj bílkovin", "Jemná chuť"],
-"best_for": ["Milovníci italské kuchyně", "Sportovci"],
-"avoid_if": ["Laktózová intolerance"]
-},
-{
-"name": "Slepičí vejce",
-"description": "Slepičí vejce jsou bohatým zdrojem kvalitních bílkovin, vitamínů skupiny B a minerálů, zejména selenu a fosforu.",
-"nutrients": {
-"kcal": 155,
-"protein_g": 13,
-"fat_g": 11,
-"carbs_g": 1
-},
-"benefits": ["Podpora růstu svalů", "Vysoký obsah cholinu pro mozek", "Zdroj vitamínu D"],
-"best_for": ["Sportovci", "Lidé hledající sytou snídani", "Ti, kdo chtějí doplnit bílkoviny"],
-"avoid_if": ["Alergie na vejce", "Vysoký cholesterol (v nadměrném množství)"]
-},
-{
-"name": "Křepelčí vejce",
-"description": "Křepelčí vejce jsou menší než slepičí, ale mají vyšší koncentraci živin, včetně vitamínu B12, železa a zinku.",
-
-"nutrients": {
-"kcal": 158,
-"protein_g": 13,
-"fat_g": 11,
-"carbs_g": 1
-},
-"benefits": ["Bohatý zdroj minerálů", "Podpora krvetvorby díky železu", "Alternativa pro gurmány"],
-"best_for": ["Lidé s anémií", "Ti, kdo chtějí obměnu ve stravě", "Gurmáni a foodies"],
-"avoid_if": ["Alergie na vejce"]
-},
-{
-"name": "Veganské „vejce“ (náhražky)",
-"description": "Veganské náhražky vajec se vyrábějí ze sóji, cizrny, lnu nebo bramborového škrobu a slouží k vaření a pečení bez použití živočišných produktů.",
-"nutrients": {
-"kcal": 50,
-"protein_g": 3,
-"fat_g": 2,
-"carbs_g": 5
-},
-"benefits": ["Bez cholesterolu", "Vhodné pro vegany a alergiky", "Podpora udržitelné výživy"],
-"best_for": ["Vegani", "Alergici na vejce", "Ti, kdo snižují cholesterol"],
-"avoid_if": ["Alergie na sóju nebo luštěniny (u některých typů)"]
-},
-{
-"name": "Jablka",
-"description": "Jablka jsou bohatá na vlákninu a vitamín C, podporují trávení a imunitu.",
-"nutrients": {"kcal": 52, "protein_g": 0.3, "fat_g": 0.2, "carbs_g": 14},
-"benefits": ["Podpora trávení", "Zlepšení imunitního systému", "Nízkokalorická svačina"],
-"best_for": ["Všichni", "Lidé na redukční dietě", "Děti i dospělí"],
-"avoid_if": ["Alergie na ovoce"]
-},
-{
-"name": "Hrušky",
-"description": "Hrušky obsahují vlákninu a antioxidanty, podporují trávení a hydrataci.",
-"nutrients": {"kcal": 57, "protein_g": 0.4, "fat_g": 0.1, "carbs_g": 15},
-"benefits": ["Zlepšení trávení", "Hydratace", "Bohaté na antioxidanty"],
-"best_for": ["Všichni", "Děti a dospělí", "Na svačinu"],
-"avoid_if": ["Alergie na ovoce"]
-},
-
-{
-"name": "Banány",
-"description": "Banány jsou bohaté na draslík a sacharidy, dodávají energii a podporují svalovou funkci.",
-"nutrients": {"kcal": 89, "protein_g": 1.1, "fat_g": 0.3, "carbs_g": 23},
-"benefits": ["Energetická svačina", "Podpora svalů", "Bohaté na draslík"],
-"best_for": ["Sportovci", "Děti", "Na rychlou energii"],
-"avoid_if": ["Alergie na ovoce", "Diabetici by měli kontrolovat množství"]
-},
-{
-"name": "Pomeranče",
-"description": "Pomeranče jsou výborným zdrojem vitamínu C a antioxidantů, podporují imunitu.",
-"nutrients": {"kcal": 47, "protein_g": 0.9, "fat_g": 0.1, "carbs_g": 12},
-"benefits": ["Podpora imunity", "Antioxidanty", "Hydratace"],
-"best_for": ["Všichni", "Na snídani", "Pro děti i dospělé"],
-"avoid_if": ["Alergie na citrusy"]
-},
-{
-"name": "Mandarinky",
-"description": "Mandarinky obsahují vitamín C, podporují imunitu a hydrataci těla.",
-"nutrients": {"kcal": 53, "protein_g": 0.8, "fat_g": 0.3, "carbs_g": 13},
-"benefits": ["Imunita", "Hydratace", "Nízkokalorická svačina"],
-"best_for": ["Děti", "Všichni", "Na svačinu"],
-"avoid_if": ["Alergie na citrusy"]
-},
-{
-"name": "Citróny",
-"description": "Citróny jsou bohaté na vitamín C a antioxidanty, podporují detoxikaci a imunitu.",
-"nutrients": {"kcal": 29, "protein_g": 1.1, "fat_g": 0.3, "carbs_g": 9},
-"benefits": ["Detoxikace", "Podpora imunity", "Bohaté na antioxidanty"],
-"best_for": ["Všichni", "Na čaje a limonády", "Do kuchyně"],
-"avoid_if": ["Alergie na citrusy"]
-},
-{
-"name": "Limetky",
-"description": "Limetky obsahují vitamín C a flavonoidy, podporují imunitu a trávení.",
-"nutrients": {"kcal": 30, "protein_g": 0.7, "fat_g": 0.2, "carbs_g": 11},
-"benefits": ["Podpora imunity", "Trávení", "Antioxidanty"],
-"best_for": ["Všichni", "Na čaje a nápoje", "Do kuchyně"],
-"avoid_if": ["Alergie na citrusy"]
-},
-{
-
-"name": "Grapefruit",
-"description": "Grapefruit je bohatý na vitamín C a antioxidanty, podporuje imunitu a hubnutí.",
-"nutrients": {"kcal": 42, "protein_g": 0.8, "fat_g": 0.1, "carbs_g": 11},
-"benefits": ["Podpora imunity", "Antioxidanty", "Podpora hubnutí"],
-"best_for": ["Všichni", "Na snídani", "Dietní strava"],
-"avoid_if": ["Alergie na citrusy", "Interakce s některými léky"]
-},
-{
-"name": "Mango",
-"description": "Mango je sladké ovoce bohaté na vitamíny A a C, podporuje imunitu a zdraví očí.",
-"nutrients": {"kcal": 60, "protein_g": 0.8, "fat_g": 0.4, "carbs_g": 15},
-"benefits": ["Imunita", "Podpora zraku", "Antioxidanty"],
-"best_for": ["Všichni", "Na svačinu", "Děti i dospělí"],
-"avoid_if": ["Alergie na ovoce"]
-},
-{
-"name": "Ananas",
-"description": "Ananas je tropické ovoce bohaté na vitamín C a bromelain, podporuje trávení a imunitu.",
-"nutrients": {"kcal": 50, "protein_g": 0.5, "fat_g": 0.1, "carbs_g": 13},
-"benefits": ["Podpora trávení", "Imunita", "Antioxidanty"],
-"best_for": ["Všichni", "Na svačinu", "Do smoothie"],
-"avoid_if": ["Alergie na ovoce"]
-},
-{
-"name": "Kiwi",
-"description": "Kiwi obsahuje vysoké množství vitamínu C a vlákniny, podporuje trávení a imunitu.",
-"nutrients": {"kcal": 41, "protein_g": 0.8, "fat_g": 0.4, "carbs_g": 10},
-"benefits": ["Imunita", "Trávení", "Antioxidanty"],
-"best_for": ["Všichni", "Na svačinu", "Pro děti i dospělé"],
-"avoid_if": ["Alergie na ovoce"]
-},
-{
-"name": "Jahody",
-"description": "Jahody jsou nízkokalorické ovoce bohaté na vitamín C a antioxidanty, podporují imunitu a zdraví kůže.",
-"nutrients": {"kcal": 32, "protein_g": 0.7, "fat_g": 0.3, "carbs_g": 7.7},
-"benefits": ["Imunita", "Zdraví kůže", "Antioxidanty"],
-"best_for": ["Všichni", "Na svačinu", "Do smoothie"],
-
-"avoid_if": ["Alergie na ovoce"]
-},
-{
-"name": "Maliny",
-"description": "Maliny obsahují vlákninu, vitamín C a antioxidanty, podporují trávení a snižují zánět.",
-"nutrients": {"kcal": 52, "protein_g": 1.2, "fat_g": 0.7, "carbs_g": 12},
-"benefits": ["Trávení", "Antioxidanty", "Protizánětlivé účinky"],
-"best_for": ["Všichni", "Na svačinu", "Do smoothie"],
-"avoid_if": ["Alergie na ovoce"]
-},
-{
-"name": "Borůvky",
-"description": "Borůvky jsou bohaté na antioxidanty, podporují zdraví mozku a snižují oxidativní stres.",
-"nutrients": {"kcal": 57, "protein_g": 0.7, "fat_g": 0.3, "carbs_g": 14},
-"benefits": ["Zdraví mozku", "Antioxidanty", "Podpora imunity"],
-"best_for": ["Všichni", "Na svačinu", "Do smoothie"],
-"avoid_if": ["Alergie na ovoce"]
-},
-{
-"name": "Ostružiny",
-"description": "Ostružiny jsou bohaté na vlákninu a vitamín C, podporují imunitu a trávení.",
-"nutrients": {"kcal": 43, "protein_g": 1.4, "fat_g": 0.5, "carbs_g": 10},
-"benefits": ["Trávení", "Imunita", "Antioxidanty"],
-"best_for": ["Všichni", "Na svačinu", "Do smoothie"],
-"avoid_if": ["Alergie na ovoce"]
-},
-{
-"name": "Broskve",
-"description": "Broskve obsahují vitamíny A a C, podporují zdraví očí a imunitu.",
-"nutrients": {"kcal": 39, "protein_g": 0.9, "fat_g": 0.3, "carbs_g": 10},
-"benefits": ["Zdraví očí", "Imunita", "Nízkokalorická svačina"],
-"best_for": ["Všichni", "Na svačinu", "Do dezertů"],
-"avoid_if": ["Alergie na ovoce"]
-},
-{
-"name": "Nektarinky",
-"description": "Nektarinky jsou šťavnaté ovoce bohaté na vitamíny A a C, podporují imunitu a zdraví očí.",
-"nutrients": {"kcal": 44, "protein_g": 1, "fat_g": 0.3, "carbs_g": 11},
-"benefits": ["Imunita", "Zdraví očí", "Nízkokalorická svačina"],
-"best_for": ["Všichni", "Na svačinu", "Do dezertů"],
-"avoid_if": ["Alergie na ovoce"]
-
-},
-{
-"name": "Švestky",
-"description": "Švestky obsahují vlákninu a antioxidanty, podporují trávení a zdraví srdce.",
-"nutrients": {"kcal": 46, "protein_g": 0.7, "fat_g": 0.3, "carbs_g": 11},
-"benefits": ["Trávení", "Zdraví srdce", "Antioxidanty"],
-"best_for": ["Všichni", "Na svačinu", "Do dezertů"],
-"avoid_if": ["Alergie na ovoce"]
-},
-{
-"name": "Meruňky",
-"description": "Meruňky jsou bohaté na vitamín A a antioxidanty, podporují zdraví očí a pokožky.",
-"nutrients": {"kcal": 48, "protein_g": 0.9, "fat_g": 0.4, "carbs_g": 12},
-"benefits": ["Zdraví očí", "Antioxidanty", "Podpora imunity"],
-"best_for": ["Všichni", "Na svačinu", "Do dezertů"],
-"avoid_if": ["Alergie na ovoce"]
-},
-{
-"name": "Višně",
-"description": "Višně obsahují antioxidanty a vitamíny, podporují imunitu a snižují záněty.",
-"nutrients": {"kcal": 50, "protein_g": 1, "fat_g": 0.3, "carbs_g": 12},
-"benefits": ["Antioxidanty", "Protizánětlivé účinky", "Imunita"],
-"best_for": ["Všichni", "Na svačinu", "Do dezertů"],
-"avoid_if": ["Alergie na ovoce"]
-},
-{
-"name": "Třešně",
-"description": "Třešně jsou bohaté na vitamíny a antioxidanty, podporují zdraví srdce a snižují zánět.",
-"nutrients": {"kcal": 50, "protein_g": 1, "fat_g": 0.3, "carbs_g": 12},
-"benefits": ["Zdraví srdce", "Antioxidanty", "Protizánětlivé účinky"],
-"best_for": ["Všichni", "Na svačinu", "Do dezertů"],
-"avoid_if": ["Alergie na ovoce"]
-},
-{
-"name": "Rajčata",
-"description": "Rajčata jsou nízkokalorická zelenina bohatá na vitamín C, draslík a antioxidant lykopen.",
-"nutrients": {"kcal": 18, "protein_g": 0.9, "fat_g": 0.2, "carbs_g": 3.9},
-"benefits": ["Antioxidanty", "Podpora imunitního systému", "Nízkokalorická svačina"],
-
-"best_for": ["Všichni", "Do salátů", "Na vaření"],
-"avoid_if": ["Alergie na rajčata"]
-},
-{
-"name": "Cherry rajčata",
-"description": "Malá rajčata bohatá na vitamín C a lykopen, ideální do salátů a na svačinu.",
-"nutrients": {"kcal": 20, "protein_g": 1, "fat_g": 0.2, "carbs_g": 4},
-"benefits": ["Antioxidanty", "Imunita", "Nízkokalorická svačina"],
-"best_for": ["Všichni", "Do salátů", "Na svačinu"],
-"avoid_if": ["Alergie na rajčata"]
-},
-{
-"name": "Paprika červená",
-"description": "Paprika je bohatá na vitamíny A a C, podporuje imunitu a zdraví očí.",
-"nutrients": {"kcal": 31, "protein_g": 1, "fat_g": 0.3, "carbs_g": 6},
-"benefits": ["Imunita", "Zdraví očí", "Antioxidanty"],
-"best_for": ["Všichni", "Do salátů", "Na vaření"],
-"avoid_if": ["Alergie na papriku"]
-},
-{
-"name": "Paprika žlutá",
-"description": "Žlutá paprika obsahuje vitamíny C a A, podporuje imunitu a zdraví pokožky.",
-"nutrients": {"kcal": 27, "protein_g": 1, "fat_g": 0.2, "carbs_g": 6},
-"benefits": ["Imunita", "Zdraví pokožky", "Antioxidanty"],
-"best_for": ["Všichni", "Do salátů", "Na vaření"],
-"avoid_if": ["Alergie na papriku"]
-},
-{
-"name": "Paprika zelená",
-"description": "Zelená paprika je bohatá na vitamín C a vlákninu, podporuje imunitu a trávení.",
-"nutrients": {"kcal": 20, "protein_g": 1, "fat_g": 0.2, "carbs_g": 5},
-"benefits": ["Imunita", "Trávení", "Nízkokalorická svačina"],
-"best_for": ["Všichni", "Do salátů", "Na vaření"],
-"avoid_if": ["Alergie na papriku"]
-},
-{
-"name": "Okurka salátová",
-"description": "Okurka je osvěžující zelenina s vysokým obsahem vody, nízkým obsahem kalorií a podporou hydratace.",
-"nutrients": {"kcal": 16, "protein_g": 0.7, "fat_g": 0.1, "carbs_g": 3.6},
-"benefits": ["Hydratace", "Nízkokalorická", "Podpora trávení"],
-"best_for": ["Všichni", "Saláty", "Svačiny"],
-"avoid_if": ["Alergie na okurku"]
-
-},
-{
-"name": "Okurka nakládačka",
-"description": "Nakládaná okurka je bohatá na probiotika a podporuje trávení.",
-"nutrients": {"kcal": 11, "protein_g": 0.3, "fat_g": 0.1, "carbs_g": 2},
-"benefits": ["Probiotika", "Trávení", "Nízkokalorická"],
-"best_for": ["Všichni", "Jako příloha", "Na svačinu"],
-"avoid_if": ["Alergie na okurku"]
-},
-{
-"name": "Ledový salát",
-"description": "Ledový salát je nízkokalorická zelenina s vysokým obsahem vody, vhodná do salátů.",
-"nutrients": {"kcal": 14, "protein_g": 0.9, "fat_g": 0.1, "carbs_g": 2.9},
-"benefits": ["Hydratace", "Nízkokalorická", "Podpora trávení"],
-"best_for": ["Všichni", "Saláty", "Svačiny"],
-"avoid_if": ["Alergie na salát"]
-},
-{
-"name": "Hlávkový salát",
-"description": "Hlávkový salát je bohatý na vlákninu, podporuje trávení a obsahuje vitamíny A a C.",
-"nutrients": {"kcal": 15, "protein_g": 1, "fat_g": 0.2, "carbs_g": 3},
-"benefits": ["Trávení", "Imunita", "Nízkokalorická svačina"],
-"best_for": ["Všichni", "Do salátů", "Na svačinu"],
-"avoid_if": ["Alergie na salát"]
-},
-{
-"name": "Polníček",
-"description": "Polníček je listová zelenina bohatá na vitamíny A, C a K, podporuje imunitu a zdraví očí.",
-"nutrients": {"kcal": 21, "protein_g": 2, "fat_g": 0.3, "carbs_g": 3.7},
-"benefits": ["Imunita", "Zdraví očí", "Nízkokalorická"],
-"best_for": ["Saláty", "Všichni", "Svačiny"],
-"avoid_if": ["Alergie na listovou zeleninu"]
-},
-{
-"name": "Rukola",
-"description": "Rukola je pikantní listová zelenina bohatá na vitamíny a minerály, podporuje trávení.",
-"nutrients": {"kcal": 25, "protein_g": 2.6, "fat_g": 0.7, "carbs_g": 3.7},
-
-"benefits": ["Podpora trávení", "Vitamíny a minerály", "Nízkokalorická"],
-"best_for": ["Saláty", "Pesto", "Všichni"],
-"avoid_if": ["Alergie na listovou zeleninu"]
-},
-{
-"name": "Špenát čerstvý",
-"description": "Špenát je bohatý na železo, vitamíny A, C a K, podporuje krevní oběh a zdraví kostí.",
-"nutrients": {"kcal": 23, "protein_g": 2.9, "fat_g": 0.4, "carbs_g": 3.6},
-"benefits": ["Krevní oběh", "Zdravé kosti", "Antioxidanty"],
-"best_for": ["Smoothie", "Vaření", "Saláty"],
-"avoid_if": ["Alergie na špenát"]
-},
-{
-"name": "Kapusta",
-"description": "Kapusta obsahuje vitamíny A, C, K a vlákninu, podporuje trávení a detoxikaci.",
-"nutrients": {"kcal": 25, "protein_g": 2, "fat_g": 0.1, "carbs_g": 5},
-"benefits": ["Trávení", "Detoxikace", "Imunita"],
-"best_for": ["Vaření", "Saláty", "Všichni"],
-"avoid_if": ["Alergie na kapustu"]
-},
-{
-"name": "Zelí bílé",
-"description": "Bílé zelí je bohaté na vitamíny C a K, podporuje imunitu a trávení.",
-"nutrients": {"kcal": 27, "protein_g": 1.3, "fat_g": 0.1, "carbs_g": 6},
-"benefits": ["Trávení", "Imunita", "Nízkokalorická"],
-"best_for": ["Kvašení", "Vaření", "Všichni"],
-"avoid_if": ["Alergie na zelí"]
-},
-{
-"name": "Zelí červené",
-"description": "Červené zelí je bohaté na antioxidanty, vitamíny a vlákninu, podporuje imunitu a trávení.",
-"nutrients": {"kcal": 31, "protein_g": 1.4, "fat_g": 0.2, "carbs_g": 7},
-"benefits": ["Antioxidanty", "Imunita", "Trávení"],
-"best_for": ["Vaření", "Kvašení", "Saláty"],
-"avoid_if": ["Alergie na zelí"]
-},
-{
-"name": "Mrkev",
-"description": "Mrkev je bohatá na beta-karoten a vitamíny, podporuje zdraví očí a imunitu.",
-"nutrients": {"kcal": 41, "protein_g": 0.9, "fat_g": 0.2, "carbs_g": 10},
-"benefits": ["Zdraví očí", "Imunita", "Antioxidanty"],
-
-"best_for": ["Svačiny", "Vaření", "Saláty"],
-"avoid_if": ["Alergie na mrkev"]
-},
-{
-"name": "Celer bulvový",
-"description": "Celer bulvový je bohatý na vlákninu, vitamíny a minerály, podporuje trávení a detoxikaci.",
-"nutrients": {"kcal": 42, "protein_g": 1.5, "fat_g": 0.3, "carbs_g": 9},
-"benefits": ["Trávení", "Detoxikace", "Nízkokalorická"],
-"best_for": ["Polévky", "Vaření", "Všichni"],
-"avoid_if": ["Alergie na celer"]
-},
-{
-"name": "Celer řapíkatý",
-"description": "Celer řapíkatý je nízkokalorická zelenina s vysokým obsahem vlákniny a draslíku.",
-"nutrients": {"kcal": 16, "protein_g": 0.7, "fat_g": 0.2, "carbs_g": 3},
-"benefits": ["Trávení", "Hydratace", "Nízkokalorická"],
-"best_for": ["Saláty", "Svačiny", "Smoothie"],
-"avoid_if": ["Alergie na celer"]
-},
-{
-"name": "Petržel kořen",
-"description": "Kořen petržele je bohatý na vitamíny a minerály, podporuje imunitu a detoxikaci.",
-"nutrients": {"kcal": 55, "protein_g": 1.8, "fat_g": 0.6, "carbs_g": 13},
-"benefits": ["Imunita", "Detoxikace", "Trávení"],
-"best_for": ["Polévky", "Vaření", "Všichni"],
-"avoid_if": ["Alergie na petržel"]
-},
-{
-"name": "Petržel nať",
-"description": "Petrželová nať je bohatá na vitamíny A, C a K, podporuje imunitu a detoxikaci.",
-"nutrients": {"kcal": 36, "protein_g": 3, "fat_g": 0.8, "carbs_g": 6},
-"benefits": ["Imunita", "Detoxikace", "Antioxidanty"],
-"best_for": ["Saláty", "Omáčky", "Všichni"],
-"avoid_if": ["Alergie na petržel"]
-},
-{
-"name": "Kedluben",
-"description": "Kedluben je nízkokalorická zelenina bohatá na vitamíny C a vlákninu, podporuje trávení.",
-"nutrients": {"kcal": 27, "protein_g": 1.7, "fat_g": 0.1, "carbs_g": 6},
-
-"benefits": ["Trávení", "Imunita", "Nízkokalorická"],
-"best_for": ["Saláty", "Vaření", "Svačiny"],
-"avoid_if": ["Alergie na kedluben"]
-},
-{
-"name": "Brokolice",
-"description": "Brokolice je bohatá na vitamíny C a K, antioxidanty a vlákninu, podporuje imunitu a zdraví kostí.",
-"nutrients": {"kcal": 34, "protein_g": 2.8, "fat_g": 0.4, "carbs_g": 7},
-"benefits": ["Imunita", "Zdraví kostí", "Detoxikace"],
-"best_for": ["Vaření", "Dušení", "Všichni"],
-"avoid_if": ["Alergie na brokolici"]
-},
-{
-"name": "Květák",
-"description": "Květák je bohatý na vitamíny C a K a vlákninu, podporuje imunitu a zdraví trávení.",
-"nutrients": {"kcal": 25, "protein_g": 1.9, "fat_g": 0.1, "carbs_g": 5},
-"benefits": ["Imunita", "Trávení", "Nízkokalorická"],
-"best_for": ["Vaření", "Dušení", "Všichni"],
-"avoid_if": ["Alergie na květák"]
-},
-{
-"name": "Brambory",
-"description": "Brambory jsou bohaté na vitamín C, draslík a vlákninu, poskytují energii díky sacharidům.",
-"nutrients": {"kcal": 77, "protein_g": 2, "fat_g": 0.1, "carbs_g": 17},
-"benefits": ["Energie", "Trávení", "Imunita"],
-"best_for": ["Vaření", "Pečení", "Všichni"],
-"avoid_if": ["Alergie na brambory"]
-},
-{
-"name": "Batáty",
-"description": "Batáty jsou bohaté na beta-karoten, vitamíny a vlákninu, podporují imunitu a zdraví očí.",
-"nutrients": {"kcal": 86, "protein_g": 1.6, "fat_g": 0.1, "carbs_g": 20},
-"benefits": ["Imunita", "Zdraví očí", "Energie"],
-"best_for": ["Vaření", "Pečení", "Všichni"],
-"avoid_if": ["Alergie na batáty"]
-},
-{
-"name": "Cibule žlutá",
-"description": "Žlutá cibule obsahuje antioxidanty a vitamíny, podporuje imunitu a trávení.",
-"nutrients": {"kcal": 40, "protein_g": 1.1, "fat_g": 0.1, "carbs_g": 9},
-
-"benefits": ["Imunita", "Trávení", "Antioxidanty"],
-"best_for": ["Vaření", "Smažení", "Všichni"],
-"avoid_if": ["Alergie na cibuli"]
-},
-{
-"name": "Cibule červená",
-"description": "Červená cibule obsahuje antioxidanty a vitamíny, podporuje imunitu a zdraví srdce.",
-"nutrients": {"kcal": 40, "protein_g": 1.1, "fat_g": 0.1, "carbs_g": 9},
-"benefits": ["Imunita", "Zdraví srdce", "Antioxidanty"],
-"best_for": ["Saláty", "Vaření", "Svačiny"],
-"avoid_if": ["Alergie na cibuli"]
-},
-{
-"name": "Česnek",
-"description": "Česnek podporuje imunitu, obsahuje alicin a antioxidanty, má protizánětlivé účinky.",
-"nutrients": {"kcal": 149, "protein_g": 6.4, "fat_g": 0.5, "carbs_g": 33},
-"benefits": ["Imunita", "Protizánětlivé účinky", "Zdraví srdce"],
-"best_for": ["Všichni", "Dochucení jídel", "Zdravá kuchyně"],
-"avoid_if": ["Alergie na česnek"]
-},
-{
-"name": "Por",
-"description": "Pórek je bohatý na vitamíny A, C a K, podporuje imunitu a trávení.",
-"nutrients": {"kcal": 61, "protein_g": 1.5, "fat_g": 0.3, "carbs_g": 14},
-"benefits": ["Imunita", "Trávení", "Antioxidanty"],
-"best_for": ["Polévky", "Dušení", "Všichni"],
-"avoid_if": ["Alergie na pórek"]
-},
-{
-"name": "Dýně hokaido",
-"description": "Dýně hokaido je bohatá na beta-karoten a vitamíny, podporuje zdraví očí a imunitu.",
-"nutrients": {"kcal": 49, "protein_g": 1.8, "fat_g": 0.3, "carbs_g": 12},
-"benefits": ["Zdraví očí", "Imunita", "Antioxidanty"],
-"best_for": ["Pečení", "Polévky", "Všichni"],
-"avoid_if": ["Alergie na dýni"]
-},
-{
-"name": "Dýně máslová",
-"description": "Dýně máslová je bohatá na beta-karoten, vitamíny a vlákninu, podporuje trávení a imunitu.",
-"nutrients": {"kcal": 45, "protein_g": 1.2, "fat_g": 0.1, "carbs_g": 10},
-
-"benefits": ["Trávení", "Imunita", "Antioxidanty"],
-"best_for": ["Pečení", "Polévky", "Všichni"],
-"avoid_if": ["Alergie na dýni"]
-},
-{
-"name": "Cuketa",
-"description": "Cuketa je nízkokalorická zelenina s vysokým obsahem vody, vitamínů a minerálů.",
-"nutrients": {"kcal": 17, "protein_g": 1.2, "fat_g": 0.3, "carbs_g": 3.1},
-"benefits": ["Hydratace", "Nízkokalorická", "Trávení"],
-"best_for": ["Dušení", "Grilování", "Všichni"],
-"avoid_if": ["Alergie na cuketu"]
-},
-{
-"name": "Lilek",
-"description": "Lilek obsahuje antioxidanty a vlákninu, podporuje trávení a zdraví srdce.",
-"nutrients": {"kcal": 25, "protein_g": 1, "fat_g": 0.2, "carbs_g": 6},
-"benefits": ["Trávení", "Zdraví srdce", "Antioxidanty"],
-"best_for": ["Pečení", "Grilování", "Všichni"],
-"avoid_if": ["Alergie na lilek"]
-},
-{
-"name": "Ředkvičky",
-"description": "Ředkvičky jsou nízkokalorická zelenina bohatá na vitamín C a vlákninu.",
-"nutrients": {"kcal": 16, "protein_g": 0.7, "fat_g": 0.1, "carbs_g": 3.4},
-"benefits": ["Nízkokalorická", "Trávení", "Imunita"],
-"best_for": ["Saláty", "Svačiny", "Všichni"],
-"avoid_if": ["Alergie na ředkvičky"]
-},
-{
-"name": "Křen",
-"description": "Křen podporuje imunitu, má protizánětlivé účinky a obsahuje antioxidanty.",
-"nutrients": {"kcal": 48, "protein_g": 1.5, "fat_g": 0.1, "carbs_g": 11},
-"benefits": ["Imunita", "Protizánětlivé účinky", "Trávení"],
-"best_for": ["Dochucení jídel", "Všichni", "Tradiční kuchyně"],
-"avoid_if": ["Alergie na křen"]
-},
-{
-"name": "Artyčok",
-"description": "Artyčok je bohatý na vlákninu, antioxidanty a podporuje zdraví jater.",
-"nutrients": {"kcal": 47, "protein_g": 3.3, "fat_g": 0.2, "carbs_g": 11},
-"benefits": ["Zdraví jater", "Trávení", "Antioxidanty"],
-"best_for": ["Vaření", "Dušení", "Všichni"],
-"avoid_if": ["Alergie na artyčok"]
-
-},
-{
-"name": "Chřest",
-"description": "Chřest je bohatý na vitamíny A, C a K a vlákninu, podporuje trávení a imunitu.",
-"nutrients": {"kcal": 20, "protein_g": 2.2, "fat_g": 0.2, "carbs_g": 3.9},
-"benefits": ["Trávení", "Imunita", "Nízkokalorická"],
-"best_for": ["Vaření", "Dušení", "Všichni"],
-"avoid_if": ["Alergie na chřest"]
-},
-{
-"name": "Fazolové lusky",
-"description": "Fazolové lusky jsou nízkokalorické, bohaté na vlákninu a vitamíny, podporují trávení.",
-"nutrients": {"kcal": 31, "protein_g": 1.8, "fat_g": 0.1, "carbs_g": 7},
-"benefits": ["Trávení", "Nízkokalorická", "Vitamíny a minerály"],
-"best_for": ["Saláty", "Vaření", "Dušení"],
-"avoid_if": ["Alergie na fazole"]
-},
-{
-"name": "Hrášek čerstvý",
-"description": "Čerstvý hrášek je bohatý na bílkoviny, vitamíny a vlákninu, podporuje trávení a imunitu.",
-"nutrients": {"kcal": 81, "protein_g": 5, "fat_g": 0.4, "carbs_g": 14},
-"benefits": ["Imunita", "Trávení", "Zdroj energie"],
-"best_for": ["Vaření", "Dušení", "Svačiny"],
-"avoid_if": ["Alergie na hrášek"]
-},
-{
-"name": "Hrášek mražený",
-"description": "Mražený hrášek si zachovává vitamíny, vlákninu a bílkoviny, podporuje trávení a imunitu.",
-"nutrients": {"kcal": 81, "protein_g": 5, "fat_g": 0.4, "carbs_g": 14},
-"benefits": ["Imunita", "Trávení", "Zdroj energie"],
-"best_for": ["Vaření", "Dušení", "Svačiny"],
-"avoid_if": ["Alergie na hrášek"]
-},
-{
-"name": "Voda neperlivá",
-"description": "Čistá voda bez bublinek, nezbytná pro hydrataci a správnou funkci organismu.",
-
-"nutrients": {"kcal": 0, "protein_g": 0, "fat_g": 0, "carbs_g": 0},
-"benefits": ["Hydratace", "Podpora metabolismu", "Detoxikace organismu"],
-"best_for": ["Každodenní pití", "Sportovci", "Dieta"],
-"avoid_if": []
-},
-{
-"name": "Voda perlivá",
-"description": "Voda s přirozeným nebo umělým obsahem CO2, osvěžující a vhodná pro doplnění tekutin.",
-"nutrients": {"kcal": 0, "protein_g": 0, "fat_g": 0, "carbs_g": 0},
-"benefits": ["Hydratace", "Osvěžující efekt"],
-"best_for": ["Každodenní pití", "Osvěžení během dne"],
-"avoid_if": ["Problémy s žaludkem nebo nadýmáním"]
-},
-{
-"name": "Minerálka",
-"description": "Přírodní minerální voda bohatá na minerály a stopové prvky, podporuje zdraví kostí a svalů.",
-"nutrients": {"kcal": 0, "protein_g": 0, "fat_g": 0, "carbs_g": 0},
-"benefits": ["Doplnění minerálů", "Podpora kostí a svalů", "Hydratace"],
-"best_for": ["Každodenní pití", "Sportovci", "Lidé s nedostatkem minerálů"],
-"avoid_if": []
-},
-{
-"name": "Ovocné šťávy",
-"description": "Přírodní ovocné šťávy obsahující vitaminy a minerály, vhodné jako doplněk stravy.",
-"nutrients": {"kcal": 45, "protein_g": 0.3, "fat_g": 0.1, "carbs_g": 11},
-"benefits": ["Zdroj vitaminu C", "Podpora imunity", "Energie z cukrů"],
-"best_for": ["Snídaně", "Snacky", "Obnova energie"],
-"avoid_if": ["Cukrovka", "Dietní omezení cukru"]
-},
-{
-"name": "Smoothie",
-"description": "Mix ovoce a zeleniny, často doplněný mlékem nebo jogurtem, bohatý na vitaminy a vlákninu.",
-"nutrients": {"kcal": 120, "protein_g": 2, "fat_g": 1, "carbs_g": 25},
-"benefits": ["Zdroj vitaminů a minerálů", "Podpora trávení", "Rychlá energie"],
-"best_for": ["Snídaně", "Snacky", "Po tréninku"],
-"avoid_if": ["Cukrovka", "Dietní omezení cukru"]
-},
-{
-"name": "Čaj černý",
-"description": "Černý čaj obsahuje kofein a antioxidanty, podporuje bdělost a trávení.",
-
-"nutrients": {"kcal": 1, "protein_g": 0, "fat_g": 0, "carbs_g": 0},
-"benefits": ["Podpora energie a soustředění", "Antioxidanty", "Podpora trávení"],
-"best_for": ["Ráno", "Odpolední pauza", "Zvýšení pozornosti"],
-"avoid_if": ["Citlivost na kofein", "Těhotenství"]
-},
-{
-"name": "Čaj zelený",
-"description": "Zelený čaj obsahuje antioxidanty a mírné množství kofeinu, podporuje metabolismus a zdraví srdce.",
-"nutrients": {"kcal": 1, "protein_g": 0, "fat_g": 0, "carbs_g": 0},
-"benefits": ["Antioxidanty", "Podpora metabolismu", "Podpora zdraví srdce"],
-"best_for": ["Každodenní pití", "Relaxace", "Podpora hubnutí"],
-"avoid_if": ["Citlivost na kofein", "Těhotenství"]
-},
-{
-"name": "Bylinné čaje",
-"description": "Čaje z bylin a květů, neobsahují kofein, podporují relaxaci a trávení.",
-"nutrients": {"kcal": 0, "protein_g": 0, "fat_g": 0, "carbs_g": 0},
-"benefits": ["Podpora trávení", "Relaxace", "Podpora imunity"],
-"best_for": ["Večerní pití", "Relaxace", "Detoxikace"],
-"avoid_if": ["Alergie na konkrétní byliny"]
-},
-{
-"name": "Káva zrnková",
-"description": "Pražená kávová zrna, bohatá na kofein, podporují bdělost a koncentraci.",
-"nutrients": {"kcal": 2, "protein_g": 0.1, "fat_g": 0, "carbs_g": 0},
-"benefits": ["Zvýšení energie", "Podpora koncentrace", "Antioxidanty"],
-"best_for": ["Ráno", "Odpolední pauza", "Práce a studium"],
-"avoid_if": ["Citlivost na kofein", "Těhotenství", "Nespavost"]
-},
-{
-"name": "Káva mletá",
-"description": "Mletá káva připravená k vaření nebo přípravě espressa, obsahuje kofein a antioxidanty.",
-"nutrients": {"kcal": 2, "protein_g": 0.1, "fat_g": 0, "carbs_g": 0},
-"benefits": ["Zvýšení energie", "Podpora koncentrace", "Antioxidanty"],
-"best_for": ["Ráno", "Odpolední pauza", "Práce a studium"],
-"avoid_if": ["Citlivost na kofein", "Těhotenství", "Nespavost"]
-},
-{
-"name": "Instantní káva",
-"description": "Rychle rozpustná káva, obsahuje kofein a antioxidanty, vhodná na rychlou přípravu.",
-"nutrients": {"kcal": 2, "protein_g": 0.1, "fat_g": 0, "carbs_g": 0.5},
-
-"benefits": ["Rychlá příprava", "Zvýšení energie", "Podpora koncentrace"],
-"best_for": ["Ráno", "Cestování", "Práce a studium"],
-"avoid_if": ["Citlivost na kofein", "Těhotenství", "Nespavost"]
-},
-{
-"name": "Kakao",
-"description": "Nápoj z kakaového prášku, obsahuje antioxidanty a malé množství kofeinu, podporuje náladu.",
-"nutrients": {"kcal": 50, "protein_g": 1, "fat_g": 1.5, "carbs_g": 8},
-"benefits": ["Antioxidanty", "Podpora nálady", "Energie"],
-"best_for": ["Svačina", "Relaxace", "Snídaně"],
-"avoid_if": ["Alergie na kakao", "Cukrovka (pokud doslazeno)"]
-},
-{
-"name": "Energetické nápoje",
-"description": "Nápoje obsahující kofein a cukr pro rychlé zvýšení energie a koncentrace.",
-"nutrients": {"kcal": 45, "protein_g": 0, "fat_g": 0, "carbs_g": 11},
-"benefits": ["Rychlá energie", "Zvýšení koncentrace", "Podpora bdělosti"],
-"best_for": ["Sportovní výkon", "Krátkodobé zvýšení energie", "Dlouhá práce"],
-"avoid_if": ["Cukrovka", "Citlivost na kofein", "Vysoký krevní tlak"]
-},
-{
-"name": "Smetanové nápoje (např. latte, cappuccino v krabici)",
-"description": "Nápoje obsahující mléko a espresso, poskytují energii, bílkoviny a tuky.",
-"nutrients": {"kcal": 120, "protein_g": 4, "fat_g": 4, "carbs_g": 15},
-"benefits": ["Zdroj energie", "Podpora bdělosti", "Bílkoviny a tuky z mléka"],
-"best_for": ["Ráno", "Svačina", "Po práci či studiu"],
-"avoid_if": ["Laktózová intolerance", "Citliv"]
-},
-{
-"name": "Máslo",
-"description": "Máslo je živočišný tuk bohatý na vitaminy A, D, E a K, vhodný na pečení a vaření.",
-"nutrients": {"kcal": 717, "protein_g": 0.5, "fat_g": 81, "carbs_g": 0.1},
-"benefits": ["Zdroj vitamínů rozpustných v tucích", "Bohaté na energii", "Dobré na pečení"],
-"best_for": ["Pečení", "Vaření", "Ochucování jídel"],
-"avoid_if": ["Alergie na mléčné produkty", "Nízkotučná dieta"]
-},
-{
-"name": "Ghí",
-"description": "Ghí je přepuštěné máslo, s vysokou teplotní odolností, vhodné pro smažení a tradiční indickou kuchyni.",
-"nutrients": {"kcal": 900, "protein_g": 0, "fat_g": 100, "carbs_g": 0},
-
-"benefits": ["Vysoký bod kouře", "Bez laktózy", "Bohaté na energii"],
-"best_for": ["Smažení", "Indická kuchyně", "Pečení"],
-"avoid_if": ["Alergie na mléčné produkty", "Nízkotučná dieta"]
-},
-{
-"name": "Margarín",
-"description": "Margarín je rostlinný tuk, často fortifikovaný vitaminy, vhodný na pečení a pomazánky.",
-"nutrients": {"kcal": 717, "protein_g": 0, "fat_g": 81, "carbs_g": 0},
-"benefits": ["Zdroj energie", "Bez cholesterolu", "Vhodný na pečení"],
-"best_for": ["Pomazánky", "Pečení", "Vaření"],
-"avoid_if": ["Alergie na sóju (pokud obsahuje sójový lecitin)"]
-},
-{
-"name": "Olivový olej",
-"description": "Olivový olej je bohatý na mononenasycené tuky a antioxidanty, podporuje zdraví srdce.",
-"nutrients": {"kcal": 884, "protein_g": 0, "fat_g": 100, "carbs_g": 0},
-"benefits": ["Podpora zdraví srdce", "Protizánětlivé účinky", "Bohatý na antioxidanty"],
-"best_for": ["Saláty", "Dochucování jídel", "Nízkotepelné vaření"],
-"avoid_if": ["Alergie na olivy"]
-},
-{
-"name": "Slunečnicový olej",
-"description": "Slunečnicový olej je bohatý na vitamin E a nenasycené tuky, vhodný na smažení a pečení.",
-"nutrients": {"kcal": 884, "protein_g": 0, "fat_g": 100, "carbs_g": 0},
-"benefits": ["Zdroj vitaminu E", "Podpora energie", "Vhodný na vaření a smažení"],
-"best_for": ["Smažení", "Pečení", "Saláty"],
-"avoid_if": ["Alergie na slunečnici"]
-},
-{
-"name": "Řepkový olej",
-"description": "Řepkový olej obsahuje omega-3 a omega-6 mastné kyseliny, vhodný pro zdravou kuchyni.",
-"nutrients": {"kcal": 884, "protein_g": 0, "fat_g": 100, "carbs_g": 0},
-"benefits": ["Podpora zdraví srdce", "Zdroj esenciálních mastných kyselin", "Vhodný na vaření"],
-"best_for": ["Smažení", "Pečení", "Saláty"],
-"avoid_if": ["Alergie na řepku"]
-},
-{
-"name": "Kokosový olej",
-
-"description": "Kokosový olej obsahuje nasycené tuky, vhodný na pečení a smažení, dodává exotickou chuť.",
-"nutrients": {"kcal": 862, "protein_g": 0, "fat_g": 100, "carbs_g": 0},
-"benefits": ["Vysoký bod kouře", "Dodává energii", "Vhodný na exotická jídla"],
-"best_for": ["Pečení", "Smažení", "Tropická kuchyně"],
-"avoid_if": ["Alergie na kokos"]
-},
-{
-"name": "Lněný olej",
-"description": "Lněný olej je bohatý na omega-3 mastné kyseliny, podporuje zdraví srdce a trávení.",
-"nutrients": {"kcal": 884, "protein_g": 0, "fat_g": 100, "carbs_g": 0},
-"benefits": ["Podpora zdraví srdce", "Protizánětlivé účinky", "Zdroj omega-3"],
-"best_for": ["Saláty", "Studená jídla", "Smoothie"],
-"avoid_if": ["Alergie na lněná semínka"]
-},
-{
-"name": "Avokádový olej",
-"description": "Avokádový olej je bohatý na mononenasycené tuky a antioxidanty, vhodný pro zdravou kuchyni.",
-"nutrients": {"kcal": 884, "protein_g": 0, "fat_g": 100, "carbs_g": 0},
-"benefits": ["Podpora zdraví srdce", "Protizánětlivé účinky", "Bohatý na antioxidanty"],
-"best_for": ["Saláty", "Pečení", "Vaření"],
-"avoid_if": ["Alergie na avokádo"]
-},
-{
-"name": "Arašídové máslo",
-"description": "Arašídové máslo je bohaté na bílkoviny a zdravé tuky, vhodné na pomazánky a smoothies.",
-"nutrients": {"kcal": 588, "protein_g": 25, "fat_g": 50, "carbs_g": 20},
-"benefits": ["Zdroj bílkovin", "Podpora energie", "Zdravé tuky"],
-"best_for": ["Svačiny", "Smoothies", "Pomazánky"],
-"avoid_if": ["Alergie na arašídy"]
-},
-{
-"name": "Tahini (sezamová pasta)",
-"description": "Tahini je pasta ze sezamových semínek, bohatá na bílkoviny, zdravé tuky a minerály.",
-"nutrients": {"kcal": 595, "protein_g": 17, "fat_g": 53, "carbs_g": 23},
-"benefits": ["Zdroj bílkovin", "Podpora energie", "Bohaté na minerály"],
-"best_for": ["Hummus", "Omáčky", "Pomazánky"],
-"avoid_if": ["Alergie na sezam"]
-},
-{
-"name": "Červená čočka",
-"description": "Červená čočka je bohatá na bílkoviny, vlákninu a minerály, podporuje trávení a stabilní hladinu cukru v krvi.",
-"nutrients": {"kcal": 358, "protein_g": 25, "fat_g": 1, "carbs_g": 60},
-"benefits": ["Podpora trávení", "Stabilní energie", "Zdroj bílkovin"],
-"best_for": ["Polévky", "Přílohy", "Vegetariáni"],
-"avoid_if": ["Alergie na luštěniny"]
-},
-{
-"name": "Zelená čočka",
-"description": "Zelená čočka je bohatá na bílkoviny a vlákninu, vhodná pro saláty, polévky a hlavní jídla.",
-"nutrients": {"kcal": 353, "protein_g": 26, "fat_g": 1, "carbs_g": 60},
-"benefits": ["Podpora trávení", "Zdroj bílkovin", "Nízký glykemický index"],
-"best_for": ["Saláty", "Polévky", "Vegetariánské pokrmy"],
-"avoid_if": ["Alergie na luštěniny"]
-},
-{
-"name": "Hnědá čočka",
-"description": "Hnědá čočka obsahuje vysoké množství bílkovin a vlákniny, vhodná pro různé pokrmy.",
-"nutrients": {"kcal": 352, "protein_g": 25, "fat_g": 1, "carbs_g": 60},
-"benefits": ["Podpora trávení", "Stabilní energie", "Zdroj bílkovin"],
-"best_for": ["Polévky", "Přílohy", "Vegetariáni"],
-"avoid_if": ["Alergie na luštěniny"]
-},
-{
-"name": "Cizrna",
-"description": "Cizrna je bohatá na bílkoviny, vlákninu a minerály, vhodná pro hummus, saláty a vařená jídla.",
-"nutrients": {"kcal": 364, "protein_g": 19, "fat_g": 6, "carbs_g": 61},
-"benefits": ["Podpora trávení", "Zdroj bílkovin", "Stabilní hladina cukru"],
-"best_for": ["Hummus", "Saláty", "Vegetariánské pokrmy"],
-"avoid_if": ["Alergie na luštěniny"]
-},
-{
-"name": "Fazole bílé",
-"description": "Fazole bílé jsou bohaté na bílkoviny, vlákninu a minerály, vhodné pro polévky a dušená jídla.",
-"nutrients": {"kcal": 337, "protein_g": 22, "fat_g": 1, "carbs_g": 62},
-"benefits": ["Podpora trávení", "Zdroj bílkovin", "Stabilní energie"],
-
-"best_for": ["Polévky", "Dušená jídla", "Vegetariánské pokrmy"],
-"avoid_if": ["Alergie na luštěniny"]
-},
-{
-"name": "Fazole červené",
-"description": "Fazole červené jsou bohaté na bílkoviny a vlákninu, vhodné pro chili, saláty a dušená jídla.",
-"nutrients": {"kcal": 333, "protein_g": 21, "fat_g": 1, "carbs_g": 60},
-"benefits": ["Podpora trávení", "Zdroj bílkovin", "Nízký glykemický index"],
-"best_for": ["Chili", "Saláty", "Dušená jídla"],
-"avoid_if": ["Alergie na luštěniny"]
-},
-{
-"name": "Fazole černé",
-"description": "Fazole černé obsahují bílkoviny, vlákninu a antioxidanty, podporují zdraví srdce a trávení.",
-"nutrients": {"kcal": 339, "protein_g": 21, "fat_g": 1, "carbs_g": 63},
-"benefits": ["Podpora trávení", "Zdroj bílkovin", "Antioxidanty"],
-"best_for": ["Saláty", "Dušená jídla", "Vegetariánské pokrmy"],
-"avoid_if": ["Alergie na luštěniny"]
-},
-{
-"name": "Sója",
-"description": "Sója je bohatá na kompletní bílkoviny, izoflavony a minerály, vhodná pro vegetariány a vegany.",
-"nutrients": {"kcal": 446, "protein_g": 36, "fat_g": 20, "carbs_g": 30},
-"benefits": ["Kompletní bílkoviny", "Podpora srdce", "Zdroj minerálů"],
-"best_for": ["Vegetariáni", "Vegani", "Zdroj bílkovin"],
-"avoid_if": ["Alergie na sóju"]
-},
-{
-"name": "Edamame",
-"description": "Edamame jsou mladé sójové boby, bohaté na bílkoviny, vlákninu a antioxidanty.",
-"nutrients": {"kcal": 121, "protein_g": 11, "fat_g": 5, "carbs_g": 9},
-"benefits": ["Zdroj bílkovin", "Podpora trávení", "Antioxidanty"],
-"best_for": ["Svačiny", "Saláty", "Snacky"],
-"avoid_if": ["Alergie na sóju"]
-},
-{
-"name": "Hrách žlutý",
-"description": "Žlutý hrách je bohatý na bílkoviny a vlákninu, vhodný pro polévky a kaše.",
-"nutrients": {"kcal": 341, "protein_g": 22, "fat_g": 1, "carbs_g": 62},
-"benefits": ["Podpora trávení", "Zdroj bílkovin", "Nízký glykemický index"],
-
-"best_for": ["Polévky", "Kaše", "Vegetariánské pokrmy"],
-"avoid_if": ["Alergie na luštěniny"]
-},
-{
-"name": "Hrách zelený",
-"description": "Zelený hrách je bohatý na bílkoviny, vlákninu a vitamíny, vhodný jako příloha nebo do polévek.",
-"nutrients": {"kcal": 81, "protein_g": 5, "fat_g": 0.4, "carbs_g": 14},
-"benefits": ["Podpora trávení", "Zdroj bílkovin", "Nízkokalorický"],
-"best_for": ["Polévky", "Přílohy", "Saláty"],
-"avoid_if": ["Alergie na luštěniny"]
-},
-{
-"name": "Mandle",
-"description": "Mandle jsou bohaté na zdravé tuky, bílkoviny, vitamín E a hořčík.",
-"nutrients": {"kcal": 579, "protein_g": 21, "fat_g": 50, "carbs_g": 22},
-"benefits": ["Podpora srdce", "Zdroj antioxidantů", "Podpora mozkové činnosti"],
-"best_for": ["Svačiny", "Sportovci", "Zdravé tuky ve stravě"],
-"avoid_if": ["Alergie na ořechy"]
-},
-{
-"name": "Vlašské ořechy",
-"description": "Vlašské ořechy jsou bohaté na omega-3 mastné kyseliny, bílkoviny a antioxidanty.",
-"nutrients": {"kcal": 654, "protein_g": 15, "fat_g": 65, "carbs_g": 14},
-"benefits": ["Podpora mozku", "Protizánětlivé účinky", "Zdravé tuky"],
-"best_for": ["Svačiny", "Zdravé tuky", "Sportovci"],
-"avoid_if": ["Alergie na ořechy"]
-},
-{
-"name": "Lískové ořechy",
-"description": "Lískové ořechy obsahují zdravé tuky, vitamín E a minerály, podporují srdce a mozek.",
-"nutrients": {"kcal": 628, "protein_g": 15, "fat_g": 61, "carbs_g": 17},
-"benefits": ["Podpora srdce", "Antioxidanty", "Zdravé tuky"],
-"best_for": ["Svačiny", "Zdravé tuky", "Dezerty"],
-"avoid_if": ["Alergie na ořechy"]
-},
-{
-"name": "Kešu",
-
-"description": "Kešu ořechy jsou bohaté na zdravé tuky, bílkoviny a minerály jako hořčík a zinek.",
-"nutrients": {"kcal": 553, "protein_g": 18, "fat_g": 44, "carbs_g": 30},
-"benefits": ["Zdravé tuky", "Podpora kostí", "Podpora mozku"],
-"best_for": ["Svačiny", "Sportovci", "Zdravé tuky ve stravě"],
-"avoid_if": ["Alergie na ořechy"]
-},
-{
-"name": "Pistácie",
-"description": "Pistácie jsou bohaté na bílkoviny, vlákninu a zdravé tuky, podporují srdce a trávení.",
-"nutrients": {"kcal": 562, "protein_g": 20, "fat_g": 45, "carbs_g": 28},
-"benefits": ["Podpora srdce", "Trávení", "Zdravé tuky"],
-"best_for": ["Svačiny", "Sportovci", "Zdravé tuky ve stravě"],
-"avoid_if": ["Alergie na ořechy"]
-},
-{
-"name": "Pekanové ořechy",
-"description": "Pekanové ořechy jsou bohaté na zdravé tuky, antioxidanty a minerály.",
-"nutrients": {"kcal": 691, "protein_g": 9, "fat_g": 72, "carbs_g": 14},
-"benefits": ["Podpora srdce", "Antioxidanty", "Zdravé tuky"],
-"best_for": ["Svačiny", "Zdravé tuky", "Dezerty"],
-"avoid_if": ["Alergie na ořechy"]
-},
-{
-"name": "Makadamové ořechy",
-"description": "Makadamové ořechy obsahují zdravé tuky, bílkoviny a minerály, podporují srdce a energii.",
-"nutrients": {"kcal": 718, "protein_g": 8, "fat_g": 76, "carbs_g": 14},
-"benefits": ["Zdravé tuky", "Podpora srdce", "Zdroj energie"],
-"best_for": ["Svačiny", "Dezerty", "Zdravé tuky ve stravě"],
-"avoid_if": ["Alergie na ořechy"]
-},
-{
-"name": "Slunečnicová semínka",
-"description": "Slunečnicová semínka jsou bohatá na zdravé tuky, bílkoviny, vitamín E a minerály.",
-"nutrients": {"kcal": 584, "protein_g": 21, "fat_g": 51, "carbs_g": 20},
-"benefits": ["Podpora srdce", "Antioxidanty", "Zdroj energie"],
-"best_for": ["Svačiny", "Saláty", "Sportovci"],
-"avoid_if": ["Alergie na semínka"]
-},
-{
-"name": "Dýňová semínka",
-
-"description": "Dýňová semínka jsou bohatá na zinek, bílkoviny a zdravé tuky.",
-"nutrients": {"kcal": 559, "protein_g": 30, "fat_g": 49, "carbs_g": 11},
-"benefits": ["Podpora imunity", "Zdravé tuky", "Podpora prostaty"],
-"best_for": ["Svačiny", "Saláty", "Sportovci"],
-"avoid_if": ["Alergie na semínka"]
-},
-{
-"name": "Chia semínka",
-"description": "Chia semínka jsou bohatá na omega-3, vlákninu a bílkoviny, podporují trávení a srdce.",
-"nutrients": {"kcal": 486, "protein_g": 17, "fat_g": 31, "carbs_g": 42},
-"benefits": ["Podpora trávení", "Zdravé tuky", "Stabilní energie"],
-"best_for": ["Snídaně", "Smoothie", "Sportovci"],
-"avoid_if": ["Alergie na semínka"]
-},
-{
-"name": "Lněná semínka",
-"description": "Lněná semínka obsahují omega-3, vlákninu a lignany, podporují srdce a trávení.",
-"nutrients": {"kcal": 534, "protein_g": 18, "fat_g": 42, "carbs_g": 29},
-"benefits": ["Podpora trávení", "Zdravé tuky", "Antioxidanty"],
-"best_for": ["Snídaně", "Smoothie", "Saláty"],
-"avoid_if": ["Alergie na semínka"]
-},
-{
-"name": "Sezamová semínka",
-"description": "Sezamová semínka jsou bohatá na vápník, zdravé tuky a bílkoviny, podporují kosti a srdce.",
-"nutrients": {"kcal": 573, "protein_g": 18, "fat_g": 50, "carbs_g": 23},
-"benefits": ["Podpora kostí", "Zdravé tuky", "Minerály"],
-"best_for": ["Svačiny", "Pečení", "Saláty"],
-"avoid_if": ["Alergie na semínka"]
-},
-{
-"name": "Konopná semínka",
-"description": "Konopná semínka obsahují všechny esenciální aminokyseliny, zdravé tuky a minerály.",
-"nutrients": {"kcal": 553, "protein_g": 31, "fat_g": 49, "carbs_g": 8},
-"benefits": ["Podpora svalů", "Zdravé tuky", "Minerály"],
-"best_for": ["Svačiny", "Smoothie", "Sportovci"],
-"avoid_if": ["Alergie na semínka"]
-},
-{
-"name": "Chléb bílý",
-"description": "Bílý chléb je klasický pšeničný produkt s vysokým obsahem sacharidů, rychlým zdrojem energie.",
-"nutrients": {"kcal": 265, "protein_g": 9, "fat_g": 3.2, "carbs_g": 49},
-"benefits": ["Rychlá energie", "Snadno stravitelné", "Vhodné k snídani"],
-"best_for": ["Snídaně", "Sendviče", "Všichni"],
-"avoid_if": ["Celiakie", "Bezlepková dieta"]
-},
-{
-"name": "Chléb celozrnný",
-"description": "Celozrnný chléb obsahuje vlákninu a vitamíny B, podporuje trávení a dlouhodobou energii.",
-"nutrients": {"kcal": 247, "protein_g": 12, "fat_g": 4, "carbs_g": 41},
-"benefits": ["Trávení", "Dlouhodobá energie", "Vitamíny B"],
-"best_for": ["Snídaně", "Sendviče", "Všichni"],
-"avoid_if": ["Celiakie", "Bezlepková dieta"]
-},
-{
-"name": "Bageta",
-"description": "Bageta je pšeničný produkt vhodný pro sendviče, rychlý zdroj sacharidů.",
-"nutrients": {"kcal": 270, "protein_g": 9, "fat_g": 3, "carbs_g": 52},
-"benefits": ["Rychlá energie", "Snadno stravitelné", "Vhodné k obědu"],
-"best_for": ["Sendviče", "Svačiny", "Všichni"],
-"avoid_if": ["Celiakie", "Bezlepková dieta"]
-},
-{
-"name": "Houska",
-"description": "Houska je malý pšeničný chléb, vhodný pro snídaně a svačiny.",
-"nutrients": {"kcal": 250, "protein_g": 8, "fat_g": 3, "carbs_g": 48},
-"benefits": ["Rychlá energie", "Snadno stravitelné", "Vhodné k snídani"],
-"best_for": ["Snídaně", "Sendviče", "Svačiny"],
-"avoid_if": ["Celiakie", "Bezlepková dieta"]
-},
-{
-"name": "Rohlík",
-"description": "Rohlík je klasický pšeničný pečivový výrobek, zdroj sacharidů.",
-"nutrients": {"kcal": 260, "protein_g": 8, "fat_g": 3, "carbs_g": 50},
-"benefits": ["Rychlá energie", "Snadno stravitelné", "Vhodné ke svačině"],
-"best_for": ["Snídaně", "Sendviče", "Svačiny"],
-"avoid_if": ["Celiakie", "Bezlepková dieta"]
-},
-{
-
-"name": "Croissant",
-"description": "Croissant je máslové pečivo s vyšším obsahem tuku, vhodné ke snídani nebo dezertu.",
-"nutrients": {"kcal": 406, "protein_g": 8, "fat_g": 21, "carbs_g": 45},
-"benefits": ["Rychlá energie", "Delikatesa", "Vhodné ke snídani"],
-"best_for": ["Snídaně", "Dezert", "Svačiny"],
-"avoid_if": ["Celiakie", "Bezlepková dieta", "Nízkotučná dieta"]
-},
-{
-"name": "Tortilla pšeničná",
-"description": "Pšeničná tortilla je tenký plát pšeničného těsta, vhodný pro wrapy a burrita.",
-"nutrients": {"kcal": 309, "protein_g": 9, "fat_g": 9, "carbs_g": 49},
-"benefits": ["Rychlá příprava jídel", "Snadno stravitelné", "Univerzální použití"],
-"best_for": ["Wrapy", "Burrita", "Svačiny"],
-"avoid_if": ["Celiakie", "Bezlepková dieta"]
-},
-{
-"name": "Tortilla kukuřičná",
-"description": "Kukuřičná tortilla je bezlepková alternativa vhodná pro wrapy a tacos.",
-"nutrients": {"kcal": 218, "protein_g": 5, "fat_g": 2, "carbs_g": 44},
-"benefits": ["Bezlepková", "Snadno stravitelné", "Rychlá příprava"],
-"best_for": ["Wrapy", "Tacos", "Svačiny"],
-"avoid_if": ["Alergie na kukuřici"]
-},
-{
-"name": "Knäckebrot",
-"description": "Švédský křupavý chléb s vysokým obsahem vlákniny, vhodný pro snídani a svačiny.",
-"nutrients": {"kcal": 350, "protein_g": 10, "fat_g": 3, "carbs_g": 70},
-"benefits": ["Vysoký obsah vlákniny", "Nízký obsah tuku", "Dlouhodobá energie"],
-"best_for": ["Snídaně", "Svačiny", "Diabetici"],
-"avoid_if": ["Celiakie", "Bezlepková dieta"]
-},
-{
-"name": "Toastový chléb",
-"description": "Toastový chléb je pšeničný chléb vhodný na toast nebo sendviče.",
-"nutrients": {"kcal": 265, "protein_g": 9, "fat_g": 3, "carbs_g": 50},
-"benefits": ["Rychlá energie", "Snadno stravitelné", "Vhodné ke svačině"],
-"best_for": ["Snídaně", "Sendviče", "Svačiny"],
-"avoid_if": ["Celiakie", "Bezlepková dieta"]
-},
-{
-"name": "Těstoviny vaječné",
-
-"description": "Vaječné těstoviny jsou bohaté na bílkoviny a sacharidy, vhodné pro rychlou energii.",
-"nutrients": {"kcal": 371, "protein_g": 13, "fat_g": 2, "carbs_g": 75},
-"benefits": ["Rychlá energie", "Zdroj bílkovin", "Snadno stravitelné"],
-"best_for": ["Obědy", "Večeře", "Sportovci"],
-"avoid_if": ["Celiakie", "Bezlepková dieta", "Alergie na vejce"]
-},
-{
-"name": "Těstoviny celozrnné",
-"description": "Celozrnné těstoviny obsahují více vlákniny a minerálů, podporují trávení a stabilní energii.",
-"nutrients": {"kcal": 340, "protein_g": 13, "fat_g": 2, "carbs_g": 70},
-"benefits": ["Trávení", "Dlouhodobá energie", "Vitamíny a minerály"],
-"best_for": ["Obědy", "Večeře", "Sportovci"],
-"avoid_if": ["Celiakie", "Bezlepková dieta"]
-},
-{
-"name": "Těstoviny bezlepkové",
-"description": "Bezlepkové těstoviny jsou vhodné pro celiaky a osoby s citlivostí na lepek.",
-"nutrients": {"kcal": 360, "protein_g": 7, "fat_g": 2, "carbs_g": 78},
-"benefits": ["Bezlepkové", "Rychlá energie", "Snadno stravitelné"],
-"best_for": ["Obědy", "Večeře", "Celiaci"],
-"avoid_if": ["Alergie na kukuřici nebo rýži (podle typu)"]
-},
-{
-"name": "Rýže bílá",
-"description": "Bílá rýže je zdroj rychle stravitelných sacharidů a energie.",
-"nutrients": {"kcal": 130, "protein_g": 2.4, "fat_g": 0.2, "carbs_g": 28},
-"benefits": ["Rychlá energie", "Snadno stravitelné", "Univerzální příloha"],
-"best_for": ["Obědy", "Večeře", "Svačiny"],
-"avoid_if": ["Celiakie (pokud kontaminace)"]
-},
-{
-"name": "Rýže hnědá",
-"description": "Hnědá rýže obsahuje více vlákniny, vitamínů a minerálů, podporuje trávení.",
-"nutrients": {"kcal": 111, "protein_g": 2.6, "fat_g": 0.9, "carbs_g": 23},
-"benefits": ["Trávení", "Dlouhodobá energie", "Vitamíny a minerály"],
-"best_for": ["Obědy", "Večeře", "Svačiny"],
-"avoid_if": ["Celiakie (pokud kontaminace)"]
-},
-{
-"name": "Rýže jasmínová",
-"description": "Jasmínová rýže má aromatickou chuť, je rychlým zdrojem sacharidů a energie.",
-
-"nutrients": {"kcal": 129, "protein_g": 2.9, "fat_g": 0.3, "carbs_g": 27},
-"benefits": ["Rychlá energie", "Aromatická", "Snadno stravitelné"],
-"best_for": ["Obědy", "Večeře", "Asijská kuchyně"],
-"avoid_if": ["Celiakie (pokud kontaminace)"]
-},
-{
-"name": "Rýže basmati",
-"description": "Basmati rýže je aromatická, má nižší glykemický index a poskytuje stabilní energii.",
-"nutrients": {"kcal": 121, "protein_g": 2.6, "fat_g": 0.4, "carbs_g": 25},
-"benefits": ["Stabilní energie", "Aromatická", "Nízký glykemický index"],
-"best_for": ["Obědy", "Večeře", "Asijská kuchyně"],
-"avoid_if": ["Celiakie (pokud kontaminace)"]
-},
-{
-"name": "Ovesné vločky",
-"description": "Ovesné vločky jsou bohaté na vlákninu, bílkoviny a minerály, podporují trávení a snižují cholesterol.",
-"nutrients": {"kcal": 389, "protein_g": 16, "fat_g": 7, "carbs_g": 66},
-"benefits": ["Trávení", "Snížení cholesterolu", "Dlouhodobá energie"],
-"best_for": ["Snídaně", "Smoothie", "Sportovci"],
-"avoid_if": ["Celiakie (pokud kontaminace)"]
-},
-{
-"name": "Kukuřičné vločky",
-"description": "Kukuřičné vločky jsou rychlý zdroj sacharidů vhodný na snídani.",
-"nutrients": {"kcal": 357, "protein_g": 7.5, "fat_g": 1.2, "carbs_g": 81},
-"benefits": ["Rychlá energie", "Snadno stravitelné", "Snídaně"],
-"best_for": ["Snídaně", "Svačiny", "Děti"],
-"avoid_if": ["Alergie na kukuřici"]
-},
-{
-"name": "Pohanka",
-"description": "Pohanka je bezlepková obilovina bohatá na vlákninu a minerály, podporuje trávení a srdce.",
-"nutrients": {"kcal": 343, "protein_g": 13, "fat_g": 3.4, "carbs_g": 71},
-"benefits": ["Trávení", "Zdraví srdce", "Bezlepková"],
-"best_for": ["Obědy", "Večeře", "Svačiny"],
-"avoid_if": ["Alergie na pohanku"]
-},
-{
-"name": "Jáhly",
-"description": "Jáhly jsou bezlepková obilovina s vysokým obsahem minerálů a snadno stravitelných sacharidů.",
-
-"nutrients": {"kcal": 378, "protein_g": 11, "fat_g": 4, "carbs_g": 72},
-"benefits": ["Trávení", "Bezlepková", "Rychlá energie"],
-"best_for": ["Obědy", "Večeře", "Svačiny"],
-"avoid_if": ["Alergie na jáhly"]
-},
-{
-"name": "Bulgur",
-"description": "Bulgur je částečně pšeničné zrno bohaté na vlákninu a minerály, podporuje trávení.",
-"nutrients": {"kcal": 342, "protein_g": 12, "fat_g": 1.3, "carbs_g": 76},
-"benefits": ["Trávení", "Dlouhodobá energie", "Minerály"],
-"best_for": ["Obědy", "Saláty", "Večeře"],
-"avoid_if": ["Celiakie", "Bezlepková dieta"]
-},
-{
-"name": "Couscous",
-"description": "Couscous je jemné pšeničné zrno, rychlý zdroj sacharidů a energie.",
-"nutrients": {"kcal": 376, "protein_g": 12, "fat_g": 0.6, "carbs_g": 77},
-"benefits": ["Rychlá energie", "Snadno stravitelné", "Univerzální použití"],
-"best_for": ["Obědy", "Večeře", "Saláty"],
-"avoid_if": ["Celiakie", "Bezlepková dieta"]
-},
-{
-"name": "Quinoa",
-"description": "Quinoa je bezlepková obilovina bohatá na bílkoviny, vlákninu a minerály.",
-"nutrients": {"kcal": 368, "protein_g": 14, "fat_g": 6, "carbs_g": 64},
-"benefits": ["Bezlepková", "Bílkoviny", "Vitamíny a minerály"],
-"best_for": ["Obědy", "Večeře", "Svačiny"],
-"avoid_if": ["Alergie na quinou"]
-},
-{
-"name": "Amarant",
-"description": "Amarant je bezlepková obilovina bohatá na bílkoviny, vlákninu a minerály.",
-"nutrients": {"kcal": 371, "protein_g": 14, "fat_g": 7, "carbs_g": 65},
-"benefits": ["Bezlepková", "Bílkoviny", "Trávení"],
-"best_for": ["Obědy", "Večeře", "Svačiny"],
-"avoid_if": ["Alergie na amarant"]
-},
-{
-"name": "Polníček",
-
-"description": "Polníček je listová zelenina bohatá na vitamíny A, C a K, podporuje imunitu a zdraví očí.",
-"nutrients": {"kcal": 21, "protein_g": 2, "fat_g": 0.3, "carbs_g": 3.7},
-"benefits": ["Imunita", "Zdraví očí", "Nízkokalorická"],
-"best_for": ["Saláty", "Všichni", "Svačiny"],
-"avoid_if": ["Alergie na listovou zeleninu"]
-},
-{
-"name": "Rukola",
-"description": "Rukola je pikantní listová zelenina bohatá na vitamíny a minerály, podporuje trávení.",
-"nutrients": {"kcal": 25, "protein_g": 2.6, "fat_g": 0.7, "carbs_g": 3.7},
-"benefits": ["Podpora trávení", "Vitamíny a minerály", "Nízkokalorická"],
-"best_for": ["Saláty", "Pesto", "Všichni"],
-"avoid_if": ["Alergie na listovou zeleninu"]
-},
-{
-"name": "Špenát čerstvý",
-"description": "Špenát je bohatý na železo, vitamíny A, C a K, podporuje krevní oběh a zdraví kostí.",
-"nutrients": {"kcal": 23, "protein_g": 2.9, "fat_g": 0.4, "carbs_g": 3.6},
-"benefits": ["Krevní oběh", "Zdravé kosti", "Antioxidanty"],
-"best_for": ["Smoothie", "Vaření", "Saláty"],
-"avoid_if": ["Alergie na špenát"]
-},
-{
-"name": "Kapusta",
-"description": "Kapusta obsahuje vitamíny A, C, K a vlákninu, podporuje trávení a detoxikaci.",
-"nutrients": {"kcal": 25, "protein_g": 2, "fat_g": 0.1, "carbs_g": 5},
-"benefits": ["Trávení", "Detoxikace", "Imunita"],
-"best_for": ["Vaření", "Saláty", "Všichni"],
-"avoid_if": ["Alergie na kapustu"]
-},
-{
-"name": "Zelí bílé",
-"description": "Bílé zelí je bohaté na vitamíny C a K, podporuje imunitu a trávení.",
-"nutrients": {"kcal": 27, "protein_g": 1.3, "fat_g": 0.1, "carbs_g": 6},
-"benefits": ["Trávení", "Imunita", "Nízkokalorická"],
-"best_for": ["Kvašení", "Vaření", "Všichni"],
-"avoid_if": ["Alergie na zelí"]
-},
-{
-"name": "Zelí červené",
-
-"description": "Červené zelí je bohaté na antioxidanty, vitamíny a vlákninu, podporuje imunitu a trávení.",
-"nutrients": {"kcal": 31, "protein_g": 1.4, "fat_g": 0.2, "carbs_g": 7},
-"benefits": ["Antioxidanty", "Imunita", "Trávení"],
-"best_for": ["Vaření", "Kvašení", "Saláty"],
-"avoid_if": ["Alergie na zelí"]
-},
-{
-"name": "Mrkev",
-"description": "Mrkev je bohatá na beta-karoten a vitamíny, podporuje zdraví očí a imunitu.",
-"nutrients": {"kcal": 41, "protein_g": 0.9, "fat_g": 0.2, "carbs_g": 10},
-"benefits": ["Zdraví očí", "Imunita", "Antioxidanty"],
-"best_for": ["Svačiny", "Vaření", "Saláty"],
-"avoid_if": ["Alergie na mrkev"]
-},
-{
-"name": "Celer bulvový",
-"description": "Celer bulvový je bohatý na vlákninu, vitamíny a minerály, podporuje trávení a detoxikaci.",
-"nutrients": {"kcal": 42, "protein_g": 1.5, "fat_g": 0.3, "carbs_g": 9},
-"benefits": ["Trávení", "Detoxikace", "Nízkokalorická"],
-"best_for": ["Polévky", "Vaření", "Všichni"],
-"avoid_if": ["Alergie na celer"]
-},
-{
-"name": "Celer řapíkatý",
-"description": "Celer řapíkatý je nízkokalorická zelenina s vysokým obsahem vlákniny a draslíku.",
-"nutrients": {"kcal": 16, "protein_g": 0.7, "fat_g": 0.2, "carbs_g": 3},
-"benefits": ["Trávení", "Hydratace", "Nízkokalorická"],
-"best_for": ["Saláty", "Svačiny", "Smoothie"],
-"avoid_if": ["Alergie na celer"]
-},
-{
-"name": "Petržel kořen",
-"description": "Kořen petržele je bohatý na vitamíny a minerály, podporuje imunitu a detoxikaci.",
-"nutrients": {"kcal": 55, "protein_g": 1.8, "fat_g": 0.6, "carbs_g": 13},
-"benefits": ["Imunita", "Detoxikace", "Trávení"],
-"best_for": ["Polévky", "Vaření", "Všichni"],
-"avoid_if": ["Alergie na petržel"]
-},
-{
-"name": "Petržel nať",
-
-"description": "Petrželová nať je bohatá na vitamíny A, C a K, podporuje imunitu a detoxikaci.",
-"nutrients": {"kcal": 36, "protein_g": 3, "fat_g": 0.8, "carbs_g": 6},
-"benefits": ["Imunita", "Detoxikace", "Antioxidanty"],
-"best_for": ["Saláty", "Omáčky", "Všichni"],
-"avoid_if": ["Alergie na petržel"]
-},
-{
-"name": "Kedluben",
-"description": "Kedluben je nízkokalorická zelenina bohatá na vitamíny C a vlákninu, podporuje trávení.",
-"nutrients": {"kcal": 27, "protein_g": 1.7, "fat_g": 0.1, "carbs_g": 6},
-"benefits": ["Trávení", "Imunita", "Nízkokalorická"],
-"best_for": ["Saláty", "Vaření", "Svačiny"],
-"avoid_if": ["Alergie na kedluben"]
-},
-{
-"name": "Brokolice",
-"description": "Brokolice je bohatá na vitamíny C a K, antioxidanty a vlákninu, podporuje imunitu a zdraví kostí.",
-"nutrients": {"kcal": 34, "protein_g": 2.8, "fat_g": 0.4, "carbs_g": 7},
-"benefits": ["Imunita", "Zdraví kostí", "Detoxikace"],
-"best_for": ["Vaření", "Dušení", "Všichni"],
-"avoid_if": ["Alergie na brokolici"]
-},
-{
-"name": "Květák",
-"description": "Květák je bohatý na vitamíny C a K a vlákninu, podporuje imunitu a zdraví trávení.",
-"nutrients": {"kcal": 25, "protein_g": 1.9, "fat_g": 0.1, "carbs_g": 5},
-"benefits": ["Imunita", "Trávení", "Nízkokalorická"],
-"best_for": ["Vaření", "Dušení", "Všichni"],
-"avoid_if": ["Alergie na květák"]
-},
-{
-"name": "Brambory",
-"description": "Brambory jsou bohaté na vitamín C, draslík a vlákninu, poskytují energii díky sacharidům.",
-"nutrients": {"kcal": 77, "protein_g": 2, "fat_g": 0.1, "carbs_g": 17},
-"benefits": ["Energie", "Trávení", "Imunita"],
-"best_for": ["Vaření", "Pečení", "Všichni"],
-"avoid_if": ["Alergie na brambory"]
-},
-{
-
-"name": "Batáty",
-"description": "Batáty jsou bohaté na beta-karoten, vitamíny a vlákninu, podporují imunitu a zdraví očí.",
-"nutrients": {"kcal": 86, "protein_g": 1.6, "fat_g": 0.1, "carbs_g": 20},
-"benefits": ["Imunita", "Zdraví očí", "Energie"],
-"best_for": ["Vaření", "Pečení", "Všichni"],
-"avoid_if": ["Alergie na batáty"]
-},
-{
-"name": "Cibule žlutá",
-"description": "Žlutá cibule obsahuje antioxidanty a vitamíny, podporuje imunitu a trávení.",
-"nutrients": {"kcal": 40, "protein_g": 1.1, "fat_g": 0.1, "carbs_g": 9},
-"benefits": ["Imunita", "Trávení", "Antioxidanty"],
-"best_for": ["Vaření", "Smažení", "Všichni"],
-"avoid_if": ["Alergie na cibuli"]
-},
-{
-"name": "Cibule červená",
-"description": "Červená cibule obsahuje antioxidanty a vitamíny, podporuje imunitu a zdraví srdce.",
-"nutrients": {"kcal": 40, "protein_g": 1.1, "fat_g": 0.1, "carbs_g": 9},
-"benefits": ["Imunita", "Zdraví srdce", "Antioxidanty"],
-"best_for": ["Saláty", "Vaření", "Svačiny"],
-"avoid_if": ["Alergie na cibuli"]
-},
-{
-"name": "Česnek",
-"description": "Česnek podporuje imunitu, obsahuje alicin a antioxidanty, má protizánětlivé účinky.",
-"nutrients": {"kcal": 149, "protein_g": 6.4, "fat_g": 0.5, "carbs_g": 33},
-"benefits": ["Imunita", "Protizánětlivé účinky", "Zdraví srdce"],
-"best_for": ["Všichni", "Dochucení jídel", "Zdravá kuchyně"],
-"avoid_if": ["Alergie na česnek"]
-},
-{
-"name": "Por",
-"description": "Pórek je bohatý na vitamíny A, C a K, podporuje imunitu a trávení.",
-"nutrients": {"kcal": 61, "protein_g": 1.5, "fat_g": 0.3, "carbs_g": 14},
-"benefits": ["Imunita", "Trávení", "Antioxidanty"],
-"best_for": ["Polévky", "Dušení", "Všichni"],
-"avoid_if": ["Alergie na pórek"]
-},
-{
-"name": "Dýně hokaido",
-
-"description": "Dýně hokaido je bohatá na beta-karoten a vitamíny, podporuje zdraví očí a imunitu.",
-"nutrients": {"kcal": 49, "protein_g": 1.8, "fat_g": 0.3, "carbs_g": 12},
-"benefits": ["Zdraví očí", "Imunita", "Antioxidanty"],
-"best_for": ["Pečení", "Polévky", "Všichni"],
-"avoid_if": ["Alergie na dýni"]
-},
-{
-"name": "Dýně máslová",
-"description": "Dýně máslová je bohatá na beta-karoten, vitamíny a vlákninu, podporuje trávení a imunitu.",
-"nutrients": {"kcal": 45, "protein_g": 1.2, "fat_g": 0.1, "carbs_g": 10},
-"benefits": ["Trávení", "Imunita", "Antioxidanty"],
-"best_for": ["Pečení", "Polévky", "Všichni"],
-"avoid_if": ["Alergie na dýni"]
-},
-{
-"name": "Cuketa",
-"description": "Cuketa je nízkokalorická zelenina s vysokým obsahem vody, vitamínů a minerálů.",
-"nutrients": {"kcal": 17, "protein_g": 1.2, "fat_g": 0.3, "carbs_g": 3.1},
-"benefits": ["Hydratace", "Nízkokalorická", "Trávení"],
-"best_for": ["Dušení", "Grilování", "Všichni"],
-"avoid_if": ["Alergie na cuketu"]
-},
-{
-"name": "Lilek",
-"description": "Lilek obsahuje antioxidanty a vlákninu, podporuje trávení a zdraví srdce.",
-"nutrients": {"kcal": 25, "protein_g": 1, "fat_g": 0.2, "carbs_g": 6},
-"benefits": ["Trávení", "Zdraví srdce", "Antioxidanty"],
-"best_for": ["Pečení", "Grilování", "Všichni"],
-"avoid_if": ["Alergie na lilek"]
-},
-{
-"name": "Ředkvičky",
-"description": "Ředkvičky jsou nízkokalorická zelenina bohatá na vitamín C a vlákninu.",
-"nutrients": {"kcal": 16, "protein_g": 0.7, "fat_g": 0.1, "carbs_g": 3.4},
-"benefits": ["Nízkokalorická", "Trávení", "Imunita"],
-"best_for": ["Saláty", "Svačiny", "Všichni"],
-"avoid_if": ["Alergie na ředkvičky"]
-},
-{
-"name": "Křen",
-"description": "Křen podporuje imunitu, má protizánětlivé účinky a obsahuje antioxidanty.",
-
-"nutrients": {"kcal": 48, "protein_g": 1.5, "fat_g": 0.1, "carbs_g": 11},
-"benefits": ["Imunita", "Protizánětlivé účinky", "Trávení"],
-"best_for": ["Dochucení jídel", "Všichni", "Tradiční kuchyně"],
-"avoid_if": ["Alergie na křen"]
-},
-{
-"name": "Artyčok",
-"description": "Artyčok je bohatý na vlákninu, antioxidanty a podporuje zdraví jater.",
-"nutrients": {"kcal": 47, "protein_g": 3.3, "fat_g": 0.2, "carbs_g": 11},
-"benefits": ["Zdraví jater", "Trávení", "Antioxidanty"],
-"best_for": ["Vaření", "Dušení", "Všichni"],
-"avoid_if": ["Alergie na artyčok"]
-},
-{
-"name": "Chřest",
-"description": "Chřest je bohatý na vitamíny A, C a K a vlákninu, podporuje trávení a imunitu.",
-"nutrients": {"kcal": 20, "protein_g": 2.2, "fat_g": 0.2, "carbs_g": 3.9},
-"benefits": ["Trávení", "Imunita", "Nízkokalorická"],
-"best_for": ["Vaření", "Dušení", "Všichni"],
-"avoid_if": ["Alergie na chřest"]
-},
-{
-"name": "Fazolové lusky",
-"description": "Fazolové lusky jsou nízkokalorické, bohaté na vlákninu a vitamíny, podporují trávení.",
-"nutrients": {"kcal": 31, "protein_g": 1.8, "fat_g": 0.1, "carbs_g": 7},
-"benefits": ["Trávení", "Nízkokalorická", "Vitamíny a minerály"],
-"best_for": ["Saláty", "Vaření", "Dušení"],
-"avoid_if": ["Alergie na fazole"]
-},
-{
-"name": "Hrášek čerstvý",
-"description": "Čerstvý hrášek je bohatý na bílkoviny, vitamíny a vlákninu, podporuje trávení a imunitu.",
-"nutrients": {"kcal": 81, "protein_g": 5, "fat_g": 0.4, "carbs_g": 14},
-"benefits": ["Imunita", "Trávení", "Zdroj energie"],
-"best_for": ["Vaření", "Dušení", "Svačiny"],
-"avoid_if": ["Alergie na hrášek"]
-},
-{
-"name": "Hrášek mražený",
-"description": "Mražený hrášek si zachovává vitamíny, vlákninu a bílkoviny, podporuje trávení a imunitu.",
-
-"nutrients": {"kcal": 81, "protein_g": 5, "fat_g": 0.4, "carbs_g": 14},
-"benefits": ["Imunita", "Trávení", "Zdroj energie"],
-"best_for": ["Vaření", "Dušení", "Svačiny"],
-"avoid_if": ["Alergie na hrášek"]
-},
-{
-"name": "Rajčata",
-"description": "Rajčata jsou nízkokalorická zelenina bohatá na vitamín C, draslík a antioxidant lykopen.",
-"nutrients": {"kcal": 18, "protein_g": 0.9, "fat_g": 0.2, "carbs_g": 3.9},
-"benefits": ["Antioxidanty", "Podpora imunitního systému", "Nízkokalorická svačina"],
-"best_for": ["Všichni", "Do salátů", "Na vaření"],
-"avoid_if": ["Alergie na rajčata"]
-},
-{
-"name": "Cherry rajčata",
-"description": "Malá rajčata bohatá na vitamín C a lykopen, ideální do salátů a na svačinu.",
-"nutrients": {"kcal": 20, "protein_g": 1, "fat_g": 0.2, "carbs_g": 4},
-"benefits": ["Antioxidanty", "Imunita", "Nízkokalorická svačina"],
-"best_for": ["Všichni", "Do salátů", "Na svačinu"],
-"avoid_if": ["Alergie na rajčata"]
-},
-{
-"name": "Paprika červená",
-"description": "Paprika je bohatá na vitamíny A a C, podporuje imunitu a zdraví očí.",
-"nutrients": {"kcal": 31, "protein_g": 1, "fat_g": 0.3, "carbs_g": 6},
-"benefits": ["Imunita", "Zdraví očí", "Antioxidanty"],
-"best_for": ["Všichni", "Do salátů", "Na vaření"],
-"avoid_if": ["Alergie na papriku"]
-},
-{
-"name": "Paprika žlutá",
-"description": "Žlutá paprika obsahuje vitamíny C a A, podporuje imunitu a zdraví pokožky.",
-"nutrients": {"kcal": 27, "protein_g": 1, "fat_g": 0.2, "carbs_g": 6},
-"benefits": ["Imunita", "Zdraví pokožky", "Antioxidanty"],
-"best_for": ["Všichni", "Do salátů", "Na vaření"],
-"avoid_if": ["Alergie na papriku"]
-},
-{
-"name": "Paprika zelená",
-
-"description": "Zelená paprika je bohatá na vitamín C a vlákninu, podporuje imunitu a trávení.",
-"nutrients": {"kcal": 20, "protein_g": 1, "fat_g": 0.2, "carbs_g": 5},
-"benefits": ["Imunita", "Trávení", "Nízkokalorická svačina"],
-"best_for": ["Všichni", "Do salátů", "Na vaření"],
-"avoid_if": ["Alergie na papriku"]
-},
-{
-"name": "Okurka salátová",
-"description": "Okurka je osvěžující zelenina s vysokým obsahem vody, nízkým obsahem kalorií a podporou hydratace.",
-"nutrients": {"kcal": 16, "protein_g": 0.7, "fat_g": 0.1, "carbs_g": 3.6},
-"benefits": ["Hydratace", "Nízkokalorická", "Podpora trávení"],
-"best_for": ["Všichni", "Saláty", "Svačiny"],
-"avoid_if": ["Alergie na okurku"]
-},
-{
-"name": "Okurka nakládačka",
-"description": "Nakládaná okurka je bohatá na probiotika a podporuje trávení.",
-"nutrients": {"kcal": 11, "protein_g": 0.3, "fat_g": 0.1, "carbs_g": 2},
-"benefits": ["Probiotika", "Trávení", "Nízkokalorická"],
-"best_for": ["Všichni", "Jako příloha", "Na svačinu"],
-"avoid_if": ["Alergie na okurku"]
-},
-{
-"name": "Ledový salát",
-"description": "Ledový salát je nízkokalorická zelenina s vysokým obsahem vody, vhodná do salátů.",
-"nutrients": {"kcal": 14, "protein_g": 0.9, "fat_g": 0.1, "carbs_g": 2.9},
-"benefits": ["Hydratace", "Nízkokalorická", "Podpora trávení"],
-"best_for": ["Všichni", "Saláty", "Svačiny"],
-"avoid_if": ["Alergie na salát"]
-},
-{
-"name": "Hlávkový salát",
-"description": "Hlávkový salát je bohatý na vlákninu, podporuje trávení a obsahuje vitamíny A a C.",
-"nutrients": {"kcal": 15, "protein_g": 1, "fat_g": 0.2, "carbs_g": 3},
-"benefits": ["Trávení", "Imunita", "Nízkokalorická svačina"],
-"best_for": ["Všichni", "Do salátů", "Na svačinu"],
-"avoid_if": ["Alergie na salát"]
-}
+"recipes":[
+  {
+    "nazev": "Ovesná kaše s banánem a ořechy",
+    "ingredience": [
+      {
+        "nazev": "Ovesné vločky",
+        "mnozstvi": "60 g"
+      },
+      {
+        "nazev": "Mléko (nebo rostlinné)",
+        "mnozstvi": "200 ml"
+      },
+      {
+        "nazev": "Banán",
+        "mnozstvi": "100 g"
+      },
+      {
+        "nazev": "Vlašské ořechy",
+        "mnozstvi": "20 g"
+      },
+      {
+        "nazev": "Med",
+        "mnozstvi": "10 g"
+      }
+    ],
+    "instrukce": "Vločky zalijte mlékem a vařte 5 minut do zhoustnutí. Vmíchejte nakrájený banán a med. Posypte nasekanými ořechy a podávejte teplé.",
+    "typ_jidla": "snidane",
+    "teplota": "teple",
+    "cas_pripravy": 10,
+    "vhodne_pro": [
+      "aktivní sportovce",
+      "rychlý start dne",
+      "lidi se slabším zažíváním"
+    ]
+  },
+  {
+    "nazev": "Vaječná omeleta se špenátem a sýrem",
+    "ingredience": [
+      {
+        "nazev": "Vejce",
+        "mnozstvi": "2 ks"
+      },
+      {
+        "nazev": "Špenát čerstvý",
+        "mnozstvi": "50 g"
+      },
+      {
+        "nazev": "Feta sýr",
+        "mnozstvi": "30 g"
+      },
+      {
+        "nazev": "Olivový olej",
+        "mnozstvi": "10 ml"
+      }
+    ],
+    "instrukce": "Vejce rozšlehejte se solí a pepřem. Na pánvi rozehřejte olej, přidejte špenát a nechte zavadnout. Přilijte vejce a posypte rozdrobeným sýrem. Smažte, dokud omeleta nezpevní.",
+    "typ_jidla": "snidane",
+    "teplota": "teple",
+    "cas_pripravy": 15,
+    "vhodne_pro": [
+      "low-carb dieta",
+      "rychlý oběd",
+      "pro vysoký příjem bílkovin"
+    ]
+  },
+  {
+    "nazev": "Těstovinový salát s tuňákem",
+    "ingredience": [
+      {
+        "nazev": "Těstoviny celozrnné",
+        "mnozstvi": "100 g"
+      },
+      {
+        "nazev": "Tuňák ve vlastní šťávě",
+        "mnozstvi": "80 g"
+      },
+      {
+        "nazev": "Cherry rajčata",
+        "mnozstvi": "100 g"
+      },
+      {
+        "nazev": "Okurka",
+        "mnozstvi": "80 g"
+      },
+      {
+        "nazev": "Červená cibule",
+        "mnozstvi": "30 g"
+      },
+      {
+        "nazev": "Olivy",
+        "mnozstvi": "20 g"
+      },
+      {
+        "nazev": "Olivový olej",
+        "mnozstvi": "15 ml"
+      }
+    ],
+    "instrukce": "Uvařte těstoviny al dente. Mezitím nakrájejte zeleninu. V míse smíchejte uvařené a zchladlé těstoviny, tuňáka a zeleninu. Zakápněte olejem a promíchejte.",
+    "typ_jidla": "obed",
+    "teplota": "studene",
+    "cas_pripravy": 20,
+    "vhodne_pro": [
+      "rychlý oběd do práce",
+      "letní osvěžení",
+      "pro vysoký příjem bílkovin"
+    ]
+  },
+  {
+    "nazev": "Kuřecí prsa s rýží a dušenou zeleninou",
+    "ingredience": [
+      {
+        "nazev": "Kuřecí prsa",
+        "mnozstvi": "150 g"
+      },
+      {
+        "nazev": "Rýže basmati",
+        "mnozstvi": "80 g"
+      },
+      {
+        "nazev": "Brokolice",
+        "mnozstvi": "100 g"
+      },
+      {
+        "nazev": "Mrkev",
+        "mnozstvi": "50 g"
+      },
+      {
+        "nazev": "Sójová omáčka",
+        "mnozstvi": "10 ml"
+      }
+    ],
+    "instrukce": "Uvařte rýži podle návodu. Kuřecí prsa nakrájejte na nudličky, orestujte na pánvi. Přidejte nakrájenou brokolici a mrkev, podlijte trochou vody a duste doměkka. Dochutíte sójovou omáčkou a podávejte s rýží.",
+    "typ_jidla": "obed",
+    "teplota": "teple",
+    "cas_pripravy": 30,
+    "vhodne_pro": [
+      "sportovce",
+      "hlavní jídlo",
+      "pro růst svalové hmoty"
+    ]
+  },
+  {
+    "nazev": "Řecký jogurt s lesním ovocem",
+    "ingredience": [
+      {
+        "nazev": "Řecký jogurt",
+        "mnozstvi": "150 g"
+      },
+      {
+        "nazev": "Lesní ovoce (čerstvé nebo mražené)",
+        "mnozstvi": "80 g"
+      }
+    ],
+    "instrukce": "Do misky dejte jogurt a navrch přidejte lesní ovoce.",
+    "typ_jidla": "svacina",
+    "teplota": "studene",
+    "cas_pripravy": 5,
+    "vhodne_pro": [
+      "rychlá svačina",
+      "nízký obsah cukru",
+      "zdroj bílkovin"
+    ]
+  },
+  {
+    "nazev": "Proteinový nápoj s banánem",
+    "ingredience": [
+      {
+        "nazev": "Proteinový prášek",
+        "mnozstvi": "30 g"
+      },
+      {
+        "nazev": "Mléko",
+        "mnozstvi": "250 ml"
+      },
+      {
+        "nazev": "Banán",
+        "mnozstvi": "100 g"
+      }
+    ],
+    "instrukce": "Všechny ingredience vložte do mixéru a mixujte, dokud nezískáte hladký nápoj. Podávejte ihned.",
+    "typ_jidla": "svacina",
+    "teplota": "studene",
+    "cas_pripravy": 5,
+    "vhodne_pro": [
+      "regenerace po tréninku",
+      "pohodlný příjem bílkovin",
+      "pro svalový růst"
+    ]
+  },
+  {
+    "nazev": "Mrkvová tyčinka s hummusem",
+    "ingredience": [
+      {
+        "nazev": "Mrkev",
+        "mnozstvi": "150 g"
+      },
+      {
+        "nazev": "Hummus",
+        "mnozstvi": "50 g"
+      }
+    ],
+    "instrukce": "Mrkev oloupejte a nakrájejte na tyčinky. Podávejte s hummusem.",
+    "typ_jidla": "svacina",
+    "teplota": "studene",
+    "cas_pripravy": 5,
+    "vhodne_pro": [
+      "nízkokalorická svačina",
+      "bohaté na vlákninu",
+      "pro vegetariány"
+    ]
+  },
+  {
+    "nazev": "Jablko s arašídovým máslem",
+    "ingredience": [
+      {
+        "nazev": "Jablko",
+        "mnozstvi": "1 ks"
+      },
+      {
+        "nazev": "Arašídové máslo",
+        "mnozstvi": "20 g"
+      }
+    ],
+    "instrukce": "Jablko nakrájejte na plátky a potřete arašídovým máslem. Podávejte.",
+    "typ_jidla": "svacina",
+    "teplota": "studene",
+    "cas_pripravy": 5,
+    "vhodne_pro": [
+      "energie",
+      "rychlá svačina",
+      "pro aktivní lidi"
+    ]
+  },
+  {
+    "nazev": "Pečený losos se zeleninovým salátem",
+    "ingredience": [
+      {
+        "nazev": "Losos",
+        "mnozstvi": "150 g"
+      },
+      {
+        "nazev": "Směs listového salátu",
+        "mnozstvi": "100 g"
+      },
+      {
+        "nazev": "Citron",
+        "mnozstvi": "1 ks"
+      },
+      {
+        "nazev": "Olivový olej",
+        "mnozstvi": "15 ml"
+      }
+    ],
+    "instrukce": "Lososa osolte a opepřete, pokapejte citronem. Pečte v troubě na 180 °C 15-20 minut. Podávejte se salátem zakápnutým olejem.",
+    "typ_jidla": "vecere",
+    "teplota": "teple",
+    "cas_pripravy": 25,
+    "vhodne_pro": [
+      "bohaté na omega-3",
+      "low-carb dieta",
+      "lehká večeře"
+    ]
+  },
+  {
+    "nazev": "Čočka na kyselo s vajíčkem",
+    "ingredience": [
+      {
+        "nazev": "Červená čočka",
+        "mnozstvi": "80 g"
+      },
+      {
+        "nazev": "Cibule",
+        "mnozstvi": "50 g"
+      },
+      {
+        "nazev": "Vejce",
+        "mnozstvi": "1 ks"
+      },
+      {
+        "nazev": "Ocet",
+        "mnozstvi": "10 ml"
+      }
+    ],
+    "instrukce": "Čočku uvařte doměkka s cibulí. Na závěr osolte, opepřete a zakápněte octem. Servírujte s vařeným vejcem.",
+    "typ_jidla": "vecere",
+    "teplota": "teple",
+    "cas_pripravy": 20,
+    "vhodne_pro": [
+      "pro vegetariány",
+      "bohaté na vlákninu",
+      "pro dobré trávení"
+    ]
+  }
 ]
 }

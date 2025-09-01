@@ -135,12 +135,20 @@
     background: #2ecc71;
     color: #fff;
   }
-  
+
   .tab-content {
     display: none;
   }
-  
+
   .tab-content.active {
+    display: block;
+  }
+  
+  .recipe.hidden {
+    display: none;
+  }
+  
+  .recipe.active {
     display: block;
   }
   

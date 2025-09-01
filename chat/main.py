@@ -51,7 +51,8 @@ class UrceniHmotnostiPotravin(BaseModel):
     potravina: str = Field(
         description="Název potraviny, například Losos, avokádo")
     hmotnost: float = Field(
-        description="Hmotnost dané potraviny V GRAMECH, uváděj jen číslo vez jednotky, tedy pro '200g' by mělo toto pole hodnotu 200")
+        description="Hmotnost dané potraviny V GRAMECH NEBO MILILITRECH, uváděj jen číslo bez jednotky, tedy pro '200g' by mělo toto pole hodnotu 200 a pro '150ml' by mělo hodnotu 150.")
+    jednotka:Literal["g","ml"] = Field(description="Jednotka pro danou potravinu ('g' - gramy, 'ml' - mililitry).")
 
 
 class Jidla(BaseModel):
@@ -107,7 +108,7 @@ def check_question_sentence(text: str,historie:str):
 
 def get_weight_from_text(text: str):
     config = types.GenerateContentConfig(
-        system_instruction="Jsi expert na extrahování dat z textu. Tvým úkolem je z daného textu určit seznam VŠECH potravin, a poté extrahovat názvy potravin a jejich hmotnost v gramech. Ignoruj gramatické chyby.", response_mime_type="application/json", response_schema=Jidla
+        system_instruction="Jsi expert na extrahování dat z textu. Tvým úkolem je z daného textu určit seznam VŠECH potravin a nápojů, a poté extrahovat názvy potravin nebo nápojů a jejich hmotnost v gramech nebo mililitrech. Uveď jednotku (gramy nebo mililitry). Ignoruj gramatické chyby.", response_mime_type="application/json", response_schema=Jidla
     )
     contents = types.Content(role="user", parts=[types.Part(text=text)])
     response = client.models.generate_content(
@@ -192,11 +193,11 @@ def chatbot(query, profile, last_agent_msg, denni_udaje, historie):
                 chybi_v_obrazku = potraviny_z_textu - potraviny_z_obrazku
 
                 if chybi_v_textu:
-                    return f"Pro některé potraviny chybí hmotnost v gramech, prosím zadejte hmotnost potravin, abych je mohl zaznamenat do tabulky: {', '.join(chybi_v_textu)}"
+                    return f"Pro některé potraviny/nápoje chybí hmotnost v gramech/mililitrech, prosím zadejte hmotnost potravin, abych je mohl zaznamenat do tabulky: {', '.join(chybi_v_textu)}"
 
                 if chybi_v_obrazku:
                     return f"V obrázku nebyly nalezeny potraviny: {', '.join(chybi_v_obrazku)}!"
-        elif last_agent_msg and "Pro některé potraviny chybí hmotnost v gramech" in last_agent_msg:
+        elif last_agent_msg and "Pro některé potraviny/nápoje chybí hmotnost v gramech/mililitrech" in last_agent_msg:
             puvodni_text = historie.filter(
                 sender="Vy").order_by("-id").first().text
             new_query = f"{puvodni_text}, {query}"
@@ -204,7 +205,7 @@ def chatbot(query, profile, last_agent_msg, denni_udaje, historie):
         else:
             foods = get_weight_from_text(query)
         if len(foods.seznam_vsech_potravin) != len(foods.seznam_jidla):
-            return "Pro některé potraviny chybí hmotnost v gramech, prosím zadejte hmotnost potravin, abych je mohl zaznamenat do tabulky."
+            return "Pro některé potraviny/nápoje chybí hmotnost v gramech/mililitrech, prosím zadejte hmotnost potravin, abych je mohl zaznamenat do tabulky."
         info = search_potraviny_and_update(profile, foods, client)
         contents.append(types.Content(role="user", parts=[
                         types.Part(text=json.dumps(info))]))

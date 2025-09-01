@@ -9,6 +9,7 @@ def search_potraviny_and_update(profile, foods, client):
     for item in foods.seznam_jidla:
         nazev_potraviny = item.potravina
         hmotnost = item.hmotnost
+        jednotka = item.jednotka
         response = client.models.embed_content(
             model="gemini-embedding-001",
             contents=nazev_potraviny,
@@ -36,7 +37,7 @@ def search_potraviny_and_update(profile, foods, client):
                 }
             )
             profile.food_set.create(
-                potravina=potravina_objekt, hmotnost_g=hmotnost)
+                potravina=potravina_objekt, hmotnost_g=hmotnost, jednotka=jednotka)
     return dict_list
 
 

@@ -11,25 +11,36 @@ tabBtns.forEach(btn => {
     document.getElementById(btn.dataset.target).classList.add("active");
   });
 });
-
 // Přepínání receptů pomocí tlačítka a teček
-document.querySelectorAll(".meal").forEach(meal => {
-  const textEl = meal.querySelector(".recipe-text");
-  const dots = meal.querySelectorAll(".dot");
-  const alt = meal.dataset.alt;
-  const original = textEl.textContent.trim();
+document.querySelectorAll('.meal').forEach(mealDiv => {
+  const switchButton = mealDiv.querySelector('.switch-recipe');
+  const recipes = mealDiv.querySelectorAll('.recipe');
+  const dots = mealDiv.querySelectorAll('.dot');
+  
+  const switchContent = (index) => {
+    recipes.forEach(r => r.classList.remove("active"));
+    recipes.forEach(r => r.classList.add("hidden"));
+    dots.forEach(d => d.classList.remove("active"));
 
-  function showVariant(isAlt) {
-    textEl.textContent = isAlt ? alt : original;
-    dots[0].classList.toggle("active", !isAlt);
-    dots[1].classList.toggle("active", isAlt);
-  }
+    recipes[index].classList.remove("hidden");
+    recipes[index].classList.add("active");
+    dots[index].classList.add("active");
 
-  meal.querySelector(".switch-recipe").addEventListener("click", () => {
-    const isAlt = textEl.textContent.trim() === original;
-    showVariant(isAlt);
+    const activeRecipeId = recipes[index].dataset.receptId;
+    const input = document.getElementById("snidane_recept_id");
+    if (input) {
+      input.value = activeRecipeId;
+    };
+  };
+
+  switchButton.addEventListener('click', () => {
+    const currentIndex = Array.from(recipes).findIndex(r => r.classList.contains("active"));
+    const newIndex = (currentIndex + 1) % recipes.length;
+    switchContent(newIndex)
   });
-
-  dots[0].addEventListener("click", () => showVariant(false));
-  dots[1].addEventListener("click", () => showVariant(true));
+  dots.forEach((dot,index) => {
+    dot.addEventListener("click",() => {
+      switchContent(index);
+    });
+  });
 });

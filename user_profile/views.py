@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from chat.models import Makroziviny
 from django.contrib import messages
 from .funkce import *
+from muj_den.funkce import sestav_jidelnicek
 from decimal import Decimal
 
 # Create your views here.
@@ -248,6 +249,7 @@ class StartFormView(View):
                 profile.denni_bilkoviny, profile.denni_sacharidy, profile.denni_tuky, profile.pitny_rezim_litry = get_macros_simple(
                     cals=profile.denni_kalorie, vaha=profile.aktualni_vaha)
                 profile.save()
+                sestav_jidelnicek(profile=profile)
                 return redirect("profile")
             else:
                 return redirect("bodyfat")
@@ -317,6 +319,7 @@ class InfoView(View):
             profile.denni_bilkoviny, profile.denni_sacharidy, profile.denni_tuky, profile.pitny_rezim_litry = get_macros_advanced(
                 cals=profile.denni_kalorie, lbm=lbm, vaha=profile.aktualni_vaha, aktivita=profile.aktivita, vek=profile.vek)
         profile.save()
+        sestav_jidelnicek(profile=profile)
         return redirect("profile")
 
 
@@ -362,6 +365,7 @@ class BodyFatView(View):
             profile.denni_bilkoviny, profile.denni_sacharidy, profile.denni_tuky, profile.pitny_rezim_litry = get_macros_advanced(
                 cals=profile.denni_kalorie, lbm=lbm, vaha=profile.aktualni_vaha, aktivita=profile.aktivita, vek=profile.vek)
             profile.save()
+            sestav_jidelnicek(profile=profile)
             return redirect("profile")
         else:
             return redirect("info")

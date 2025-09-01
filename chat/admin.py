@@ -12,7 +12,11 @@ class PotravinyAdmin(admin.ModelAdmin):
 
 
 class MakrozivinyAdmin(admin.ModelAdmin):
-    list_display = ("potravina", "bilkoviny_gramy",
+    list_display = ("potravina", "kalorie", "bilkoviny_gramy",
+                    "sacharidy_gramy", "tuky_gramy")
+
+class MakrozivinyReceptyAdmin(admin.ModelAdmin):
+    list_display = ("recept", "kalorie", "bilkoviny_gramy",
                     "sacharidy_gramy", "tuky_gramy")
 
 
@@ -35,6 +39,7 @@ class StylyKomunikaceAdmin(admin.ModelAdmin):
 admin.site.register(Message, MessageAdmin)
 admin.site.register(Potraviny, PotravinyAdmin)
 admin.site.register(Makroziviny, MakrozivinyAdmin)
+admin.site.register(MakrozivinyRecepty, MakrozivinyReceptyAdmin)
 admin.site.register(Recepty, ReceptyAdmin)
 admin.site.register(Situace, SituaceAdmin)
 admin.site.register(Diety, DietyAdmin)

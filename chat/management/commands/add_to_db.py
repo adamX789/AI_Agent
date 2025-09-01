@@ -7,11 +7,36 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 from google import genai
 from google.genai import types
+from pydantic import BaseModel,Field
+from decimal import Decimal
 
 load_dotenv()
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
+class PrevodJednotekKusy(BaseModel):
+    pocet_gramu_na_kus:float = Field(description="Kolik gramů má 1 kus dané potraviny.")
 
+class PrevodJednotekPlatky(BaseModel):
+    pocet_gramu_na_platek:float = Field(description="Kolik gramů má 1 plátek dané potraviny.")
+
+def call_llm(potravina,jednotka):
+    contents = types.Content(role="user",parts=[types.Part(text=f"Potravina: {potravina}")])
+    if jednotka in ["ks","kus","kusy","kusů"]:
+        config = types.GenerateContentConfig(system_instruction="Jsi expert na převod jednotek jídla. Tvým úkolem je zjistit, kolik gramů má 1 kus dané potraviny",response_schema=PrevodJednotekKusy,response_mime_type="application/json")
+    elif jednotka in ["plátek","plátky","plátků"]:
+        config = types.GenerateContentConfig(system_instruction="Jsi expert na převod jednotek jídla. Tvým úkolem je zjistit, kolik gramů má 1 plátek dané potraviny",response_schema=PrevodJednotekPlatky,response_mime_type="application/json")
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=contents,
+        config=config
+    )
+    if jednotka in ["ks","kus","kusy","kusů"]:
+        final_response_kusy:PrevodJednotekKusy = response.parsed
+        return final_response_kusy.pocet_gramu_na_kus
+    elif jednotka in ["plátek","plátky","plátků"]:
+        final_response_platky:PrevodJednotekPlatky = response.parsed
+        return final_response_platky.pocet_gramu_na_platek
+    
 def search_recepty(ingredience):
     kalorie = 0
     bilkoviny = 0
@@ -20,9 +45,20 @@ def search_recepty(ingredience):
     for item in ingredience:
         potravina = item["nazev"]
         mnozstvi = item["mnozstvi"]
+        print(f"hledam potravinu: {potravina}")
         casti = mnozstvi.strip().split(" ")
         hodnota = float(casti[0])
-        jednotka = casti[1]
+        jednotka = casti[1].lower()
+        kusy_platky_list = ["ks","kus","kusy","kusů","plátek","plátky","plátků"]
+        kila_litry_list = ["kg","l"]
+        if jednotka in kusy_platky_list:
+            result = call_llm(potravina=potravina,jednotka=jednotka)
+            koeficient = (hodnota*result)/100
+        elif jednotka in kila_litry_list:
+            koeficient = hodnota*10
+        else:
+            koeficient = hodnota/100
+
         response = client.models.embed_content(
             model="gemini-embedding-001",
             contents=potravina,
@@ -31,13 +67,15 @@ def search_recepty(ingredience):
         embedding = response.embeddings[0].values
         potravina_objekt = Potraviny.objects.annotate(podoba=RawSQL(
             "%s::vector <=> embedding", (embedding,))).order_by("podoba").first()
-        if potravina_objekt.podoba < 0.35:
+        print(f"Nalezena potravina: {potravina_objekt.nazev}, podoba: {potravina_objekt.podoba}")
+        if potravina_objekt.podoba < 0.5:
             makroziviny = potravina_objekt.makroziviny
-            koeficient = hodnota/100
-            kalorie += makroziviny.kalorie*koeficient
-            bilkoviny += makroziviny.bilkoviny_gramy*koeficient
-            sacharidy += makroziviny.sacharidy_gramy*koeficient
-            tuky += makroziviny.tuky_gramy*koeficient
+            kalorie += makroziviny.kalorie*Decimal(koeficient)
+            bilkoviny += makroziviny.bilkoviny_gramy*Decimal(koeficient)
+            sacharidy += makroziviny.sacharidy_gramy*Decimal(koeficient)
+            tuky += makroziviny.tuky_gramy*Decimal(koeficient)
+        else:
+            raise ValueError("V databázi nebyla nalezena potravina: {potravina}")
     return int(round(kalorie)), round(bilkoviny, 2), round(sacharidy, 2), round(tuky, 2)
 
 
@@ -100,13 +138,13 @@ class Command(BaseCommand):
             return None
         for item in recipes:
             embedding_text = f"""
-            Název: {item["name"]}
-            Ingredience: {", ".join(item["ingredients"])}
-            Instrukce: {item["instructions"]}
-            Typ jídla: {item["meal_type"]}
-            Teplota: {item["temperature"]}
-            Čas přípravy v minutách: {item["prep_time_min"]}
-            Vhodné pro: {", ".join(item["suitable_for"])}
+            Název: {item["nazev"]}
+            Ingredience: {", ".join([f'{ingredience["nazev"]}: {ingredience["mnozstvi"]}' for ingredience in item["ingredience"]])}
+            Instrukce: {item["instrukce"]}
+            Typ jídla: {item["typ_jidla"]}
+            Teplota: {item["teplota"]}
+            Čas přípravy v minutách: {item["cas_pripravy"]}
+            Vhodné pro: {", ".join(item["vhodne_pro"])}
             """
             response = client.models.embed_content(
                 model="gemini-embedding-001",
@@ -114,19 +152,19 @@ class Command(BaseCommand):
                 config=types.EmbedContentConfig(output_dimensionality=768)
             )
             embedding = response.embeddings[0].values
-            recept, created = Recepty.objects.get_or_create(
-                nazev=item["name"],
-                ingredience=item["ingredients"],
-                instrukce=item["instructions"],
-                typ_jidla=item["meal_type"],
-                teplota=item["temperature"],
-                cas_pripravy_min=item["prep_time_min"],
-                vhodne_pro=item["suitable_for"],
+            recept,created = Recepty.objects.get_or_create(
+                nazev=item["nazev"],
+                ingredience=item["ingredience"],
+                instrukce=item["instrukce"],
+                typ_jidla=item["typ_jidla"],
+                teplota=item["teplota"],
+                cas_pripravy_min=item["cas_pripravy"],
+                vhodne_pro=item["vhodne_pro"],
                 embedding=embedding
             )
             if created:
                 kalorie, bilkoviny, sacharidy, tuky = search_recepty(
-                    ingredience=item["ingredients"])
+                    ingredience=item["ingredience"])
                 MakrozivinyRecepty.objects.create(
                     recept=recept,
                     kalorie=kalorie,
