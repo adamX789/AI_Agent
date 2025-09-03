@@ -193,7 +193,7 @@ zbyvajici tuky = {zbyvajici_tuky}""")
     return zbyvajici_kalorie, zbyvajici_bilkoviny, zbyvajici_sacharidy, zbyvajici_tuky
 
 
-def sestav_jidelnicek(profile):
+def sestav_jidelnicek(profile,reset=False):
     vybrane_recepty, _ = VybraneRecepty.objects.get_or_create(profile=profile)
     jidelnicek, _ = Jidelnicek.objects.get_or_create(profile=profile)
     vybrane_recepty.snidane = None
@@ -207,6 +207,8 @@ def sestav_jidelnicek(profile):
     jidelnicek.seznam_svacin2.clear()
     jidelnicek.seznam_veceri.clear()
     vybrane_recepty.save()
+    if reset:
+        vybrane_recepty.snidane_snezena,vybrane_recepty.svacina1_snezena,vybrane_recepty.obed_snezen,vybrane_recepty.svacina2_snezena,vybrane_recepty.vecere_snezena = False,False,False,False,False
     kalorie, bilkoviny, sacharidy, tuky = vyber_snidani(profile=profile)
     kalorie, bilkoviny, sacharidy, tuky = vyber_svaciny(
         profile=profile, cislo_svaciny=1, zbyvajici_kalorie=kalorie, zbyvajici_bilkoviny=bilkoviny, zbyvajici_sacharidy=sacharidy, zbyvajici_tuky=tuky)

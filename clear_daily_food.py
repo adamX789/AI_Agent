@@ -7,6 +7,7 @@ django.setup()
 from chat.models import Message
 from user_profile.models import Food
 from django.contrib.auth import get_user_model
+from muj_den.funkce import sestav_jidelnicek
 
 def reset_daily_food():
     Food.objects.all().delete()
@@ -15,6 +16,8 @@ def reset_daily_food():
     users = User.objects.all()
     message_text = "Ahoj, na co máš dneska chuť, nebo co ti zbylo v lednici?😋 Zkusím ti podle toho sestavit jídelníček na základě tvých makroživin. Pokud nic nenapíšeš, vymyslím něco podle sebe."
     for user in users:
+        profile = user.profile
+        sestav_jidelnicek(profile=profile,reset=True)
         Message.objects.create(
             user=user,
             text=message_text,
