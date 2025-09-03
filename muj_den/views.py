@@ -70,6 +70,22 @@ class MyDayView(View):
                 profile.vybranerecepty.snidane = jidlo
                 profile.vybranerecepty.snidane_snezena = True
                 najdi_potravinu(ingredience=jidlo.ingredience,profile=profile)
+            elif typ_jidla == "obed":
+                profile.vybranerecepty.obed = jidlo
+                profile.vybranerecepty.obed_snezen = True
+                najdi_potravinu(ingredience=jidlo.ingredience,profile=profile)
+            elif typ_jidla == "svacina1":
+                profile.vybranerecepty.svacina1 = jidlo
+                profile.vybranerecepty.svacina1_snezena = True
+                najdi_potravinu(ingredience=jidlo.ingredience,profile=profile)
+            elif typ_jidla == "svacina2":
+                profile.vybranerecepty.svacina2 = jidlo
+                profile.vybranerecepty.svacina2_snezena = True
+                najdi_potravinu(ingredience=jidlo.ingredience,profile=profile)
+            else:
+                profile.vybranerecepty.vecere = jidlo
+                profile.vybranerecepty.vecere_snezena = True
+                najdi_potravinu(ingredience=jidlo.ingredience,profile=profile)
             profile.vybranerecepty.save()
             profile.save()
         jidelnicek = Jidelnicek.objects.get(profile=profile)

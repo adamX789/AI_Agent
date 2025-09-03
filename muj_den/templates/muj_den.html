@@ -66,17 +66,21 @@
         </div>
       {% endfor %}
       <div class="actions">
-        <input type="hidden" name="recept_id" id="snidane_recept_id" value="{{recept.id}}">
+        <input type="hidden" name="recept_id" id="snidane_recept_id" value="{{vybrane_recepty.snidane.id}}">
         <button class="switch-recipe" type="button">🔄 Jiný recept</button>
         <button class="eat-btn" type="submit" name="snedl_jsem" value="snidane">✅ Snědl jsem</button>
       </div>
       {% else %}
-      <p class="recipe-text">Snidani uz jste dnes snedl!</p>
+      <p class="recipe-text">Snídani už jste dnes snědl!</p>
       {% endif %}
+      </form>
     </div>
   
     <div class="meal">
+      <form action="" method="POST">
+        {% csrf_token %}
       <h3>Svačina</h3>
+      {% if not vybrane_recepty.svacina1_snezena %}
       <div class="dots">
         {% for recept in jidelnicek.seznam_svacin1.all %}
         <span class="dot {% if recept.id == vybrane_recepty.svacina1.id %}active{% endif %}"></span>
@@ -88,13 +92,21 @@
         </div>
       {% endfor %}
       <div class="actions">
+        <input type="hidden" name="recept_id" id="svacina1_recept_id" value="{{vybrane_recepty.svacina1.id}}">
         <button class="switch-recipe" type="button">🔄 Jiný recept</button>
         <button class="eat-btn" type="submit" name="snedl_jsem" value="svacina1">✅ Snědl jsem</button>
       </div>
+      {% else %}
+      <p class="recipe-text">Svačinu už jste dnes snědl!</p>
+      {% endif %}
+      </form>
     </div>
   
     <div class="meal">
+      <form action="" method="POST">
+        {% csrf_token %}
       <h3>Oběd</h3>
+      {% if not vybrane_recepty.obed_snezen %}
       <div class="dots">
         {% for recept in jidelnicek.seznam_obedu.all %}
         <span class="dot {% if recept.id == vybrane_recepty.obed.id %}active{% endif %}"></span>
@@ -106,13 +118,21 @@
         </div>
       {% endfor %}
       <div class="actions">
+        <input type="hidden" name="recept_id" id="obed_recept_id" value="{{vybrane_recepty.obed.id}}">
         <button class="switch-recipe" type="button">🔄 Jiný recept</button>
         <button class="eat-btn" type="submit" name="snedl_jsem" value="obed">✅ Snědl jsem</button>
       </div>
+      {% else %}
+      <p class="recipe-text">Oběd už jste dnes snědl!</p>
+      {% endif %}
+      </form>
     </div>
   
     <div class="meal">
       <h3>Svačina</h3>
+      {% if not vybrane_recepty.svacina2_snezena %}
+      <form action="" method="POST">
+        {% csrf_token %}
       <div class="dots">
         {% for recept in jidelnicek.seznam_svacin2.all %}
         <span class="dot {% if recept.id == vybrane_recepty.svacina2.id %}active{% endif %}"></span>
@@ -124,13 +144,21 @@
         </div>
       {% endfor %}
       <div class="actions">
+        <input type="hidden" name="recept_id" id="svacina2_recept_id" value="{{vybrane_recepty.svacina2.id}}">
         <button class="switch-recipe" type="button">🔄 Jiný recept</button>
         <button class="eat-btn" type="submit" name="snedl_jsem" value="svacina2">✅ Snědl jsem</button>
       </div>
+      {% else %}
+      <p class="recipe-text">Svačinu už jste dnes snědl!</p>
+      {% endif %}
+      </form>
     </div>
   
     <div class="meal">
+      <form action="" method="POST">
+        {% csrf_token %}
       <h3>Večeře</h3>
+      {% if not vybrane_recepty.vecere_snezena %}
       <div class="dots">
         {% for recept in jidelnicek.seznam_veceri.all %}
         <span class="dot {% if recept.id == vybrane_recepty.vecere.id %}active{% endif %}"></span>
@@ -142,11 +170,15 @@
         </div>
       {% endfor %}
       <div class="actions">
+        <input type="hidden" name="recept_id" id="vecere_recept_id" value="{{vybrane_recepty.vecere.id}}">
         <button class="switch-recipe" type="button">🔄 Jiný recept</button>
         <button class="eat-btn" type="submit" name="snedl_jsem" value="vecere">✅ Snědl jsem</button>
       </div>
+      {% else %}
+      <p class="recipe-text">Večeři už jste dnes snědl!</p>
+      {% endif %}
+      </form>
     </div>
-  </form>
 </div>
 
 <!-- ✅ Dnešní potraviny -->
