@@ -1,0 +1,95 @@
+{
+  "foods": [
+    {
+      "name": "Jogurt řecký",
+      "description": "Jogurt řeckého typu je hustý, krémový jogurt, který je bohatý na bílkoviny a má nižší obsah sacharidů než běžný jogurt.",
+      "nutrients": {
+        "kcal": 100,
+        "protein_g": 9,
+        "fat_g": 5,
+        "carbs_g": 4
+      },
+      "benefits": [
+        "Vysoký obsah bílkovin",
+        "Podpora trávení",
+        "Zdroj vápníku"
+      ],
+      "best_for": [
+        "Snídaně",
+        "Svačina",
+        "Jogurtové dipy"
+      ],
+      "avoid_if": [
+        "Intolerance laktózy"
+      ]
+    },
+    {
+      "name": "Cukr",
+      "description": "Jednoduchý sacharid, který je rychle vstřebatelným zdrojem energie. Běžně se používá ke slazení pokrmů a nápojů.",
+      "nutrients": {
+        "kcal": 400,
+        "protein_g": 0,
+        "fat_g": 0,
+        "carbs_g": 100
+      },
+      "benefits": [
+        "Rychlý zdroj energie"
+      ],
+      "best_for": [
+        "Slazení",
+        "Pečení",
+        "Vaření"
+      ],
+      "avoid_if": [
+        "Cukrovka",
+        "Redukční dieta"
+      ]
+    },
+    {
+      "name": "Máslo",
+      "description": "Máslo je mléčný tuk, který se vyrábí stloukáním smetany. Má bohatou chuť a je zdrojem vitamínů rozpustných v tucích.",
+      "nutrients": {
+        "kcal": 717,
+        "protein_g": 0.9,
+        "fat_g": 81.1,
+        "carbs_g": 0.1
+      },
+      "benefits": [
+        "Vitamíny A, D, E a K",
+        "Bohatá chuť"
+      ],
+      "best_for": [
+        "Pečení",
+        "Vaření",
+        "Pomazánky"
+      ],
+      "avoid_if": [
+        "Vysoký cholesterol",
+        "Intolerance laktózy"
+      ]
+    },
+    {
+      "name": "Kokosové mléko",
+      "description": "Mléčně bílá, neprůhledná tekutina z dužiny zralých kokosových ořechů. Běžně se používá v asijské kuchyni a jako rostlinná alternativa mléka.",
+      "nutrients": {
+        "kcal": 169,
+        "protein_g": 1.6,
+        "fat_g": 16.9,
+        "carbs_g": 2.6
+      },
+      "benefits": [
+        "Bez laktózy",
+        "Zdroj elektrolytů",
+        "Bohatá chuť"
+      ],
+      "best_for": [
+        "Curry",
+        "Polévky",
+        "Smoothies"
+      ],
+      "avoid_if": [
+        "Alergie na kokos"
+      ]
+    }
+  ]
+}

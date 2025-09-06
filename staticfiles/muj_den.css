@@ -29,6 +29,32 @@
     transition: transform 0.3s ease;
     z-index: 1000;
   }
+
+  .sidebar img{
+    width: 50px;
+    height: auto;
+  }
+
+  .add-btn {
+    padding: 10px 20px;
+    border: 1px solid #000000;
+    background: transparent;
+    color: #000000;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+
+  .add-btn:hover {
+    padding: 10px 20px;
+    border: 1px solid   #ffffff;
+    background: black;
+    color: white;
+
+  }
   
   .nav-links {
     display: flex;        /* stačí flexbox místo gridu */
@@ -40,9 +66,9 @@
   .nav-btn {
     width: 100%;
     padding: 12px 0;
-    border: 1px solid #2ecc71;
+    border: 1px solid #000000;
     background: transparent;
-    color: #2ecc71;
+    color: #000000;
     border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
@@ -52,16 +78,16 @@
   
   .nav-btn.active,
   .nav-btn:hover {
-    background-color: #2ecc71;
+    background-color: #191919;
     color: #fff;
   }
   
   .logout-btn {
     width: 100%;
     padding: 12px 0;
-    border: 1px solid #e74c3c;
-    background: transparent;
-    color: #e74c3c;
+    border: 1px solid #000000;
+    background: black;
+    color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
@@ -70,8 +96,8 @@
   }
   
   .logout-btn:hover {
-    background-color: #e74c3c;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
   }
   
   /* ✅ Main */
@@ -102,7 +128,7 @@
   
   .stats span {
     font-weight: 600;
-    color: #2ecc71;
+    color: #000000;
   }
   
   /* ✅ Tabs */
@@ -120,9 +146,9 @@
   
   .tab-btn {
     padding: 10px 20px;
-    border: 1px solid #2ecc71;
+    border: 1px solid #000000;
     background: transparent;
-    color: #2ecc71;
+    color: #000000;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
@@ -132,18 +158,18 @@
   
   .tab-btn.active,
   .tab-btn:hover {
-    background: #2ecc71;
+    background: #000000;
     color: #fff;
   }
-
+  
   .tab-content {
     display: none;
   }
-
+  
   .tab-content.active {
     display: block;
   }
-  
+
   .recipe.hidden {
     display: none;
   }
@@ -163,7 +189,7 @@
   }
   
   .meal h3 {
-    color: #27ae60;
+    color: #000000;
     margin-bottom: 8px;
   }
   
@@ -193,12 +219,12 @@
   }
   
   .eat-btn {
-    background: #2ecc71;
+    background: #000000;
     color: #fff;
   }
   
   .eat-btn:hover {
-    background: #27ae60;
+    background: #222222;
   }
 
   /* ✅ Dots (přepínače receptů) */
@@ -218,7 +244,7 @@
   }
   
   .dot.active {
-    background: #2ecc71;
+    background: #000000;
   }
   
   
@@ -226,8 +252,56 @@
   .foods-list {
     list-style: none;
   }
+
+  .foods-list h1 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 15px;
+  }
   
   .foods-list li {
+    margin: 5px 0;
+    padding: 8px 12px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .suplement-list {
+    list-style: none;
+  }
+
+  .suplement-list h1 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 15px;
+  }
+  
+  .suplement-list li {
+    margin: 5px 0;
+    padding: 8px 12px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .activity-list {
+    list-style: none;
+  }
+
+  .activity-list h1 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 15px;
+  }
+  
+  .activity-list li {
     margin: 5px 0;
     padding: 8px 12px;
     background: #f9f9f9;

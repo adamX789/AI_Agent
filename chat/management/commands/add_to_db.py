@@ -21,7 +21,7 @@ class PrevodJednotekPlatky(BaseModel):
 
 def call_llm(potravina,jednotka):
     contents = types.Content(role="user",parts=[types.Part(text=f"Potravina: {potravina}")])
-    if jednotka in ["ks","kus","kusy","kusů"]:
+    if jednotka in ["ks","kus","kusy","kusu","kusů"]:
         config = types.GenerateContentConfig(system_instruction="Jsi expert na převod jednotek jídla. Tvým úkolem je zjistit, kolik gramů má 1 kus dané potraviny",response_schema=PrevodJednotekKusy,response_mime_type="application/json")
     elif jednotka in ["plátek","plátky","plátků"]:
         config = types.GenerateContentConfig(system_instruction="Jsi expert na převod jednotek jídla. Tvým úkolem je zjistit, kolik gramů má 1 plátek dané potraviny",response_schema=PrevodJednotekPlatky,response_mime_type="application/json")
@@ -30,7 +30,7 @@ def call_llm(potravina,jednotka):
         contents=contents,
         config=config
     )
-    if jednotka in ["ks","kus","kusy","kusů"]:
+    if jednotka in ["ks","kus","kusy","kusu","kusů"]:
         final_response_kusy:PrevodJednotekKusy = response.parsed
         return final_response_kusy.pocet_gramu_na_kus
     elif jednotka in ["plátek","plátky","plátků"]:
@@ -45,11 +45,18 @@ def search_recepty(ingredience):
     for item in ingredience:
         potravina = item["nazev"]
         mnozstvi = item["mnozstvi"]
+        if mnozstvi == "špetka":
+            continue
         print(f"hledam potravinu: {potravina}")
         casti = mnozstvi.strip().split(" ")
-        hodnota = float(casti[0])
+        hodnota_str = casti[0]
+        try:
+            hodnota = float(hodnota_str)
+        except ValueError:
+            numerator, denominator = map(float, hodnota_str.split('/'))
+            hodnota = numerator / denominator
         jednotka = casti[1].lower()
-        kusy_platky_list = ["ks","kus","kusy","kusů","plátek","plátky","plátků"]
+        kusy_platky_list = ["ks","kus","kusy","kusu","kusů","plátek","plátky","plátků"]
         kila_litry_list = ["kg","l"]
         if jednotka in kusy_platky_list:
             result = call_llm(potravina=potravina,jednotka=jednotka)
@@ -59,15 +66,20 @@ def search_recepty(ingredience):
         else:
             koeficient = hodnota/100
 
-        response = client.models.embed_content(
-            model="gemini-embedding-001",
-            contents=potravina,
-            config=types.EmbedContentConfig(output_dimensionality=768)
-        )
-        embedding = response.embeddings[0].values
-        potravina_objekt = Potraviny.objects.annotate(podoba=RawSQL(
-            "%s::vector <=> embedding", (embedding,))).order_by("podoba").first()
-        print(f"Nalezena potravina: {potravina_objekt.nazev}, podoba: {potravina_objekt.podoba}")
+        potravina_objekt = Potraviny.objects.filter(nazev=potravina).first()
+        if potravina_objekt:
+            potravina_objekt.podoba = 0.0
+            print(f"nalezena potravina: {potravina_objekt} z databáze")
+        else:
+            response = client.models.embed_content(
+                model="gemini-embedding-001",
+                contents=potravina,
+                config=types.EmbedContentConfig(output_dimensionality=768)
+            )
+            embedding = response.embeddings[0].values
+            potravina_objekt = Potraviny.objects.annotate(podoba=RawSQL(
+                "%s::vector <=> embedding", (embedding,))).order_by("podoba").first()
+            print(f"Nalezena potravina: {potravina_objekt.nazev}, podoba: {potravina_objekt.podoba}")
         if potravina_objekt.podoba < 0.5:
             makroziviny = potravina_objekt.makroziviny
             kalorie += makroziviny.kalorie*Decimal(koeficient)
@@ -81,7 +93,7 @@ def search_recepty(ingredience):
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
-        file_path = "chat/data.json"
+        file_path = "chat/recepty.json"
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
 
@@ -101,7 +113,8 @@ class Command(BaseCommand):
         print("pridavam potraviny")
         if not foods:
             return None
-        for item in foods:
+        for i,item in enumerate(foods):
+            print(f"vytvarim potravinu #{i+1}")
             embedding_text = f"""
             Název: {item["name"]}
             Popis: {item["description"]}

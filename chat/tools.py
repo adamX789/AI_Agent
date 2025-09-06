@@ -2,6 +2,7 @@ from django.db.models.expressions import RawSQL
 from .models import *
 from user_profile.models import Food
 from google.genai import types
+from muj_den.funkce import call_llm
 
 
 def search_potraviny_and_update(profile, foods, client):
@@ -10,15 +11,27 @@ def search_potraviny_and_update(profile, foods, client):
         nazev_potraviny = item.potravina
         hmotnost = item.hmotnost
         jednotka = item.jednotka
-        response = client.models.embed_content(
-            model="gemini-embedding-001",
-            contents=nazev_potraviny,
-            config=types.EmbedContentConfig(output_dimensionality=768)
-        )
-        embedding = response.embeddings[0].values
-        potravina_objekt = Potraviny.objects.annotate(podoba=RawSQL(
-            "%s::vector <=> embedding", (embedding,))).order_by("podoba").first()
-        if potravina_objekt.podoba < 0.35:
+        if jednotka in ["ks","plátky"]:
+            odpoved = call_llm(potravina=nazev_potraviny,jednotka=jednotka)
+            vysledna_hmotnost=hmotnost*odpoved
+            vysledna_jednotka = "g"
+        else:
+            vysledna_hmotnost = hmotnost
+            vysledna_jednotka = jednotka
+        potravina_objekt = Potraviny.objects.filter(nazev=nazev_potraviny).first()
+        if potravina_objekt:
+            print(f"potravina {potravina_objekt.nazev} nalezena v databázi")
+            potravina_objekt.podoba = 0.0
+        else:
+            response = client.models.embed_content(
+                model="gemini-embedding-001",
+                contents=nazev_potraviny,
+                config=types.EmbedContentConfig(output_dimensionality=768)
+            )
+            embedding = response.embeddings[0].values
+            potravina_objekt = Potraviny.objects.annotate(podoba=RawSQL(
+                "%s::vector <=> embedding", (embedding,))).order_by("podoba").first()
+        if potravina_objekt.podoba < 0.5:
             makroziviny = potravina_objekt.makroziviny
             print(
                 f"potravina: {potravina_objekt.nazev}, podoba: {potravina_objekt.podoba}")
@@ -26,7 +39,7 @@ def search_potraviny_and_update(profile, foods, client):
                 {
                     "nazev": potravina_objekt.nazev,
                     "popis": potravina_objekt.popis,
-                    "hmotnost_v_gramech": hmotnost,
+                    "hmotnost_v_gramech": vysledna_hmotnost,
                     "kalorie": makroziviny.kalorie,
                     "bilkoviny_na_100g": str(makroziviny.bilkoviny_gramy),
                     "sacharidy_na_100g": str(makroziviny.sacharidy_gramy),
@@ -37,7 +50,7 @@ def search_potraviny_and_update(profile, foods, client):
                 }
             )
             profile.food_set.create(
-                potravina=potravina_objekt, hmotnost_g=hmotnost, jednotka=jednotka)
+                potravina=potravina_objekt, hmotnost_g=vysledna_hmotnost, jednotka=vysledna_jednotka)
     return dict_list
 
 

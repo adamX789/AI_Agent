@@ -17,7 +17,8 @@
  <!-- ✅ Sidebar -->
  <aside class="sidebar" id="sidebar">
    <button class="close-btn" id="closeBtn">✖</button>
-       <nav class="nav-links">
+   <img src="{% static 'images/Logo bez textu.png' %}" alt="">
+    <nav class="nav-links">
       <a href="{% url 'profile' %}"><button class="nav-btn">Profil</button></a>
       <a href="{% url 'chat' %}"><button class="nav-btn">Chat</button></a>
       <a href="{% url 'my_day' %}"><button class="nav-btn">Můj den</button></a>
@@ -28,6 +29,8 @@
   <!-- ✅ Main Content -->
   <main class="profile">
     <h1 class="username">Můj den</h1>
+
+    <a href="{% url 'add' %}"><button class="add-btn" data-target="recipes">+ Přidat záznam</button></a>
 
     <!-- ✅ Denní cíle -->
     <section class="stats">

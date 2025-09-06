@@ -51,8 +51,8 @@ class UrceniHmotnostiPotravin(BaseModel):
     potravina: str = Field(
         description="Název potraviny, například Losos, avokádo")
     hmotnost: float = Field(
-        description="Hmotnost dané potraviny V GRAMECH NEBO MILILITRECH, uváděj jen číslo bez jednotky, tedy pro '200g' by mělo toto pole hodnotu 200 a pro '150ml' by mělo hodnotu 150.")
-    jednotka:Literal["g","ml"] = Field(description="Jednotka pro danou potravinu ('g' - gramy, 'ml' - mililitry).")
+        description="Hmotnost dané potraviny V GRAMECH NEBO MILILITRECH nebo MNOŽSTVI V KUSECH NEBO PLÁTKÁCH, uváděj jen číslo bez jednotky, tedy pro '200g' by mělo toto pole hodnotu 200, '150ml' by mělo hodnotu 150 a pro '1 kus' by mělo hodnotu 1.")
+    jednotka:Literal["g","ml","ks","plátky"] = Field(description="Jednotka pro danou potravinu ('g' - gramy, 'ml' - mililitry, 'ks' - kusy, 'plátky' - plátky).")
 
 
 class Jidla(BaseModel):
@@ -108,16 +108,23 @@ def check_question_sentence(text: str,historie:str):
 
 def get_weight_from_text(text: str):
     config = types.GenerateContentConfig(
-        system_instruction="Jsi expert na extrahování dat z textu. Tvým úkolem je z daného textu určit seznam VŠECH potravin a nápojů, a poté extrahovat názvy potravin nebo nápojů a jejich hmotnost v gramech nebo mililitrech. Uveď jednotku (gramy nebo mililitry). Ignoruj gramatické chyby.", response_mime_type="application/json", response_schema=Jidla
+        system_instruction="""Jsi expert na extrahování dat z textu. Tvým úkolem je z daného textu určit seznam VŠECH potravin a nápojů, a poté extrahovat názvy potravin nebo nápojů a jejich hmotnost v gramech nebo mililitrech NEBO počet kusů nebo plátků. Uveď jednotku (gramy, mililitry, kusy nebo plátky).
+        **Pokud bude uvedene množství a název potraviny, ale bude chybět jednotka, nastav jednotku na kusy (ks)!**
+        Pro zlomkové hodnoty (např. '1/2 jablka') vlož do pole hmotnost desetinnou hodnotu daného zlomku (např. 1/2 -> 0.5)
+        Ignoruj gramatické chyby.""", response_mime_type="application/json", response_schema=Jidla
     )
     contents = types.Content(role="user", parts=[types.Part(text=text)])
-    response = client.models.generate_content(
-        model=model,
-        contents=contents,
-        config=config
-    )
-    structured_res: Jidla = response.parsed
-    return structured_res
+    try:
+        response = client.models.generate_content(
+            model=model,
+            contents=contents,
+            config=config
+        )
+        structured_res: Jidla = response.parsed
+        return structured_res
+    except Exception as e:
+        print(f"Chyba při extrakci dat: {e}")
+        return Jidla(seznam_jidla=[],seznam_vsech_potravin=[])
 
 
 def type_check(text: str,historie:str):

@@ -16,7 +16,6 @@ document.querySelectorAll('.meal').forEach(mealDiv => {
   const switchButton = mealDiv.querySelector('.switch-recipe');
   const recipes = mealDiv.querySelectorAll('.recipe');
   const dots = mealDiv.querySelectorAll('.dot');
-  
   const switchContent = (index) => {
     recipes.forEach(r => r.classList.remove("active"));
     recipes.forEach(r => r.classList.add("hidden"));
@@ -27,17 +26,21 @@ document.querySelectorAll('.meal').forEach(mealDiv => {
     dots[index].classList.add("active");
 
     const activeRecipeId = recipes[index].dataset.receptId;
-    const input = document.getElementById("snidane_recept_id");
-    if (input) {
-      input.value = activeRecipeId;
+    const hiddenInput = mealDiv.querySelector("input[name='recept_id']");
+    if (hiddenInput) {
+      hiddenInput.value = activeRecipeId;
     };
   };
 
-  switchButton.addEventListener('click', () => {
+  
+  if (switchButton) {
+    switchButton.addEventListener('click', () => {
     const currentIndex = Array.from(recipes).findIndex(r => r.classList.contains("active"));
     const newIndex = (currentIndex + 1) % recipes.length;
     switchContent(newIndex)
   });
+  }
+  
   dots.forEach((dot,index) => {
     dot.addEventListener("click",() => {
       switchContent(index);

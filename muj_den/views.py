@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from .models import Jidelnicek,VybraneRecepty
-from .funkce import najdi_potravinu
-from chat.models import Recepty
-
+from .funkce import najdi_potravinu,call_llm
+from chat.models import Recepty,Potraviny
+from decimal import Decimal
 # Create your views here.
 
 
@@ -139,3 +139,24 @@ class MyDayView(View):
             "vybrane_recepty":vybrane_recepty
         }
         return render(request,"muj_den.html",context)
+
+class AddView(View):
+    def get(self,request):
+        profile = request.user.profile
+        seznam_potravin = Potraviny.objects.all().values_list("nazev",flat=True)
+        return render(request,"add.html",{"potraviny":list(seznam_potravin)})
+    def post(self,request):
+        profile = request.user.profile
+        print(request.POST)
+        if request.POST.get("add") == "a":
+            potravina_nazev = request.POST.get("potravina")
+            potravina = Potraviny.objects.get(nazev=potravina_nazev)
+            mnozstvi = Decimal(request.POST.get("mnozstvi"))
+            jednotka = request.POST.get("jednotka")
+            if jednotka in ["g", "ml"]:
+                profile.food_set.create(potravina=potravina,jednotka=jednotka,hmotnost_g=mnozstvi)
+            else:
+                odpoved = call_llm(potravina=potravina_nazev,jednotka=jednotka)
+                profile.food_set.create(potravina=potravina,jednotka="g",hmotnost_g=mnozstvi*Decimal(odpoved))
+            profile.save()
+        return redirect("my_day")
