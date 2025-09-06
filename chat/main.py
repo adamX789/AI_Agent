@@ -133,7 +133,7 @@ def type_check(text: str,historie:str):
         {historie}
         Tvým úkolem je podle historie zpráv a aktuální zprávy určit, do které kategorie spadá následující dotaz. Vysvětlení kategorií:
         1. potraviny - Zde spadají otázky, které se týkají informací nebo výpočtů pro konkrétní potraviny (např. "Jaké výhody má losos" nebo "Kolik gramů kuřecích prsou potřebuji, abych získal 20g tuků?")
-        2. recepty - Zde by spadala otázka "Vytvoř mi recept, který obsahuje kuřecí maso a má málo kalorií."
+        2. recepty - Zde spadají otázky, které se týkají informací nebo výpočtů pro konkrétní recepty (např. "Vytvoř mi recept, který obsahuje kuřecí maso a má málo kalorií." nebo "Kolik kalorií má vaječná omeleta se zeleninou?")
         3. situace - Zde by spadala otázka "Jak můžu jíst zdravě, když jsem na dovolené?"
         4. diety - Zde by spadala otázka "Pro koho je určená Paleo dieta?"
         5. osobni_profil - Zde by spadala otázka, která se týká tvého denního příjmu (např. "Kolik mi dnes ještě zbývá bílkovin?")

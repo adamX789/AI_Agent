@@ -93,7 +93,7 @@ def search_recepty(ingredience):
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
-        file_path = "chat/recepty.json"
+        file_path = "chat/noverecepty.json"
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
 

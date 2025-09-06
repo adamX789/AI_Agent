@@ -127,11 +127,16 @@ def search_recepty(user_embedding,pocet_vysledku):
     dict_list = []
     for recept in nejrelevantnejsi_recepty:
         if recept.podoba < 0.35:
+            makroziviny = MakrozivinyRecepty.objects.get(recept=recept)
             print(f"recept: {recept.nazev}, podoba: {recept.podoba}")
             dict_list.append(
                 {
                     "nazev": recept.nazev,
                     "ingredience":recept.ingredience,
+                    "kalorie": makroziviny.kalorie,
+                    "bilkoviny_gramy": str(makroziviny.bilkoviny_gramy),
+                    "sacharidy_gramy": str(makroziviny.sacharidy_gramy),
+                    "tuky_gramy": str(makroziviny.tuky_gramy),
                     "instrukce": recept.instrukce,
                     "typ_jidla":recept.typ_jidla,
                     "teplota":recept.teplota,

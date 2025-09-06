@@ -9,3 +9,18 @@ hamburger.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
   sidebar.classList.remove("active");
 });
+
+// ✅ Plus menu toggle
+const plusBtn = document.getElementById("plusBtn");
+const plusMenu = document.getElementById("plusMenu");
+
+plusBtn.addEventListener("click", () => {
+  plusMenu.style.display = plusMenu.style.display === "flex" ? "none" : "flex";
+});
+
+// Kliknutí mimo menu ho zavře
+document.addEventListener("click", (e) => {
+  if (!plusBtn.contains(e.target) && !plusMenu.contains(e.target)) {
+    plusMenu.style.display = "none";
+  }
+});
