@@ -4,6 +4,24 @@ from user_profile.models import Food
 from google.genai import types
 from muj_den.funkce import call_llm
 
+def ziskej_recepty(seznam_potravin,client):
+    seznam_receptu = set()
+    for potravina in seznam_potravin:
+        embedding_response = client.models.embed_content(
+        model="gemini-embedding-001",
+        contents=potravina,
+        config=types.EmbedContentConfig(output_dimensionality=768)
+        )
+        try:
+            embedding = embedding_response.embeddings[0].values
+        except ValueError as e:
+            return f"Chyba: {e}"
+        recepty_objekty = Recepty.objects.annotate(podoba=RawSQL(
+                "%s::vector <=> embedding", (embedding,))).order_by("podoba")[:7]
+        for recept in recepty_objekty:
+            print(f"recept: {recept.nazev}, podoba: {recept.podoba}")
+            seznam_receptu.add(recept)
+    return list(seznam_receptu)
 
 def search_potraviny_and_update(profile, foods, client):
     dict_list = []

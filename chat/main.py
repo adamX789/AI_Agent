@@ -7,6 +7,7 @@ from google import genai
 from google.genai import types
 from typing import Literal
 from .tools import *
+from muj_den.funkce import sestav_jidelnicek
 
 load_dotenv()
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -69,6 +70,8 @@ class UrceniJidlaZObrazku(BaseModel):
         description="Z jakých potravin se jídlo skládá.")
     duvod: str = Field(description="Důvod pro tvé rozhodnutí.")
 
+class UrceniPotravinZTextu(BaseModel):
+    seznam_potravin:list[str] = Field(description="Seznam VŠECH potravin, o kterých se uživatel zmiňuje v textu.")
 
 def first_check(text: str,historie:str):
     config = types.GenerateContentConfig(
@@ -90,9 +93,10 @@ def check_question_sentence(text: str,historie:str):
     config = types.GenerateContentConfig(
         system_instruction=f"""Historie zpráv:
         {historie}
-        Tvým úkolem je podle historie zpráv a aktuální zprávy určit, jestli je zadaný text otázka o jídle nebo oznámení o tom, co uživatel snědl. Vysvětlení kategorií:
+        Tvým úkolem je podle historie zpráv a aktuální zprávy určit, jestli je zadaný text otázka o jídle, oznámení o tom, co uživatel snědl nebo oznámení o tom, na co má uživatel chuť. Vysvětlení kategorií:
         1. otazka - Zde by spadal text "Jaké výhody má losos?"
-        2. oznameni - Zde by spadal text "Na oběd jsem snědl kuře s rýží."
+        2. oznameni_snedl - Zde spadají oznámení v minulém čase, o tom, co uživatel snědl, například: "Na oběd jsem snědl kuře s rýží." nebo "měl jsem hovězí maso s brambory a mrkví"
+        3. oznameni_ma_chut - Zde spadají oznámení v přítomném nebo budoucím čase, o tom, na co má uživatel chuť, nebo co má v lednici, například: "mám chuť na kuřecí maso", "dal bych si vločky a hovězí maso", "v lednici mi zbyla šunka, jogurt a sýr"
         Uveď skóre jistoty a důvod, proč si do této kategorie zařadil daný dotaz
         """, response_mime_type="application/json", response_schema=UrceniVetaOtazka
     )
@@ -126,6 +130,22 @@ def get_weight_from_text(text: str):
         print(f"Chyba při extrakci dat: {e}")
         return Jidla(seznam_jidla=[],seznam_vsech_potravin=[])
 
+def get_foods_from_text(text: str):
+    config = types.GenerateContentConfig(
+        system_instruction="Jsi expert na rozpoznávání potravin. Tvým úkolem je určit z textu seznam VŠECH potravin, o kterých se uživatel zmiňuje", response_mime_type="application/json", response_schema=UrceniPotravinZTextu
+    )
+    contents = types.Content(role="user", parts=[types.Part(text=text)])
+    try:
+        response = client.models.generate_content(
+            model=model,
+            contents=contents,
+            config=config
+        )
+        structured_res: UrceniPotravinZTextu = response.parsed
+        return structured_res
+    except Exception as e:
+        print(f"Chyba při extrakci dat: {e}")
+        return UrceniPotravinZTextu(seznam_potravin=[])
 
 def type_check(text: str,historie:str):
     config = types.GenerateContentConfig(
@@ -184,7 +204,7 @@ def chatbot(query, profile, last_agent_msg, denni_udaje, historie):
         return "Omlouvám se, ale na tento dotaz nemohu odpovědět, protože se specializuji pouze na výživu"
     response2 = check_question_sentence(query,historie_string)
     print(f"{response2.typ_textu}, skore: {response2.skore_jistoty}, duvod: {response2.duvod}")
-    if response2.skore_jistoty > 0.7 and response2.typ_textu == "oznameni":
+    if response2.skore_jistoty > 0.7 and response2.typ_textu == "oznameni_snedl":
         new_query = query
         if last_agent_msg and "Z obrázku nalezeny potraviny" in last_agent_msg:
             foods = get_weight_from_text(query)
@@ -227,6 +247,14 @@ def chatbot(query, profile, last_agent_msg, denni_udaje, historie):
             config=config
         )
         return response.text
+    elif response2.skore_jistoty > 0.7 and response2.typ_textu == "oznameni_ma_chut":
+        potraviny = get_foods_from_text(query)
+        seznam_potravin = potraviny.seznam_potravin
+        if not seznam_potravin:
+            return "V textu jsem nenašel žádné potraviny."
+        recepty = ziskej_recepty(seznam_potravin=seznam_potravin,client=client)
+        sestav_jidelnicek(profile=profile,reset=False,vsechny_recepty=recepty)
+        return "Váš jídelníček byl úspěšně sestaven, najdete ho v sekci Můj den"
     response3 = type_check(query,historie_string)
     print(f"{response3.typ_otazky}, skore: {response3.skore_jistoty}, duvod: {response3.duvod}")
     if response3.skore_jistoty < 0.7 or response3.typ_otazky == "jine":
