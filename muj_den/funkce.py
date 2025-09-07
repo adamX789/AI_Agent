@@ -228,9 +228,9 @@ def sestav_jidelnicek(profile,reset=False):
     jidelnicek.seznam_obedu.clear()
     jidelnicek.seznam_svacin2.clear()
     jidelnicek.seznam_veceri.clear()
-    vybrane_recepty.save()
     if reset:
         vybrane_recepty.snidane_snezena,vybrane_recepty.svacina1_snezena,vybrane_recepty.obed_snezen,vybrane_recepty.svacina2_snezena,vybrane_recepty.vecere_snezena = False,False,False,False,False
+    vybrane_recepty.save()
     kalorie, bilkoviny, sacharidy, tuky = vyber_snidani(profile=profile)
     kalorie, bilkoviny, sacharidy, tuky = vyber_svaciny(
         profile=profile, cislo_svaciny=1, zbyvajici_kalorie=kalorie, zbyvajici_bilkoviny=bilkoviny, zbyvajici_sacharidy=sacharidy, zbyvajici_tuky=tuky)
