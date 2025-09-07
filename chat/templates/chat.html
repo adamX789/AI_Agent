@@ -47,11 +47,13 @@
         <button type="button" class="plus-btn" id="plusBtn">+</button>
         <div class="plus-menu" id="plusMenu">
           <button type="button">👀 Načíst QR kodem (Brzy spuštěno!)</button>
-          <button type="button">📷 Vyfotit fotku.</button>
+          <label for="imageInput"><button type="button" class="icon-btn">📷 Vyfotit fotku.</button></label>
+          <input type="file" name="image" id="imageInput" style="display: none;" accept="image/*">
           <button type="button">🎤 Zaznamenat zvukový záznam</button>
         </div>
       </div>
     </form>
+    <div id="fileNameDisplay"></div>
   </main>
 </body>
 
@@ -91,6 +93,8 @@
       const formData = new FormData();
       formData.append("image", image_box.files[0]);
       formData.append("csrfmiddlewaretoken", getCookie("csrftoken"));
+      image_box.value = '';
+      document.getElementById('fileNameDisplay').textContent = '';
 
       fetch("{% url 'chat' %}", {
         method: "POST",
