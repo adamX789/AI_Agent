@@ -69,6 +69,7 @@
     const user_msg = text_box.value;
 
     if (user_msg.length > 0) {
+      text_box.disabled = true;
       appendMessage(user_msg, "user");
       appendWaitMessage("Agent přemýšlí.", "agent");
       const messageToRemove = document.getElementById("tempMessage")
@@ -85,8 +86,10 @@
         .then(data => {
           appendMessage(data.response, "agent");
           messageToRemove.remove();
+          text_box.disabled = false;
         });
     } else {
+      text_box.disabled = true;
       appendMessage("[Obrázek]", "user");
       appendWaitMessage("Agent přemýšlí.", "agent");
       const messageToRemove = document.getElementById("tempMessage");
@@ -104,6 +107,7 @@
         .then(data => {
           appendMessage(data.response, "agent");
           messageToRemove.remove();
+          text_box.disabled = false;
         });
     }
 
