@@ -9,13 +9,15 @@ body {
   background-color: #fff;
   color: #222;
   display: flex;
-  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
 }
 
 /* ✅ Sidebar */
 .sidebar {
   width: 200px;
-  height: 100vh;
+  height: 100dvh;
   background-color: #fff;
   border-right: 1px solid #eee;
   display: flex;
