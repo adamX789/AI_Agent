@@ -29,8 +29,8 @@ class UrceniVetaOtazka(BaseModel):
     """
     Určí, zda se jedná o větu nebo otázku
     """
-    typ_textu: Literal["otazka", "oznameni"] = Field(
-        description="Urči, jestli je text otázka o jídle, nebo jen oznámení o tom, co uživatel snědl")
+    typ_textu: Literal["otazka", "oznameni_snedl", "oznameni_ma_chut"] = Field(
+        description="Urči, jestli je text otázka o jídle, oznámení o tom, co uživatel snědl, nebo oznámení o tom, na co má uživatel chuť/co má v lednici")
     skore_jistoty: float = Field(
         description="Skóre jistoty mezi 0 a 1, 0 znamená, že si nejsi vůbec jistý svým rozhodnutím, 1 znamená, že si jsi úplně jistý svým rozhodnutím")
     duvod: str = Field(description="Důvod, podle kterého jsi se rozhodl")
