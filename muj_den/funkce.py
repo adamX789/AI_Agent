@@ -196,7 +196,7 @@ zbyvajici kalorie = {zbyvajici_kalorie}
 zbyvajici bilkoviny = {zbyvajici_bilkoviny}
 zbyvajici sacharidy = {zbyvajici_sacharidy}
 zbyvajici tuky = {zbyvajici_tuky}""")
-    relevantni_vecere = filtruj_recepty_podle_kcal(kalorie=Decimal(zbyvajici_kalorie)*Decimal(0.25),typ_jidla="vecere")
+    relevantni_vecere = filtruj_recepty_podle_kcal(kalorie=Decimal(zbyvajici_kalorie),typ_jidla="vecere")
     if relevantni_vecere.exists():
         vybrana_vecere = relevantni_vecere.order_by("?").first()
         profile.vybranerecepty.vecere = vybrana_vecere
