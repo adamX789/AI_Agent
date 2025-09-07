@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Přidat potravinu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Mozilla Text', sans-serif;
+      background-color: #fafafa;
+      color: #222;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .record-container {
+      width: 100%;
+      max-width: 600px;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 30px 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    }
+
+    .record-container h1 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #000;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .nutrients-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    textarea {
+      min-height: 60px;
+      resize: vertical;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .cancel-btn, .add-btn {
+      flex: 1;
+      padding: 14px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .cancel-btn {
+      background-color: #eee;
+      color: #444;
+    }
+
+    .cancel-btn:hover { background-color: #ddd; }
+
+    .add-btn {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .add-btn:hover { background-color: #232323; }
+
+    .output {
+      margin-top: 25px;
+      padding: 15px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="record-container">
+    <h1>➕ Přidat potravinu</h1>
+    {% if messages %}
+    {% for message in messages %}
+      {{message}}
+      <p></p>
+    {% endfor %}
+    {% endif %}
+    <form action="" method="POST">
+      {% csrf_token %}
+      <!-- Název -->
+      <div class="form-group">
+        <label for="name">Název potraviny</label>
+        <input type="text" id="name" name="name" placeholder="Např. Rýže bílá" required />
+      </div>
+
+      <!-- Popis -->
+      <div class="form-group">
+        <label for="description">Popis</label>
+        <textarea id="description" name="desc" placeholder="Krátký popis potraviny..."></textarea>
+      </div>
+
+      <!-- Makra -->
+      <div class="form-group">
+        <label>Nutriční hodnoty (na 100 g)</label>
+        <div class="nutrients-grid">
+          <input type="number" name="kcal" id="kcal" placeholder="kcal" />
+          <input type="number" name="protein" step="0.01" id="protein" placeholder="Bílkoviny (g)" />
+          <input type="number" name="fat" id="fat" step="0.01" placeholder="Tuky (g)" />
+          <input type="number" name="carbs" id="carbs" step="0.01" placeholder="Sacharidy (g)" />
+        </div>
+      </div>
+
+      <!-- Benefity -->
+      <div class="form-group">
+        <label for="benefits">Benefity (oddělujte čárkou)</label>
+        <textarea id="benefits" name="benefits" placeholder="Rychlý zdroj energie, Snadno stravitelná"></textarea>
+      </div>
+
+      <!-- Best for -->
+      <div class="form-group">
+        <label for="best_for">Vhodné pro (oddělujte čárkou)</label>
+        <textarea id="best_for" name="best_for" placeholder="Přílohy, Polévky, Saláty"></textarea>
+      </div>
+
+      <!-- Avoid if -->
+      <div class="form-group">
+        <label for="avoid_if">Nevhodné pokud (oddělujte čárkou)</label>
+        <textarea id="avoid_if" name="avoid_if" placeholder="Celiakie (pokud není bezlepková)"></textarea>
+      </div>
+
+      <!-- Tlačítka -->
+      <div class="action-buttons">
+        <button class="cancel-btn" type="reset">Zrušit</button>
+        <button class="add-btn" type="submit" name="pridat" value="p" id="addBtn">Přidat</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
+
