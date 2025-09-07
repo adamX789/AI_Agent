@@ -95,8 +95,8 @@ def najdi_potravinu(ingredience, profile):
                 "V databázi nebyla nalezena potravina: {potravina}")
 
 def filtruj_recepty_podle_kcal(kalorie,typ_jidla):
-    min_kcal = kalorie * Decimal(0.9)
-    max_kcal = kalorie * Decimal(1.1)
+    min_kcal = kalorie * Decimal(0.85)
+    max_kcal = kalorie * Decimal(1.15)
     relevantni_recepty = Recepty.objects.filter(
         typ_jidla=typ_jidla,
         makrozivinyrecepty__kalorie__gte=min_kcal,
@@ -139,7 +139,7 @@ zbyvajici kalorie = {zbyvajici_kalorie}
 zbyvajici bilkoviny = {zbyvajici_bilkoviny}
 zbyvajici sacharidy = {zbyvajici_sacharidy}
 zbyvajici tuky = {zbyvajici_tuky}""")
-    relevantni_svaciny = filtruj_recepty_podle_kcal(kalorie=profile.denni_kalorie*Decimal(0.1),typ_jidla="svacina")
+    relevantni_svaciny = filtruj_recepty_podle_kcal(kalorie=profile.denni_kalorie*Decimal(0.125),typ_jidla="svacina")
     if relevantni_svaciny.exists():
         vybrana_svacina = relevantni_svaciny.order_by("?").first()
         if cislo_svaciny == 1:
@@ -171,7 +171,7 @@ zbyvajici kalorie = {zbyvajici_kalorie}
 zbyvajici bilkoviny = {zbyvajici_bilkoviny}
 zbyvajici sacharidy = {zbyvajici_sacharidy}
 zbyvajici tuky = {zbyvajici_tuky}""")
-    relevantni_obedy = filtruj_recepty_podle_kcal(kalorie=profile.denni_kalorie*Decimal(0.35),typ_jidla="obed")
+    relevantni_obedy = filtruj_recepty_podle_kcal(kalorie=profile.denni_kalorie*Decimal(0.3),typ_jidla="obed")
     if relevantni_obedy.exists():
         vybrany_obed = relevantni_obedy.order_by("?").first()
         profile.vybranerecepty.obed = vybrany_obed
@@ -196,7 +196,7 @@ zbyvajici kalorie = {zbyvajici_kalorie}
 zbyvajici bilkoviny = {zbyvajici_bilkoviny}
 zbyvajici sacharidy = {zbyvajici_sacharidy}
 zbyvajici tuky = {zbyvajici_tuky}""")
-    relevantni_vecere = filtruj_recepty_podle_kcal(kalorie=profile.denni_kalorie*Decimal(0.25),typ_jidla="vecere")
+    relevantni_vecere = filtruj_recepty_podle_kcal(kalorie=Decimal(zbyvajici_kalorie)*Decimal(0.25),typ_jidla="vecere")
     if relevantni_vecere.exists():
         vybrana_vecere = relevantni_vecere.order_by("?").first()
         profile.vybranerecepty.vecere = vybrana_vecere

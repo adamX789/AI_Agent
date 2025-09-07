@@ -1,297 +1,76 @@
-[
 {
-"name": "Rýže bílá",
-"description": "Bílá rýže je rafinovaná obilovina s vysokým obsahem sacharidů a nízkým
-obsahem vlákniny.",
-"nutrients": {
-"kcal": 130,
-"protein_g": 2.4,
-"fat_g": 0.3,
-"carbs_g": 28
-},
-"benefits": ["Rychlý zdroj energie", "Lehkost stravy", "Snadno stravitelná"],
-"best_for": ["Přílohy", "Polévky", "Saláty"],
-"avoid_if": ["Celiakie (pokud není bezlepková)"]
-},
-{
-"name": "Rýže natural",
-"description": "Natural rýže je celozrnná rýže s vyšším obsahem vlákniny, vitamínů a
-minerálů.",
-"nutrients": {
-"kcal": 111,
-"protein_g": 2.6,
-"fat_g": 0.9,
-"carbs_g": 23
-},
-"benefits": ["Vysoký obsah vlákniny", "Minerály", "Pomalejší uvolňování energie"],
-"best_for": ["Přílohy", "Saláty", "Polévky"],
-"avoid_if": ["Celiakie (pokud není bezlepková)"]
-},
-{
-"name": "Rýže jasmínová",
-"description": "Jasmínová rýže je aromatická bílá rýže s vyšším glykemickým indexem.",
-"nutrients": {
-"kcal": 129,
-"protein_g": 2.9,
-"fat_g": 0.4,
-"carbs_g": 27
-},
-"benefits": ["Aromatická", "Rychlý zdroj energie", "Snadno stravitelná"],
-"best_for": ["Přílohy", "Asijská jídla", "Polévky"],
-"avoid_if": ["Celiakie (pokud není bezlepková)"]
-},
-{
-"name": "Rýže basmati",
-
-"description": "Basmati je aromatická dlouhozrnná rýže s nižším glykemickým indexem než
-běžná bílá rýže.",
-"nutrients": {
-"kcal": 121,
-"protein_g": 2.6,
-"fat_g": 0.4,
-"carbs_g": 25
-},
-"benefits": ["Nižší glykemický index", "Aromatická", "Lehká"],
-"best_for": ["Přílohy", "Indická jídla", "Saláty"],
-"avoid_if": ["Celiakie (pokud není bezlepková)"]
-},
-{
-"name": "Ovesné vločky",
-"description": "Ovesné vločky jsou celozrnný produkt bohatý na vlákninu, beta-glukany a
-bílkoviny.",
-"nutrients": {
-"kcal": 389,
-"protein_g": 16.9,
-"fat_g": 6.9,
-"carbs_g": 66
-},
-"benefits": ["Vláknina", "Podpora trávení", "Snižuje cholesterol"],
-"best_for": ["Kaše", "Pečení", "Smoothie"],
-"avoid_if": ["Alergie na oves"]
-},
-{
-"name": "Jáhly",
-"description": "Jáhly jsou drobná celozrnná obilovina bohatá na sacharidy a minerály, lehce
-stravitelná.",
-"nutrients": {
-"kcal": 378,
-"protein_g": 11,
-"fat_g": 4.2,
-"carbs_g": 72
-},
-"benefits": ["Bezlepkové", "Minerály", "Snadno stravitelné"],
-"best_for": ["Kaše", "Přílohy", "Pečení"],
-"avoid_if": ["Alergie na obiloviny"]
-},
-{
-"name": "Pohanka",
-"description": "Pohanka je bezlepková pseudoobilovina bohatá na bílkoviny, vlákninu a
-antioxidanty.",
-
-"nutrients": {
-"kcal": 343,
-"protein_g": 13.3,
-"fat_g": 3.4,
-"carbs_g": 71.5
-},
-"benefits": ["Bezlepkové", "Antioxidanty", "Vysoký obsah bílkovin"],
-"best_for": ["Kaše", "Přílohy", "Pečení"],
-"avoid_if": ["Alergie na pohanku"]
-},
-{
-"name": "Bulgur",
-"description": "Bulgur je předvařená a drcená celozrnná pšenice, bohatá na sacharidy a
-vlákninu.",
-"nutrients": {
-"kcal": 342,
-"protein_g": 12.3,
-"fat_g": 1.3,
-"carbs_g": 76
-},
-"benefits": ["Vysoký obsah vlákniny", "Bílkoviny", "Snadné vaření"],
-"best_for": ["Saláty", "Přílohy", "Polévky"],
-"avoid_if": ["Celiakie"]
-},
-{
-"name": "Couscous",
-"description": "Couscous je drcená pšenice střední velikosti, bohatá na sacharidy a snadno
-stravitelná.",
-"nutrients": {
-"kcal": 376,
-"protein_g": 12.8,
-"fat_g": 0.6,
-"carbs_g": 77
-},
-"benefits": ["Snadno stravitelný", "Rychlá příprava", "Vláknina"],
-"best_for": ["Saláty", "Přílohy", "Polévky"],
-"avoid_if": ["Celiakie"]
-},
-{
-"name": "Quinoa",
-"description": "Quinoa je bezlepková pseudoobilovina s vysokým obsahem bílkovin, vlákniny
-a minerálů.",
-"nutrients": {
-"kcal": 368,
-
-"protein_g": 14,
-"fat_g": 6.1,
-"carbs_g": 64
-},
-"benefits": ["Bezlepková", "Vysoký obsah bílkovin", "Minerály"],
-"best_for": ["Saláty", "Přílohy", "Kaše"],
-"avoid_if": ["Alergie na quinou"]
-},
-{
-"name": "Amarant",
-"description": "Amarant je bezlepková pseudoobilovina bohatá na bílkoviny, vlákninu a
-minerály.",
-"nutrients": {
-"kcal": 371,
-"protein_g": 13.6,
-"fat_g": 7,
-"carbs_g": 65
-},
-"benefits": ["Bezlepkové", "Vysoký obsah bílkovin", "Minerály"],
-"best_for": ["Kaše", "Přílohy", "Pečení"],
-"avoid_if": ["Alergie na amarant"]
-},
-{
-"name": "Kukuřičná krupice",
-"description": "Kukuřičná krupice je mletá kukuřice vhodná na kaše a polévky, bohatá na
-sacharidy.",
-"nutrients": {
-"kcal": 370,
-"protein_g": 7.2,
-"fat_g": 1.5,
-"carbs_g": 79
-},
-"benefits": ["Bezlepkové", "Snadné vaření", "Energeticky vydatné"],
-"best_for": ["Kaše", "Polévky", "Pudingy"],
-"avoid_if": ["Alergie na kukuřici"]
-},
-{
-"name": "Kukuřičná mouka",
-"description": "Kukuřičná mouka je jemně mletá kukuřice, bohatá na sacharidy a
-bezlepková.",
-"nutrients": {
-"kcal": 365,
-"protein_g": 7.1,
-"fat_g": 1.5,
-
-"carbs_g": 76
-},
-"benefits": ["Bezlepkové", "Snadné pečení", "Sacharidy"],
-"best_for": ["Pečení", "Kaše", "Pudingy"],
-"avoid_if": ["Alergie na kukuřici"]
-},
-{
-"name": "Pšeničná mouka hladká",
-"description": "Hladká pšeničná mouka je rafinovaná mouka s vysokým obsahem sacharidů a nízkým obsahem vlákniny.",
-"nutrients": {
-"kcal": 364,
-"protein_g": 10,
-"fat_g": 1,
-"carbs_g": 76
-},
-"benefits": ["Snadné pečení", "Všestranné použití", "Rychlá příprava"],
-"best_for": ["Pečení", "Omáčky", "Těsta"],
-"avoid_if": ["Celiakie"]
-},
-{
-"name": "Pšeničná mouka celozrnná",
-"description": "Celozrnná pšeničná mouka je bohatá na vlákninu, vitamíny a minerály.",
-"nutrients": {
-"kcal": 340,
-"protein_g": 13,
-"fat_g": 2,
-"carbs_g": 72
-},
-"benefits": ["Vláknina", "Minerály", "Bílkoviny"],
-"best_for": ["Pečení", "Těsta", "Kaše"],
-"avoid_if": ["Celiakie"]
-},
-{
-"name": "Špaldová mouka",
-"description": "Špaldová mouka je obilná mouka s vyšším obsahem bílkovin a vlákniny než
-klasická pšeničná.",
-"nutrients": {
-"kcal": 338,
-"protein_g": 14,
-"fat_g": 2.4,
-"carbs_g": 70
-},
-"benefits": ["Vláknina", "Vyšší obsah bílkovin", "Minerály"],
-
-"best_for": ["Pečení", "Těsta", "Kaše"],
-"avoid_if": ["Celiakie"]
-},
-{
-"name": "Žitná mouka",
-"description": "Žitná mouka je celozrnná mouka s nižším glykemickým indexem a vyšší
-vlákninou.",
-"nutrients": {
-"kcal": 338,
-"protein_g": 10,
-"fat_g": 1.5,
-"carbs_g": 75
-},
-"benefits": ["Vláknina", "Nižší glykemický index", "Minerály"],
-"best_for": ["Pečení", "Chléb", "Těsta"],
-"avoid_if": ["Celiakie"]
-},
-{
-"name": "Těstoviny bílé",
-"description": "Bílé těstoviny jsou rafinované pšeničné těstoviny s vysokým obsahem
-sacharidů.",
-"nutrients": {
-"kcal": 131,
-"protein_g": 5,
-"fat_g": 1.1,
-"carbs_g": 25
-},
-"benefits": ["Rychlý zdroj energie", "Snadná příprava", "Všestranné použití"],
-"best_for": ["Přílohy", "Polévky", "Saláty"],
-"avoid_if": ["Celiakie"]
-},
-{
-"name": "Těstoviny celozrnné",
-"description": "Celozrnné těstoviny jsou pšeničné těstoviny s vysokým obsahem vlákniny,
-minerálů a bílkovin.",
-"nutrients": {
-"kcal": 124,
-"protein_g": 6.5,
-"fat_g": 1.5,
-"carbs_g": 24
-},
-"benefits": ["Vláknina", "Nižší glykemický index", "Minerály"],
-"best_for": ["Přílohy", "Polévky", "Saláty"],
-"avoid_if": ["Celiakie"]
-
-},
-{
-"name": "Nudle rýžové",
-"description": "Rýžové nudle jsou bezlepkové těstoviny z rýžové mouky, vhodné pro asijská
-jídla.",
-"nutrients": {
-"kcal": 109,
-"protein_g": 2,
-"fat_g": 0.2,
-"carbs_g": 25
-},
-"benefits": ["Bezlepkové", "Rychlá příprava", "Nízký obsah tuku"],
-"best_for": ["Asijská jídla", "Polévky", "Přílohy"],
-"avoid_if": ["Celiakie (pokud není certifikováno)"]
-}
+"foods":[
+  {
+    "name": "Sýr eidam 30%",
+    "description": "Polotvrdý sýr s nižším obsahem tuku, bohatý na bílkoviny a vápník.",
+    "nutrients": {
+      "kcal": 280,
+      "protein_g": 29,
+      "fat_g": 18,
+      "carbs_g": 1
+    },
+    "benefits": [
+      "Vysoký obsah bílkovin",
+      "Zdroj vápníku",
+      "Všestranné použití"
+    ],
+    "best_for": [
+      "Sendviče",
+      "Saláty",
+      "Vaření"
+    ],
+    "avoid_if": [
+      "Alergie na mléko",
+      "Intolerance laktózy"
+    ]
+  },
+  {
+    "name": "Sýr eidam 45%",
+    "description": "Polotvrdý sýr s vyšším obsahem tuku, bohatý na bílkoviny a vápník.",
+    "nutrients": {
+      "kcal": 360,
+      "protein_g": 26,
+      "fat_g": 28,
+      "carbs_g": 1
+    },
+    "benefits": [
+      "Vysoký obsah bílkovin",
+      "Zdroj vápníku",
+      "Všestranné použití"
+    ],
+    "best_for": [
+      "Sendviče",
+      "Saláty",
+      "Vaření"
+    ],
+    "avoid_if": [
+      "Alergie na mléko",
+      "Intolerance laktózy"
+    ]
+  },
+  {
+    "name": "Proteinový prášek",
+    "description": "Koncentrovaný zdroj bílkovin, vhodný pro sportovce a lidi s vysokou potřebou bílkovin.",
+    "nutrients": {
+      "kcal": 380,
+      "protein_g": 80,
+      "fat_g": 5,
+      "carbs_g": 5
+    },
+    "benefits": [
+      "Vysoký obsah bílkovin",
+      "Podpora růstu svalů",
+      "Rychlá příprava"
+    ],
+    "best_for": [
+      "Po tréninku",
+      "Svačina",
+      "Smoothie"
+    ],
+    "avoid_if": [
+      "Intolerance laktózy (pokud se jedná o syrovátkový protein)",
+      "Alergie na sóju (pokud se jedná o sójový protein)"
+    ]
+  }
 ]
-[
-{
-"name": "Chléb bílý",
-"description": "Bílý chléb je rafinované pšeničné pečivo s vysokým obsahem sacharidů a
-nízkým obsahem vlákniny.",
-"nutrients": {
-"kcal": 265,
-"protein_g": 9,
-"fat_g": 3.2,
-"carbs_g": 49
-},
-"benefits": ["Rychlý zdroj energie", "Snadná stravitelnost",
+}
