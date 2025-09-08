@@ -127,6 +127,7 @@ class Command(BaseCommand):
                 contents=embedding_text,
                 config=types.EmbedContentConfig(output_dimensionality=768)
             )
+            
             embedding = response.embeddings[0].values
             potravina, created = Potraviny.objects.get_or_create(
                 nazev=item["name"],
