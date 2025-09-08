@@ -5,7 +5,11 @@ from django.http import HttpResponse, JsonResponse
 from .main import chatbot,chatbot_picture
 from .models import *
 from user_profile.models import Profile
+from datetime import datetime,timedelta
 
+zaznamy={}
+MAX_REQUESTS = 10
+TIME = 60
 
 class ChatView(View):
     def get(self, request):
@@ -18,6 +22,15 @@ class ChatView(View):
     def post(self, request):
         user = request.user
         profile = request.user.profile
+        ip_adresa = request.META.get("REMOTE_ADDR")
+        ted = datetime.now()
+        if ip_adresa in zaznamy:
+            zaznamy[ip_adresa] = [t for t in zaznamy[ip_adresa] if ted - t <= timedelta(seconds=TIME)]
+        if ip_adresa in zaznamy and len(zaznamy[ip_adresa]) > MAX_REQUESTS:
+            return JsonResponse({"response":"Překročil jste povolený limit pro odesílaní zpráv, zkuste to prosím za minutu znovu!"},status=429)
+        if ip_adresa not in zaznamy:
+            zaznamy[ip_adresa] = []
+        zaznamy[ip_adresa].append(ted)
         celkove_kalorie, celkove_bilkoviny, celkove_sacharidy, celkove_tuky = (
             0, 0, 0, 0)
         for food_item in profile.food_set.all():
