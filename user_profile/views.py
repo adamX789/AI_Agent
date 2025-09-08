@@ -242,7 +242,7 @@ class StartFormView(View):
                     cals=profile.denni_kalorie, vaha=profile.aktualni_vaha)
                 profile.save()
                 sestav_jidelnicek(profile=profile)
-                return redirect("profile")
+                return redirect("tutorial")
             else:
                 return redirect("bodyfat")
         else:
@@ -312,7 +312,7 @@ class InfoView(View):
                 cals=profile.denni_kalorie, lbm=lbm, vaha=profile.aktualni_vaha, aktivita=profile.aktivita, vek=profile.vek)
         profile.save()
         sestav_jidelnicek(profile=profile)
-        return redirect("profile")
+        return redirect("tutorial")
 
 
 class BodyFatView(View):
@@ -358,6 +358,6 @@ class BodyFatView(View):
                 cals=profile.denni_kalorie, lbm=lbm, vaha=profile.aktualni_vaha, aktivita=profile.aktivita, vek=profile.vek)
             profile.save()
             sestav_jidelnicek(profile=profile)
-            return redirect("profile")
+            return redirect("tutorial")
         else:
             return redirect("info")
