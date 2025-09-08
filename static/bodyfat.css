@@ -32,7 +32,7 @@
   h2 {
     font-size: 1.3rem;
     margin-bottom: 15px;
-    color: #27ae60;
+    color: black;
   }
   
   .choice {
@@ -50,17 +50,18 @@
     padding: 12px 20px;
     font-size: 1rem;
     font-weight: 600;
-    color: #2ecc71;
-    border: 1px solid #2ecc71;
+    color: black;
+    border: 1px solid black;
     border-radius: 8px;
     text-decoration: none;
     cursor: pointer;
     transition: 0.3s;
     background: transparent;
+    margin-top: 10px;
   }
   
   .btn:hover {
-    background: #2ecc71;
+    background: black;
     color: #fff;
   }
   

@@ -1,944 +1,1122 @@
 {
 "recipes":[
-{
-"nazev": "Ovesná kaše s banánem a ořechy",
-"ingredience": [
-{"nazev": "Ovesné vločky", "mnozstvi": "60 g"},
-{"nazev": "Mléko plnotučné", "mnozstvi": "200 ml"},
-{"nazev": "Banán", "mnozstvi": "100 g"},
-{"nazev": "Vlašské ořechy", "mnozstvi": "20 g"},
-{"nazev": "Med", "mnozstvi": "10 g"}
-],
-"instrukce": "Vločky zalijte mlékem a vařte 5 minut do zhoustnutí. Vmíchejte nakrájený banán a med. Posypte nasekanými ořechy a podávejte teplé.",
-"typ_jidla": "snidane",
-"teplota": "teplé",
-"cas_pripravy": 10,
-"vhodne_pro": ["aktivní sportovce", "rychlý start dne", "lidi se slabším zažíváním"]
-},
-{
-"nazev": "Smoothie bowl s lesním ovocem",
-"ingredience": [
-{"nazev": "Jogurt řecký", "mnozstvi": "150 g"},
-{"nazev": "Borůvky", "mnozstvi": "50 g"},
-{"nazev": "Maliny", "mnozstvi": "50 g"},
-{"nazev": "Banán", "mnozstvi": "100 g"},
-{"nazev": "Chia semínka", "mnozstvi": "10 g"}
-],
-"instrukce": "Všechny ingredience kromě chia semínek rozmixujte do hladka. Přelijte do misky a posypte chia semínky.",
-"typ_jidla": "snidane",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["vegany", "rychlá snídaně", "bohaté na antioxidanty"]
-},
-{
-"nazev": "Avokádový toast s vejcem",
-"ingredience": [
-{"nazev": "Toastový chléb celozrnný", "mnozstvi": "2 plátky"},
-{"nazev": "Avokádo (ovoce)", "mnozstvi": "1/2 kusu"},
-{"nazev": "Vejce slepičí", "mnozstvi": "2 kusy"},
-{"nazev": "Sůl", "mnozstvi": "špetka"},
-{"nazev": "Pepř", "mnozstvi": "špetka"}
-],
-"instrukce": "Toast opečte. Avokádo rozmačkejte a rozetřete na toast. Na pánvi uvařte vejce podle chuti a položte na avokádo. Osolte a opepřete.",
-
-"typ_jidla": "snidane",
-"teplota": "teplé",
-"cas_pripravy": 10,
-"vhodne_pro": ["aktivní sportovce", "snídaně s vysokým obsahem bílkovin"]
-},
-{
-"nazev": "Tvarohový koláč s ovocem",
-"ingredience": [
-{"nazev": "Tvaroh měkký", "mnozstvi": "200 g"},
-{"nazev": "Pšeničná mouka hladká", "mnozstvi": "100 g"},
-{"nazev": "Vejce slepičí", "mnozstvi": "2 kusy"},
-{"nazev": "Cukr", "mnozstvi": "30 g"},
-{"nazev": "Jahody", "mnozstvi": "100 g"}
-],
-"instrukce": "V míse smíchejte tvaroh, vejce a cukr. Přidejte mouku a vytvořte těsto. Nalijte do formy a ozdobte jahodami. Pečte 25 minut na 180 °C.",
-"typ_jidla": "snidane",
-"teplota": "teplé",
-"cas_pripravy": 35,
-"vhodne_pro": ["rodiny", "sladká snídaně", "vysoký obsah bílkovin"]
-},
-{
-"nazev": "Ovesné lívance s jablky",
-"ingredience": [
-{"nazev": "Ovesné vločky", "mnozstvi": "80 g"},
-{"nazev": "Vejce slepičí", "mnozstvi": "2 kusy"},
-{"nazev": "Mléko plnotučné", "mnozstvi": "150 ml"},
-{"nazev": "Jablko", "mnozstvi": "1 kus"},
-{"nazev": "Med", "mnozstvi": "10 g"}
-],
-"instrukce": "Vločky namočte do mléka. Přidejte vejce a promíchejte. Jablko nastrouhejte a vmíchejte do těsta. Smažte malé lívance na pánvi s nepřilnavým povrchem.",
-"typ_jidla": "snidane",
-"teplota": "teplé",
-"cas_pripravy": 15,
-"vhodne_pro": ["rodiny", "rychlá snídaně", "bohaté na vlákninu"]
-},
-{
-"nazev": "Smoothie s mangem a pomerančem",
-"ingredience": [
-{"nazev": "Mango", "mnozstvi": "150 g"},
-{"nazev": "Pomeranč", "mnozstvi": "1 kus"},
-{"nazev": "Mandlové mléko", "mnozstvi": "150 ml"},
-{"nazev": "Chia semínka", "mnozstvi": "10 g"}
-
-],
-"instrukce": "Mango a pomeranč rozmixujte s mandlovým mlékem. Přidejte chia semínka a podávejte studené.",
-"typ_jidla": "snidane",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["vegany", "detox", "rychlá snídaně"]
-},
-{
-"nazev": "Cottage cheese s rajčaty a okurkou",
-"ingredience": [
-{"nazev": "Cottage cheese", "mnozstvi": "150 g"},
-{"nazev": "Rajče", "mnozstvi": "100 g"},
-{"nazev": "Okurka salátová", "mnozstvi": "100 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Rajče a okurku nakrájejte na kostičky, smíchejte s cottage cheese, přidejte olivový olej a osolte.",
-"typ_jidla": "snidane",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["rychlá snídaně", "nízkokalorická", "vhodné pro dietu"]
-},
-{
-"nazev": "Palačinky s tvarohem a ovocem",
-"ingredience": [
-{"nazev": "Pšeničná mouka hladká", "mnozstvi": "100 g"},
-{"nazev": "Vejce slepičí", "mnozstvi": "2 kusy"},
-{"nazev": "Mléko plnotučné", "mnozstvi": "150 ml"},
-{"nazev": "Tvaroh měkký", "mnozstvi": "100 g"},
-{"nazev": "Maliny", "mnozstvi": "50 g"}
-],
-"instrukce": "Smíchejte mouku, vejce a mléko a vytvořte těsto. Smažte palačinky na pánvi, naplňte tvarohem a ozdobte malinami.",
-"typ_jidla": "snidane",
-"teplota": "teplé",
-"cas_pripravy": 20,
-"vhodne_pro": ["rodiny", "sladká snídaně", "bohaté na bílkoviny"]
-},
-{
-
-"nazev": "Bagel s avokádem a lososem",
-"ingredience": [
-{"nazev": "Bageta celozrnná", "mnozstvi": "1 kus"},
-{"nazev": "Avokádo (ovoce)", "mnozstvi": "1/2 kusu"},
-{"nazev": "Uzený losos", "mnozstvi": "50 g"},
-{"nazev": "Citron", "mnozstvi": "1 plátek"},
-{"nazev": "Rukola", "mnozstvi": "20 g"}
-],
-"instrukce": "Bagetu rozkrojte, namažte avokádem, položte lososa, pokapejte citronem a přidejte rukolu.",
-"typ_jidla": "snidane",
-"teplota": "studené",
-"cas_pripravy": 10,
-"vhodne_pro": ["aktivní sportovce", "rychlá snídaně", "bohaté na omega-3"]
-},
-{
-"nazev": "Smoothie s kiwi a špenátem",
-"ingredience": [
-{"nazev": "Kiwi", "mnozstvi": "2 kusy"},
-{"nazev": "Špenát", "mnozstvi": "50 g"},
-{"nazev": "Mandlové mléko", "mnozstvi": "150 ml"},
-{"nazev": "Chia semínka", "mnozstvi": "10 g"}
-],
-"instrukce": "Všechny ingredience rozmixujte do hladka a podávejte studené.",
-"typ_jidla": "snidane",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["vegany", "detox", "rychlá snídaně"]
-},
-{
-"nazev": "Vaječná omeleta se zeleninou",
-"ingredience": [
-{"nazev": "Vejce slepičí", "mnozstvi": "3 kusy"},
-{"nazev": "Paprika červená", "mnozstvi": "50 g"},
-{"nazev": "Cibule žlutá", "mnozstvi": "30 g"},
-{"nazev": "Špenát", "mnozstvi": "30 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"}
-],
-"instrukce": "Na pánvi rozehřejte olej, přidejte nakrájenou zeleninu a chvíli osmahněte. Přilijte rozšlehaná vejce a opečte do zlatova.",
-"typ_jidla": "snidane",
-"teplota": "teplé",
-"cas_pripravy": 10,
-"vhodne_pro": ["vysoký obsah bílkovin", "aktivní sportovce", "nízkosacharidová dieta"]
-
-},
-{
-"nazev": "Toast s tvarohem a medem",
-"ingredience": [
-{"nazev": "Toastový chléb bílý", "mnozstvi": "2 plátky"},
-{"nazev": "Tvaroh měkký", "mnozstvi": "100 g"},
-{"nazev": "Med", "mnozstvi": "10 g"},
-{"nazev": "Borůvky", "mnozstvi": "50 g"}
-],
-"instrukce": "Toast opečte, potřete tvarohem, pokapejte medem a posypte borůvkami.",
-"typ_jidla": "snidane",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["rychlá snídaně", "sladká snídaně", "bohaté na bílkoviny"]
-},
-{
-"nazev": "Ovesné muffiny s banánem",
-"ingredience": [
-{"nazev": "Ovesné vločky", "mnozstvi": "100 g"},
-{"nazev": "Banán", "mnozstvi": "100 g"},
-{"nazev": "Vejce slepičí", "mnozstvi": "2 kusy"},
-{"nazev": "Mléko plnotučné", "mnozstvi": "50 ml"},
-{"nazev": "Med", "mnozstvi": "10 g"}
-],
-"instrukce": "Smíchejte všechny ingredience a nalijte do formiček na muffiny. Pečte 20 minut při 180 °C.",
-"typ_jidla": "snidane",
-"teplota": "teplé",
-"cas_pripravy": 25,
-"vhodne_pro": ["doma i pro děti", "sladká snídaně", "bohaté na vlákninu"]
-},
-{
-"nazev": "Celozrnný wrap s vejcem a zeleninou",
-"ingredience": [
-{"nazev": "Tortilla pšeničná", "mnozstvi": "1 kus"},
-{"nazev": "Vejce slepičí", "mnozstvi": "2 kusy"},
-{"nazev": "Paprika zelená", "mnozstvi": "50 g"},
-{"nazev": "Rajče", "mnozstvi": "50 g"},
-{"nazev": "Rukola", "mnozstvi": "20 g"}
-],
-"instrukce": "Opečte vejce, nakrájejte zeleninu a zabalte do tortilly s rukolou.",
-"typ_jidla": "snidane",
-"teplota": "teplé",
-"cas_pripravy": 10,
-
-"vhodne_pro": ["rychlá snídaně", "bohaté na bílkoviny", "aktivní sportovce"]
-},
-{
-"nazev": "Jogurt s granolou a ovocem",
-"ingredience": [
-{"nazev": "Jogurt bílý", "mnozstvi": "150 g"},
-{"nazev": "Granola", "mnozstvi": "50 g"},
-{"nazev": "Maliny", "mnozstvi": "50 g"},
-{"nazev": "Med", "mnozstvi": "10 g"}
-],
-"instrukce": "Jogurt dejte do misky, přidejte granolu, ovoce a pokapejte medem.",
-"typ_jidla": "snidane",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["rychlá snídaně", "sladká snídaně", "vegany mohou nahradit rostlinným jogurtem"]
-},
-{
-"nazev": "Tvarohové lívance s borůvkami",
-"ingredience": [
-{"nazev": "Tvaroh měkký", "mnozstvi": "150 g"},
-{"nazev": "Ovesné vločky", "mnozstvi": "80 g"},
-{"nazev": "Vejce slepičí", "mnozstvi": "2 kusy"},
-{"nazev": "Mléko plnotučné", "mnozstvi": "100 ml"},
-{"nazev": "Borůvky", "mnozstvi": "50 g"}
-],
-"instrukce": "Smíchejte tvaroh, vločky, vejce a mléko. Smažte lívance na pánvi. Podávejte s borůvkami.",
-"typ_jidla": "snidane",
-"teplota": "teplé",
-"cas_pripravy": 15,
-"vhodne_pro": ["sladká snídaně", "bohaté na bílkoviny", "rodiny"]
-},
-{
-"nazev": "Smoothie s ananasem a kokosovým mlékem",
-"ingredience": [
-{"nazev": "Ananas", "mnozstvi": "150 g"},
-{"nazev": "Kokosová voda", "mnozstvi": "100 ml"},
-{"nazev": "Mandlové mléko", "mnozstvi": "100 ml"},
-{"nazev": "Strouhaný kokos", "mnozstvi": "10 g"}
-],
-"instrukce": "Ananas a kokosovou vodu rozmixujte s mandlovým mlékem a posypte strouhaným kokosem.",
-"typ_jidla": "snidane",
-
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["vegany", "detox", "rychlá snídaně"]
-},
-{
-"nazev": "Celozrnný toust s hummusem a zeleninou",
-"ingredience": [
-{"nazev": "Toastový chléb celozrnný", "mnozstvi": "2 plátky"},
-{"nazev": "Hummus", "mnozstvi": "50 g"},
-{"nazev": "Paprika červená", "mnozstvi": "50 g"},
-{"nazev": "Okurka salátová", "mnozstvi": "50 g"},
-{"nazev": "Rukola", "mnozstvi": "20 g"}
-],
-"instrukce": "Toast potřete hummusem a položte na něj nakrájenou zeleninu a rukolu.",
-"typ_jidla": "snidane",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["vegany", "rychlá snídaně", "nízkokalorická"]
-},
-{
-"nazev": "Ovesná kaše s jablkem a skořicí",
-"ingredience": [
-{"nazev": "Ovesné vločky", "mnozstvi": "60 g"},
-{"nazev": "Mléko plnotučné", "mnozstvi": "200 ml"},
-{"nazev": "Jablko", "mnozstvi": "100 g"},
-{"nazev": "Med", "mnozstvi": "10 g"},
-{"nazev": "Kurkuma mletá", "mnozstvi": "špetka"}
-],
-"instrukce": "Ovesné vločky zalijte mlékem a vařte 5 minut. Přidejte nakrájené jablko, med a špetku kurkumy. Podávejte teplé.",
-"typ_jidla": "snidane",
-"teplota": "teplé",
-"cas_pripravy": 10,
-"vhodne_pro": ["rychlá snídaně", "bohaté na vlákninu", "detox"]
-},
-{
-"nazev": "Jogurt s granolou a ovocem",
-"ingredience": [
-{"nazev": "Jogurt bílý", "mnozstvi": "150 g"},
-{"nazev": "Granola", "mnozstvi": "50 g"},
-{"nazev": "Borůvky", "mnozstvi": "50 g"},
-
-{"nazev": "Med", "mnozstvi": "10 g"}
-],
-"instrukce": "Jogurt dejte do misky, přidejte granolu, ovoce a pokapejte medem.",
-"typ_jidla": "svacina",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["rychlá svačina", "sladká svačina", "bohaté na bílkoviny"]
-},
-{
-"nazev": "Ořechové tyčinky s medem",
-"ingredience": [
-{"nazev": "Ořechová směs", "mnozstvi": "40 g"},
-{"nazev": "Med", "mnozstvi": "10 g"},
-{"nazev": "Ovesné vločky", "mnozstvi": "30 g"}
-],
-"instrukce": "Smíchejte ořechy, med a vločky, vytvarujte tyčinky a dejte na 30 minut do lednice.",
-"typ_jidla": "svacina",
-"teplota": "studené",
-"cas_pripravy": 10,
-"vhodne_pro": ["sportovce", "rychlá svačina", "energetická"]
-},
-{
-"nazev": "Cottage cheese s rajčetem a okurkou",
-"ingredience": [
-{"nazev": "Cottage cheese", "mnozstvi": "150 g"},
-{"nazev": "Rajče", "mnozstvi": "100 g"},
-{"nazev": "Okurka salátová", "mnozstvi": "100 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Rajče a okurku nakrájejte, smíchejte s cottage cheese, přidejte olej a osolte.",
-"typ_jidla": "svacina",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["rychlá svačina", "nízkokalorická", "vhodné pro dietu"]
-},
-{
-"nazev": "Smoothie s banánem a špenátem",
-"ingredience": [
-{"nazev": "Banán", "mnozstvi": "100 g"},
-{"nazev": "Špenát", "mnozstvi": "50 g"},
-{"nazev": "Mandlové mléko", "mnozstvi": "150 ml"},
-{"nazev": "Chia semínka", "mnozstvi": "10 g"}
-
-],
-"instrukce": "Všechny ingredience rozmixujte do hladka a podávejte studené.",
-"typ_jidla": "svacina",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["vegany", "detox", "rychlá svačina"]
-},
-{
-"nazev": "Rýžové chlebíčky s avokádem",
-"ingredience": [
-{"nazev": "Rýžové chlebíčky", "mnozstvi": "2 kusy"},
-{"nazev": "Avokádo (ovoce)", "mnozstvi": "1/2 kusu"},
-{"nazev": "Rajče", "mnozstvi": "50 g"},
-{"nazev": "Rukola", "mnozstvi": "20 g"},
-{"nazev": "Olivový olej", "mnozstvi": "5 ml"}
-],
-"instrukce": "Chlebíčky potřete avokádem, přidejte nakrájené rajče a rukolu, pokapejte olejem.",
-"typ_jidla": "svacina",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["vegany", "rychlá svačina", "bohaté na vlákninu"]
-},
-{
-"nazev": "Ořechy s rozinkami",
-"ingredience": [
-{"nazev": "Vlašské ořechy", "mnozstvi": "20 g"},
-{"nazev": "Mandle", "mnozstvi": "20 g"},
-{"nazev": "Rozinky", "mnozstvi": "20 g"}
-],
-"instrukce": "Smíchejte ořechy s rozinkami a podávejte jako rychlou svačinu.",
-"typ_jidla": "svacina",
-"teplota": "studené",
-"cas_pripravy": 2,
-"vhodne_pro": ["rychlá svačina", "sportovce", "energetická"]
-},
-{
-"nazev": "Hummus s mrkví a okurkou",
-"ingredience": [
-{"nazev": "Hummus", "mnozstvi": "50 g"},
-{"nazev": "Mrkev", "mnozstvi": "100 g"},
-{"nazev": "Okurka salátová", "mnozstvi": "100 g"}
-],
-"instrukce": "Mrkev a okurku nakrájejte na tyčinky a podávejte s hummusem jako dip.",
-
-"typ_jidla": "svacina",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["vegany", "nízkokalorická", "rychlá svačina"]
-},
-{
-"nazev": "Proteinový shake s banánem",
-"ingredience": [
-{"nazev": "Protein z hrachu", "mnozstvi": "30 g"},
-{"nazev": "Banán", "mnozstvi": "100 g"},
-{"nazev": "Mandlové mléko", "mnozstvi": "150 ml"}
-],
-"instrukce": "Všechny ingredience rozmixujte a podávejte studené.",
-"typ_jidla": "svacina",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["sportovce", "rychlá svačina", "vegany"]
-},
-{
-"nazev": "Tyčinka müsli s medem",
-"ingredience": [
-{"nazev": "Tyčinka müsli", "mnozstvi": "1 kus"},
-{"nazev": "Med", "mnozstvi": "5 g"}
-],
-"instrukce": "Tyčinku podávejte s medem, ideální jako rychlá svačina.",
-"typ_jidla": "svacina",
-"teplota": "studené",
-"cas_pripravy": 1,
-"vhodne_pro": ["rychlá svačina", "energetická", "pro děti"]
-},
-{
-"nazev": "Celozrnný wrap s hummusem a avokádem",
-"ingredience": [
-{"nazev": "Tortilla celozrnná", "mnozstvi": "1 kus"},
-{"nazev": "Hummus", "mnozstvi": "50 g"},
-{"nazev": "Avokádo (ovoce)", "mnozstvi": "1/2 kusu"},
-{"nazev": "Paprika červená", "mnozstvi": "50 g"}
-],
-"instrukce": "Na tortillu rozetřete hummus, přidejte nakrájené avokádo a papriku, srolujte.",
-"typ_jidla": "svacina",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["vegany", "rychlá svačina", "bohaté na vlákninu"]
-},
-
-{
-"nazev": "Smoothie s jahodami a banánem",
-"ingredience": [
-{"nazev": "Jahody", "mnozstvi": "100 g"},
-{"nazev": "Banán", "mnozstvi": "100 g"},
-{"nazev": "Mandlové mléko", "mnozstvi": "150 ml"}
-],
-"instrukce": "Jahody a banán rozmixujte s mandlovým mlékem a podávejte studené.",
-"typ_jidla": "svacina",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["rychlá svačina", "detox", "vegany"]
-},
-{
-"nazev": "Tvaroh s medem a ořechy",
-"ingredience": [
-{"nazev": "Tvaroh měkký", "mnozstvi": "150 g"},
-{"nazev": "Med", "mnozstvi": "10 g"},
-{"nazev": "Vlašské ořechy", "mnozstvi": "20 g"}
-],
-"instrukce": "Tvaroh promíchejte s medem a posypte nasekanými ořechy.",
-"typ_jidla": "svacina",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["rychlá svačina", "sladká svačina", "bohaté na bílkoviny"]
-},
-{
-"nazev": "Rýžový chlebíček s arašídovým máslem a banánem",
-"ingredience": [
-{"nazev": "Rýžové chlebíčky", "mnozstvi": "2 kusy"},
-{"nazev": "Ořechové máslo arašídové", "mnozstvi": "20 g"},
-{"nazev": "Banán", "mnozstvi": "50 g"}
-],
-"instrukce": "Chlebíčky potřete arašídovým máslem a položte plátky banánu.",
-"typ_jidla": "svacina",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["rychlá svačina", "sportovce", "energetická"]
-},
-{
-"nazev": "Mandlové mléko s proteinem a ovocem",
-"ingredience": [
-{"nazev": "Mandlové mléko", "mnozstvi": "150 ml"},
-{"nazev": "Protein z hrachu", "mnozstvi": "30 g"},
-
-{"nazev": "Maliny", "mnozstvi": "50 g"}
-],
-"instrukce": "Všechny ingredience rozmixujte a podávejte studené.",
-"typ_jidla": "svacina",
-"teplota": "studené",
-"cas_pripravy": 5,
-"vhodne_pro": ["sportovce", "rychlá svačina", "vegany"]
-},
-{
-"nazev": "Ovesná kaše s datlemi a ořechy",
-"ingredience": [
-{"nazev": "Ovesné vločky", "mnozstvi": "60 g"},
-{"nazev": "Mléko plnotučné", "mnozstvi": "150 ml"},
-{"nazev": "Datle", "mnozstvi": "50 g"},
-{"nazev": "Vlašské ořechy", "mnozstvi": "20 g"},
-{"nazev": "Med", "mnozstvi": "10 g"}
-],
-"instrukce": "Vločky zalijte mlékem, přidejte nakrájené datle a med, posypte nasekanými ořechy a podávejte teplé.",
-"typ_jidla": "svacina",
-"teplota": "teplé",
-"cas_pripravy": 10,
-"vhodne_pro": ["rychlá svačina", "bohaté na vlákninu", "energetická"]
-},
-{
-"nazev": "Kuřecí prsa s rýží a brokolicí",
-"ingredience": [
-{"nazev": "Kuřecí prsa", "mnozstvi": "150 g"},
-{"nazev": "Rýže bílá", "mnozstvi": "100 g"},
-{"nazev": "Brokolice", "mnozstvi": "150 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Kuřecí prsa osolte a opečte na pánvi s olejem. Rýži uvařte a brokolici povařte nebo napařte. Podávejte dohromady.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 30,
-"vhodne_pro": ["sportovce", "rychlý oběd", "nízkotučná strava"]
-},
-{
-
-"nazev": "Losos s pečenou zeleninou a quinoa",
-"ingredience": [
-{"nazev": "Losos", "mnozstvi": "150 g"},
-{"nazev": "Quinoa", "mnozstvi": "80 g"},
-{"nazev": "Cuketa", "mnozstvi": "100 g"},
-{"nazev": "Paprika červená", "mnozstvi": "100 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"}
-],
-"instrukce": "Lososa pečte v troubě 15 minut. Quinoa uvařte. Zeleninu nakrájejte, pokapejte olejem a pečte spolu s lososem.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 35,
-"vhodne_pro": ["bohaté na bílkoviny", "omega-3", "rychlý oběd"]
-},
-{
-"nazev": "Krůtí prsa s batáty a fazolovými lusky",
-"ingredience": [
-{"nazev": "Krůtí prsa", "mnozstvi": "150 g"},
-{"nazev": "Batáty", "mnozstvi": "150 g"},
-{"nazev": "Fazolové lusky", "mnozstvi": "100 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Krůtí prsa osolte a opečte. Batáty nakrájejte na kostky a pečte s olejem 25 minut. Fazolové lusky povařte a podávejte dohromady.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 35,
-"vhodne_pro": ["sportovce", "nízkotučná strava", "výživný oběd"]
-},
-{
-"nazev": "Hovězí svíčková s celozrnnými těstovinami",
-"ingredience": [
-{"nazev": "Hovězí svíčková", "mnozstvi": "150 g"},
-{"nazev": "Těstoviny celozrnné", "mnozstvi": "80 g"},
-{"nazev": "Mrkev", "mnozstvi": "50 g"},
-{"nazev": "Celer bulvový", "mnozstvi": "50 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"}
-],
-"instrukce": "Hovězí maso osmahněte, přidejte nakrájenou zeleninu a duste 20 minut. Těstoviny uvařte a podávejte spolu s masem.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-
-"cas_pripravy": 40,
-"vhodne_pro": ["bohaté na bílkoviny", "klasický oběd", "sportovce"]
-},
-{
-"nazev": "Pečená treska s bramborami a špenátem",
-"ingredience": [
-{"nazev": "Treska", "mnozstvi": "150 g"},
-{"nazev": "Brambory", "mnozstvi": "150 g"},
-{"nazev": "Špenát", "mnozstvi": "100 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Citron", "mnozstvi": "1/2 kusu"}
-],
-"instrukce": "Tresku osolte, pokapejte citronem a pečte 15 minut. Brambory povařte a špenát krátce poduste s olejem. Podávejte dohromady.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 35,
-"vhodne_pro": ["rychlý oběd", "ryby", "nízkotučná strava"]
-},
-{
-"nazev": "Kuřecí stir-fry s rýžovými nudlemi",
-"ingredience": [
-{"nazev": "Kuřecí prsa", "mnozstvi": "150 g"},
-{"nazev": "Nudle rýžové", "mnozstvi": "80 g"},
-{"nazev": "Paprika červená", "mnozstvi": "50 g"},
-{"nazev": "Mrkev", "mnozstvi": "50 g"},
-{"nazev": "Sojová omáčka", "mnozstvi": "15 ml"}
-],
-"instrukce": "Kuřecí prsa nakrájejte, orestujte s paprikou a mrkví, přidejte uvařené nudle a sojovou omáčku, krátce promíchejte.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 25,
-"vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
-},
-{
-"nazev": "Krůtí burger s celozrnnou houskou a zeleninou",
-"ingredience": [
-{"nazev": "Krůtí prsa", "mnozstvi": "120 g"},
-{"nazev": "Houska celozrnná", "mnozstvi": "1 kus"},
-{"nazev": "Ledový salát", "mnozstvi": "30 g"},
-{"nazev": "Rajče", "mnozstvi": "50 g"},
-{"nazev": "Hořčice", "mnozstvi": "5 g"}
-],
-
-"instrukce": "Krůtí maso osmahněte, vložte do housky spolu se zeleninou a hořčicí.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 20,
-"vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
-},
-{
-"nazev": "Cizrnový salát s olivami a fetou",
-"ingredience": [
-{"nazev": "Cizrna", "mnozstvi": "150 g"},
-{"nazev": "Feta", "mnozstvi": "50 g"},
-{"nazev": "Olivy černé", "mnozstvi": "30 g"},
-{"nazev": "Rajče", "mnozstvi": "50 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"}
-],
-"instrukce": "Všechny ingredience smíchejte, pokapejte olejem a podávejte studené nebo při pokojové teplotě.",
-"typ_jidla": "obed",
-"teplota": "studené",
-"cas_pripravy": 10,
-"vhodne_pro": ["vegany s mléčnými produkty", "rychlý oběd", "bohaté na vlákninu"]
-},
-{
-"nazev": "Pečené kuřecí stehno s bramborovou kaší",
-"ingredience": [
-{"nazev": "Kuřecí stehno", "mnozstvi": "150 g"},
-{"nazev": "Brambory", "mnozstvi": "200 g"},
-{"nazev": "Máslo", "mnozstvi": "10 g"},
-{"nazev": "Mléko plnotučné", "mnozstvi": "50 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Kuřecí stehno osolte a pečte 30 minut. Brambory uvařte a rozmačkejte s máslem a mlékem.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 40,
-"vhodne_pro": ["klasický oběd", "sportovce", "rychlý oběd"]
-},
-{
-"nazev": "Hovězí guláš s celozrnnou rýží",
-"ingredience": [
-
-{"nazev": "Hovězí zadní", "mnozstvi": "150 g"},
-{"nazev": "Cibule žlutá", "mnozstvi": "50 g"},
-{"nazev": "Paprika sladká", "mnozstvi": "5 g"},
-{"nazev": "Rajčatový protlak", "mnozstvi": "50 g"},
-{"nazev": "Rýže natural", "mnozstvi": "80 g"}
-],
-"instrukce": "Maso nakrájejte a osmahněte s cibulí, přidejte rajčatový protlak a koření, duste 30 minut. Podávejte s uvařenou rýží.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 45,
-"vhodne_pro": ["klasický oběd", "bohaté na bílkoviny", "sportovce"]
-},
-{
-"nazev": "Treska na másle s hráškovým pyré",
-"ingredience": [
-{"nazev": "Treska", "mnozstvi": "150 g"},
-{"nazev": "Máslo", "mnozstvi": "10 g"},
-{"nazev": "Hrášek mražený", "mnozstvi": "150 g"},
-{"nazev": "Mléko plnotučné", "mnozstvi": "50 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Tresku opečte na másle 10 minut. Hrášek povařte a rozmixujte s mlékem a solí na pyré. Podávejte dohromady.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 25,
-"vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "nízkotučná strava"]
-},
-{
-"nazev": "Krůtí prsa s bulgurem a zeleninou",
-"ingredience": [
-{"nazev": "Krůtí prsa", "mnozstvi": "150 g"},
-{"nazev": "Bulgur", "mnozstvi": "80 g"},
-{"nazev": "Cuketa", "mnozstvi": "100 g"},
-{"nazev": "Paprika žlutá", "mnozstvi": "50 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"}
-],
-"instrukce": "Krůtí prsa opečte, zeleninu nakrájejte a orestujte s olejem. Bulgur uvařte a podávejte dohromady.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 30,
-"vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
-
-},
-{
-"nazev": "Losos s quinoa a mangoldem",
-"ingredience": [
-{"nazev": "Losos", "mnozstvi": "150 g"},
-{"nazev": "Quinoa", "mnozstvi": "80 g"},
-{"nazev": "Mangold", "mnozstvi": "100 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Lososa osolte a pečte 15 minut. Quinoa uvařte. Mangold krátce poduste na oleji a podávejte dohromady.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 35,
-"vhodne_pro": ["omega-3", "sportovce", "rychlý oběd"]
-},
-{
-"nazev": "Vepřová panenka s pečenou dýní",
-"ingredience": [
-{"nazev": "Vepřová panenka", "mnozstvi": "150 g"},
-{"nazev": "Dýně", "mnozstvi": "150 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Rozmarýn", "mnozstvi": "2 g"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Panenku osolte a opečte. Dýni nakrájejte, pokapejte olejem, přidejte rozmarýn a pečte 25 minut. Podávejte dohromady.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 35,
-"vhodne_pro": ["klasický oběd", "rychlý oběd", "sportovce"]
-},
-{
-"nazev": "Cizrnové kari s rýží",
-"ingredience": [
-{"nazev": "Cizrna", "mnozstvi": "150 g"},
-{"nazev": "Rýže basmati", "mnozstvi": "80 g"},
-{"nazev": "Cibule žlutá", "mnozstvi": "50 g"},
-{"nazev": "Kari pasta červená", "mnozstvi": "10 g"},
-{"nazev": "Kokosové mléko", "mnozstvi": "100 ml"}
-],
-"instrukce": "Cibuli osmahněte, přidejte kari pastu a cizrnu, zalijte kokosovým mlékem a duste 15 minut. Podávejte s uvařenou rýží.",
-
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 25,
-"vhodne_pro": ["vegany", "rychlý oběd", "bohaté na bílkoviny"]
-},
-{
-"nazev": "Pečený losos s batáty a zelenými fazolkami",
-"ingredience": [
-{"nazev": "Losos", "mnozstvi": "150 g"},
-{"nazev": "Batáty", "mnozstvi": "150 g"},
-{"nazev": "Fazolové lusky", "mnozstvi": "100 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Lososa osolte a pečte 15 minut. Batáty nakrájejte a pečte 20 minut. Fazolky krátce povařte a podávejte dohromady.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 35,
-"vhodne_pro": ["omega-3", "sportovce", "rychlý oběd"]
-},
-{
-"nazev": "Králík pečený s bramborem a mrkví",
-"ingredience": [
-{"nazev": "Králík", "mnozstvi": "150 g"},
-{"nazev": "Brambory", "mnozstvi": "150 g"},
-{"nazev": "Mrkev", "mnozstvi": "100 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Tymián", "mnozstvi": "2 g"}
-],
-"instrukce": "Králíka osolte a pečte 30 minut s olejem a tymiánem. Brambory a mrkev uvařte nebo pečte a podávejte dohromady.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 45,
-"vhodne_pro": ["klasický oběd", "sportovce", "rychlý oběd"]
-},
-{
-"nazev": "Pečené kuřecí stehno s rýží a zeleninou",
-"ingredience": [
-{"nazev": "Kuřecí stehno", "mnozstvi": "150 g"},
-{"nazev": "Rýže jasmínová", "mnozstvi": "80 g"},
-{"nazev": "Cuketa", "mnozstvi": "100 g"},
-{"nazev": "Paprika zelená", "mnozstvi": "50 g"},
-
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"}
-],
-"instrukce": "Kuřecí stehno osolte a pečte 25 minut. Rýži uvařte a zeleninu krátce orestujte. Podávejte dohromady.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 35,
-"vhodne_pro": ["sportovce", "rychlý oběd", "bohaté na bílkoviny"]
-},
-{
-"nazev": "Krůtí steak s quinoa a pečenou paprikou",
-"ingredience": [
-{"nazev": "Krůtí prsa", "mnozstvi": "150 g"},
-{"nazev": "Quinoa", "mnozstvi": "80 g"},
-{"nazev": "Paprika červená", "mnozstvi": "100 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Krůtí prsa opečte. Quinoa uvařte a papriku pečte 20 minut. Podávejte dohromady.",
-"typ_jidla": "obed",
-"teplota": "teplé",
-"cas_pripravy": 30,
-"vhodne_pro": ["sportovce", "rychlý oběd", "bohaté na bílkoviny"]
-},
-{
-"nazev": "Grilovaný losos s pečenou cuketou a quinoa",
-"ingredience": [
-{"nazev": "Losos", "mnozstvi": "150 g"},
-{"nazev": "Cuketa", "mnozstvi": "100 g"},
-{"nazev": "Quinoa", "mnozstvi": "80 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Lososa osolte a grilujte 15 minut. Cuketu nakrájejte a pečte s olejem 15 minut. Quinoa uvařte a podávejte dohromady.",
-"typ_jidla": "vecere",
-"teplota": "teplé",
-"cas_pripravy": 30,
-"vhodne_pro": ["rychlá večeře", "omega-3", "sportovce"]
-},
-
-{
-"nazev": "Kuřecí stir-fry se zeleninou",
-"ingredience": [
-{"nazev": "Kuřecí prsa", "mnozstvi": "150 g"},
-{"nazev": "Paprika červená", "mnozstvi": "50 g"},
-{"nazev": "Mrkev", "mnozstvi": "50 g"},
-{"nazev": "Cibule žlutá", "mnozstvi": "50 g"},
-{"nazev": "Sojová omáčka", "mnozstvi": "15 ml"}
-],
-"instrukce": "Kuřecí maso nakrájejte a orestujte s nakrájenou zeleninou. Přidejte sojovou omáčku a krátce promíchejte.",
-"typ_jidla": "vecere",
-"teplota": "teplé",
-"cas_pripravy": 25,
-"vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "sportovce"]
-},
-{
-"nazev": "Pečená treska s brokolicí a batáty",
-"ingredience": [
-{"nazev": "Treska", "mnozstvi": "150 g"},
-{"nazev": "Brokolice", "mnozstvi": "150 g"},
-{"nazev": "Batáty", "mnozstvi": "150 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Tresku osolte a pečte 15 minut. Brokolici a batáty krátce povařte nebo pečte 20 minut. Podávejte dohromady.",
-"typ_jidla": "vecere",
-"teplota": "teplé",
-"cas_pripravy": 35,
-"vhodne_pro": ["rychlá večeře", "nízkotučná strava", "sportovce"]
-},
-{
-"nazev": "Krůtí prsa s pečenou paprikou a rýží",
-"ingredience": [
-{"nazev": "Krůtí prsa", "mnozstvi": "150 g"},
-{"nazev": "Paprika červená", "mnozstvi": "100 g"},
-{"nazev": "Rýže basmati", "mnozstvi": "80 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Krůtí prsa opečte. Papriku pečte 20 minut s olejem. Rýži uvařte a podávejte dohromady.",
-"typ_jidla": "vecere",
-
-"teplota": "teplé",
-"cas_pripravy": 30,
-"vhodne_pro": ["sportovce", "rychlá večeře", "bohaté na bílkoviny"]
-},
-{
-"nazev": "Hovězí steak se špenátem a batáty",
-"ingredience": [
-{"nazev": "Hovězí svíčková", "mnozstvi": "150 g"},
-{"nazev": "Špenát", "mnozstvi": "100 g"},
-{"nazev": "Batáty", "mnozstvi": "150 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Hovězí osmahněte dle preferencí. Batáty nakrájejte a pečte 25 minut. Špenát krátce poduste na oleji. Podávejte dohromady.",
-"typ_jidla": "vecere",
-"teplota": "teplé",
-"cas_pripravy": 35,
-"vhodne_pro": ["klasická večeře", "sportovce", "bohaté na bílkoviny"]
-},
-{
-"nazev": "Pečená vepřová panenka se zeleninou",
-"ingredience": [
-{"nazev": "Vepřová panenka", "mnozstvi": "150 g"},
-{"nazev": "Cuketa", "mnozstvi": "100 g"},
-{"nazev": "Paprika zelená", "mnozstvi": "50 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Rozmarýn", "mnozstvi": "2 g"}
-],
-"instrukce": "Panenku osolte a opečte. Zeleninu nakrájejte, pokapejte olejem a pečte 20 minut. Podávejte dohromady.",
-"typ_jidla": "vecere",
-"teplota": "teplé",
-"cas_pripravy": 35,
-"vhodne_pro": ["rychlá večeře", "klasická večeře", "sportovce"]
-},
-{
-"nazev": "Králík s dušenou zeleninou a rýží",
-"ingredience": [
-{"nazev": "Králík", "mnozstvi": "150 g"},
-{"nazev": "Rýže jasmínová", "mnozstvi": "80 g"},
-{"nazev": "Mrkev", "mnozstvi": "50 g"},
-{"nazev": "Celer řapíkatý", "mnozstvi": "50 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"}
-
-],
-"instrukce": "Králíka opečte a duste 25 minut. Zeleninu nakrájejte a krátce poduste na oleji. Rýži uvařte a podávejte dohromady.",
-"typ_jidla": "vecere",
-"teplota": "teplé",
-"cas_pripravy": 40,
-"vhodne_pro": ["klasická večeře", "sportovce", "rychlá večeře"]
-},
-{
-"nazev": "Pečený losos s batáty a hráškem",
-"ingredience": [
-{"nazev": "Losos", "mnozstvi": "150 g"},
-{"nazev": "Batáty", "mnozstvi": "150 g"},
-{"nazev": "Hrášek mražený", "mnozstvi": "100 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Lososa osolte a pečte 15 minut. Batáty pečte 20 minut. Hrášek krátce povařte a podávejte dohromady.",
-"typ_jidla": "vecere",
-"teplota": "teplé",
-"cas_pripravy": 35,
-"vhodne_pro": ["rychlá večeře", "omega-3", "sportovce"]
-},
-{
-"nazev": "Krůtí prsa s pečenou dýní a fazolkami",
-"ingredience": [
-{"nazev": "Krůtí prsa", "mnozstvi": "150 g"},
-{"nazev": "Dýně", "mnozstvi": "150 g"},
-{"nazev": "Fazolové lusky", "mnozstvi": "100 g"},
-{"nazev": "Olivový olej", "mnozstvi": "10 ml"},
-{"nazev": "Sůl", "mnozstvi": "špetka"}
-],
-"instrukce": "Krůtí prsa opečte. Dýni nakrájejte a pečte 20 minut. Fazolky krátce povařte. Podávejte dohromady.",
-"typ_jidla": "vecere",
-"teplota": "teplé",
-"cas_pripravy": 35,
-"vhodne_pro": ["rychlá večeře", "sportovce", "bohaté na bílkoviny"]
-},
-{
-"nazev": "Cizrnové kari se zeleninou",
-"ingredience": [
-{"nazev": "Cizrna", "mnozstvi": "150 g"},
-
-{"nazev": "Cuketa", "mnozstvi": "100 g"},
-{"nazev": "Paprika červená", "mnozstvi": "50 g"},
-{"nazev": "Kari pasta červená", "mnozstvi": "10 g"},
-{"nazev": "Kokosové mléko", "mnozstvi": "100 ml"}
-],
-"instrukce": "Cibuli osmahněte, přidejte kari pastu, cizrnu a zeleninu, zalijte kokosovým mlékem a duste 15 minut. Podávejte teplé.",
-"typ_jidla": "vecere",
-"teplota": "teplé",
-"cas_pripravy": 25,
-"vhodne_pro": ["veganská večeře", "rychlá večeře", "bohaté na bílkoviny"]
+    {
+      "nazev": "Ovesná kaše s banánem a ořechy",
+      "ingredience": [
+        {"nazev": "Ovesné vločky", "mnozstvi": "50 g"},
+        {"nazev": "Banán", "mnozstvi": "100 g"},
+        {"nazev": "Mléko", "mnozstvi": "200 ml"},
+        {"nazev": "Vlašské ořechy", "mnozstvi": "15 g"}
+      ],
+      "instrukce": "Ovesné vločky uvařte v mléce, přidejte nakrájený banán a posypte ořechy.",
+      "typ_jidla": "snidane",
+      "teplota": "teplé",
+      "cas_pripravy": 10,
+      "vhodne_pro": ["rychlá snídaně", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Smoothie bowl s lesním ovocem",
+      "ingredience": [
+        {"nazev": "Lesní ovoce", "mnozstvi": "100 g"},
+        {"nazev": "Banán", "mnozstvi": "100 g"},
+        {"nazev": "Jogurt", "mnozstvi": "150 g"},
+        {"nazev": "Granola", "mnozstvi": "20 g"}
+      ],
+      "instrukce": "Rozmixujte ovoce s jogurtem, nalijte do misky a posypte granolou.",
+      "typ_jidla": "snidane",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá snídaně", "bohaté na vitamíny", "sportovce"]
+    },
+    {
+      "nazev": "Avokádový toast s vejcem",
+      "ingredience": [
+        {"nazev": "Celozrnný toust", "mnozstvi": "1 kus"},
+        {"nazev": "Avokádo", "mnozstvi": "50 g"},
+        {"nazev": "Vejce", "mnozstvi": "1 kus"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Opečte toust, namažte avokádo, přidejte vejce a dochuťte solí a pepřem.",
+      "typ_jidla": "snidane",
+      "teplota": "teplé",
+      "cas_pripravy": 10,
+      "vhodne_pro": ["rychlá snídaně", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Tvarohový koláč s ovocem",
+      "ingredience": [
+        {"nazev": "Tvaroh", "mnozstvi": "150 g"},
+        {"nazev": "Cukr", "mnozstvi": "10 g"},
+        {"nazev": "Vejce", "mnozstvi": "1 kus"},
+        {"nazev": "Ovoce", "mnozstvi": "50 g"},
+        {"nazev": "Celozrnná mouka", "mnozstvi": "30 g"}
+      ],
+      "instrukce": "Smíchejte tvaroh s vejcem a cukrem, vmíchejte mouku, nalijte do formy a dejte ovoce na vrch, pečte 25 minut.",
+      "typ_jidla": "snidane",
+      "teplota": "teplé",
+      "cas_pripravy": 30,
+      "vhodne_pro": ["sladká snídaně", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Ovesné lívance s jablky",
+      "ingredience": [
+        {"nazev": "Ovesné vločky", "mnozstvi": "50 g"},
+        {"nazev": "Jablko", "mnozstvi": "80 g"},
+        {"nazev": "Vejce", "mnozstvi": "1 kus"},
+        {"nazev": "Mléko", "mnozstvi": "100 ml"}
+      ],
+      "instrukce": "Rozmixujte vločky, vejce a mléko, přidejte nastrouhané jablko, smažte malé lívance.",
+      "typ_jidla": "snidane",
+      "teplota": "teplé",
+      "cas_pripravy": 15,
+      "vhodne_pro": ["sladká snídaně", "bohaté na vlákninu", "sportovce"]
+    },
+    {
+      "nazev": "Smoothie s mangem a pomerančem",
+      "ingredience": [
+        {"nazev": "Mango", "mnozstvi": "100 g"},
+        {"nazev": "Pomeranč", "mnozstvi": "150 g"},
+        {"nazev": "Jogurt", "mnozstvi": "100 g"},
+        {"nazev": "Med", "mnozstvi": "5 g"}
+      ],
+      "instrukce": "Rozmixujte mango, pomeranč a jogurt, doslaďte medem.",
+      "typ_jidla": "snidane",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá snídaně", "bohaté na vitamíny", "sportovce"]
+    },
+    {
+      "nazev": "Cottage cheese s rajčaty a okurkou",
+      "ingredience": [
+        {"nazev": "Cottage cheese", "mnozstvi": "150 g"},
+        {"nazev": "Rajče", "mnozstvi": "50 g"},
+        {"nazev": "Okurka", "mnozstvi": "50 g"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Smíchejte cottage cheese s nakrájenou zeleninou a dochuťte solí a pepřem.",
+      "typ_jidla": "snidane",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá snídaně", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Palačinky s tvarohem a ovocem",
+      "ingredience": [
+        {"nazev": "Celozrnná mouka", "mnozstvi": "50 g"},
+        {"nazev": "Vejce", "mnozstvi": "1 kus"},
+        {"nazev": "Mléko", "mnozstvi": "100 ml"},
+        {"nazev": "Tvaroh", "mnozstvi": "50 g"},
+        {"nazev": "Ovoce", "mnozstvi": "50 g"}
+      ],
+      "instrukce": "Smíchejte mouku, vejce a mléko, upečte palačinky, plňte tvarohem a ovocem.",
+      "typ_jidla": "snidane",
+      "teplota": "teplé",
+      "cas_pripravy": 15,
+      "vhodne_pro": ["sladká snídaně", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Bagel s avokádem a lososem",
+      "ingredience": [
+        {"nazev": "Celozrnný bagel", "mnozstvi": "1 kus"},
+        {"nazev": "Avokádo", "mnozstvi": "50 g"},
+        {"nazev": "Uzený losos", "mnozstvi": "50 g"},
+        {"nazev": "Sýr cottage", "mnozstvi": "20 g"}
+      ],
+      "instrukce": "Bagel rozkrojte, namažte sýr cottage, přidejte avokádo a lososa.",
+      "typ_jidla": "snidane",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá snídaně", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Smoothie s kiwi a špenátem",
+      "ingredience": [
+        {"nazev": "Kiwi", "mnozstvi": "100 g"},
+        {"nazev": "Špenát", "mnozstvi": "50 g"},
+        {"nazev": "Banán", "mnozstvi": "100 g"},
+        {"nazev": "Voda", "mnozstvi": "150 ml"}
+      ],
+      "instrukce": "Rozmixujte kiwi, špenát, banán a vodu.",
+      "typ_jidla": "snidane",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá snídaně", "bohaté na vitamíny", "sportovce"]
+    },
+    {
+      "nazev": "Vaječná omeleta se zeleninou",
+      "ingredience": [
+        {"nazev": "Vejce", "mnozstvi": "2 kusy"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Rajče", "mnozstvi": "50 g"},
+        {"nazev": "Cibule", "mnozstvi": "20 g"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Rozšlehejte vejce, přidejte nakrájenou zeleninu, osolte, opepřete a osmahněte na pánvi.",
+      "typ_jidla": "snidane",
+      "teplota": "teplé",
+      "cas_pripravy": 10,
+      "vhodne_pro": ["rychlá snídaně", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Toast s tvarohem a medem",
+      "ingredience": [
+        {"nazev": "Celozrnný toust", "mnozstvi": "1 kus"},
+        {"nazev": "Tvaroh", "mnozstvi": "50 g"},
+        {"nazev": "Med", "mnozstvi": "5 g"}
+      ],
+      "instrukce": "Toust opečte, namažte tvaroh a pokapejte medem.",
+      "typ_jidla": "snidane",
+      "teplota": "teplé",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá snídaně", "sladká snídaně", "sportovce"]
+    },
+    {
+      "nazev": "Ovesné muffiny s banánem",
+      "ingredience": [
+        {"nazev": "Ovesné vločky", "mnozstvi": "50 g"},
+        {"nazev": "Banán", "mnozstvi": "100 g"},
+        {"nazev": "Vejce", "mnozstvi": "1 kus"},
+        {"nazev": "Jogurt", "mnozstvi": "50 g"},
+        {"nazev": "Med", "mnozstvi": "5 g"}
+      ],
+      "instrukce": "Smíchejte všechny ingredience, nalijte do formiček a pečte 20 minut.",
+      "typ_jidla": "snidane",
+      "teplota": "teplé",
+      "cas_pripravy": 25,
+      "vhodne_pro": ["sladká snídaně", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Celozrnný wrap s vejcem a zeleninou",
+      "ingredience": [
+        {"nazev": "Celozrnná tortila", "mnozstvi": "1 kus"},
+        {"nazev": "Vejce", "mnozstvi": "1 kus"},
+        {"nazev": "Paprika", "mnozstvi": "30 g"},
+        {"nazev": "Rajče", "mnozstvi": "30 g"},
+        {"nazev": "Salát", "mnozstvi": "20 g"}
+      ],
+      "instrukce": "Opečte vejce, položte na tortilu spolu se zeleninou a zarolujte.",
+      "typ_jidla": "snidane",
+      "teplota": "teplé",
+      "cas_pripravy": 10,
+      "vhodne_pro": ["rychlá snídaně", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Jogurt s granolou a ovocem",
+      "ingredience": [
+        {"nazev": "Bílý jogurt", "mnozstvi": "150 g"},
+        {"nazev": "Granola", "mnozstvi": "30 g"},
+        {"nazev": "Ovoce", "mnozstvi": "50 g"},
+        {"nazev": "Med", "mnozstvi": "5 g"}
+      ],
+      "instrukce": "Jogurt dejte do misky, posypte granolou a ovocem, pokapejte medem.",
+      "typ_jidla": "snidane",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá snídaně", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Tvarohové lívance s borůvkami",
+      "ingredience": [
+        {"nazev": "Tvaroh", "mnozstvi": "100 g"},
+        {"nazev": "Vejce", "mnozstvi": "1 kus"},
+        {"nazev": "Celozrnná mouka", "mnozstvi": "50 g"},
+        {"nazev": "Borůvky", "mnozstvi": "50 g"},
+        {"nazev": "Mléko", "mnozstvi": "50 ml"}
+      ],
+      "instrukce": "Smíchejte ingredience, upečte malé lívance a posypte borůvkami.",
+      "typ_jidla": "snidane",
+      "teplota": "teplé",
+      "cas_pripravy": 15,
+      "vhodne_pro": ["sladká snídaně", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Smoothie s ananasem a kokosovým mlékem",
+      "ingredience": [
+        {"nazev": "Ananas", "mnozstvi": "100 g"},
+        {"nazev": "Banán", "mnozstvi": "100 g"},
+        {"nazev": "Kokosové mléko", "mnozstvi": "150 ml"},
+        {"nazev": "Med", "mnozstvi": "5 g"}
+      ],
+      "instrukce": "Rozmixujte všechny ingredience do hladkého smoothie.",
+      "typ_jidla": "snidane",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá snídaně", "bohaté na vitamíny", "sportovce"]
+    },
+    {
+      "nazev": "Celozrnný toust s hummusem a zeleninou",
+      "ingredience": [
+        {"nazev": "Celozrnný toust", "mnozstvi": "1 kus"},
+        {"nazev": "Hummus", "mnozstvi": "30 g"},
+        {"nazev": "Paprika", "mnozstvi": "30 g"},
+        {"nazev": "Okurka", "mnozstvi": "30 g"},
+        {"nazev": "Rajče", "mnozstvi": "30 g"}
+      ],
+      "instrukce": "Toust potřete hummusem a položte na něj nakrájenou zeleninu.",
+      "typ_jidla": "snidane",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá snídaně", "bohaté na bílkoviny", "vegetariány"]
+    },
+    {
+      "nazev": "Ovesná kaše s jablkem a skořicí",
+      "ingredience": [
+        {"nazev": "Ovesné vločky", "mnozstvi": "50 g"},
+        {"nazev": "Jablko", "mnozstvi": "100 g"},
+        {"nazev": "Mléko", "mnozstvi": "200 ml"},
+        {"nazev": "Skořice", "mnozstvi": "1 g"},
+        {"nazev": "Med", "mnozstvi": "5 g"}
+      ],
+      "instrukce": "Ovesné vločky uvařte v mléce, přidejte nastrouhané jablko, posypte skořicí a medem.",
+      "typ_jidla": "snidane",
+      "teplota": "teplé",
+      "cas_pripravy": 10,
+      "vhodne_pro": ["sladká snídaně", "bohaté na vlákninu", "sportovce"]
+    },
+    {
+      "nazev": "Jogurt s granolou a ovocem",
+      "ingredience": [
+        {"nazev": "Bílý jogurt", "mnozstvi": "150 g"},
+        {"nazev": "Granola", "mnozstvi": "30 g"},
+        {"nazev": "Ovoce", "mnozstvi": "50 g"},
+        {"nazev": "Med", "mnozstvi": "5 g"}
+      ],
+      "instrukce": "Jogurt dejte do misky, posypte granolou a ovocem, pokapejte medem.",
+      "typ_jidla": "svacina",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá svačina", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Ořechové tyčinky s medem",
+      "ingredience": [
+        {"nazev": "Ořechy mix", "mnozstvi": "50 g"},
+        {"nazev": "Med", "mnozstvi": "10 g"},
+        {"nazev": "Sušené ovoce", "mnozstvi": "20 g"}
+      ],
+      "instrukce": "Smíchejte ořechy s medem a sušeným ovocem, vytvarujte tyčinky a dejte zchladit.",
+      "typ_jidla": "svacina",
+      "teplota": "studené",
+      "cas_pripravy": 10,
+      "vhodne_pro": ["rychlá svačina", "energetická", "sportovce"]
+    },
+    {
+      "nazev": "Cottage cheese s rajčetem a okurkou",
+      "ingredience": [
+        {"nazev": "Cottage cheese", "mnozstvi": "100 g"},
+        {"nazev": "Rajče", "mnozstvi": "50 g"},
+        {"nazev": "Okurka", "mnozstvi": "50 g"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Cottage cheese smíchejte s nakrájenou zeleninou a dochuťte solí a pepřem.",
+      "typ_jidla": "svacina",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá svačina", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Smoothie s banánem a špenátem",
+      "ingredience": [
+        {"nazev": "Banán", "mnozstvi": "100 g"},
+        {"nazev": "Špenát", "mnozstvi": "50 g"},
+        {"nazev": "Mléko", "mnozstvi": "150 ml"},
+        {"nazev": "Med", "mnozstvi": "5 g"}
+      ],
+      "instrukce": "Všechny ingredience rozmixujte do hladkého smoothie.",
+      "typ_jidla": "svacina",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá svačina", "bohaté na vitamíny", "sportovce"]
+    },
+    {
+      "nazev": "Rýžové chlebíčky s avokádem",
+      "ingredience": [
+        {"nazev": "Rýžový chlebíček", "mnozstvi": "2 kusy"},
+        {"nazev": "Avokádo", "mnozstvi": "50 g"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Rýžový chlebíček potřete rozmačkaným avokádem a dochuťte solí a pepřem.",
+      "typ_jidla": "svacina",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá svačina", "bohaté na tuky", "vegetariány"]
+    },
+    {
+      "nazev": "Ořechy s rozinkami",
+      "ingredience": [
+        {"nazev": "Ořechy mix", "mnozstvi": "30 g"},
+        {"nazev": "Rozinky", "mnozstvi": "20 g"}
+      ],
+      "instrukce": "Smíchejte ořechy s rozinkami a podávejte jako rychlou svačinu.",
+      "typ_jidla": "svacina",
+      "teplota": "studené",
+      "cas_pripravy": 2,
+      "vhodne_pro": ["rychlá svačina", "energetická", "sportovce"]
+    },
+    {
+      "nazev": "Hummus s mrkví a okurkou",
+      "ingredience": [
+        {"nazev": "Hummus", "mnozstvi": "50 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Okurka", "mnozstvi": "50 g"}
+      ],
+      "instrukce": "Nakrájenou zeleninu podávejte s hummusem na namáčení.",
+      "typ_jidla": "svacina",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá svačina", "bohaté na bílkoviny", "vegetariány"]
+    },
+    {
+      "nazev": "Proteinový shake s banánem",
+      "ingredience": [
+        {"nazev": "Proteinový prášek", "mnozstvi": "30 g"},
+        {"nazev": "Banán", "mnozstvi": "100 g"},
+        {"nazev": "Mléko", "mnozstvi": "200 ml"}
+      ],
+      "instrukce": "Všechny ingredience rozmixujte do hladkého nápoje.",
+      "typ_jidla": "svacina",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá svačina", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Tyčinka müsli s medem",
+      "ingredience": [
+        {"nazev": "Müsli", "mnozstvi": "40 g"},
+        {"nazev": "Med", "mnozstvi": "10 g"},
+        {"nazev": "Sušené ovoce", "mnozstvi": "10 g"}
+      ],
+      "instrukce": "Smíchejte ingredience, vytvarujte tyčinku a dejte zchladit.",
+      "typ_jidla": "svacina",
+      "teplota": "studené",
+      "cas_pripravy": 10,
+      "vhodne_pro": ["rychlá svačina", "energetická", "sportovce"]
+    },
+    {
+      "nazev": "Celozrnný wrap s hummusem a avokádem",
+      "ingredience": [
+        {"nazev": "Celozrnná tortila", "mnozstvi": "1 kus"},
+        {"nazev": "Hummus", "mnozstvi": "30 g"},
+        {"nazev": "Avokádo", "mnozstvi": "50 g"},
+        {"nazev": "Salát", "mnozstvi": "20 g"}
+      ],
+      "instrukce": "Tortilu potřete hummusem, přidejte avokádo a salát, zarolujte.",
+      "typ_jidla": "svacina",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá svačina", "bohaté na tuky", "vegetariány"]
+    },
+    {
+      "nazev": "Smoothie s jahodami a banánem",
+      "ingredience": [
+        {"nazev": "Jahody", "mnozstvi": "100 g"},
+        {"nazev": "Banán", "mnozstvi": "100 g"},
+        {"nazev": "Mléko", "mnozstvi": "150 ml"},
+        {"nazev": "Med", "mnozstvi": "5 g"}
+      ],
+      "instrukce": "Všechny ingredience rozmixujte do hladkého smoothie.",
+      "typ_jidla": "svacina",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá svačina", "bohaté na vitamíny", "sportovce"]
+    },
+    {
+      "nazev": "Tvaroh s medem a ořechy",
+      "ingredience": [
+        {"nazev": "Tvaroh", "mnozstvi": "100 g"},
+        {"nazev": "Med", "mnozstvi": "5 g"},
+        {"nazev": "Ořechy mix", "mnozstvi": "20 g"}
+      ],
+      "instrukce": "Tvaroh smíchejte s medem a posypte ořechy.",
+      "typ_jidla": "svacina",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá svačina", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Rýžový chlebíček s arašídovým máslem a banánem",
+      "ingredience": [
+        {"nazev": "Rýžový chlebíček", "mnozstvi": "1 kus"},
+        {"nazev": "Arašídové máslo", "mnozstvi": "20 g"},
+        {"nazev": "Banán", "mnozstvi": "50 g"}
+      ],
+      "instrukce": "Rýžový chlebíček potřete arašídovým máslem a položte plátky banánu.",
+      "typ_jidla": "svacina",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá svačina", "bohaté na tuky", "sportovce"]
+    },
+    {
+      "nazev": "Mandlové mléko s proteinem a ovocem",
+      "ingredience": [
+        {"nazev": "Mandlové mléko", "mnozstvi": "200 ml"},
+        {"nazev": "Proteinový prášek", "mnozstvi": "30 g"},
+        {"nazev": "Ovoce", "mnozstvi": "50 g"}
+      ],
+      "instrukce": "Všechny ingredience rozmixujte do hladkého nápoje.",
+      "typ_jidla": "svacina",
+      "teplota": "studené",
+      "cas_pripravy": 5,
+      "vhodne_pro": ["rychlá svačina", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Kuřecí prsa s rýží a brokolicí",
+      "ingredience": [
+        {"nazev": "Kuřecí prsa", "mnozstvi": "150 g"},
+        {"nazev": "Rýže", "mnozstvi": "80 g"},
+        {"nazev": "Brokolice", "mnozstvi": "100 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Kuřecí maso osmahněte, podávejte s vařenou rýží a dušenou brokolicí.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 30,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Losos s pečenou zeleninou a quinoa",
+      "ingredience": [
+        {"nazev": "Losos", "mnozstvi": "150 g"},
+        {"nazev": "Quinoa", "mnozstvi": "70 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Lososa upečte, podávejte s quinoou a pečenou zeleninou.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 35,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Krůtí prsa s batáty a fazolovými lusky",
+      "ingredience": [
+        {"nazev": "Krůtí prsa", "mnozstvi": "150 g"},
+        {"nazev": "Batáty", "mnozstvi": "150 g"},
+        {"nazev": "Fazolové lusky", "mnozstvi": "100 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Krůtí maso opečte, batáty upečte, podávejte s dušenými fazolovými lusky.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 35,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Hovězí steak s bramborami a zeleninou",
+      "ingredience": [
+        {"nazev": "Hovězí steak", "mnozstvi": "150 g"},
+        {"nazev": "Brambory", "mnozstvi": "150 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Brokolice", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Steak opečte, podávejte s vařenými bramborami a zeleninou.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 40,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Těstoviny s kuřecím masem a špenátem",
+      "ingredience": [
+        {"nazev": "Těstoviny", "mnozstvi": "80 g"},
+        {"nazev": "Kuřecí prsa", "mnozstvi": "150 g"},
+        {"nazev": "Špenát", "mnozstvi": "100 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Kuřecí maso osmahněte, přidejte špenát a podávejte s uvařenými těstovinami.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 25,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Rýžové nudle s tofu a zeleninou",
+      "ingredience": [
+        {"nazev": "Rýžové nudle", "mnozstvi": "80 g"},
+        {"nazev": "Tofu", "mnozstvi": "150 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Tofu osmahněte, přidejte zeleninu a podávejte s uvařenými rýžovými nudlemi.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 25,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "vegetariány"]
+    },
+    {
+      "nazev": "Pečený losos s bulgurem a zeleninou",
+      "ingredience": [
+        {"nazev": "Losos", "mnozstvi": "150 g"},
+        {"nazev": "Bulgur", "mnozstvi": "70 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Lososa upečte, podávejte s bulgurem a pečenou zeleninou.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 35,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Kuřecí stir-fry s rýží",
+      "ingredience": [
+        {"nazev": "Kuřecí prsa", "mnozstvi": "150 g"},
+        {"nazev": "Rýže", "mnozstvi": "80 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"},
+        {"nazev": "Sojová omáčka", "mnozstvi": "5 ml"}
+      ],
+      "instrukce": "Kuřecí maso osmahněte se zeleninou, podávejte s vařenou rýží.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 25,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Cizrnový salát s avokádem",
+      "ingredience": [
+        {"nazev": "Cizrna vařená", "mnozstvi": "150 g"},
+        {"nazev": "Avokádo", "mnozstvi": "100 g"},
+        {"nazev": "Rajče", "mnozstvi": "50 g"},
+        {"nazev": "Okurka", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Smíchejte cizrnu s nakrájeným avokádem, rajčetem a okurkou, ochuťte olejem, solí a pepřem.",
+      "typ_jidla": "obed",
+      "teplota": "studené",
+      "cas_pripravy": 15,
+      "vhodne_pro": ["rychlý oběd", "vegetariány", "bohaté na bílkoviny"]
+    },
+    {
+      "nazev": "Krůtí burger s batátovými hranolkami",
+      "ingredience": [
+        {"nazev": "Krůtí prsa", "mnozstvi": "120 g"},
+        {"nazev": "Celozrnná houska", "mnozstvi": "1 kus"},
+        {"nazev": "Batátové hranolky", "mnozstvi": "150 g"},
+        {"nazev": "Salát ledový", "mnozstvi": "30 g"},
+        {"nazev": "Rajče", "mnozstvi": "50 g"},
+        {"nazev": "Hořčice", "mnozstvi": "5 g"}
+      ],
+      "instrukce": "Krůtí maso opečte, vložte do housky s rajčetem a salátem, podávejte s batátovými hranolkami.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 25,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Zeleninové kari s rýží",
+      "ingredience": [
+        {"nazev": "Rýže", "mnozstvi": "80 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Kokosové mléko", "mnozstvi": "100 ml"},
+        {"nazev": "Kari pasta", "mnozstvi": "10 g"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Zeleninu poduste s kokosovým mlékem a kari pastou, podávejte s rýží.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 30,
+      "vhodne_pro": ["vegetariány", "rychlý oběd", "lehké jídlo"]
+    },
+    {
+      "nazev": "Pečené kuře s quinoou a zeleninou",
+      "ingredience": [
+        {"nazev": "Kuřecí stehno", "mnozstvi": "150 g"},
+        {"nazev": "Quinoa", "mnozstvi": "70 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Kuře upečte, podávejte s quinoou a pečenou zeleninou.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 40,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Hovězí guláš s bramborami",
+      "ingredience": [
+        {"nazev": "Hovězí maso", "mnozstvi": "150 g"},
+        {"nazev": "Brambory", "mnozstvi": "150 g"},
+        {"nazev": "Cibule", "mnozstvi": "50 g"},
+        {"nazev": "Paprika sladká", "mnozstvi": "5 g"},
+        {"nazev": "Rajčatový protlak", "mnozstvi": "20 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Hovězí maso poduste s cibulí, přidejte rajčatový protlak a papriku, podávejte s vařenými bramborami.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 50,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Těstoviny s lososem a brokolicí",
+      "ingredience": [
+        {"nazev": "Těstoviny", "mnozstvi": "80 g"},
+        {"nazev": "Losos", "mnozstvi": "120 g"},
+        {"nazev": "Brokolice", "mnozstvi": "100 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Lososa osmahněte, přidejte brokolici a podávejte s uvařenými těstovinami.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 25,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Kuřecí salát s cizrnou",
+      "ingredience": [
+        {"nazev": "Kuřecí prsa", "mnozstvi": "120 g"},
+        {"nazev": "Cizrna vařená", "mnozstvi": "100 g"},
+        {"nazev": "Rajče", "mnozstvi": "50 g"},
+        {"nazev": "Okurka", "mnozstvi": "50 g"},
+        {"nazev": "Salát ledový", "mnozstvi": "30 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Smíchejte kuře s cizrnou a zeleninou, ochuťte olejem, solí a pepřem.",
+      "typ_jidla": "obed",
+      "teplota": "studené",
+      "cas_pripravy": 20,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Tofu stir-fry s rýží",
+      "ingredience": [
+        {"nazev": "Tofu", "mnozstvi": "150 g"},
+        {"nazev": "Rýže", "mnozstvi": "80 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"},
+        {"nazev": "Sojová omáčka", "mnozstvi": "5 ml"}
+      ],
+      "instrukce": "Tofu osmahněte se zeleninou, podávejte s uvařenou rýží.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 25,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "vegetariány"]
+    },
+    {
+      "nazev": "Lososový salát s quinoa",
+      "ingredience": [
+        {"nazev": "Losos", "mnozstvi": "120 g"},
+        {"nazev": "Quinoa", "mnozstvi": "70 g"},
+        {"nazev": "Salát ledový", "mnozstvi": "50 g"},
+        {"nazev": "Rajče", "mnozstvi": "50 g"},
+        {"nazev": "Okurka", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Smíchejte lososa s quinoou a zeleninou, ochuťte olejem, solí a pepřem.",
+      "typ_jidla": "obed",
+      "teplota": "studené",
+      "cas_pripravy": 20,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Kuřecí prsa s pečenou zeleninou",
+      "ingredience": [
+        {"nazev": "Kuřecí prsa", "mnozstvi": "150 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Kuřecí maso upečte společně se zeleninou, podávejte teplé.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 35,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Hovězí steak s batáty",
+      "ingredience": [
+        {"nazev": "Hovězí steak", "mnozstvi": "150 g"},
+        {"nazev": "Batáty", "mnozstvi": "150 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Steak opečte a podávejte s pečenými batáty.",
+      "typ_jidla": "obed",
+      "teplota": "teplé",
+      "cas_pripravy": 30,
+      "vhodne_pro": ["rychlý oběd", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Losos s cuketou a rýží",
+      "ingredience": [
+        {"nazev": "Losos", "mnozstvi": "120 g"},
+        {"nazev": "Cuketa", "mnozstvi": "100 g"},
+        {"nazev": "Rýže", "mnozstvi": "80 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Lososa osmahněte, podávejte s dušenou cuketou a vařenou rýží.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 25,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "lehké jídlo"]
+    },
+    {
+      "nazev": "Kuřecí prsa s brokolicí a batáty",
+      "ingredience": [
+        {"nazev": "Kuřecí prsa", "mnozstvi": "150 g"},
+        {"nazev": "Brokolice", "mnozstvi": "100 g"},
+        {"nazev": "Batáty", "mnozstvi": "150 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Kuřecí prsa upečte, podávejte s dušenou brokolicí a pečenými batáty.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 35,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Hovězí steak s pečenou zeleninou",
+      "ingredience": [
+        {"nazev": "Hovězí steak", "mnozstvi": "150 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Steak opečte a podávejte s pečenou zeleninou.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 30,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Tofu s rýží a zeleninou",
+      "ingredience": [
+        {"nazev": "Tofu", "mnozstvi": "150 g"},
+        {"nazev": "Rýže", "mnozstvi": "80 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"},
+        {"nazev": "Sojová omáčka", "mnozstvi": "5 ml"}
+      ],
+      "instrukce": "Tofu osmahněte se zeleninou a podávejte s vařenou rýží.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 25,
+      "vhodne_pro": ["rychlá večeře", "vegetariány", "lehké jídlo"]
+    },
+    {
+      "nazev": "Pečené kuře s quinoou a zeleninou",
+      "ingredience": [
+        {"nazev": "Kuřecí stehno", "mnozstvi": "150 g"},
+        {"nazev": "Quinoa", "mnozstvi": "70 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Kuře upečte a podávejte s quinoou a pečenou zeleninou.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 40,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Krevetový stir-fry s nudlemi",
+      "ingredience": [
+        {"nazev": "Krevety", "mnozstvi": "120 g"},
+        {"nazev": "Rýžové nudle", "mnozstvi": "80 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Cibule", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"},
+        {"nazev": "Sojová omáčka", "mnozstvi": "5 ml"}
+      ],
+      "instrukce": "Krevety osmahněte se zeleninou a podávejte s rýžovými nudlemi.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 25,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "lehké jídlo"]
+    },
+    {
+      "nazev": "Zeleninové kari s rýží",
+      "ingredience": [
+        {"nazev": "Rýže", "mnozstvi": "80 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Kokosové mléko", "mnozstvi": "100 ml"},
+        {"nazev": "Kari pasta", "mnozstvi": "10 g"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Zeleninu poduste s kokosovým mlékem a kari pastou, podávejte s rýží.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 30,
+      "vhodne_pro": ["vegetariány", "rychlá večeře", "lehké jídlo"]
+    },
+    {
+      "nazev": "Krůtí prsa s batáty a zeleninou",
+      "ingredience": [
+        {"nazev": "Krůtí prsa", "mnozstvi": "120 g"},
+        {"nazev": "Batáty", "mnozstvi": "150 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Krůtí prsa upečte a podávejte s pečenými batáty a zeleninou.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 30,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Losos s pečenou zeleninou",
+      "ingredience": [
+        {"nazev": "Losos", "mnozstvi": "120 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Lososa upečte spolu se zeleninou, podávejte teplé.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 30,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Cizrnový salát s avokádem",
+      "ingredience": [
+        {"nazev": "Cizrna", "mnozstvi": "100 g"},
+        {"nazev": "Avokádo", "mnozstvi": "50 g"},
+        {"nazev": "Rajče", "mnozstvi": "50 g"},
+        {"nazev": "Okurka", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Všechny ingredience smíchejte a podávejte jako salát.",
+      "typ_jidla": "vecere",
+      "teplota": "studené",
+      "cas_pripravy": 15,
+      "vhodne_pro": ["rychlá večeře", "vegetariány", "lehké jídlo"]
+    },
+    {
+      "nazev": "Hovězí guláš s rýží",
+      "ingredience": [
+        {"nazev": "Hovězí maso", "mnozstvi": "150 g"},
+        {"nazev": "Rýže", "mnozstvi": "80 g"},
+        {"nazev": "Cibule", "mnozstvi": "50 g"},
+        {"nazev": "Paprika", "mnozstvi": "30 g"},
+        {"nazev": "Rajský protlak", "mnozstvi": "30 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Hovězí maso poduste s cibulí a paprikou, podávejte s rýží.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 40,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Těstoviny s kuřecím masem a zeleninou",
+      "ingredience": [
+        {"nazev": "Těstoviny", "mnozstvi": "80 g"},
+        {"nazev": "Kuřecí prsa", "mnozstvi": "120 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Kuřecí maso osmahněte se zeleninou a podávejte s uvařenými těstovinami.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 25,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Kuřecí stir-fry s rýží",
+      "ingredience": [
+        {"nazev": "Kuřecí prsa", "mnozstvi": "120 g"},
+        {"nazev": "Rýže", "mnozstvi": "80 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Cibule", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"},
+        {"nazev": "Sojová omáčka", "mnozstvi": "5 ml"}
+      ],
+      "instrukce": "Kuřecí maso osmahněte se zeleninou, podávejte s vařenou rýží a sojovou omáčkou.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 25,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "lehké jídlo"]
+    },
+    {
+      "nazev": "Pečený losos s bramborami",
+      "ingredience": [
+        {"nazev": "Losos", "mnozstvi": "120 g"},
+        {"nazev": "Brambory", "mnozstvi": "150 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Lososa upečte spolu s bramborami a cuketou, podávejte teplé.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 35,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Tofu salát s quinoa",
+      "ingredience": [
+        {"nazev": "Tofu", "mnozstvi": "150 g"},
+        {"nazev": "Quinoa", "mnozstvi": "70 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Rajče", "mnozstvi": "50 g"},
+        {"nazev": "Okurka", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Tofu opečte a smíchejte s quinoou a čerstvou zeleninou jako salát.",
+      "typ_jidla": "vecere",
+      "teplota": "studené",
+      "cas_pripravy": 20,
+      "vhodne_pro": ["rychlá večeře", "vegetariány", "lehké jídlo"]
+    },
+    {
+      "nazev": "Krůtí burger s batátovými hranolkami",
+      "ingredience": [
+        {"nazev": "Krůtí prsa", "mnozstvi": "120 g"},
+        {"nazev": "Houska celozrnná", "mnozstvi": "1 kus"},
+        {"nazev": "Batáty", "mnozstvi": "100 g"},
+        {"nazev": "Ledový salát", "mnozstvi": "30 g"},
+        {"nazev": "Rajče", "mnozstvi": "50 g"},
+        {"nazev": "Hořčice", "mnozstvi": "5 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Krůtí maso osmahněte, vložte do housky, podávejte s pečenými batátovými hranolkami.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 25,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Hovězí steak s zeleninou",
+      "ingredience": [
+        {"nazev": "Hovězí steak", "mnozstvi": "150 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Steak opečte a podávejte s pečenou zeleninou.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 30,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "sportovce"]
+    },
+    {
+      "nazev": "Kuřecí salát s cizrnou",
+      "ingredience": [
+        {"nazev": "Kuřecí prsa", "mnozstvi": "120 g"},
+        {"nazev": "Cizrna", "mnozstvi": "100 g"},
+        {"nazev": "Rajče", "mnozstvi": "50 g"},
+        {"nazev": "Okurka", "mnozstvi": "50 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Kuřecí maso smíchejte s cizrnou a čerstvou zeleninou jako salát.",
+      "typ_jidla": "vecere",
+      "teplota": "studené",
+      "cas_pripravy": 20,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "lehké jídlo"]
+    },
+    {
+      "nazev": "Pečené kuře s rýží a zeleninou",
+      "ingredience": [
+        {"nazev": "Kuřecí stehno", "mnozstvi": "150 g"},
+        {"nazev": "Rýže", "mnozstvi": "80 g"},
+        {"nazev": "Paprika", "mnozstvi": "50 g"},
+        {"nazev": "Cuketa", "mnozstvi": "50 g"},
+        {"nazev": "Mrkev", "mnozstvi": "50 g"},
+        {"nazev": "Olivový olej", "mnozstvi": "10 ml"},
+        {"nazev": "Sůl", "mnozstvi": "1 g"},
+        {"nazev": "Pepř", "mnozstvi": "1 g"}
+      ],
+      "instrukce": "Kuře upečte a podávejte s vařenou rýží a pečenou zeleninou.",
+      "typ_jidla": "vecere",
+      "teplota": "teplé",
+      "cas_pripravy": 40,
+      "vhodne_pro": ["rychlá večeře", "bohaté na bílkoviny", "sportovce"]
+    }
+  ]
 }
-]
-}
+              

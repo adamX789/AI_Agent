@@ -194,7 +194,7 @@ class AddFoodView(View):
             bilkoviny = Decimal(request.POST.get("protein"))
             tuky = Decimal(request.POST.get("fat"))
             sacharidy = Decimal(request.POST.get("carbs"))
-            if Decimal(kalorie) - (4*bilkoviny + 4*sacharidy + 9*tuky) > Decimal(5) or Decimal(kalorie) - (4*bilkoviny + 4*sacharidy + 9*tuky) < Decimal(-5):
+            if Decimal(kalorie) - (4*bilkoviny + 4*sacharidy + 9*tuky) > Decimal(20) or Decimal(kalorie) - (4*bilkoviny + 4*sacharidy + 9*tuky) < Decimal(-20):
                 messages.error(
                     request, "Zadané makroživiny neodpovídají celkovým kaloriím potraviny!")
                 return render(request, "addfood.html", {})

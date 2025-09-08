@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Návod - Vexom</title>
+  <link rel="stylesheet" href="{% static 'tutorial.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ✅ Návod -->
+  <main class="guide">
+    <h1>Vítejte ve Vexomu!</h1>
+
+    <section>
+      <p>
+        Platforma <strong>Vexom</strong> slouží k co nejefektivnější a nejzábavnější práci s denním příjmem potravin a pomoc uživateli porozumět proč jsou pro něj nějaké potraviny dobré, co v překladu znamená jejich konzumace pro jeho tělo. Vexom se od jiných platforem odlišuje také proaktivním a interaktivním přístupem k uživateli a doporučením určitých vylepšení v rámci stravy.
+        Hlavní funkcí je <strong>efektivní započítávání makroživin</strong>, které přes den jíte, a to na základě vašeho cíle.
+      </p>
+    </section>
+
+    <section>
+      <p>
+        Makra můžete zaznamenávat dvěma způsoby:
+      </p>
+      <ul>
+        <li><strong>Chatem</strong> – jednoduše napište například: <em>„Dal jsem si 500 g kuřecích prsou a 300 g rýže“</em>. (Důležité: vždy uvádějte gramáže.)</li>
+        <li><strong>Rychlým manuálním záznamem</strong> v sekci <em>Můj den</em>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <p>
+        Jsme startup na začátku velké mise, proto se může stát, že vaši konkrétní potravinu nenajdete v databázi. 
+        Pro tento účel slouží tlačítko <strong>„Vytvořit vlastní položku“</strong> v manuálním záznamu.
+      </p>
+    </section>
+
+    <section>
+      <p>
+        Druhou hlavní funkcí platformy je <strong>každodenní doporučování receptů</strong> na základě vašich cílů a makroživin. 
+        Tyto recepty si můžete snadno přidat do denního příjmu.
+      </p>
+    </section>
+
+    <section>
+      <p>
+        Vexom také umožňuje <strong>zaznamenat potraviny a recepty prostřednictvím fotky</strong>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Co pro vás chystáme:</h2>
+      <ul>
+        <li>Záznam pomocí QR kódu</li>
+        <li>Zvuková komunikace s Vexom botem</li>
+        <li>Databáze a tracking suplementů, zdravotních doplňků a aktivit</li>
+        <li>Integrace s laboratorními testy a výsledky od lékařů</li>
+        <li>Napojení na vaše smart hodinky</li>
+      </ul>
+    </section>
+
+    <section>
+      <p><strong>Děkujeme, že jste se rozhodli vyzkoušet Vexom pro váš lepší život.</strong></p>
+    </section>
+
+    <div class="button-wrap">
+      <a href="{% url 'choice' %}"><button class="start-btn">Přečetl jsem si návod, jdeme na to.</button></a>
+    </div>
+  </main>
+</body>
+</html>

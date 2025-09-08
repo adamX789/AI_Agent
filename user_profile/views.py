@@ -176,6 +176,7 @@ class StartFormView(View):
         return render(request, "form.html", {})
 
     def post(self, request):
+        print(request.POST)
         profile = request.user.profile
         profile.jmeno = request.POST.get("jmeno")
         profile.vek = int(request.POST.get("vek"))
@@ -186,9 +187,6 @@ class StartFormView(View):
             profile.pohlavi = "Žena"
         elif pohlavi == "jine":
             profile.pohlavi = "Jiné"
-        else:
-            messages.error(request, "Prosím vyberte pohlaví.")
-            return render(request, "form.html", {})
         profile.vyska_v_cm = Decimal(request.POST.get("vyska"))
         profile.aktualni_vaha = Decimal(request.POST.get("vaha"))
         profile.cilova_vaha = Decimal(request.POST.get("cilova_vaha"))
@@ -199,9 +197,6 @@ class StartFormView(View):
             profile.celkovy_cil = "Udržet váhu"
         elif cil == "z":
             profile.celkovy_cil = "Zhubnout"
-        else:
-            messages.error(request, "Prosím vyberte cíl.")
-            return render(request, "form.html", {})
         aktivita = request.POST.get("aktivita")
         if aktivita == "sedavy":
             profile.aktivita = "Sedavý"
@@ -213,9 +208,6 @@ class StartFormView(View):
             profile.aktivita = "Vysoká aktivita"
         elif aktivita == "extremni":
             profile.aktivita = "Extrémně vysoká aktivita"
-        else:
-            messages.error(request, "Prosím vyberte aktivitu.")
-            return render(request, "form.html", {})
         omezeni = request.POST.get("omezeni")
         if omezeni == "alergie":
             profile.zdravotni_omezeni = "Alergie"

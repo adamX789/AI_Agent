@@ -18,7 +18,7 @@
     <section class="choice">
       <h2>Vyberte metodu</h2>
       <div class="buttons">
-        <a href="#photo-method" class="btn premium">📸 Podle fotky (Premium)</a>
+        <a href="#photo-method" class="btn premium">📸 Podle fotky</a>
         <a href="#measure-method" class="btn">📏 Podle obvodů</a>
       </div>
     </section>
@@ -26,7 +26,6 @@
     <!-- ✅ Metoda podle fotky -->
     <section id="photo-method" class="method">
       <h2>Podle fotky</h2>
-      <p class="premium-note">✨ Tato funkce je dostupná jen pro Premium uživatele.</p>
       <form action="{% url 'bodyfat' %}" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
         <label for="id_image">Nahrajte obrázek postavy:</label>

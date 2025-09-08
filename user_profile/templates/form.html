@@ -35,34 +35,33 @@
       <input type="number" id="goal_weight" name="cilova_vaha" step="0.01" placeholder="Zadejte cílovou váhu" min="1" required />
 
       <label for="gender">Pohlaví</label>
-      <select id="gender" name="pohlavi" required>
-        <option value="">Vyberte</option>
-        <option value="muz">Muž</option>
+      <select id="gender" name="pohlavi">
+      
+        <option value="muz" selected>Muž</option>
         <option value="zena">Žena</option>
         <option value="jine">Jiné</option>
       </select>
 
       <label for="activity">Aktivita</label>
-      <select id="activity" name="aktivita" required>
-        <option value="">Vyberte</option>
-        <option value="sedavy">Sedavý (velmi nízká)</option>
-        <option value="lehka">Lehká aktivita</option>
-        <option value="stredni">Střední aktivita</option>
-        <option value="vysoka">Vysoká aktivita</option>
-        <option value="extremni">Extrémně vysoká aktivita</option>
+      <select id="activity" name="aktivita">
+        <option value="sedavy" selected>Sedavý (Skoro žádný pohyb, kancelářská práce)</option>
+        <option value="lehka">Lehká aktivita (Sportuji 1-3x do týdne)</option>
+        <option value="stredni">Střední aktivita (Sportuji 3-5x do týdne)</option>
+        <option value="vysoka">Vysoká aktivita (Sportuji 6-7x do týdne)</option>
+        <option value="extremni">Extrémně vysoká aktivita (Sportuji 2x denně)</option>
       </select>
 
       <label for="goal">Cíl</label>
-      <select id="goal" name="cil" required>
-        <option value="">Vyberte</option>
-        <option value="z">Zhubnout</option>
+      <select id="goal" name="cil">
+       
+        <option value="z" selected>Zhubnout</option>
         <option value="u">Udržet váhu</option>
         <option value="n">Nabrat svaly</option>
       </select>
 
       <label for="health">Zdravotní omezení</label>
       <select id="health" name="omezeni">
-        <option value="nemam">Nemám</option>
+        <option value="nemam" selected>Nemám</option>
         <option value="alergie">Alergie</option>
         <option value="cukrovka">Cukrovka</option>
         <option value="srdecni">Srdeční problémy</option>
@@ -71,7 +70,7 @@
 
       <label for="diet">Dodržovaná dieta</label>
       <select id="diet" name="dieta">
-        <option value="zadna">Žádná</option>
+        <option value="zadna" selected>Žádná</option>
         <option value="vegan">Veganská</option>
         <option value="vegetarian">Vegetariánská</option>
         <option value="keto">Keto</option>

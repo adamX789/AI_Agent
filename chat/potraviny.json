@@ -1,75 +1,50 @@
 {
 "foods":[
   {
-    "name": "Sýr eidam 30%",
-    "description": "Polotvrdý sýr s nižším obsahem tuku, bohatý na bílkoviny a vápník.",
+    "name": "Skořice",
+    "description": "Skořice je koření z vnitřní kůry stromů rodu skořicovníku. Používá se pro svou sladkou a pikantní chuť, a má také léčivé vlastnosti, jako je regulace krevního cukru a protizánětlivé účinky.",
     "nutrients": {
-      "kcal": 280,
-      "protein_g": 29,
-      "fat_g": 18,
-      "carbs_g": 1
+      "kcal": 247,
+      "protein_g": 4,
+      "fat_g": 1,
+      "carbs_g": 81
     },
     "benefits": [
-      "Vysoký obsah bílkovin",
-      "Zdroj vápníku",
-      "Všestranné použití"
+      "Protizánětlivé účinky",
+      "Regulace cukru v krvi",
+      "Antioxidanty"
     ],
     "best_for": [
-      "Sendviče",
-      "Saláty",
-      "Vaření"
-    ],
-    "avoid_if": [
-      "Alergie na mléko",
-      "Intolerance laktózy"
-    ]
-  },
-  {
-    "name": "Sýr eidam 45%",
-    "description": "Polotvrdý sýr s vyšším obsahem tuku, bohatý na bílkoviny a vápník.",
-    "nutrients": {
-      "kcal": 360,
-      "protein_g": 26,
-      "fat_g": 28,
-      "carbs_g": 1
-    },
-    "benefits": [
-      "Vysoký obsah bílkovin",
-      "Zdroj vápníku",
-      "Všestranné použití"
-    ],
-    "best_for": [
-      "Sendviče",
-      "Saláty",
-      "Vaření"
-    ],
-    "avoid_if": [
-      "Alergie na mléko",
-      "Intolerance laktózy"
-    ]
-  },
-  {
-    "name": "Proteinový prášek",
-    "description": "Koncentrovaný zdroj bílkovin, vhodný pro sportovce a lidi s vysokou potřebou bílkovin.",
-    "nutrients": {
-      "kcal": 380,
-      "protein_g": 80,
-      "fat_g": 5,
-      "carbs_g": 5
-    },
-    "benefits": [
-      "Vysoký obsah bílkovin",
-      "Podpora růstu svalů",
-      "Rychlá příprava"
-    ],
-    "best_for": [
-      "Po tréninku",
-      "Svačina",
+      "Pečení",
+      "Kaše",
       "Smoothie"
     ],
     "avoid_if": [
-      "Intolerance laktózy (pokud se jedná o syrovátkový protein)",
-      "Alergie na sóju (pokud se jedná o sójový protein)"
+      "Těhotenství (ve vysokém množství)",
+      "Problémy s játry"
+    ]
+  },
+  {
+    "name": "Ovocná směs",
+    "description": "Ovocná směs je souhrnný název pro různé druhy ovoce v jednom balení. Složení a nutriční hodnoty se liší podle konkrétních plodů, ale obvykle poskytují vitamíny, minerály a vlákninu.",
+    "nutrients": {
+      "kcal": 60,
+      "protein_g": 1,
+      "fat_g": 0,
+      "carbs_g": 15
+    },
+    "benefits": [
+      "Vitamín C",
+      "Vláknina",
+      "Hydratace"
+    ],
+    "best_for": [
+      "Svačiny",
+      "Smoothie",
+      "Ozdoba pokrmů"
+    ],
+    "avoid_if": [
+      "Alergie na konkrétní ovoce ve směsi"
     ]
   }
 ]

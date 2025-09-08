@@ -18,10 +18,13 @@ class RegisterView(View):
             user = form.save()
             Profile.objects.create(uzivatel=user)
             login(request, user)
-            return redirect('choice')
+            return redirect('tutorial')
         return render(request, "register.html", {"form": form})
 
 
 def user_logout(request):
     logout(request)
     return redirect("chat")
+
+def tutorial(request):
+    return render(request,"tutorial.html",{})

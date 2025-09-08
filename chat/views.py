@@ -8,8 +8,11 @@ from user_profile.models import Profile
 from datetime import datetime,timedelta
 
 zaznamy={}
+denni_zaznamy={}
 MAX_REQUESTS = 10
 TIME = 60
+DAILY_MAX_REQUESTS = 100
+DAILY_TIME = 60*60*24
 
 class ChatView(View):
     def get(self, request):
@@ -26,11 +29,18 @@ class ChatView(View):
         ted = datetime.now()
         if ip_adresa in zaznamy:
             zaznamy[ip_adresa] = [t for t in zaznamy[ip_adresa] if ted - t <= timedelta(seconds=TIME)]
+        if ip_adresa in denni_zaznamy:
+            denni_zaznamy[ip_adresa] = [t for t in zaznamy[ip_adresa] if ted - t <= timedelta(seconds=DAILY_TIME)]
         if ip_adresa in zaznamy and len(zaznamy[ip_adresa]) > MAX_REQUESTS:
             return JsonResponse({"response":"Překročil jste povolený limit pro odesílaní zpráv, zkuste to prosím za minutu znovu!"},status=429)
+        if ip_adresa in denni_zaznamy and len(denni_zaznamy[ip_adresa]) > DAILY_MAX_REQUESTS:
+            return JsonResponse({"response":"Překročil jste denní povolený limit pro odesílaní zpráv, zkuste to prosím znovu za 24 hodin!"},status=429)
         if ip_adresa not in zaznamy:
             zaznamy[ip_adresa] = []
+        if ip_adresa not in denni_zaznamy:
+            denni_zaznamy[ip_adresa] = []
         zaznamy[ip_adresa].append(ted)
+        denni_zaznamy[ip_adresa].append(ted)
         celkove_kalorie, celkove_bilkoviny, celkove_sacharidy, celkove_tuky = (
             0, 0, 0, 0)
         for food_item in profile.food_set.all():

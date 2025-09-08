@@ -43,7 +43,7 @@
   .register-box button {
     width: 100%;
     padding: 12px 16px;
-    background-color: #2ecc71;
+    background-color: rgb(48, 48, 48);
     color: white;
     border: none;
     border-radius: 6px;
@@ -53,7 +53,7 @@
   }
   
   .register-box button:hover {
-    background-color: #27ae60;
+    background-color: black;
   }
   
   .login-info {
@@ -63,7 +63,7 @@
   }
   
   .login-info a {
-    color: #2ecc71;
+    color: black;
     text-decoration: none;
     font-weight: 500;
   }

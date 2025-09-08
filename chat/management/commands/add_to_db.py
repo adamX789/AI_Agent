@@ -45,7 +45,7 @@ def search_recepty(ingredience):
     for item in ingredience:
         potravina = item["nazev"]
         mnozstvi = item["mnozstvi"]
-        if mnozstvi == "špetka":
+        if mnozstvi == "špetka" or potravina == "Sůl" or potravina == "Pepř":
             continue
         print(f"hledam potravinu: {potravina}")
         casti = mnozstvi.strip().split(" ")
@@ -93,7 +93,7 @@ def search_recepty(ingredience):
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
-        file_path = "chat/noverecepty.json"
+        file_path = "chat/recepty.json"
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
 
