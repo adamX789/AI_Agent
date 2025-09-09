@@ -49,11 +49,13 @@
           <button type="button">👀 Načíst QR kodem (Brzy spuštěno!)</button>
           <label for="imageInput"><button type="button" class="icon-btn">📷 Vyfotit fotku.</button></label>
           <input type="file" name="image" id="imageInput" style="display: none;" accept="image/*">
-          <button type="button">🎤 Zaznamenat zvukový záznam (Brzy spuštěno!)</button>
+          <button type="button" class="record-btn">🎤 Zaznamenat zvukový záznam (Brzy spuštěno!)</button>
         </div>
       </div>
+      <button type="button" class="stop-btn hidden" disabled>Zastavit nahrávání</button>
     </form>
     <div id="fileNameDisplay"></div>
+    <audio controls class="audio-player"></audio>
   </main>
 </body>
 
@@ -62,6 +64,55 @@
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 <script>
+  let audioFile = null;
+  let isRecording = false;
+  const plusBtn = document.getElementById("plusBtn");
+  const plusMenu = document.getElementById("plusMenu");
+
+  plusBtn.addEventListener("click", () => {
+    if (isRecording){
+      plusMenu.style.display = "none";
+    } else {
+      plusMenu.style.display = plusMenu.style.display === "flex" ? "none" : "flex";
+    };
+  });
+  document.addEventListener("click", (e) => {
+    if (!plusBtn.contains(e.target) && !plusMenu.contains(e.target)) {
+      plusMenu.style.display = "none";
+    }
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+    const plusMenu = document.getElementById("plusMenu");
+    const recordBtn = document.querySelector(".record-btn");
+    const stopBtn = document.querySelector(".stop-btn");
+    const audioPlayer = document.querySelector(".audio-player");
+    let mediaRecorder;
+    let audioChunks = [];
+    recordBtn.addEventListener("click", async () => {
+      isRecording = true;
+      plusMenu.style.display = "none";
+      stopBtn.classList.remove("hidden");
+      const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+      mediaRecorder = new mediaRecorder(stream);
+      mediaRecorder.start();
+
+      mediaRecorder.addEventListener("dataavailable", event => {
+        audioChunks.push(event.data);
+      });
+    });
+    stopBtn.addEventListener("click",() => {
+      mediaRecorder.stop();
+      stopBtn.classList.add("hidden");
+    });
+
+    mediaRecorder.addEventListener("stop", () => {
+      const audioBlob = new Blob(audioChunks,{type:"audio/wav"});
+      const audioURL = URL.createObjectURL(audioBlob);
+      audioPlayer.src = audioURL;
+      audioPlayer.style.display = "block";
+      audioFile = new File([audioBlob], "audio.wav", {type:"audio/wav"});
+    });
+  });
   document.getElementById("form-field").addEventListener("submit", function (event) {
     event.preventDefault();
     const text_box = document.getElementById("textInput");
@@ -88,6 +139,30 @@
           messageToRemove.remove();
           text_box.disabled = false;
         });
+    } else if (audioFile) {
+      isRecording = false;
+      text_box.disabled = true;
+      appendMessage("Posíláte hlasovou zprávu", "user");
+      appendWaitMessage("Agent přemýšlí.", "agent");
+      const messageToRemove = document.getElementById("tempMessage");
+      const formData = new FormData();
+      formData.append("audio",audioFile);
+      formData.append("csrfmiddlewaretoken", getCookie("csrftoken"));
+      audioFile = null;
+      const audioPlayer = document.querySelector(".audio-player");
+      audioPlayer.src = "";
+      audioPlayer.style.display = "none";
+      fetch("{% url 'chat' %}", {
+        method: "POST",
+        body: formData
+      })
+        .then(response => response.json())
+        .then(data => {
+          appendMessage(data.response, "agent");
+          messageToRemove.remove();
+          text_box.disabled = false;
+        });
+      
     } else {
       text_box.disabled = true;
       appendMessage("[Obrázek]", "user");
@@ -109,13 +184,9 @@
           messageToRemove.remove();
           text_box.disabled = false;
         });
-    }
-
-
-
+    };
     text_box.value = "";
   });
-
   function appendMessage(text, sender) {
     const container = document.getElementById("messages");
     const time = new Date();

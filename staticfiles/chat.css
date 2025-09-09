@@ -216,6 +216,16 @@ body {
   background-color: #f5f5f5;
 }
 
+.stop-btn {
+  display: block;
+}
+.stop-btn.hidden {
+  display: none;
+}
+.audio-player {
+  display: none;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   body {

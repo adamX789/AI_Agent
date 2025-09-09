@@ -6,6 +6,10 @@ from .main import chatbot,chatbot_picture
 from .models import *
 from user_profile.models import Profile
 from datetime import datetime,timedelta
+from dotenv import load_dotenv
+from google.cloud import speech_v1p1beta1 as speech
+import io
+load_dotenv()
 
 zaznamy={}
 denni_zaznamy={}
@@ -13,6 +17,21 @@ MAX_REQUESTS = 10
 TIME = 60
 DAILY_MAX_REQUESTS = 100
 DAILY_TIME = 60*60*24
+
+def convert_audio_to_text(audio_file):
+    client = speech.SpeechClient()
+    content = audio_file.read()
+    audio = speech.RecognitionAudio(content=content)
+    config = speech.RecognitionConfig(
+        encoding = speech.RecognitionConfig.AudioEncoding.LINEAR16,
+        sample_rate_hertz=16000,
+        language_code="cs-CZ",
+    )
+    response = client.recognize(config=config, audio=audio)
+    for result in response.results:
+        return result.alternatives[0].transcript
+    return ""
+
 
 class ChatView(View):
     def get(self, request):
@@ -57,10 +76,21 @@ class ChatView(View):
             "sacharidy":celkove_sacharidy,
             "tuky":celkove_tuky
         }
-        if not request.FILES.get("image"):
-            historie_zprav = user.message_set.all().order_by("id")[:10]
-            last_agent_msg = user.message_set.order_by("-id").first()
-            last_agent_msg_text = last_agent_msg.text if last_agent_msg else None
+        historie_zprav = user.message_set.all().order_by("id")[:10]
+        last_agent_msg = user.message_set.order_by("-id").first()
+        last_agent_msg_text = last_agent_msg.text if last_agent_msg else None
+        if request.FILES.get("audio"):
+            audio_file = request.FILES["audio"]
+            message = convert_audio_to_text(audio_file=audio_file)
+            print(message)
+            user.message_set.create(text="Posíláte hlasovou zprávu", sender="Vy", role="user")
+            if message == "":
+                agent_response="Z hlasové zprávy jsem nebyl schopen rozpoznat dotaz."
+            else:
+                agent_response = chatbot(query=message,profile=profile,last_agent_msg=last_agent_msg_text,denni_udaje=denni_udaje,historie=historie_zprav)
+            user.message_set.create(text=agent_response,
+                                sender="Podpora", role="agent")
+        elif not request.FILES.get("image"):
             data = json.loads(request.body)
             message = data.get("message")
             user.message_set.create(text=message, sender="Vy", role="user")
