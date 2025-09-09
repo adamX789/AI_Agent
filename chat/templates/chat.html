@@ -89,28 +89,34 @@
     let mediaRecorder;
     let audioChunks = [];
     recordBtn.addEventListener("click", async () => {
-      isRecording = true;
-      plusMenu.style.display = "none";
-      stopBtn.classList.remove("hidden");
-      const stream = await navigator.mediaDevices.getUserMedia({audio:true});
-      mediaRecorder = new mediaRecorder(stream);
-      mediaRecorder.start();
+        isRecording = true;
+        plusMenu.style.display = "none";
+        stopBtn.classList.remove("hidden");
 
-      mediaRecorder.addEventListener("dataavailable", event => {
-        audioChunks.push(event.data);
-      });
-    });
-    stopBtn.addEventListener("click",() => {
-      mediaRecorder.stop();
-      stopBtn.classList.add("hidden");
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.start();
+
+        mediaRecorder.addEventListener("dataavailable", event => {
+            audioChunks.push(event.data);
+        });
+
+        mediaRecorder.addEventListener("stop", () => {
+            const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+            const audioURL = URL.createObjectURL(audioBlob);
+            audioPlayer.src = audioURL;
+            audioPlayer.style.display = "block";
+            audioFile = new File([audioBlob], "audio.wav", { type: "audio/wav" });
+            audioChunks = [];
+        });
     });
 
-    mediaRecorder.addEventListener("stop", () => {
-      const audioBlob = new Blob(audioChunks,{type:"audio/wav"});
-      const audioURL = URL.createObjectURL(audioBlob);
-      audioPlayer.src = audioURL;
-      audioPlayer.style.display = "block";
-      audioFile = new File([audioBlob], "audio.wav", {type:"audio/wav"});
+    // Zde je nezávislý posluchač pro zastavení nahrávání
+    stopBtn.addEventListener("click", () => {
+        if (mediaRecorder && mediaRecorder.state === "recording") {
+            mediaRecorder.stop();
+            stopBtn.classList.add("hidden");
+        }
     });
   });
   document.getElementById("form-field").addEventListener("submit", function (event) {

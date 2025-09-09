@@ -23,8 +23,8 @@ def convert_audio_to_text(audio_file):
     content = audio_file.read()
     audio = speech.RecognitionAudio(content=content)
     config = speech.RecognitionConfig(
-        encoding = speech.RecognitionConfig.AudioEncoding.LINEAR16,
-        sample_rate_hertz=16000,
+        encoding = speech.RecognitionConfig.AudioEncoding.WEBM_OPUS,
+        sample_rate_hertz=48000,
         language_code="cs-CZ",
     )
     response = client.recognize(config=config, audio=audio)
