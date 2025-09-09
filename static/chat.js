@@ -24,3 +24,9 @@ document.addEventListener("click", (e) => {
     plusMenu.style.display = "none";
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const messageBox = document.getElementById("messages");
+  if (messageBox) {
+    messageBox.scrollTop = messageBox.scrollHeight;
+  }
+});
