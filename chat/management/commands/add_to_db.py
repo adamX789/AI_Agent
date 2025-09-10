@@ -93,22 +93,51 @@ def search_recepty(ingredience):
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
-        file_path = "chat/recepty.json"
+        file_path = "chat/aktivity.json"
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
 
+        activities = data.get("activities")
         foods = data.get("foods")
         recipes = data.get("recipes")
         situations = data.get("situations")
         diets = data.get("diets")
         communication_styles = data.get("communication_styles")
         with transaction.atomic():
+            self.import_aktivity(activities)
             self.import_potraviny(foods)
             self.import_recepty(recipes)
             self.import_situace(situations)
             self.import_diety(diets)
             self.import_komunikace(communication_styles)
-
+    def import_aktivity(self,activities):
+        print("pridavam aktivity")
+        if not activities:
+            return None
+        for i,item in enumerate(activities):
+            print(f"vytvarim aktivitu #{i+1}")
+            embedding_text = f"""
+            ID: {item["id"]}
+            Typ aktivity: {item["name"]}
+            Kategorie {item["category"]}
+            MET hodnota: {Decimal(item["met_value"])}
+            Popis: {item["description"]}
+            """
+            response = client.models.embed_content(
+                model="gemini-embedding-001",
+                contents=embedding_text,
+                config=types.EmbedContentConfig(output_dimensionality=768)
+            )
+            
+            embedding = response.embeddings[0].values
+            Aktivita.objects.get_or_create(
+                aktivita_id=item["id"],
+                typ_aktivity=item["name"],
+                kategorie=item["category"],
+                met_hodnota=Decimal(item["met_value"]),
+                popis=item["description"],
+                embedding=embedding
+            )
     def import_potraviny(self, foods):
         print("pridavam potraviny")
         if not foods:

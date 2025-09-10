@@ -13,6 +13,17 @@ class Message(models.Model):
     def __str__(self) -> str:
         return str(self.text)
 
+class Aktivita(models.Model):
+    aktivita_id = models.CharField(max_length=64,blank=True,null=True)
+    typ_aktivity = models.CharField(max_length=64,blank=True,null=True)
+    kategorie = models.CharField(max_length=64,blank=True,null=True)
+    met_hodnota = models.DecimalField(decimal_places=1,max_digits=5,blank=True,null=True)
+    popis = models.TextField()
+    embedding = VectorField(dimensions=768)
+
+    def __str__(self) -> str:
+        return str(self.typ_aktivity)
+
 
 class Potraviny(models.Model):
     nazev = models.CharField(max_length=150)

@@ -20,7 +20,10 @@ def reset_daily_food():
             profile = Profile.objects.get(uzivatel=user)
         except Profile.DoesNotExist:
             continue
-        sestav_jidelnicek(profile=profile,reset=True)
+        if profile.denni_kalorie:
+            sestav_jidelnicek(profile=profile,reset=True)
+        else: 
+            continue
         Message.objects.create(
             user=user,
             text=message_text,
