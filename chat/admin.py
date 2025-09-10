@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import *
 
+class AktivitaAdmin(admin.ModelAdmin):
+    list_display = ("typ_aktivity", "kategorie", "met_hodnota", "popis")
 
 class MessageAdmin(admin.ModelAdmin):
     list_display = ("text", "sender", "role", "time_sent")
@@ -36,6 +38,7 @@ class StylyKomunikaceAdmin(admin.ModelAdmin):
     list_display = ("styl", "priklad")
 
 
+admin.site.register(Aktivita,AktivitaAdmin)
 admin.site.register(Message, MessageAdmin)
 admin.site.register(Potraviny, PotravinyAdmin)
 admin.site.register(Makroziviny, MakrozivinyAdmin)

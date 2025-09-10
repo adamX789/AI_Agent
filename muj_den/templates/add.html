@@ -1,269 +1,14 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="cs">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Přidat záznam</title>
+  <link rel="stylesheet" href="{% static 'add.css' %}" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Mozilla Text', sans-serif;
-      background-color: #fafafa;
-      color: #222;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 40px 20px;
-      min-height: 100vh;
-    }
-
-    .record-container {
-      width: 100%;
-      max-width: 500px;
-      background: #fff;
-      border: 1px solid #eee;
-      border-radius: 12px;
-      padding: 30px 20px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-    }
-
-    .record-container h1 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      color: #000000;
-      text-align: center;
-    }
-
-    .type-select {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .type-option {
-  flex: 1;
-  display: flex;                /* zapne flexbox */
-  flex-direction: column;       /* aby se text + (Přidáme brzy) skládal pod sebe */
-  justify-content: center;      /* centrování vertikálně */
-  align-items: center;          /* centrování horizontálně */
-  text-align: center;
-  padding: 20px;                /* trochu víc prostoru */
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-  min-height: 70px;             /* pevná minimální výška pro stabilitu */
-}
-
-
-    .type-option.active {
-      background-color: #000;
-      color: #fff;
-      border-color: #000;
-    }
-
-    .type-option.disabled {
-      color: #aaa;
-      cursor: not-allowed;
-      background-color: #f5f5f5;
-    }
-
-    /* Search bar */
-    .search-bar {
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    .search-bar input {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-
-    .suggestions {
-      position: absolute;
-      top: 105%;
-      left: 0;
-      right: 0;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      max-height: 150px;
-      overflow-y: auto;
-      z-index: 10;
-      display: none;
-    }
-
-    .suggestion-item {
-      padding: 10px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .suggestion-item:hover {
-      background-color: #f5f5f5;
-    }
-
-    /* Form groups */
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 600;
-      color: #444;
-    }
-
-    .form-group select,
-    .form-group input {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-
-    /* Amount input */
-    .amount-input {
-      display: flex;
-      gap: 10px;
-    }
-
-    .amount-input input {
-      flex: 1;
-    }
-
-    .amount-input select {
-      width: 120px;
-    }
-
-    /* Buttons */
-    .action-buttons {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .cancel-btn, .add-btn {
-      flex: 1;
-      padding: 14px 0;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .cancel-btn {
-      background-color: #eee;
-      color: #444;
-    }
-
-    .cancel-btn:hover {
-      background-color: #ddd;
-    }
-
-    .add-btn {
-      background-color: #000000;
-      color: #ffffff;
-    }
-
-    .add-btn:hover {
-      background-color: #232323;
-    }
-
-    .add-btn2 {
-    padding: 10px 20px;
-    border: 1px solid #000000;
-    background: black;
-    color: #ffffff;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: 600;
-    font-size: 15px;
-    margin-bottom: 40px;
-  }
-
-  .add-btn2:hover {
-    padding: 10px 20px;
-    border: 1px solid   #000000;
-    background: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-
-  }
-
-    @media (max-width: 600px) {
-  body {
-    padding: 20px 10px;
-  }
-
-  .record-container {
-    padding: 20px 15px;
-    border-radius: 10px;
-  }
-
-  .record-container h1 {
-    font-size: 1.3rem;
-  }
-
-  .type-select {
-    flex-direction: column;   /* místo řádku dáme boxy pod sebe */
-    gap: 12px;
-  }
-
-  .type-option {
-    min-height: 60px;
-    font-size: 1rem;
-    padding: 16px;
-  }
-
-  .amount-input {
-    flex-direction: column;   /* aby input a jednotka nebyly namačkané */
-    gap: 12px;
-  }
-
-  .amount-input select {
-    width: 100%;              /* zabere celou šířku */
-  }
-
-  .action-buttons {
-    flex-direction: column;   /* tlačítka pod sebe */
-    gap: 12px;
-  }
-
-  .cancel-btn, .add-btn {
-    font-size: 1.1rem;
-    padding: 16px;
-  }
-}
-
-
-    @media (max-width: 480px) {
-      .record-container {
-        padding: 20px 15px;
-      }
-
-      .record-container h1 {
-        font-size: 1.25rem;
-      }
-    }
-  </style>
 </head>
 <body>
   <main class="record-container">
@@ -273,22 +18,22 @@
 
     <!-- Druh záznamu -->
     <div class="type-select">
-      <div class="type-option disabled">Aktivita<br><small>(Přidáme brzy)</small></div>
+      <div class="type-option" id="activityOption">Aktivita</div>
       <div class="type-option disabled">Suplement<br><small>(Přidáme brzy)</small></div>
-      <div class="type-option active">Potravina</div>
+      <div class="type-option active" id="foodOption">Potravina</div>
     </div>
 
     <!-- Search bar -->
     <form action="" method="POST">
       {% csrf_token %}
       <div class="search-bar">
-        <input type="text" name="potravina" id="searchInput" placeholder="🔍 Hledat potravinu..." />
+        <input type="text" name="objekt" id="searchInput" placeholder="🔍 Hledat potravinu..." autocomplete="off" />
         <div class="suggestions" id="suggestions"></div>
       </div>
 
       <!-- Zadání množství -->
       <div class="form-group">
-        <label for="amount">Množství</label>
+        <label for="amount" id="label">Množství</label>
         <div class="amount-input">
           <input type="number" name="mnozstvi" step="0.01" id="amount" placeholder="Zadejte množství" />
           <select id="unit" name="jednotka">
@@ -308,30 +53,58 @@
     </main>
   </form>
   {{ potraviny|json_script:"data-potraviny" }}
+  {{ aktivity|json_script:"data-aktivity" }}
+
   <script>
     const potravinyElement = document.getElementById("data-potraviny");
+    const aktivityElement = document.getElementById("data-aktivity");
+    const aktivity = JSON.parse(aktivityElement.textContent);
     const potraviny = JSON.parse(potravinyElement.textContent);
     const foods = potraviny;
-
+    const activities = aktivity;
     const searchInput = document.getElementById("searchInput");
     const suggestions = document.getElementById("suggestions");
+    const activityOption = document.getElementById("activityOption");
+    const foodOption = document.getElementById("foodOption");
+    const amountInput = document.getElementById("amount");
+    const unitSelect = document.getElementById("unit");
+    const label = document.getElementById("label")
 
-    searchInput.addEventListener("input", () => {
+    let currentType = "food"; // default
+
+    function updatePlaceholder() {
+      if (currentType === "food") {
+        searchInput.placeholder = "🔍 Hledat potravinu...";
+        unitSelect.innerHTML = `
+          <option value="g">g</option>
+          <option value="ml">ml</option>
+          <option value="ks">ks</option>
+          <option value="plátky">plátky</option>
+        `;
+      } else if (currentType === "activity") {
+        searchInput.placeholder = "🔍 Hledat aktivitu...";
+        amountInput.placeholder = "Zadejte čas";
+        amountInput.step = 1;
+        label.textContent = "Čas";
+        unitSelect.innerHTML = `<option value="min">min</option>`;
+      }
+      amountInput.value = "";
+    }
+
+    function showSuggestions(list) {
       const query = searchInput.value.toLowerCase();
       suggestions.innerHTML = "";
 
       if (query.length > 0) {
-        const filtered = foods.filter(food =>
-          food.toLowerCase().includes(query)
-        );
+        const filtered = list.filter(item => item.toLowerCase().includes(query));
 
         if (filtered.length > 0) {
-          filtered.forEach(food => {
+          filtered.forEach(item => {
             const div = document.createElement("div");
             div.classList.add("suggestion-item");
-            div.textContent = food;
+            div.textContent = item;
             div.addEventListener("click", () => {
-              searchInput.value = food;
+              searchInput.value = item;
               suggestions.style.display = "none";
             });
             suggestions.appendChild(div);
@@ -343,6 +116,29 @@
       } else {
         suggestions.style.display = "none";
       }
+    }
+
+    searchInput.addEventListener("input", () => {
+      if (currentType === "food") {
+        showSuggestions(foods);
+      } else {
+        showSuggestions(activities);
+      }
+    });
+
+    // Toggle between food and activity
+    activityOption.addEventListener("click", () => {
+      currentType = "activity";
+      activityOption.classList.add("active");
+      foodOption.classList.remove("active");
+      updatePlaceholder();
+    });
+
+    foodOption.addEventListener("click", () => {
+      currentType = "food";
+      foodOption.classList.add("active");
+      activityOption.classList.remove("active");
+      updatePlaceholder();
     });
 
     // Hide suggestions when clicking outside

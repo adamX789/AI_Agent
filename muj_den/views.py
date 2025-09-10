@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 from .models import Jidelnicek, VybraneRecepty
 from .funkce import najdi_potravinu, call_llm
-from chat.models import Recepty, Potraviny, Makroziviny
+from chat.models import Recepty, Potraviny, Makroziviny,Aktivita
 from decimal import Decimal
 from django.contrib import messages
 from dotenv import load_dotenv
@@ -25,6 +25,7 @@ class MyDayView(View):
         denni_kalorie, denni_bilkoviny, denni_sacharidy, denni_tuky, pitny_rezim = (
             profile.denni_kalorie, profile.denni_bilkoviny, profile.denni_sacharidy, profile.denni_tuky, profile.pitny_rezim_litry)
         seznam_potravin = []
+        seznam_aktivit = []
         for food_item in profile.food_set.all():
             makroziviny = food_item.potravina.makroziviny
             hmotnost = food_item.hmotnost_g
@@ -44,6 +45,15 @@ class MyDayView(View):
             celkove_bilkoviny += makroziviny.bilkoviny_gramy*multiplier
             celkove_sacharidy += makroziviny.sacharidy_gramy*multiplier
             celkove_tuky += makroziviny.tuky_gramy*multiplier
+        for aktivita in profile.activity_set.all():
+            aktivita_obj = aktivita.aktivita
+            spalene_kalorie = aktivita_obj.met_hodnota*profile.aktualni_vaha*Decimal(aktivita.cas_min/60)
+            seznam_aktivit.append({
+                "nazev": aktivita_obj.typ_aktivity,
+                "id": aktivita.id,
+                "cas": aktivita.cas_min,
+                "spalene_kalorie":round(spalene_kalorie,1)
+            })
 
         denni_info = {
             "denni_k": denni_kalorie if denni_kalorie else 0,
@@ -62,6 +72,7 @@ class MyDayView(View):
             "denni_info": denni_info,
             "celkove_info": celkove_info,
             "potraviny": seznam_potravin,
+            "aktivity":seznam_aktivit,
             "jidelnicek": jidelnicek,
             "vybrane_recepty": vybrane_recepty
         }
@@ -103,8 +114,9 @@ class MyDayView(View):
         denni_kalorie, denni_bilkoviny, denni_sacharidy, denni_tuky, pitny_rezim = (
             profile.denni_kalorie, profile.denni_bilkoviny, profile.denni_sacharidy, profile.denni_tuky, profile.pitny_rezim_litry)
         seznam_potravin = []
+        seznam_aktivit = []
         for food_item in profile.food_set.all():
-            if request.POST.get("delete") == "del" + str(food_item.id):
+            if request.POST.get("delete_p") == "del" + str(food_item.id):
                 profile.food_set.filter(id=food_item.id).delete()
                 continue
             makroziviny = food_item.potravina.makroziviny
@@ -125,6 +137,18 @@ class MyDayView(View):
             celkove_bilkoviny += makroziviny.bilkoviny_gramy*multiplier
             celkove_sacharidy += makroziviny.sacharidy_gramy*multiplier
             celkove_tuky += makroziviny.tuky_gramy*multiplier
+        for aktivita in profile.activity_set.all():
+            if request.POST.get("delete_a") == "del" + str(aktivita.id):
+                profile.activity_set.filter(id=aktivita.id).delete()
+                continue
+            aktivita_obj = aktivita.aktivita
+            spalene_kalorie = aktivita_obj.met_hodnota*profile.aktualni_vaha*Decimal(aktivita.cas_min/60)
+            seznam_aktivit.append({
+                "nazev": aktivita_obj.typ_aktivity,
+                "id": aktivita.id,
+                "cas": aktivita.cas_min,
+                "spalene_kalorie":round(spalene_kalorie,1)
+            })
 
         denni_info = {
             "denni_k": denni_kalorie if denni_kalorie else 0,
@@ -143,6 +167,7 @@ class MyDayView(View):
             "denni_info": denni_info,
             "celkove_info": celkove_info,
             "potraviny": seznam_potravin,
+            "aktivity":seznam_aktivit,
             "jidelnicek": jidelnicek,
             "vybrane_recepty": vybrane_recepty
         }
@@ -153,25 +178,31 @@ class AddView(View):
     def get(self, request):
         profile = request.user.profile
         seznam_potravin = Potraviny.objects.all().values_list("nazev", flat=True)
-        return render(request, "add.html", {"potraviny": list(seznam_potravin)})
+        seznam_aktivit = Aktivita.objects.all().values_list("typ_aktivity",flat=True)
+        return render(request, "add.html", {"potraviny": list(seznam_potravin), "aktivity": list(seznam_aktivit)})
 
     def post(self, request):
         profile = request.user.profile
         print(request.POST)
         if request.POST.get("add") == "a":
-            potravina_nazev = request.POST.get("potravina")
-            potravina = Potraviny.objects.get(nazev=potravina_nazev)
-            mnozstvi = Decimal(request.POST.get("mnozstvi"))
+            objekt = request.POST.get("objekt")
             jednotka = request.POST.get("jednotka")
-            if jednotka in ["g", "ml"]:
-                profile.food_set.create(
-                    potravina=potravina, jednotka=jednotka, hmotnost_g=mnozstvi)
+            if jednotka == "min":
+                mnozstvi = int(request.POST.get("mnozstvi"))
+                aktivita = Aktivita.objects.get(typ_aktivity=objekt)
+                profile.activity_set.create(aktivita=aktivita, cas_min=mnozstvi)
             else:
-                odpoved = call_llm(
-                    potravina=potravina_nazev, jednotka=jednotka)
-                profile.food_set.create(
-                    potravina=potravina, jednotka="g", hmotnost_g=mnozstvi*Decimal(odpoved))
-            profile.save()
+                mnozstvi = Decimal(request.POST.get("mnozstvi"))
+                potravina = Potraviny.objects.get(nazev=objekt)
+                if jednotka in ["g", "ml"]:
+                    profile.food_set.create(
+                        potravina=potravina, jednotka=jednotka, hmotnost_g=mnozstvi)
+                else:
+                    odpoved = call_llm(
+                        potravina=objekt, jednotka=jednotka)
+                    profile.food_set.create(
+                        potravina=potravina, jednotka="g", hmotnost_g=mnozstvi*Decimal(odpoved))
+                profile.save()
         return redirect("my_day")
 
 

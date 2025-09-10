@@ -162,7 +162,7 @@ zbyvajici bilkoviny = {zbyvajici_bilkoviny}
 zbyvajici sacharidy = {zbyvajici_sacharidy}
 zbyvajici tuky = {zbyvajici_tuky}""")
     relevantni_svaciny = filtruj_recepty_podle_kcal(
-        kalorie=profile.denni_kalorie*Decimal(0.2), typ_jidla="svacina", seznam_receptu=vsechny_recepty)
+        kalorie=profile.denni_kalorie*Decimal(0.125), typ_jidla="svacina", seznam_receptu=vsechny_recepty)
     if relevantni_svaciny.exists():
         vybrana_svacina = relevantni_svaciny.order_by("?").first()
         if cislo_svaciny == 1:
@@ -185,7 +185,7 @@ zbyvajici tuky = {zbyvajici_tuky}""")
         seznam_id = [s.id for s in profile.jidelnicek.seznam_svacin1.all()] if cislo_svaciny == 1 else [s.id for s in profile.jidelnicek.seznam_svacin2.all()]
         nove_recepty = Recepty.objects.all().exclude(id__in = seznam_id)
         relevantni_svaciny = filtruj_recepty_podle_kcal(
-        kalorie=profile.denni_kalorie*Decimal(0.2), typ_jidla="svacina", seznam_receptu=nove_recepty)
+        kalorie=profile.denni_kalorie*Decimal(0.125), typ_jidla="svacina", seznam_receptu=nove_recepty)
         dalsi_svaciny = relevantni_svaciny.order_by("?")[:4-pocet_zbyvajicich]
         profile.jidelnicek.seznam_svacin1.add(*dalsi_svaciny) if cislo_svaciny == 1 else profile.jidelnicek.seznam_svacin2.add(*dalsi_svaciny)
         profile.save()
@@ -223,7 +223,7 @@ zbyvajici bilkoviny = {zbyvajici_bilkoviny}
 zbyvajici sacharidy = {zbyvajici_sacharidy}
 zbyvajici tuky = {zbyvajici_tuky}""")
     relevantni_obedy = filtruj_recepty_podle_kcal(
-        kalorie=profile.denni_kalorie*Decimal(0.2), typ_jidla="obed", seznam_receptu=vsechny_recepty)
+        kalorie=profile.denni_kalorie*Decimal(0.3), typ_jidla="obed", seznam_receptu=vsechny_recepty)
     if relevantni_obedy.exists():
         vybrany_obed = relevantni_obedy.order_by("?").first()
         profile.jidelnicek.seznam_obedu.add(vybrany_obed)
@@ -239,7 +239,7 @@ zbyvajici tuky = {zbyvajici_tuky}""")
         seznam_id = [o.id for o in profile.jidelnicek.seznam_obedu.all()]
         nove_recepty = Recepty.objects.all().exclude(id__in = seznam_id)
         relevantni_obedy = filtruj_recepty_podle_kcal(
-        kalorie=profile.denni_kalorie*Decimal(0.2), typ_jidla="obed", seznam_receptu=nove_recepty)
+        kalorie=profile.denni_kalorie*Decimal(0.3), typ_jidla="obed", seznam_receptu=nove_recepty)
         dalsi_obedy = relevantni_obedy.order_by("?")[:4-pocet_zbyvajicich]
         profile.jidelnicek.seznam_obedu.add(*dalsi_obedy)
         profile.save()

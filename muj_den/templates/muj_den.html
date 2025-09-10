@@ -48,7 +48,7 @@
     <section class="switcher">
       <div class="tabs">
         <button class="tab-btn active" data-target="recipes">Dnešní jídelníček</button>
-        <button class="tab-btn" data-target="foods">Dnešní záznam potravin</button>
+        <button class="tab-btn" data-target="foods">Dnešní záznam</button>
       </div>
 
   <!-- ✅ Recepty -->
@@ -188,13 +188,26 @@
 <div id="foods" class="tab-content">
   <form action="" method="POST">
     {% csrf_token %}
+    <h1>Potraviny</h1>
+    <p></p>
     <ul class="foods-list">
       {% if potraviny %}
       {% for potravina in potraviny %}
-        <li>{{potravina.nazev}} {{potravina.hmotnost|stringformat:'.1f'}}{{potravina.jednotka}} <button class="delete-btn" name="delete" value="del{{potravina.id}}">×</button></li>
+        <li>{{potravina.nazev}} {{potravina.hmotnost|stringformat:'.1f'}}{{potravina.jednotka}} <button class="delete-btn" name="delete_p" value="del{{potravina.id}}">×</button></li>
       {% endfor %}
       {% else %}
       <h4>Dnes jste nesnědl žádné potraviny.</h4>
+      {% endif %}
+    </ul>
+    <h1>Aktivity</h1>
+    <p></p>
+    <ul class="foods-list">
+      {% if aktivity %}
+      {% for aktivita in aktivity %}
+        <li>{{aktivita.nazev}} {{aktivita.cas}}min (spáleno {{aktivita.spalene_kalorie|stringformat:'.1f'}} kcal)<button class="delete-btn" name="delete_a" value="del{{aktivita.id}}">×</button></li>
+      {% endfor %}
+      {% else %}
+      <h4>Dnes jste ještě nevykonal žádnou aktivitu.</h4>
       {% endif %}
     </ul>
   </form>
