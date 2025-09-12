@@ -1,31 +1,20 @@
 from django.contrib import admin
-from .models import *
+from .models import Jidelnicek, JidelnicekRecept
 
+# Vytvoření Inline třídy
+class JidelnicekReceptInline(admin.TabularInline):
+    model = JidelnicekRecept
+    extra = 1  # Počet prázdných formulářů pro přidání nových záznamů
 
+# Registrace modelu Jidelnicek s Inline třídou
+@admin.register(Jidelnicek)
 class JidelnicekAdmin(admin.ModelAdmin):
-    list_display = ("profile", "display_snidane", "display_svacina1", "display_obedy", "display_svacina2", "display_vecere")
+    list_display = ['profile']  # Co se má zobrazit v seznamu jídelníčků
+    inlines = [JidelnicekReceptInline]
 
-    def display_snidane(self, obj):
-        # Spojí názvy všech receptů v tomto ManyToManyField a vrátí je jako řetězec
-        return ", ".join([recept.nazev for recept in obj.seznam_snidani.all()])
-    
-    def display_svacina1(self, obj):
-        return ", ".join([recept.nazev for recept in obj.seznam_svacin1.all()])
-
-    def display_obedy(self, obj):
-        return ", ".join([recept.nazev for recept in obj.seznam_obedu.all()])
-        
-    def display_svacina2(self, obj):
-        return ", ".join([recept.nazev for recept in obj.seznam_svacin2.all()])
-
-    def display_vecere(self, obj):
-        return ", ".join([recept.nazev for recept in obj.seznam_veceri.all()])
-
-
-class VybraneReceptyAdmin(admin.ModelAdmin):
-    list_display = ("profile", "snidane", "svacina1",
-                    "obed", "svacina2", "vecere")
-
-
-admin.site.register(Jidelnicek, JidelnicekAdmin)
-admin.site.register(VybraneRecepty, VybraneReceptyAdmin)
+# Nezapomeňte také zaregistrovat samotný JidelnicekRecept, pokud ho chcete mít v administraci zvlášť
+@admin.register(JidelnicekRecept)
+class JidelnicekReceptAdmin(admin.ModelAdmin):
+    list_display = ['jidelnicek', 'recept', 'chod', 'scale_factor', 'snezeno']
+    list_filter = ['jidelnicek', 'chod']
+    search_fields = ['recept__nazev']

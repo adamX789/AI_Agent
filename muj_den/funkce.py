@@ -1,5 +1,6 @@
 from chat.models import Recepty
 from user_profile.models import Profile
+from muj_den.models import JidelnicekRecept
 from .models import *
 from decimal import Decimal
 import os
@@ -45,6 +46,12 @@ def call_llm(potravina, jednotka):
     elif jednotka in ["plátek", "plátky", "plátků"]:
         final_response_platky: PrevodJednotekPlatky = response.parsed
         return final_response_platky.pocet_gramu_na_platek
+
+
+def zvetsi_zmensi_recept(min_k, max_k, recept_k):
+    cilove_k = (min_k + max_k) / 2
+    scale_factor = cilove_k / Decimal(recept_k)
+    return round(scale_factor,3)
 
 
 def najdi_potravinu(ingredience, profile):
@@ -100,14 +107,58 @@ def najdi_potravinu(ingredience, profile):
 def filtruj_recepty_podle_kcal(kalorie, typ_jidla, seznam_receptu):
     min_kcal = kalorie * Decimal(0.85)
     max_kcal = kalorie * Decimal(1.15)
-    seznam_id = [r.id for r in seznam_receptu]
-    seznam_receptu = Recepty.objects.filter(id__in = seznam_id)
-    relevantni_recepty = seznam_receptu.filter(
-        typ_jidla=typ_jidla,
+    recepty_dict = []
+    seznam_id1 = [r.id for r in seznam_receptu]
+    seznam_receptu = Recepty.objects.filter(id__in=seznam_id1)
+    vsechny_rec_podle_typu = seznam_receptu.filter(typ_jidla=typ_jidla)
+    relevantni_recepty = vsechny_rec_podle_typu.filter(
         makrozivinyrecepty__kalorie__gte=min_kcal,
         makrozivinyrecepty__kalorie__lte=max_kcal
-    )
-    return relevantni_recepty
+    ).order_by("?")[:4]
+    for recept in relevantni_recepty:
+        recepty_dict.append({
+            "recept": recept,
+            "scale_factor": Decimal(1),
+            "chod": typ_jidla
+        })
+
+    if len(recepty_dict) < 4:
+        seznam_id = [r.id for r in relevantni_recepty]
+        zbyvajici_recepty = vsechny_rec_podle_typu.exclude(
+            id__in=seznam_id).order_by("?")[:4 - len(recepty_dict)]
+        for recept in zbyvajici_recepty:
+            recepty_dict.append({
+                "recept": recept,
+                "scale_factor": zvetsi_zmensi_recept(min_k=min_kcal, max_k=max_kcal, recept_k=recept.makrozivinyrecepty.kalorie),
+                "chod": typ_jidla
+            })
+
+    if len(recepty_dict) < 4:
+        seznam_id.extend(r.id for r in zbyvajici_recepty)
+        zbyvajici_recepty = Recepty.objects.filter(
+            typ_jidla=typ_jidla).exclude(id__in=seznam_id)
+        relevantni_recepty2 = zbyvajici_recepty.filter(
+            makrozivinyrecepty__kalorie__gte=min_kcal,
+            makrozivinyrecepty__kalorie__lte=max_kcal
+        ).order_by("?")[:4 - len(recepty_dict)]
+        for recept in relevantni_recepty2:
+            recepty_dict.append({
+                "recept": recept,
+                "scale_factor": Decimal(1),
+                "chod": typ_jidla
+            })
+
+    if len(recepty_dict) < 4:
+        seznam_id.extend(r.id for r in relevantni_recepty2)
+        zbyvajici_recepty2 = Recepty.objects.filter(typ_jidla=typ_jidla).exclude(
+            id__in=seznam_id).order_by("?")[:4 - len(recepty_dict)]
+        for recept in zbyvajici_recepty2:
+            recepty_dict.append({
+                "recept": recept,
+                "scale_factor": zvetsi_zmensi_recept(min_k=min_kcal, max_k=max_kcal, recept_k=recept.makrozivinyrecepty.kalorie),
+                "chod": typ_jidla
+            })
+    return recepty_dict
 
 
 def vyber_snidani(vsechny_recepty, profile):
@@ -120,38 +171,22 @@ zbyvajici kalorie = {zbyvajici_kalorie}
 zbyvajici bilkoviny = {zbyvajici_bilkoviny}
 zbyvajici sacharidy = {zbyvajici_sacharidy}
 zbyvajici tuky = {zbyvajici_tuky}""")
-    relevantni_snidane = filtruj_recepty_podle_kcal(
+    jidelnicek,_ = Jidelnicek.objects.get_or_create(profile=profile)
+    vybrane_snidane = filtruj_recepty_podle_kcal(
         kalorie=zbyvajici_kalorie*Decimal(0.2), typ_jidla="snidane", seznam_receptu=vsechny_recepty)
-    if relevantni_snidane.exists():
-        vybrana_snidane = relevantni_snidane.order_by("?").first()
-        profile.jidelnicek.seznam_snidani.add(vybrana_snidane)
-        dalsi_recepty = relevantni_snidane.exclude(id=vybrana_snidane.id)
-        dalsi_snidane = dalsi_recepty.order_by("?")[:3]
-        profile.jidelnicek.seznam_snidani.add(*dalsi_snidane)
-        profile.vybranerecepty.snidane = vybrana_snidane
-        profile.vybranerecepty.save()
-    pocet_zbyvajicich = profile.jidelnicek.seznam_snidani.count()
-
-    if pocet_zbyvajicich < 4:
-        seznam_id = [s.id for s in profile.jidelnicek.seznam_snidani.all()]
-        nove_recepty = Recepty.objects.all().exclude(id__in = seznam_id)
-        relevantni_snidane = filtruj_recepty_podle_kcal(
-        kalorie=zbyvajici_kalorie*Decimal(0.2), typ_jidla="snidane", seznam_receptu=nove_recepty)
-        dalsi_snidane = relevantni_snidane.order_by("?")[:4-pocet_zbyvajicich]
-        profile.jidelnicek.seznam_snidani.add(*dalsi_snidane)
-        profile.save()
-        if not profile.vybranerecepty.snidane and relevantni_snidane.exists():
-            profile.vybranerecepty.snidane = dalsi_snidane.first()
-
-    profile.vybranerecepty.save()
-    if profile.vybranerecepty.snidane:
-        zbyvajici_kalorie -= profile.vybranerecepty.snidane.makrozivinyrecepty.kalorie
-        zbyvajici_bilkoviny -= profile.vybranerecepty.snidane.makrozivinyrecepty.bilkoviny_gramy
-        zbyvajici_sacharidy -= profile.vybranerecepty.snidane.makrozivinyrecepty.sacharidy_gramy
-        zbyvajici_tuky -= profile.vybranerecepty.snidane.makrozivinyrecepty.tuky_gramy
-    else:
-        print("nebyla nalezena žádná snídaně")
-    profile.save()
+    for i,snidane in enumerate(vybrane_snidane):
+        recept,created = JidelnicekRecept.objects.get_or_create(
+            jidelnicek=jidelnicek,
+            recept = snidane["recept"],
+            scale_factor = snidane["scale_factor"],
+            chod = snidane["chod"],
+            snezeno = False
+        )
+        if i == 0:
+            zbyvajici_kalorie -= snidane["recept"].makrozivinyrecepty.kalorie
+            zbyvajici_bilkoviny -= snidane["recept"].makrozivinyrecepty.bilkoviny_gramy
+            zbyvajici_sacharidy -= snidane["recept"].makrozivinyrecepty.sacharidy_gramy
+            zbyvajici_tuky -= snidane["recept"].makrozivinyrecepty.tuky_gramy
     return zbyvajici_kalorie, zbyvajici_bilkoviny, zbyvajici_sacharidy, zbyvajici_tuky
 
 
@@ -161,58 +196,22 @@ zbyvajici kalorie = {zbyvajici_kalorie}
 zbyvajici bilkoviny = {zbyvajici_bilkoviny}
 zbyvajici sacharidy = {zbyvajici_sacharidy}
 zbyvajici tuky = {zbyvajici_tuky}""")
-    relevantni_svaciny = filtruj_recepty_podle_kcal(
+    jidelnicek = Jidelnicek.objects.get(profile=profile)
+    vybrane_svaciny = filtruj_recepty_podle_kcal(
         kalorie=profile.denni_kalorie*Decimal(0.125), typ_jidla="svacina", seznam_receptu=vsechny_recepty)
-    if relevantni_svaciny.exists():
-        vybrana_svacina = relevantni_svaciny.order_by("?").first()
-        if cislo_svaciny == 1:
-            profile.vybranerecepty.svacina1 = vybrana_svacina
-            profile.jidelnicek.seznam_svacin1.add(vybrana_svacina)
-            dalsi_recepty = relevantni_svaciny.exclude(id=vybrana_svacina.id)
-            dalsi_svaciny = dalsi_recepty.order_by("?")[:3]
-            profile.jidelnicek.seznam_svacin1.add(*dalsi_svaciny)
-        else:
-            profile.vybranerecepty.svacina2 = vybrana_svacina
-            profile.jidelnicek.seznam_svacin2.add(vybrana_svacina)
-            dalsi_recepty = relevantni_svaciny.exclude(id=vybrana_svacina.id)
-            dalsi_svaciny = dalsi_recepty.order_by("?")[:3]
-            profile.jidelnicek.seznam_svacin2.add(*dalsi_svaciny)
-        profile.vybranerecepty.save()
-        profile.save()
-    pocet_zbyvajicich = profile.jidelnicek.seznam_svacin1.count() if cislo_svaciny == 1 else profile.jidelnicek.seznam_svacin2.count()
-
-    if pocet_zbyvajicich < 4:
-        seznam_id = [s.id for s in profile.jidelnicek.seznam_svacin1.all()] if cislo_svaciny == 1 else [s.id for s in profile.jidelnicek.seznam_svacin2.all()]
-        nove_recepty = Recepty.objects.all().exclude(id__in = seznam_id)
-        relevantni_svaciny = filtruj_recepty_podle_kcal(
-        kalorie=profile.denni_kalorie*Decimal(0.125), typ_jidla="svacina", seznam_receptu=nove_recepty)
-        dalsi_svaciny = relevantni_svaciny.order_by("?")[:4-pocet_zbyvajicich]
-        profile.jidelnicek.seznam_svacin1.add(*dalsi_svaciny) if cislo_svaciny == 1 else profile.jidelnicek.seznam_svacin2.add(*dalsi_svaciny)
-        profile.save()
-        if cislo_svaciny == 1:
-            if not profile.vybranerecepty.svacina1 and relevantni_svaciny.exists():
-                profile.vybranerecepty.svacina1 = dalsi_svaciny.first()
-        else:
-            if not profile.vybranerecepty.svacina2 and relevantni_svaciny.exists():
-                profile.vybranerecepty.svacina2 = dalsi_svaciny.first()
-    profile.vybranerecepty.save()
-    if cislo_svaciny == 1:
-        if profile.vybranerecepty.svacina1:
-            zbyvajici_kalorie -= profile.vybranerecepty.svacina1.makrozivinyrecepty.kalorie
-            zbyvajici_bilkoviny -=profile.vybranerecepty.svacina1.makrozivinyrecepty.bilkoviny_gramy
-            zbyvajici_sacharidy -= profile.vybranerecepty.svacina1.makrozivinyrecepty.sacharidy_gramy
-            zbyvajici_tuky -= profile.vybranerecepty.svacina1.makrozivinyrecepty.tuky_gramy
-        else:
-            print("nebyla nalezena žádná svačina")
-    else:
-        if profile.vybranerecepty.svacina2:
-            zbyvajici_kalorie -= profile.vybranerecepty.svacina2.makrozivinyrecepty.kalorie
-            zbyvajici_bilkoviny -=profile.vybranerecepty.svacina2.makrozivinyrecepty.bilkoviny_gramy
-            zbyvajici_sacharidy -= profile.vybranerecepty.svacina2.makrozivinyrecepty.sacharidy_gramy
-            zbyvajici_tuky -= profile.vybranerecepty.svacina2.makrozivinyrecepty.tuky_gramy
-        else:
-            print("nebyla nalezena žádná svačina")
-    profile.save()
+    for i,svacina in enumerate(vybrane_svaciny):
+        JidelnicekRecept.objects.create(
+            jidelnicek=jidelnicek,
+            recept = svacina["recept"],
+            scale_factor = svacina["scale_factor"],
+            chod = "svacina1" if cislo_svaciny == 1 else "svacina2",
+            snezeno = False
+        )
+        if i == 0:
+            zbyvajici_kalorie -= svacina["recept"].makrozivinyrecepty.kalorie
+            zbyvajici_bilkoviny -= svacina["recept"].makrozivinyrecepty.bilkoviny_gramy
+            zbyvajici_sacharidy -= svacina["recept"].makrozivinyrecepty.sacharidy_gramy
+            zbyvajici_tuky -= svacina["recept"].makrozivinyrecepty.tuky_gramy
     return zbyvajici_kalorie, zbyvajici_bilkoviny, zbyvajici_sacharidy, zbyvajici_tuky
 
 
@@ -222,38 +221,22 @@ zbyvajici kalorie = {zbyvajici_kalorie}
 zbyvajici bilkoviny = {zbyvajici_bilkoviny}
 zbyvajici sacharidy = {zbyvajici_sacharidy}
 zbyvajici tuky = {zbyvajici_tuky}""")
-    relevantni_obedy = filtruj_recepty_podle_kcal(
+    jidelnicek = Jidelnicek.objects.get(profile=profile)
+    vybrane_obedy = filtruj_recepty_podle_kcal(
         kalorie=profile.denni_kalorie*Decimal(0.3), typ_jidla="obed", seznam_receptu=vsechny_recepty)
-    if relevantni_obedy.exists():
-        vybrany_obed = relevantni_obedy.order_by("?").first()
-        profile.jidelnicek.seznam_obedu.add(vybrany_obed)
-        dalsi_recepty = relevantni_obedy.exclude(id=vybrany_obed.id)
-        dalsi_obedy = dalsi_recepty.order_by("?")[:3]
-        profile.jidelnicek.seznam_obedu.add(*dalsi_obedy)
-        profile.vybranerecepty.obed = vybrany_obed
-        profile.vybranerecepty.save()
-        profile.save()
-    pocet_zbyvajicich = profile.jidelnicek.seznam_obedu.count()
-
-    if pocet_zbyvajicich < 4:
-        seznam_id = [o.id for o in profile.jidelnicek.seznam_obedu.all()]
-        nove_recepty = Recepty.objects.all().exclude(id__in = seznam_id)
-        relevantni_obedy = filtruj_recepty_podle_kcal(
-        kalorie=profile.denni_kalorie*Decimal(0.3), typ_jidla="obed", seznam_receptu=nove_recepty)
-        dalsi_obedy = relevantni_obedy.order_by("?")[:4-pocet_zbyvajicich]
-        profile.jidelnicek.seznam_obedu.add(*dalsi_obedy)
-        profile.save()
-        if not profile.vybranerecepty.obed and relevantni_obedy.exists():
-            profile.vybranerecepty.obed = dalsi_obedy.first()
-    profile.vybranerecepty.save()
-    if profile.vybranerecepty.obed:
-        zbyvajici_kalorie -= profile.vybranerecepty.obed.makrozivinyrecepty.kalorie
-        zbyvajici_bilkoviny -= profile.vybranerecepty.obed.makrozivinyrecepty.bilkoviny_gramy
-        zbyvajici_sacharidy -= profile.vybranerecepty.obed.makrozivinyrecepty.sacharidy_gramy
-        zbyvajici_tuky -= profile.vybranerecepty.obed.makrozivinyrecepty.tuky_gramy
-    else:
-        print("nebyl nalezen žádný oběd")
-    profile.save()
+    for i,obed in enumerate(vybrane_obedy):
+        JidelnicekRecept.objects.create(
+            jidelnicek=jidelnicek,
+            recept = obed["recept"],
+            scale_factor = obed["scale_factor"],
+            chod = obed["chod"],
+            snezeno = False
+        )
+        if i == 0:
+            zbyvajici_kalorie -= obed["recept"].makrozivinyrecepty.kalorie
+            zbyvajici_bilkoviny -= obed["recept"].makrozivinyrecepty.bilkoviny_gramy
+            zbyvajici_sacharidy -= obed["recept"].makrozivinyrecepty.sacharidy_gramy
+            zbyvajici_tuky -= obed["recept"].makrozivinyrecepty.tuky_gramy
     return zbyvajici_kalorie, zbyvajici_bilkoviny, zbyvajici_sacharidy, zbyvajici_tuky
 
 
@@ -263,65 +246,80 @@ zbyvajici kalorie = {zbyvajici_kalorie}
 zbyvajici bilkoviny = {zbyvajici_bilkoviny}
 zbyvajici sacharidy = {zbyvajici_sacharidy}
 zbyvajici tuky = {zbyvajici_tuky}""")
-    relevantni_vecere = filtruj_recepty_podle_kcal(
+    jidelnicek = Jidelnicek.objects.get(profile=profile)
+    vybrane_vecere = filtruj_recepty_podle_kcal(
         kalorie=Decimal(zbyvajici_kalorie), typ_jidla="vecere", seznam_receptu=vsechny_recepty)
-    if relevantni_vecere.exists():
-        vybrana_vecere = relevantni_vecere.order_by("?").first()
-        profile.jidelnicek.seznam_veceri.add(vybrana_vecere)
-        dalsi_recepty = relevantni_vecere.exclude(id=vybrana_vecere.id)
-        dalsi_vecere = dalsi_recepty.order_by("?")[:3]
-        profile.jidelnicek.seznam_veceri.add(*dalsi_vecere)
-        profile.vybranerecepty.vecere = vybrana_vecere
-        profile.vybranerecepty.save()
-        profile.save()
-    pocet_zbyvajicich = profile.jidelnicek.seznam_veceri.count()
-
-    if pocet_zbyvajicich < 4:
-        seznam_id = [v.id for v in profile.jidelnicek.seznam_veceri.all()]
-        nove_recepty = Recepty.objects.all().exclude(id__in = seznam_id)
-        relevantni_vecere = filtruj_recepty_podle_kcal(
-        kalorie=Decimal(zbyvajici_kalorie), typ_jidla="vecere", seznam_receptu=nove_recepty)
-        dalsi_vecere = relevantni_vecere.order_by("?")[:4-pocet_zbyvajicich]
-        profile.jidelnicek.seznam_veceri.add(*dalsi_vecere)
-        profile.save()
-        if not profile.vybranerecepty.vecere and relevantni_vecere.exists():
-            profile.vybranerecepty.vecere = dalsi_vecere.first()
-
-    profile.vybranerecepty.save()
-    if profile.vybranerecepty.vecere:
-        zbyvajici_kalorie -= profile.vybranerecepty.vecere.makrozivinyrecepty.kalorie
-        zbyvajici_bilkoviny -= profile.vybranerecepty.vecere.makrozivinyrecepty.bilkoviny_gramy
-        zbyvajici_sacharidy -= profile.vybranerecepty.vecere.makrozivinyrecepty.sacharidy_gramy
-        zbyvajici_tuky -= profile.vybranerecepty.vecere.makrozivinyrecepty.tuky_gramy
-    else:
-        print("nebyla nalezena žádná večeře")
-    profile.save()
+    for i,vecere in enumerate(vybrane_vecere):
+        JidelnicekRecept.objects.create(
+            jidelnicek=jidelnicek,
+            recept = vecere["recept"],
+            scale_factor = vecere["scale_factor"],
+            chod = vecere["chod"],
+            snezeno = False
+        )
+        if i == 0:
+            zbyvajici_kalorie -= vecere["recept"].makrozivinyrecepty.kalorie
+            zbyvajici_bilkoviny -= vecere["recept"].makrozivinyrecepty.bilkoviny_gramy
+            zbyvajici_sacharidy -= vecere["recept"].makrozivinyrecepty.sacharidy_gramy
+            zbyvajici_tuky -= vecere["recept"].makrozivinyrecepty.tuky_gramy
     return zbyvajici_kalorie, zbyvajici_bilkoviny, zbyvajici_sacharidy, zbyvajici_tuky
 
 
 def sestav_jidelnicek(profile, reset=False, vsechny_recepty=Recepty.objects.all()):
-    vybrane_recepty, _ = VybraneRecepty.objects.get_or_create(profile=profile)
-    jidelnicek, _ = Jidelnicek.objects.get_or_create(profile=profile)
-    vybrane_recepty.snidane = None
-    vybrane_recepty.svacina1 = None
-    vybrane_recepty.obed = None
-    vybrane_recepty.svacina2 = None
-    vybrane_recepty.vecere = None
-    jidelnicek.seznam_snidani.clear()
-    jidelnicek.seznam_svacin1.clear()
-    jidelnicek.seznam_obedu.clear()
-    jidelnicek.seznam_svacin2.clear()
-    jidelnicek.seznam_veceri.clear()
+    kalorie = profile.denni_kalorie
+    bilkoviny = profile.denni_bilkoviny
+    sacharidy = profile.denni_sacharidy
+    tuky = profile.denni_tuky
+    jidelnicek,_= Jidelnicek.objects.get_or_create(profile=profile)
     if reset:
-        vybrane_recepty.snidane_snezena, vybrane_recepty.svacina1_snezena, vybrane_recepty.obed_snezen, vybrane_recepty.svacina2_snezena, vybrane_recepty.vecere_snezena = False, False, False, False, False
-    vybrane_recepty.save()
-    kalorie, bilkoviny, sacharidy, tuky = vyber_snidani(
-        vsechny_recepty=vsechny_recepty, profile=profile)
-    kalorie, bilkoviny, sacharidy, tuky = vyber_svaciny(
-        vsechny_recepty=vsechny_recepty, profile=profile, cislo_svaciny=1, zbyvajici_kalorie=kalorie, zbyvajici_bilkoviny=bilkoviny, zbyvajici_sacharidy=sacharidy, zbyvajici_tuky=tuky)
-    kalorie, bilkoviny, sacharidy, tuky = vyber_obed(
-        vsechny_recepty=vsechny_recepty, profile=profile, zbyvajici_kalorie=kalorie, zbyvajici_bilkoviny=bilkoviny, zbyvajici_sacharidy=sacharidy, zbyvajici_tuky=tuky)
-    kalorie, bilkoviny, sacharidy, tuky = vyber_svaciny(
-        vsechny_recepty=vsechny_recepty, profile=profile, cislo_svaciny=2, zbyvajici_kalorie=kalorie, zbyvajici_bilkoviny=bilkoviny, zbyvajici_sacharidy=sacharidy, zbyvajici_tuky=tuky)
-    kalorie, bilkoviny, sacharidy, tuky = vyber_veceri(
-        vsechny_recepty=vsechny_recepty, profile=profile, zbyvajici_kalorie=kalorie, zbyvajici_bilkoviny=bilkoviny, zbyvajici_sacharidy=sacharidy, zbyvajici_tuky=tuky)
+        JidelnicekRecept.objects.all().delete()
+        snedena_list = []
+    else:
+        snedena_jidla = jidelnicek.jidelnicekrecept_set.filter(snezeno=True)
+        snedena_list = [s.chod for s in snedena_jidla]
+        jidelnicek.jidelnicekrecept_set.filter(snezeno=False).delete()
+    if "snidane" not in snedena_list:
+        kalorie, bilkoviny, sacharidy, tuky = vyber_snidani(
+            vsechny_recepty=vsechny_recepty, profile=profile)
+    else:
+        snedena_snidane = snedena_jidla.get(chod = "snidane")
+        kalorie -= snedena_snidane.recept.makrozivinyrecepty.kalorie*snedena_snidane.scale_factor
+        bilkoviny -= snedena_snidane.recept.makrozivinyrecepty.bilkoviny_gramy*snedena_snidane.scale_factor
+        sacharidy -= snedena_snidane.recept.makrozivinyrecepty.sacharidy_gramy*snedena_snidane.scale_factor
+        tuky -= snedena_snidane.recept.makrozivinyrecepty.tuky_gramy*snedena_snidane.scale_factor
+    if "svacina1" not in snedena_list:
+        kalorie, bilkoviny, sacharidy, tuky = vyber_svaciny(
+            vsechny_recepty=vsechny_recepty, profile=profile, cislo_svaciny=1, zbyvajici_kalorie=kalorie, zbyvajici_bilkoviny=bilkoviny, zbyvajici_sacharidy=sacharidy, zbyvajici_tuky=tuky)
+    else:
+        snedena_svacina1 = snedena_jidla.get(chod = "svacina1")
+        kalorie -= snedena_svacina1.recept.makrozivinyrecepty.kalorie*snedena_svacina1.scale_factor
+        bilkoviny -= snedena_svacina1.recept.makrozivinyrecepty.bilkoviny_gramy*snedena_svacina1.scale_factor
+        sacharidy -= snedena_svacina1.recept.makrozivinyrecepty.sacharidy_gramy*snedena_svacina1.scale_factor
+        tuky -= snedena_svacina1.recept.makrozivinyrecepty.tuky_gramy*snedena_svacina1.scale_factor
+    if "obed" not in snedena_list:
+        kalorie, bilkoviny, sacharidy, tuky = vyber_obed(
+            vsechny_recepty=vsechny_recepty, profile=profile, zbyvajici_kalorie=kalorie, zbyvajici_bilkoviny=bilkoviny, zbyvajici_sacharidy=sacharidy, zbyvajici_tuky=tuky)
+    else:
+        snedeny_obed = snedena_jidla.get(chod = "obed")
+        kalorie -= snedeny_obed.recept.makrozivinyrecepty.kalorie*snedeny_obed.scale_factor
+        bilkoviny -= snedeny_obed.recept.makrozivinyrecepty.bilkoviny_gramy*snedeny_obed.scale_factor
+        sacharidy -= snedeny_obed.recept.makrozivinyrecepty.sacharidy_gramy*snedeny_obed.scale_factor
+        tuky -= snedeny_obed.recept.makrozivinyrecepty.tuky_gramy*snedeny_obed.scale_factor
+    if "svacina2" not in snedena_list:
+        kalorie, bilkoviny, sacharidy, tuky = vyber_svaciny(
+            vsechny_recepty=vsechny_recepty, profile=profile, cislo_svaciny=2, zbyvajici_kalorie=kalorie, zbyvajici_bilkoviny=bilkoviny, zbyvajici_sacharidy=sacharidy, zbyvajici_tuky=tuky)
+    else:
+        snedena_svacina2 = snedena_jidla.get(chod = "svacina2")
+        kalorie -= snedena_svacina2.recept.makrozivinyrecepty.kalorie*snedena_svacina2.scale_factor
+        bilkoviny -= snedena_svacina2.recept.makrozivinyrecepty.bilkoviny_gramy*snedena_svacina2.scale_factor
+        sacharidy -= snedena_svacina2.recept.makrozivinyrecepty.sacharidy_gramy*snedena_svacina2.scale_factor
+        tuky -= snedena_svacina2.recept.makrozivinyrecepty.tuky_gramy*snedena_svacina2.scale_factor
+    if "vecere" not in snedena_list:
+        kalorie, bilkoviny, sacharidy, tuky = vyber_veceri(
+            vsechny_recepty=vsechny_recepty, profile=profile, zbyvajici_kalorie=kalorie, zbyvajici_bilkoviny=bilkoviny, zbyvajici_sacharidy=sacharidy, zbyvajici_tuky=tuky)
+    else:
+        snedena_vecere = snedena_jidla.get(chod = "vecere")
+        kalorie -= snedena_vecere.recept.makrozivinyrecepty.kalorie*snedena_vecere.scale_factor
+        bilkoviny -= snedena_vecere.recept.makrozivinyrecepty.bilkoviny_gramy*snedena_vecere.scale_factor
+        sacharidy -= snedena_vecere.recept.makrozivinyrecepty.sacharidy_gramy*snedena_vecere.scale_factor
+        tuky -= snedena_vecere.recept.makrozivinyrecepty.tuky_gramy*snedena_vecere.scale_factor

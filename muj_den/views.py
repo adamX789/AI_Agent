@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from .models import Jidelnicek, VybraneRecepty
+from .models import Jidelnicek
 from .funkce import najdi_potravinu, call_llm
 from chat.models import Recepty, Potraviny, Makroziviny,Aktivita
 from decimal import Decimal
@@ -19,7 +19,6 @@ class MyDayView(View):
     def get(self, request):
         profile = request.user.profile
         jidelnicek = Jidelnicek.objects.get(profile=profile)
-        vybrane_recepty = VybraneRecepty.objects.get(profile=profile)
         celkove_kalorie, celkove_bilkoviny, celkove_sacharidy, celkove_tuky = (
             0, 0, 0, 0)
         denni_kalorie, denni_bilkoviny, denni_sacharidy, denni_tuky, pitny_rezim = (
@@ -54,7 +53,71 @@ class MyDayView(View):
                 "cas": aktivita.cas_min,
                 "spalene_kalorie":round(spalene_kalorie,1)
             })
-
+            celkove_kalorie -= spalene_kalorie
+        seznam_snidani = []
+        seznam_svacin1 = []
+        seznam_obedu = []
+        seznam_svacin2 = []
+        seznam_veceri = []
+        for recept in jidelnicek.jidelnicekrecept_set.all():
+            seznam_ingredienci = []
+            for ingredience in recept.recept.ingredience:
+                nazev = ingredience["nazev"]
+                hodnota_str = ingredience["mnozstvi"].strip().split(" ")[0]
+                try:
+                    hodnota = float(hodnota_str)
+                except ValueError:
+                    numerator, denominator = map(float, hodnota_str.split('/'))
+                    hodnota = numerator / denominator
+                nova_hodnota = Decimal(hodnota)*recept.scale_factor
+                jednotka = ingredience["mnozstvi"].strip().split(" ")[1]
+                seznam_ingredienci.append({
+                    "nazev":nazev,
+                    "mnozstvi":nova_hodnota,
+                    "jednotka":jednotka
+                })
+            if recept.chod == "snidane":
+                seznam_snidani.append({
+                    "id":recept.recept.id,
+                    "nazev_receptu":recept.recept.nazev,
+                    "ingredience":seznam_ingredienci,
+                })
+            elif recept.chod == "svacina1":
+                seznam_svacin1.append({
+                    "id":recept.recept.id,
+                    "nazev_receptu":recept.recept.nazev,
+                    "ingredience":seznam_ingredienci,
+                })
+            elif recept.chod =="obed":
+                seznam_obedu.append({
+                    "id":recept.recept.id,
+                    "nazev_receptu":recept.recept.nazev,
+                    "ingredience":seznam_ingredienci,
+                })
+            elif recept.chod == "svacina2":
+                seznam_svacin2.append({
+                    "id":recept.recept.id,
+                    "nazev_receptu":recept.recept.nazev,
+                    "ingredience":seznam_ingredienci,
+                })
+            else:
+                seznam_veceri.append({
+                    "id":recept.recept.id,
+                    "nazev_receptu":recept.recept.nazev,
+                    "ingredience":seznam_ingredienci,
+                })
+        jidelnicek = {
+            "snidane":seznam_snidani,
+            "snidane_snezena":jidelnicek.jidelnicekrecept_set.filter(chod="snidane", snezeno=True).exists(),
+            "svacina1":seznam_svacin1,
+            "svacina1_snezena":jidelnicek.jidelnicekrecept_set.filter(chod="svacina1", snezeno=True).exists(),
+            "obed":seznam_obedu,
+            "obed_snezen":jidelnicek.jidelnicekrecept_set.filter(chod="obed", snezeno=True).exists(),
+            "svacina2":seznam_svacin2,
+            "svacina2_snezena":jidelnicek.jidelnicekrecept_set.filter(chod="svacina2", snezeno=True).exists(),
+            "vecere":seznam_veceri,
+            "vecere_snezena":jidelnicek.jidelnicekrecept_set.filter(chod="vecere", snezeno=True).exists(),
+        }
         denni_info = {
             "denni_k": denni_kalorie if denni_kalorie else 0,
             "denni_b": denni_bilkoviny if denni_bilkoviny else 0,
@@ -74,41 +137,36 @@ class MyDayView(View):
             "potraviny": seznam_potravin,
             "aktivity":seznam_aktivit,
             "jidelnicek": jidelnicek,
-            "vybrane_recepty": vybrane_recepty
         }
         return render(request, "muj_den.html", context)
 
     def post(self, request):
         profile = request.user.profile
+        jidelnicek = Jidelnicek.objects.get(profile=profile)
         print(request.POST)
         if "snedl_jsem" in request.POST:
-            typ_jidla = request.POST.get("snedl_jsem")
             recept_id = int(request.POST.get("recept_id"))
+            ingredience_list = []
             jidlo = Recepty.objects.get(id=recept_id)
-            if typ_jidla == "snidane":
-                profile.vybranerecepty.snidane = jidlo
-                profile.vybranerecepty.snidane_snezena = True
-                najdi_potravinu(ingredience=jidlo.ingredience, profile=profile)
-            elif typ_jidla == "obed":
-                profile.vybranerecepty.obed = jidlo
-                profile.vybranerecepty.obed_snezen = True
-                najdi_potravinu(ingredience=jidlo.ingredience, profile=profile)
-            elif typ_jidla == "svacina1":
-                profile.vybranerecepty.svacina1 = jidlo
-                profile.vybranerecepty.svacina1_snezena = True
-                najdi_potravinu(ingredience=jidlo.ingredience, profile=profile)
-            elif typ_jidla == "svacina2":
-                profile.vybranerecepty.svacina2 = jidlo
-                profile.vybranerecepty.svacina2_snezena = True
-                najdi_potravinu(ingredience=jidlo.ingredience, profile=profile)
-            else:
-                profile.vybranerecepty.vecere = jidlo
-                profile.vybranerecepty.vecere_snezena = True
-                najdi_potravinu(ingredience=jidlo.ingredience, profile=profile)
-            profile.vybranerecepty.save()
+            jidlo_v_jidelnicku = jidelnicek.jidelnicekrecept_set.get(recept=jidlo)
+            jidlo_v_jidelnicku.snezeno = True
+            jidlo_v_jidelnicku.save()
+            for ingredience in jidlo.ingredience:
+                hodnota_str = ingredience["mnozstvi"].strip().split(" ")[0]
+                try:
+                    hodnota = float(hodnota_str)
+                except ValueError:
+                    numerator, denominator = map(float, hodnota_str.split('/'))
+                    hodnota = numerator / denominator
+                nova_hodnota = float(Decimal(hodnota)*jidlo_v_jidelnicku.scale_factor)
+                jednotka = ingredience["mnozstvi"].strip().split(" ")[1]
+                ingredience_list.append({
+                    "nazev":ingredience["nazev"],
+                    "mnozstvi": f"{nova_hodnota} {jednotka}"
+                })
+            najdi_potravinu(ingredience=ingredience_list, profile=profile)
             profile.save()
-        jidelnicek = Jidelnicek.objects.get(profile=profile)
-        vybrane_recepty = VybraneRecepty.objects.get(profile=profile)
+            jidelnicek.save()
         celkove_kalorie, celkove_bilkoviny, celkove_sacharidy, celkove_tuky = (
             0, 0, 0, 0)
         denni_kalorie, denni_bilkoviny, denni_sacharidy, denni_tuky, pitny_rezim = (
@@ -116,9 +174,6 @@ class MyDayView(View):
         seznam_potravin = []
         seznam_aktivit = []
         for food_item in profile.food_set.all():
-            if request.POST.get("delete_p") == "del" + str(food_item.id):
-                profile.food_set.filter(id=food_item.id).delete()
-                continue
             makroziviny = food_item.potravina.makroziviny
             hmotnost = food_item.hmotnost_g
             jednotka = food_item.jednotka
@@ -138,9 +193,6 @@ class MyDayView(View):
             celkove_sacharidy += makroziviny.sacharidy_gramy*multiplier
             celkove_tuky += makroziviny.tuky_gramy*multiplier
         for aktivita in profile.activity_set.all():
-            if request.POST.get("delete_a") == "del" + str(aktivita.id):
-                profile.activity_set.filter(id=aktivita.id).delete()
-                continue
             aktivita_obj = aktivita.aktivita
             spalene_kalorie = aktivita_obj.met_hodnota*profile.aktualni_vaha*Decimal(aktivita.cas_min/60)
             seznam_aktivit.append({
@@ -149,7 +201,71 @@ class MyDayView(View):
                 "cas": aktivita.cas_min,
                 "spalene_kalorie":round(spalene_kalorie,1)
             })
-
+            celkove_kalorie -= spalene_kalorie
+        seznam_snidani = []
+        seznam_svacin1 = []
+        seznam_obedu = []
+        seznam_svacin2 = []
+        seznam_veceri = []
+        for recept in jidelnicek.jidelnicekrecept_set.all():
+            seznam_ingredienci = []
+            for ingredience in recept.recept.ingredience:
+                nazev = ingredience["nazev"]
+                hodnota_str = ingredience["mnozstvi"].strip().split(" ")[0]
+                try:
+                    hodnota = float(hodnota_str)
+                except ValueError:
+                    numerator, denominator = map(float, hodnota_str.split('/'))
+                    hodnota = numerator / denominator
+                nova_hodnota = Decimal(hodnota)*recept.scale_factor
+                jednotka = ingredience["mnozstvi"].strip().split(" ")[1]
+                seznam_ingredienci.append({
+                    "nazev":nazev,
+                    "mnozstvi":nova_hodnota,
+                    "jednotka":jednotka
+                })
+            if recept.chod == "snidane":
+                seznam_snidani.append({
+                    "id":recept.recept.id,
+                    "nazev_receptu":recept.recept.nazev,
+                    "ingredience":seznam_ingredienci,
+                })
+            elif recept.chod == "svacina1":
+                seznam_svacin1.append({
+                    "id":recept.recept.id,
+                    "nazev_receptu":recept.recept.nazev,
+                    "ingredience":seznam_ingredienci,
+                })
+            elif recept.chod =="obed":
+                seznam_obedu.append({
+                    "id":recept.recept.id,
+                    "nazev_receptu":recept.recept.nazev,
+                    "ingredience":seznam_ingredienci,
+                })
+            elif recept.chod == "svacina2":
+                seznam_svacin2.append({
+                    "id":recept.recept.id,
+                    "nazev_receptu":recept.recept.nazev,
+                    "ingredience":seznam_ingredienci,
+                })
+            else:
+                seznam_veceri.append({
+                    "id":recept.recept.id,
+                    "nazev_receptu":recept.recept.nazev,
+                    "ingredience":seznam_ingredienci,
+                })
+        jidelnicek = {
+            "snidane":seznam_snidani,
+            "snidane_snezena":jidelnicek.jidelnicekrecept_set.filter(chod="snidane", snezeno=True).exists(),
+            "svacina1":seznam_svacin1,
+            "svacina1_snezena":jidelnicek.jidelnicekrecept_set.filter(chod="svacina1", snezeno=True).exists(),
+            "obed":seznam_obedu,
+            "obed_snezen":jidelnicek.jidelnicekrecept_set.filter(chod="obed", snezeno=True).exists(),
+            "svacina2":seznam_svacin2,
+            "svacina2_snezena":jidelnicek.jidelnicekrecept_set.filter(chod="svacina2", snezeno=True).exists(),
+            "vecere":seznam_veceri,
+            "vecere_snezena":jidelnicek.jidelnicekrecept_set.filter(chod="vecere", snezeno=True).exists(),
+        }
         denni_info = {
             "denni_k": denni_kalorie if denni_kalorie else 0,
             "denni_b": denni_bilkoviny if denni_bilkoviny else 0,
@@ -169,7 +285,6 @@ class MyDayView(View):
             "potraviny": seznam_potravin,
             "aktivity":seznam_aktivit,
             "jidelnicek": jidelnicek,
-            "vybrane_recepty": vybrane_recepty
         }
         return render(request, "muj_den.html", context)
 

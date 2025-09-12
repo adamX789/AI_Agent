@@ -249,14 +249,18 @@
   
   
   /* ✅ Foods */
+ .activitynadpis {
+    margin-top: 50px;
+  }
   .foods-list {
     list-style: none;
   }
 
   .foods-list h1 {
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
     font-size: 15px;
+    
   }
   
   .foods-list li {
@@ -297,7 +301,7 @@
 
   .activity-list h1 {
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
     font-size: 15px;
   }
   

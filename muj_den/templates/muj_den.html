@@ -57,19 +57,21 @@
     {% csrf_token %}
     <div class="meal">
       <h3>Snídaně</h3>
-      {% if not vybrane_recepty.snidane_snezena %}
+      {% if not jidelnicek.snidane_snezena %}
       <div class="dots">
-        {% for recept in jidelnicek.seznam_snidani.all %}
-          <span class="dot {% if recept.id == vybrane_recepty.snidane.id %}active{% endif %}"></span>
+        {% for recept in jidelnicek.snidane %}
+          <span class="dot {% if forloop.first %}active{% endif %}"></span>
         {% endfor %}
       </div>
-      {% for recept in jidelnicek.seznam_snidani.all %}
-        <div class="recipe {% if recept.id == vybrane_recepty.snidane.id %}active{% else %}hidden{% endif %}" data-recept-id="{{recept.id}}">
-        <p class="recipe-text">{{recept.nazev}} ({% for item in recept.ingredience %}{{item.mnozstvi}} {{item.nazev}}{% if not forloop.last %}, {% endif %}{% endfor %})</p>
+      {% for recept in jidelnicek.snidane %}
+        <div class="recipe {% if forloop.first %}active{% else %}hidden{% endif %}" data-recept-id="{{recept.id}}">
+        <p class="recipe-text">{{recept.nazev_receptu}} ({% for item in recept.ingredience %}{{item.mnozstvi|stringformat:'.1f'}} {{item.jednotka}} {{item.nazev}}{% if not forloop.last %}, {% endif %}{% endfor %})</p>
         </div>
+      {% if forloop.first %}
+      <input type="hidden" name="recept_id" id="vecere_recept_id" value="{{recept.id}}">
+      {% endif %}
       {% endfor %}
       <div class="actions">
-        <input type="hidden" name="recept_id" id="snidane_recept_id" value="{{vybrane_recepty.snidane.id}}">
         <button class="switch-recipe" type="button">🔄 Jiný recept</button>
         <button class="eat-btn" type="submit" name="snedl_jsem" value="snidane">✅ Snědl jsem</button>
       </div>
@@ -83,19 +85,21 @@
       <form action="" method="POST">
         {% csrf_token %}
       <h3>Svačina</h3>
-      {% if not vybrane_recepty.svacina1_snezena %}
+      {% if not jidelnicek.svacina1_snezena %}
       <div class="dots">
-        {% for recept in jidelnicek.seznam_svacin1.all %}
-        <span class="dot {% if recept.id == vybrane_recepty.svacina1.id %}active{% endif %}"></span>
+        {% for recept in jidelnicek.svacina1 %}
+        <span class="dot {% if forloop.first %}active{% endif %}"></span>
         {% endfor %}
       </div>
-      {% for recept in jidelnicek.seznam_svacin1.all %}
-        <div class="recipe {% if recept.id == vybrane_recepty.svacina1.id %}active{% else %}hidden{% endif %}" data-recept-id="{{recept.id}}">
-        <p class="recipe-text" name="recept" value="{{recept.id}}">{{recept.nazev}} ({% for item in recept.ingredience %}{{item.mnozstvi}} {{item.nazev}}{% if not forloop.last %}, {% endif %}{% endfor %})</p>
+      {% for recept in jidelnicek.svacina1 %}
+        <div class="recipe {% if forloop.first %}active{% else %}hidden{% endif %}" data-recept-id="{{recept.id}}">
+        <p class="recipe-text" name="recept" value="{{recept.id}}">{{recept.nazev_receptu}} ({% for item in recept.ingredience %}{{item.mnozstvi|stringformat:'.1f'}} {{item.jednotka}} {{item.nazev}}{% if not forloop.last %}, {% endif %}{% endfor %})</p>
         </div>
+      {% if forloop.first %}
+      <input type="hidden" name="recept_id" id="vecere_recept_id" value="{{recept.id}}">
+      {% endif %}
       {% endfor %}
       <div class="actions">
-        <input type="hidden" name="recept_id" id="svacina1_recept_id" value="{{vybrane_recepty.svacina1.id}}">
         <button class="switch-recipe" type="button">🔄 Jiný recept</button>
         <button class="eat-btn" type="submit" name="snedl_jsem" value="svacina1">✅ Snědl jsem</button>
       </div>
@@ -109,19 +113,21 @@
       <form action="" method="POST">
         {% csrf_token %}
       <h3>Oběd</h3>
-      {% if not vybrane_recepty.obed_snezen %}
+      {% if not jidelnicek.obed_snezen %}
       <div class="dots">
-        {% for recept in jidelnicek.seznam_obedu.all %}
-        <span class="dot {% if recept.id == vybrane_recepty.obed.id %}active{% endif %}"></span>
+        {% for recept in jidelnicek.obed %}
+        <span class="dot {% if forloop.first %}active{% endif %}"></span>
         {% endfor %}
       </div>
-      {% for recept in jidelnicek.seznam_obedu.all %}
-        <div class="recipe {% if recept.id == vybrane_recepty.obed.id %}active{% else %}hidden{% endif %}" data-recept-id="{{recept.id}}">
-        <p class="recipe-text" name="recept" value="{{recept.id}}">{{recept.nazev}} ({% for item in recept.ingredience %}{{item.mnozstvi}} {{item.nazev}}{% if not forloop.last %}, {% endif %}{% endfor %})</p>
+      {% for recept in jidelnicek.obed %}
+        <div class="recipe {% if forloop.first %}active{% else %}hidden{% endif %}" data-recept-id="{{recept.id}}">
+        <p class="recipe-text" name="recept" value="{{recept.id}}">{{recept.nazev_receptu}} ({% for item in recept.ingredience %}{{item.mnozstvi|stringformat:'.1f'}} {{item.jednotka}} {{item.nazev}}{% if not forloop.last %}, {% endif %}{% endfor %})</p>
         </div>
+      {% if forloop.first %}
+      <input type="hidden" name="recept_id" id="vecere_recept_id" value="{{recept.id}}">
+      {% endif %}
       {% endfor %}
       <div class="actions">
-        <input type="hidden" name="recept_id" id="obed_recept_id" value="{{vybrane_recepty.obed.id}}">
         <button class="switch-recipe" type="button">🔄 Jiný recept</button>
         <button class="eat-btn" type="submit" name="snedl_jsem" value="obed">✅ Snědl jsem</button>
       </div>
@@ -133,21 +139,23 @@
   
     <div class="meal">
       <h3>Svačina</h3>
-      {% if not vybrane_recepty.svacina2_snezena %}
+      {% if not jidelnicek.svacina2_snezena %}
       <form action="" method="POST">
         {% csrf_token %}
       <div class="dots">
-        {% for recept in jidelnicek.seznam_svacin2.all %}
-        <span class="dot {% if recept.id == vybrane_recepty.svacina2.id %}active{% endif %}"></span>
+        {% for recept in jidelnicek.svacina2 %}
+        <span class="dot {% if forloop.first %}active{% endif %}"></span>
         {% endfor %}
       </div>
-      {% for recept in jidelnicek.seznam_svacin2.all %}
-        <div class="recipe {% if recept.id == vybrane_recepty.svacina2.id %}active{% else %}hidden{% endif %}" data-recept-id="{{recept.id}}">
-        <p class="recipe-text" name="recept" value="{{recept.id}}">{{recept.nazev}} ({% for item in recept.ingredience %}{{item.mnozstvi}} {{item.nazev}}{% if not forloop.last %}, {% endif %}{% endfor %})</p>
+      {% for recept in jidelnicek.svacina2 %}
+        <div class="recipe {% if forloop.first %}active{% else %}hidden{% endif %}" data-recept-id="{{recept.id}}">
+        <p class="recipe-text" name="recept" value="{{recept.id}}">{{recept.nazev_receptu}} ({% for item in recept.ingredience %}{{item.mnozstvi|stringformat:'.1f'}} {{item.jednotka}} {{item.nazev}}{% if not forloop.last %}, {% endif %}{% endfor %})</p>
         </div>
+      {% if forloop.first %}
+      <input type="hidden" name="recept_id" id="vecere_recept_id" value="{{recept.id}}">
+      {% endif %}
       {% endfor %}
       <div class="actions">
-        <input type="hidden" name="recept_id" id="svacina2_recept_id" value="{{vybrane_recepty.svacina2.id}}">
         <button class="switch-recipe" type="button">🔄 Jiný recept</button>
         <button class="eat-btn" type="submit" name="snedl_jsem" value="svacina2">✅ Snědl jsem</button>
       </div>
@@ -161,19 +169,21 @@
       <form action="" method="POST">
         {% csrf_token %}
       <h3>Večeře</h3>
-      {% if not vybrane_recepty.vecere_snezena %}
+      {% if not jidelnicek.vecere_snezena %}
       <div class="dots">
-        {% for recept in jidelnicek.seznam_veceri.all %}
-        <span class="dot {% if recept.id == vybrane_recepty.vecere.id %}active{% endif %}"></span>
+        {% for recept in jidelnicek.vecere %}
+        <span class="dot {% if forloop.first %}active{% endif %}"></span>
         {% endfor %}
       </div>
-      {% for recept in jidelnicek.seznam_veceri.all %}
-        <div class="recipe {% if recept.id == vybrane_recepty.vecere.id %}active{% else %}hidden{% endif %}" data-recept-id="{{recept.id}}">
-        <p class="recipe-text" name="recept" value="{{recept.id}}">{{recept.nazev}} ({% for item in recept.ingredience %}{{item.mnozstvi}} {{item.nazev}}{% if not forloop.last %}, {% endif %}{% endfor %})</p>
+      {% for recept in jidelnicek.vecere %}
+        <div class="recipe {% if forloop.first %}active{% else %}hidden{% endif %}" data-recept-id="{{recept.id}}">
+        <p class="recipe-text" name="recept" value="{{recept.id}}">{{recept.nazev_receptu}} ({% for item in recept.ingredience %}{{item.mnozstvi|stringformat:'.1f'}} {{item.jednotka}} {{item.nazev}}{% if not forloop.last %}, {% endif %}{% endfor %})</p>
         </div>
+      {% if forloop.first %}
+      <input type="hidden" name="recept_id" id="vecere_recept_id" value="{{recept.id}}">
+      {% endif %}
       {% endfor %}
       <div class="actions">
-        <input type="hidden" name="recept_id" id="vecere_recept_id" value="{{vybrane_recepty.vecere.id}}">
         <button class="switch-recipe" type="button">🔄 Jiný recept</button>
         <button class="eat-btn" type="submit" name="snedl_jsem" value="vecere">✅ Snědl jsem</button>
       </div>
@@ -199,7 +209,8 @@
       <h4>Dnes jste nesnědl žádné potraviny.</h4>
       {% endif %}
     </ul>
-    <h1>Aktivity</h1>
+   
+    <h1 class="activitynadpis">Aktivity</h1>
     <p></p>
     <ul class="foods-list">
       {% if aktivity %}
